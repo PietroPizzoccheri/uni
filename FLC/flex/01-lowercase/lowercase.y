@@ -1,4 +1,6 @@
 %{
+// COMPILE THIS FILE WITH flex -o name.c name.y and then gcc -o scanner name.c
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
