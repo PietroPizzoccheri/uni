@@ -440,8 +440,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lowercase.l"
-#line 2 "lowercase.l"
+#line 1 "lowercase.y"
+#line 2 "lowercase.y"
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
@@ -663,7 +663,7 @@ YY_DECL
 		}
 
 	{
-#line 11 "lowercase.l"
+#line 11 "lowercase.y"
 
 
 #line 670 "lowercase.c"
@@ -725,12 +725,12 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 13 "lowercase.l"
+#line 13 "lowercase.y"
 { putchar(tolower(yytext[0])); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 15 "lowercase.l"
+#line 15 "lowercase.y"
 ECHO;
 	YY_BREAK
 #line 737 "lowercase.c"
@@ -1738,7 +1738,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 15 "lowercase.l"
+#line 15 "lowercase.y"
 
 
 int main(int argc, char *argv[])
