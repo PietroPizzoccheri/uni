@@ -14,7 +14,7 @@
 [A-Z]  { return UPPER; }
 .      { return LOWER; }
 
-%%
+%%>
 
 int main(int argc, char **argv)
 {
