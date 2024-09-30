@@ -1,8 +1,18 @@
 %{  
 int nest = 0;
+
+    /*
+    WHEN HAVING MULTIPLE SCANNERS EACH SCANNER HAS RULES MARKED WITH THEIR NAME,
+    WHEN DECLARING A SCANNER LIKE BELOW %x MAKES THAT THE DECLARED SCANNER ONLY USES HIS RULES,
+    %s MAKE THE DECLARED SCANNER ALSO USE OTHER RULES,
+    <INITIAL> DOESN'T NEED TO BE DECLARED AND IS %s 
+    */
 %}
 
+
 %x COMMENT
+
+
 %option noyywrap
 
 %%
@@ -19,7 +29,7 @@ int nest = 0;
                     }
 
   /*
-    THIS IS THE SECOND SCANNER FOR COMMENTS
+    THIS IS THE SECOND SCANNER FOR COMMENTS THAT ALSO COUNTS NESTING
   */
 
 <COMMENT>[^/*]*
@@ -27,8 +37,6 @@ int nest = 0;
 <COMMENT>"/*"       {
                       nest++;
                     }
-
-
 <COMMENT>"*"+[^*/]*
 <COMMENT>"*"+"/"    { 
                       nest--;
