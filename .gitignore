@@ -399,3 +399,7 @@ FodyWeavers.xsd
 
 # folder Logica
 Logica/.ipynb_checkpoints/
+*.aux 
+*.fdb_latexmk
+*.fls 
+*.synctex.gz
