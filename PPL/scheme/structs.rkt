@@ -110,16 +110,16 @@
   ([a b] (displayln "2 args!!")))
 
 
-(define-syntax defn
-  (syntax-rules ()
-    [(defn NAME (PARAMS BODY ...))
-     (displayln 'NAME)
-     (display "Params: ")(displayln '('PARAMS ...))
-     (display "Body: ")(displayln '('BODY ...))
-     (define (NAME . arg-v)
-       (display "Calling ")(display 'NAME)(display arg-v))
-     (let ([arg-n (length arg-v)])
-       (cond
-         [(= arg-n (length 'PARAMS))
-          (apply (lambda PARAMS BODY) arg-v)])...)
-     ]))
+; (define-syntax defn
+;   (syntax-rules ()
+;     [(defn NAME (PARAMS BODY ...))
+;      (displayln 'NAME)
+;      (display "Params: ")(displayln '('PARAMS ...))
+;      (display "Body: ")(displayln '('BODY ...))
+;      (define (NAME . arg-v)
+;        (display "Calling ")(display 'NAME)(display arg-v))
+;      (let ([arg-n (length arg-v)])
+;        (cond
+;          [(= arg-n (length 'PARAMS))
+;           (apply (lambda PARAMS BODY) arg-v)])...)
+;      ]))
