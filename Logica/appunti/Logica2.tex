@@ -1,7 +1,8 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{amsthm}
 \usepackage[italian]{babel}
-\usepackage{amsmath, amssymb, amsthm}
+\usepackage{amsmath, amssymb, amsthm, mdframed}
 \usepackage[a4paper, margin=1in]{geometry}
 
 % NOTA:
@@ -12,12 +13,28 @@
 \author{Pietro Pizzoccheri}
 \date{2024}
 
+\newtheoremstyle{mystyle}
+  {7pt} % Space above
+  {5pt} % Space below
+  {\itshape} % Body font
+  {} % Indent amount
+  {\bfseries} % Theorem head font
+  {:} % Punctuation after theorem head
+  {.5em} % Space after theorem head
+  {} % Theorem head spec (can be left empty, meaning `normal`)
+\theoremstyle{mystyle}
+
+
+\newtheorem*{definition}{Definizione}
+\newtheorem*{example}{Esempio}
+
 \begin{document}
 
 \maketitle
 
 \tableofcontents
 
+\newpage
 \section{Introduzione}
 \subsection{Insiemi}
 
@@ -56,7 +73,6 @@ Un insieme è una collezione di oggetti, detti elementi dell'insieme.
         o "} X \text{ è incluso in } Y\text{"}
 \]
 
-\newpage
 Se \(X\) è un insieme finito, indico con \(|X|\) il numero di elementi di
 \(X\), detto anche la \textbf{cardinalità di \(X\)}.
 
@@ -77,13 +93,123 @@ Sia \begin{math}
 
 
 \subsection{Funzioni}
+
 Siano \(X\) e \(Y\) due insiemi. \textbf{Una funzione \(f\) da \(X\) a \(Y\)} è un sottoinsieme \(F \subseteq X \times Y\) tale che:
 \begin{itemize}
     \item \((x, y_1) \in F\), \((x,y_2) \in F\) \(\implies y_1 = y_2\), \(\forall x \in X\), \(y_1,y_2 \in Y\).
     \item \(x \in X \implies \exists y \in Y \text{ tale che } (x,y) \in F\)
 \end{itemize}
+
+
 Una funzione \(F \subseteq X \times Y\) la indichiamo con \(f : X \to Y\). E scriviamo \(f(x) = y\) se \((x,y) \in F\).
 
 
-La funzione \(Id_x : X \rightarrow X \) tale cge \(Id_x (x) = x \forall x \in X\) la chiamiamo \textbf{funzione identità su \(X\)}
+\begin{definition}
+    La funzione \(Id_x : X \rightarrow X \) tale che \(Id_x (x) = x, \forall x \in X\) la chiamiamo \textbf{funzione identità su \(X\)}
+\end{definition}
+
+\begin{definition}
+    Una funzione \(f: X \rightarrow Y\) è \textbf{iniettiva} se \(\forall x_1, x_2 \in X, f(x_1) = f(x_2) \implies x_1 = x_2\)
+\end{definition}
+
+\begin{definition}
+    Una funzione \(f: X \rightarrow Y\) è \textbf{suriettiva} se \(Im(f) = Y\), dove \(Im(f) = \{ y \in Y : \exists x \in X \text{ tale che } f(x) = y \}\) è detta \textbf{immagine di \(f\)}
+\end{definition}
+
+\begin{definition}
+    Una funzione \(f: X \rightarrow Y\) è \textbf{biunivoca} se è sia iniettiva che suriettiva.
+\end{definition}
+
+\subsubsection{Composizione di funzioni}
+Siano \(f: X \rightarrow Y\) e \(g: Y \rightarrow Z\) due funzioni. La \textbf{composizione di \(f\) e \(g\)} è la funzione \(g \circ f : X \rightarrow Z\) tale che \((g \circ f)(x) = g(f(x))\), \(\forall x \in X\).
+
+\begin{definition}
+    una funzione \(f: X \rightarrow Y\) è detta \textbf{invertibile} se esiste una funzione \(g: Y \rightarrow X\) tale che
+    \begin{itemize}
+        \item \(g \circ f = Id_X\)
+        \item \(f \circ g = Id_Y\)
+    \end{itemize}
+    la funzione \(g\) è detta \textbf{funzione inversa di \(f\)} e la indichiamo con \(f^{-1}\).
+\end{definition}
+
+Una funzione \(f: X \rightarrow Y\) è invertibile se e solo se è biunivoca.
+
+\subsubsection{Operazioni su insiemi}
+
+\begin{definition}
+    Una funzione \(f: X \times X \rightarrow X\) è detta \textbf{operazione su \(X\)}. Invece di \(f(x,y)\) scriveremo \(x \cdot y\).
+\end{definition}
+
+\begin{definition}
+    Un'operazione \(\cdot\) su \(X\) è detta \textbf{associativa} se \((x \cdot y) \cdot z = x \cdot (y \cdot z)\), \(\forall x,y,z \in X\).
+\end{definition}
+
+\begin{definition}
+    Un'operazione \(\cdot\) su \(X\) è detta \textbf{commutativa} se \(x \cdot y = y \cdot x\), \(\forall x,y \in X\).
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item \(\mathcal{P}(X) \)con l'operazione di unione \(\cup\) è associativa e commutativa, così come lo è con l'intersezione \( \cap \).
+        \item \(A \backslash B  := A \cup B^C\) \textbf{(differenza insiemistica)} è un'operazione su \(\mathcal{P}(X)\).\newline non è associativa: sia \(A \neq \varnothing.\) Allora \(A \backslash (A \backslash A) = A \neq (A\backslash A) \backslash A = \varnothing\)\newline non è commutativa: \(A \backslash \varnothing = A \neq \varnothing \backslash A = \varnothing\), se \(A \neq \varnothing\)
+        \item \(A \Delta B := (A \backslash B) \cup (B \backslash A)\) \textbf{(differenza simmetrica)} è un'operazione su \(\mathcal{P}(X)\). \newline è commutativa e anche associativa, facilmente verificabile coi diagframmi di Venn.
+        \item sia \(F(X) := \{f : X\rightarrow X\}\).\newline La composizione " \(\circ\) " è un'operazione su \(F(X)\). \newline è associativa, ma non è commutativa.
+        \item \(a \circ b = \frac{a + b}{2} \) è un'operazione commutativa su \(\mathbb{Q}\), ma non associativa.
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    Sia \(\cdot\) un'operazione su \(X\). Un elemento \(e \in X\) tale che \(e \cdot x = x \cdot e = x\), \(\forall x \in X\) è detto \textbf{elemento neutro }o \textbf{identità}.
+\end{definition}
+
+L'identità è unica; se \(e,e' \in X\) sono due identità, allora \(e = e \cdot e' = e'\).
+
+\subsection{Monoidi}
+
+\begin{definition}
+    Un insieme \(X\) con un'operazione associativa e un'identità è detto \newline \textbf{monoide}.
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item \(\mathbb{N,Z,Q,R,C}\) con l'addizione e identità 0 sono monoidi.
+        \item \(\mathbb{N,Z,Q,R,C}\) con la moltiplicazione e identità 1 sono monoidi.
+        \item \(\mathcal{P} (X)\) con \(\cup\)  e come identità l'insieme X è un monoide.
+        \item \(\mathcal{P} (X)\) con \(\cap\)  e come identità l'insieme vuoto è un monoide.
+        \item \(F(X):= \{f: X \rightarrow X\}\) con la composizione " \(\circ\) " e come identità la funzione identità (\(Id_X\)) è un monoide.
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    Sia \(X \)un monoide. Un elemento \(x \in X\) è detto \textbf{invertibile} se esiste \(y \in X\) tale che \(x \cdot y = y \cdot x = e\), dove \(e\) è l'identità di \(X\). L'elemento \(y\) è detto \textbf{inverso} di \(x\).
+\end{definition}
+
+Se \(x \in X\) è invertibile, il suo inverso è unico e lo indichiamo con \(x^{-1}\).\newline
+L'identità del monoide è invertibile e il suo inverso è l'identità stessa.
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item L'insieme degli elementi invertibili di \((\mathbb{N},+)\) è \(\{0\}\).
+        \item Linsieme degli elementi invertibili di \((\mathbb{Z},+)\) è \(\mathbb{Z}\), di \((\mathbb{Q},+)\) è \(\mathbb{Q}\), di \((\mathbb{R},+)\) è \(\mathbb{R}\), , di \((\mathbb{C},+)\) è \(\mathbb{C}\).
+        \item L'insieme degli elementi invertibili di \((\mathbb{N},\cdot)\) è \(\{1\}\), di \((\mathbb{Z},\cdot)\) è \(\{1,-1\}\), di \((\mathbb{Q},\cdot)\) è \(\mathbb{Q} \setminus \{0\}\), di \((\mathbb{R},\cdot)\) è \(\mathbb{R} \setminus \{0\}\), di \((\mathbb{C},\cdot)\) è \(\mathbb{C} \setminus \{0\}\).
+        \item L'insieme degli elementi invertibili di \(F(X) = \{f: X \rightarrow X\}\) è l'insieme delle funzioni invertibili.
+    \end{itemize}
+\end{example}
+
+\subsection{Gruppi}
+\begin{definition}
+    Un monoide \(X\) è detto \textbf{gruppo} se ogni suo elemento è invertibile. Se l'operazione è commutativa, il gruppo è detto \textbf{gruppo abeliano}.
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{example}
+
+
 \end{document}
