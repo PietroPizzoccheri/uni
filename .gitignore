@@ -403,3 +403,4 @@ Logica/.ipynb_checkpoints/
 *.fdb_latexmk
 *.fls 
 *.synctex.gz
+*.toc

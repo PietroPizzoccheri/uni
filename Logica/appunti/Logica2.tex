@@ -2,9 +2,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage{amsmath, amssymb, amsthm}
+\usepackage[a4paper, margin=1in]{geometry}
 
 % NOTA:
-% Questo file .tex deve essere compilato in locale utilizzando LaTeX.
+% Questo file .tex deve essere compilato in locale utilizzando LaTeX, oppure utilizzando il Overleaf.
 % Modificando il contenuto di questo file e ricompilandolo, è possibile generare un nuovo file PDF.
 
 \title{Appunti di Logica e Algebra 2}
@@ -15,5 +16,74 @@
 
 \maketitle
 
+\tableofcontents
 
+\section{Introduzione}
+\subsection{Insiemi}
+
+Un insieme è una collezione di oggetti, detti elementi dell'insieme.
+\[
+    \mathbb{N} := \{ 0,1,2,3,...\} \quad \text{insieme dei numeri naturali}
+\]
+
+\[
+    \mathbb{Z} := \{ ...,-2,-1,0,1,2,...\} \quad \text{insieme degli interi}
+\]
+
+\[
+    \mathbb{Q} := \left\{ \frac{a}{b} \mid a,b \in \mathbb{Z}, b \neq 0
+    \right\} \quad \text{insieme dei numeri razionali}
+\]
+
+\[
+    \mathbb{R} := \text{insieme dei numeri reali}
+\]
+
+\[
+    \mathbb{C} := \text{insieme dei numeri complessi}
+\]
+
+\subsubsection{Operazioni tra insiemi}
+
+\[
+    \subseteq \quad \text{inclusione tra insiemi}
+\]
+\[
+    \subsetneq \quad \text{inclusione propria tra insiemi}
+\]
+\[
+    X \subseteq Y \quad \text{si legge "} X \text{ è sottoinsieme di }Y \text{"
+        o "} X \text{ è incluso in } Y\text{"}
+\]
+
+\newpage
+Se \(X\) è un insieme finito, indico con \(|X|\) il numero di elementi di
+\(X\), detto anche la \textbf{cardinalità di \(X\)}.
+
+\[\varnothing : \text{Insieme vuoto e } |\varnothing| = 0\]
+
+Siano \(X\) e \(Y\) due insiemi. L'insieme \begin{math}
+    X \times Y := \{ (x,y) : x \in X , y \in Y \}
+\end{math} lo chiamiamo \textbf{prodotto cartesiano} di \(X\) e \(Y\).
+\vspace{\baselineskip}
+
+Sia \begin{math}
+    A \in \mathcal{P} (x)
+\end{math}, dove \begin{math}
+    \mathcal{P} (X) := \{ A : A \subseteq X \}
+\end{math} è detto \textbf{Insieme delle parti di \(X\)}. L'insieme \begin{math}
+    A^c := X \setminus A
+\end{math} è detto \textbf{complementare} di \(A\)
+
+
+\subsection{Funzioni}
+Siano \(X\) e \(Y\) due insiemi. \textbf{Una funzione \(f\) da \(X\) a \(Y\)} è un sottoinsieme \(F \subseteq X \times Y\) tale che:
+\begin{itemize}
+    \item \((x, y_1) \in F\), \((x,y_2) \in F\) \(\implies y_1 = y_2\), \(\forall x \in X\), \(y_1,y_2 \in Y\).
+    \item \(x \in X \implies \exists y \in Y \text{ tale che } (x,y) \in F\)
+\end{itemize}
+Una funzione \(F \subseteq X \times Y\) la indichiamo con \(f : X \to Y\). E scriviamo \(f(x) = y\) se \((x,y) \in F\).
+
+
+La funzione \(Id_x : X \rightarrow X \) tale cge \(Id_x (x) = x \forall x \in X\) la chiamiamo \textbf{funzione identità su \(X\)}
 \end{document}
