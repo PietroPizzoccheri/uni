@@ -6,27 +6,85 @@
 \usepackage[a4paper, margin=1in]{geometry}
 
 % NOTA:
-% Questo file .tex deve essere compilato in locale utilizzando LaTeX, oppure utilizzando il Overleaf.
+% Questo file .tex deve essere compilato in locale utilizzando LaTeX in locale, oppure utilizzando il Overleaf.
 % Modificando il contenuto di questo file e ricompilandolo, è possibile generare un nuovo file PDF.
 
 \title{Appunti di Logica e Algebra 2}
 \author{Pietro Pizzoccheri}
 \date{2024}
 
-\newtheoremstyle{mystyle}
-  {7pt} % Space above
-  {5pt} % Space below
-  {\itshape} % Body font
-  {} % Indent amount
-  {\bfseries} % Theorem head font
-  {:} % Punctuation after theorem head
-  {.5em} % Space after theorem head
-  {} % Theorem head spec (can be left empty, meaning `normal`)
-\theoremstyle{mystyle}
+
+\newtheoremstyle{def}
+    {10pt} % Space above
+    {5pt} % Space below
+    {\slshape} % Body font
+    {} % Indent amount
+    {\color[rgb]{0,0,0.8}\bfseries \slshape} % head font
+    {:} % Punctuation after theorem head
+    {.5em} % Space after theorem head
+    {} % head spec 
+
+\newtheoremstyle{teo}
+    {10pt} % Space above
+    {5pt} % Space below
+    {\slshape} % Body font
+    {} % Indent amount
+    {\color{red}\bfseries \slshape} % head font
+    {:} % Punctuation after theorem head
+    {.5em} % Space after theorem head
+    {} % head spec 
+
+\newtheoremstyle{prop}
+    {10pt} % Space above
+    {5pt} % Space below
+    {\slshape} % Body font
+    {} % Indent amount
+    {\color[rgb]{1,0.5,0}\bfseries} % head font
+    {:} % Punctuation after theorem head
+    {.5em} % Space after theorem head
+    {} % head spec 
 
 
+\newtheoremstyle{esempio}
+{10pt} % Space above
+{4pt} % Space below
+{} % Body font
+{} % Indent amount
+{\color[rgb]{0,0.7,0}\bfseries} % head font
+{:} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{} % head spec 
+
+
+\newtheoremstyle{dimostrazione}
+{10pt} % Space above
+{5pt} % Space below
+{\itshape} % Body font
+{} % Indent amount
+{\color[rgb]{0.7,0,0.7}\itshape\bfseries} % head font
+{:} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{} % head spec 
+
+
+
+\theoremstyle{def}
 \newtheorem*{definition}{Definizione}
+
+
+\theoremstyle{prop}
+\newtheorem*{proposition}{Proposizione}
+
+
+\theoremstyle{esempio}
 \newtheorem*{example}{Esempio}
+
+
+\theoremstyle{dimostrazione}
+\newtheorem*{dimostrazione}{Dimostrazione}
+
+\theoremstyle{teo}
+\newtheorem*{teorema}{Teorema}
 
 \begin{document}
 
@@ -94,7 +152,8 @@ Sia \begin{math}
 
 \subsection{Funzioni}
 
-Siano \(X\) e \(Y\) due insiemi. \textbf{Una funzione \(f\) da \(X\) a \(Y\)} è un sottoinsieme \(F \subseteq X \times Y\) tale che:
+Siano \(X\) e \(Y\) due insiemi. \textbf{Una funzione \(f\) da \(X\) a \(Y\)} è un sottoinsieme \(F \subseteq X \times Y\)
+tale che:
 \begin{itemize}
     \item \((x, y_1) \in F\), \((x,y_2) \in F\) \(\implies y_1 = y_2\), \(\forall x \in X\), \(y_1,y_2 \in Y\).
     \item \(x \in X \implies \exists y \in Y \text{ tale che } (x,y) \in F\)
@@ -105,15 +164,18 @@ Una funzione \(F \subseteq X \times Y\) la indichiamo con \(f : X \to Y\). E scr
 
 
 \begin{definition}
-    La funzione \(Id_x : X \rightarrow X \) tale che \(Id_x (x) = x, \forall x \in X\) la chiamiamo \textbf{funzione identità su \(X\)}
+    La funzione \(Id_x : X \rightarrow X \) tale che \(Id_x (x) = x, \forall x \in X\) la chiamiamo \textbf{funzione
+        identità su \(X\)}
 \end{definition}
 
 \begin{definition}
-    Una funzione \(f: X \rightarrow Y\) è \textbf{iniettiva} se \(\forall x_1, x_2 \in X, f(x_1) = f(x_2) \implies x_1 = x_2\)
+    Una funzione \(f: X \rightarrow Y\) è \textbf{iniettiva} se \(\forall x_1, x_2 \in X, f(x_1) = f(x_2)
+    \implies x_1 = x_2\)
 \end{definition}
 
 \begin{definition}
-    Una funzione \(f: X \rightarrow Y\) è \textbf{suriettiva} se \(Im(f) = Y\), dove \(Im(f) = \{ y \in Y : \exists x \in X \text{ tale che } f(x) = y \}\) è detta \textbf{immagine di \(f\)}
+    Una funzione \(f: X \rightarrow Y\) è \textbf{suriettiva} se \(Im(f) = Y\), dove \(Im(f) = \{ y \in Y :
+    \exists x \in X \text{ tale che } f(x) = y \}\) è detta \textbf{immagine di \(f\)}
 \end{definition}
 
 \begin{definition}
@@ -121,7 +183,8 @@ Una funzione \(F \subseteq X \times Y\) la indichiamo con \(f : X \to Y\). E scr
 \end{definition}
 
 \subsubsection{Composizione di funzioni}
-Siano \(f: X \rightarrow Y\) e \(g: Y \rightarrow Z\) due funzioni. La \textbf{composizione di \(f\) e \(g\)} è la funzione \(g \circ f : X \rightarrow Z\) tale che \((g \circ f)(x) = g(f(x))\), \(\forall x \in X\).
+Siano \(f: X \rightarrow Y\) e \(g: Y \rightarrow Z\) due funzioni. La \textbf{composizione di \(f\) e \(g\)}
+è la funzione \(g \circ f : X \rightarrow Z\) tale che \((g \circ f)(x) = g(f(x))\), \(\forall x \in X\).
 
 \begin{definition}
     una funzione \(f: X \rightarrow Y\) è detta \textbf{invertibile} se esiste una funzione \(g: Y \rightarrow X\) tale che
@@ -137,11 +200,13 @@ Una funzione \(f: X \rightarrow Y\) è invertibile se e solo se è biunivoca.
 \subsubsection{Operazioni su insiemi}
 
 \begin{definition}
-    Una funzione \(f: X \times X \rightarrow X\) è detta \textbf{operazione su \(X\)}. Invece di \(f(x,y)\) scriveremo \(x \cdot y\).
+    Una funzione \(f: X \times X \rightarrow X\) è detta \textbf{operazione su \(X\)}. Invece di \(f(x,y)\)
+    scriveremo \(x \cdot y\).
 \end{definition}
 
 \begin{definition}
-    Un'operazione \(\cdot\) su \(X\) è detta \textbf{associativa} se \((x \cdot y) \cdot z = x \cdot (y \cdot z)\), \(\forall x,y,z \in X\).
+    Un'operazione \(\cdot\) su \(X\) è detta \textbf{associativa} se \((x \cdot y) \cdot z = x \cdot (y \cdot z)\),
+    \(\forall x,y,z \in X\).
 \end{definition}
 
 \begin{definition}
@@ -151,10 +216,17 @@ Una funzione \(f: X \rightarrow Y\) è invertibile se e solo se è biunivoca.
 \begin{example}
     \
     \begin{itemize}
-        \item \(\mathcal{P}(X) \)con l'operazione di unione \(\cup\) è associativa e commutativa, così come lo è con l'intersezione \( \cap \).
-        \item \(A \backslash B  := A \cup B^C\) \textbf{(differenza insiemistica)} è un'operazione su \(\mathcal{P}(X)\).\newline non è associativa: sia \(A \neq \varnothing.\) Allora \(A \backslash (A \backslash A) = A \neq (A\backslash A) \backslash A = \varnothing\)\newline non è commutativa: \(A \backslash \varnothing = A \neq \varnothing \backslash A = \varnothing\), se \(A \neq \varnothing\)
-        \item \(A \Delta B := (A \backslash B) \cup (B \backslash A)\) \textbf{(differenza simmetrica)} è un'operazione su \(\mathcal{P}(X)\). \newline è commutativa e anche associativa, facilmente verificabile coi diagframmi di Venn.
-        \item sia \(F(X) := \{f : X\rightarrow X\}\).\newline La composizione " \(\circ\) " è un'operazione su \(F(X)\). \newline è associativa, ma non è commutativa.
+        \item \(\mathcal{P}(X) \)con l'operazione di unione \(\cup\) è associativa e commutativa, così come lo è con
+              l'intersezione \( \cap \).
+        \item \(A \backslash B  := A \cup B^C\) \textbf{(differenza insiemistica)} è un'operazione su
+              \(\mathcal{P}(X)\).\newline non è associativa: sia \(A \neq \varnothing.\) Allora \(A \backslash (A \backslash A)
+              = A \neq (A\backslash A) \backslash A = \varnothing\)\newline non è commutativa: \(A \backslash \varnothing
+              = A \neq \varnothing \backslash A = \varnothing\), se \(A \neq \varnothing\)
+        \item \(A \Delta B := (A \backslash B) \cup (B \backslash A)\) \textbf{(differenza simmetrica)}
+              è un'operazione su \(\mathcal{P}(X)\). \newline è commutativa e anche associativa, facilmente verificabile
+              coi diagframmi di Venn.
+        \item sia \(F(X) := \{f : X\rightarrow X\}\).\newline La composizione" \(\circ\)" è un'operazione su \(F(X)\).
+              \newline è associativa, ma non è commutativa.
         \item \(a \circ b = \frac{a + b}{2} \) è un'operazione commutativa su \(\mathbb{Q}\), ma non associativa.
     \end{itemize}
 \end{example}
@@ -165,7 +237,7 @@ Una funzione \(f: X \rightarrow Y\) è invertibile se e solo se è biunivoca.
 
 L'identità è unica; se \(e,e' \in X\) sono due identità, allora \(e = e \cdot e' = e'\).
 
-\subsection{Monoidi}
+\subsection{Monoidi e Gruppi}
 
 \begin{definition}
     Un insieme \(X\) con un'operazione associativa e un'identità è detto \newline \textbf{monoide}.
@@ -178,12 +250,14 @@ L'identità è unica; se \(e,e' \in X\) sono due identità, allora \(e = e \cdot
         \item \(\mathbb{N,Z,Q,R,C}\) con la moltiplicazione e identità 1 sono monoidi.
         \item \(\mathcal{P} (X)\) con \(\cup\)  e come identità l'insieme X è un monoide.
         \item \(\mathcal{P} (X)\) con \(\cap\)  e come identità l'insieme vuoto è un monoide.
-        \item \(F(X):= \{f: X \rightarrow X\}\) con la composizione " \(\circ\) " e come identità la funzione identità (\(Id_X\)) è un monoide.
+        \item \(F(X):= \{f: X \rightarrow X\}\) con la composizione" \(\circ\) "e come identità
+              la funzione identità (\(Id_X\)) è un monoide.
     \end{itemize}
 \end{example}
 
 \begin{definition}
-    Sia \(X \)un monoide. Un elemento \(x \in X\) è detto \textbf{invertibile} se esiste \(y \in X\) tale che \(x \cdot y = y \cdot x = e\), dove \(e\) è l'identità di \(X\). L'elemento \(y\) è detto \textbf{inverso} di \(x\).
+    Sia \(X \)un monoide. Un elemento \(x \in X\) è detto \textbf{invertibile} se esiste \(y \in X\) tale che
+    \(x \cdot y = y \cdot x = e\), dove \(e\) è l'identità di \(X\). L'elemento \(y\) è detto \textbf{inverso} di \(x\).
 \end{definition}
 
 Se \(x \in X\) è invertibile, il suo inverso è unico e lo indichiamo con \(x^{-1}\).\newline
@@ -193,22 +267,257 @@ L'identità del monoide è invertibile e il suo inverso è l'identità stessa.
     \
     \begin{itemize}
         \item L'insieme degli elementi invertibili di \((\mathbb{N},+)\) è \(\{0\}\).
-        \item Linsieme degli elementi invertibili di \((\mathbb{Z},+)\) è \(\mathbb{Z}\), di \((\mathbb{Q},+)\) è \(\mathbb{Q}\), di \((\mathbb{R},+)\) è \(\mathbb{R}\), , di \((\mathbb{C},+)\) è \(\mathbb{C}\).
-        \item L'insieme degli elementi invertibili di \((\mathbb{N},\cdot)\) è \(\{1\}\), di \((\mathbb{Z},\cdot)\) è \(\{1,-1\}\), di \((\mathbb{Q},\cdot)\) è \(\mathbb{Q} \setminus \{0\}\), di \((\mathbb{R},\cdot)\) è \(\mathbb{R} \setminus \{0\}\), di \((\mathbb{C},\cdot)\) è \(\mathbb{C} \setminus \{0\}\).
-        \item L'insieme degli elementi invertibili di \(F(X) = \{f: X \rightarrow X\}\) è l'insieme delle funzioni invertibili.
+        \item Linsieme degli elementi invertibili di \((\mathbb{Z},+)\) è \(\mathbb{Z}\), di \((\mathbb{Q},+)\)
+              è \(\mathbb{Q}\), di \((\mathbb{R},+)\) è \(\mathbb{R}\), di \((\mathbb{C},+)\) è \(\mathbb{C}\).
+        \item L'insieme degli elementi invertibili di \((\mathbb{N},\cdot)\) è \(\{1\}\), di \((\mathbb{Z},\cdot)\)
+              è \(\{1,-1\}\), di \((\mathbb{Q},\cdot)\) è \(\mathbb{Q} \setminus \{0\}\), di \((\mathbb{R},\cdot)\) è
+              \(\mathbb{R} \setminus \{0\}\), di \((\mathbb{C},\cdot)\) è \(\mathbb{C} \setminus \{0\}\).
+        \item L'insieme degli elementi invertibili di \(F(X) = \{f: X \rightarrow X\}\) è l'insieme delle funzioni
+              invertibili.
     \end{itemize}
 \end{example}
 
-\subsection{Gruppi}
 \begin{definition}
-    Un monoide \(X\) è detto \textbf{gruppo} se ogni suo elemento è invertibile. Se l'operazione è commutativa, il gruppo è detto \textbf{gruppo abeliano}.
+    Un monoide \(X\) è detto \textbf{gruppo} se ogni suo elemento è invertibile. Se l'operazione è
+    commutativa, il gruppo è detto \textbf{gruppo abeliano}.
 \end{definition}
 
 \begin{example}
     \
     \begin{itemize}
-        \item 
+        \item (\(\mathcal{P}(x) ,\Delta \)) è un gruppo abeliano. L'identità è l'insieme vuoto e l'inverso
+              di \(A \in \mathcal{P}(x)\) è \(A\) stesso. (\(A^2 = \varnothing,  \forall A \subseteq X \))
+        \item (\(\mathbb{Z},+\)), (\(\mathbb{Q},+\)), (\(\mathbb{R},+\)), (\(\mathbb{C},+\)) sono gruppi abeliani
+        \item (\(\mathbb{Q}\backslash \{0\}, \centerdot\)), (\(\mathbb{R}\backslash \{0\}, \centerdot\)),
+              (\(\mathbb{C}\backslash \{0\}, \centerdot\)) sono gruppi abeliani
+        \item sia \(X= \{1,2,...,n\}\) l'insieme delle funzioni invertibili \(f:X \rightarrow X\) è il
+              \textbf{Gruppo delle permutazioni di n elementi (o gruppo simmetrico)}.Lo indiciamo con \(S?n\).
+              \(|S_n| = m!\). Non è abeliano se \(n \geq 3\).
     \end{itemize}
+\end{example}
+
+\begin{definition}
+    Sia \(X\) un monoide con identità \(e\). Un sottoinsieme \(Y \subseteq X\) tale che \(e \in Y\) e \(Y\)
+    è chiuso rispetto all'operazione di \(X\) è detto \textbf{sottomonide di \(X\)}.Analogamente definiamo
+    la nozione di \textbf{sottogruppo di \(X\)}. il gruppo \{\(e\)\} è detto \textbf{sottogruppo banale di \(X\)}.
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item Con l'addizione, \(\{0\}\) èun sottomonoide di \(\mathbb{N}\). \(\{0\}\) è anche sottogruppo banale.
+        \item Con la moltiplicazione abbiamo la catena di sottomonoidi \(\{1\} \subseteq \mathbb{N} \subseteq
+              \mathbb{Z} \subseteq \mathbb{Q} \subseteq insieme R \subseteq  \mathbb{C}\) e di sottogruppi \(\{1\}
+              \subseteq \mathbb{Q}\backslash \{0\} \subseteq \mathbb{R} \backslash \{0\} \subseteq \mathbb{C}
+              \backslash \{0\}\)
+        \item con l'addizione abbiamo la caten di sottogruppi \(\{0\} \subseteq \mathbb{Z} \subseteq \mathbb{Q}
+              \subseteq \mathbb{R} \subseteq \mathbb{C}\)
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    Sia \(X\) un monoide e \(S \subseteq X\) un sottoinsieme. L'insieme \(\langle S \rangle := \{ x_1
+    \cdot x_2 \cdot ... \cdot x_n : n \in \mathbb{N}, x_1,x_2,...,x_n \in S \}\) è detto
+    \textbf{sottomonoide generato da \(S\)} (intersezione di utti i sottomonoidi di \(X\) che contengono
+    \(S\)). Se \(X\) è un gruppo, \(\langle S \rangle\) è detto \textbf{sottogruppo generato da \(S\)}.
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item \(S = \{1\} \subseteq  (\mathbb{N}, +)\). Allora \(\langle S \rangle = \{0,1,2,...\} = \mathbb{N}\)
+        \item sia \(S:= \{p \in \mathbb{N} : p \text{ è primo}\} \cup \{0\} \subseteq (\mathbb{N}, \cdot)\).
+              allora \(\langle S \rangle = \mathbb{N}\)
+        \item \(S = \{0,1\} \subseteq (\mathbb{N} , \centerdot)\). Allora \(\langle S \rangle = \{0,1\}\)
+        \item sia \(S = \{1\} \subseteq  (\mathbb{Z}, +)\). il sottogruppo generato da \(S\) è \(\langle S \rangle
+              = \mathbb{Z}\)
+        \item uno spazio ettoriale \(V\) è un gruppo abeliano se consideriamo l'operazione di addizione fra vettori.
+              Prendiamo \(V=\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}\). Sia \(v = (1,1) \in \mathbb{R}^2\).
+              Il sottogruppo \(\langle \{v\} \rangle = \{(n,n): n \in \mathbb{Z}\}\) è un sottogruppo proprio del
+              sottospazio generato da \(\{v\}\). Sia \(v_1 = (1,0)\) ed \(v_2 = (0,1)\), allora il sottogruppo
+              \(\langle \{v_1,v_2\} \rangle\) è \(\mathbb{Z} \times \mathbb{Z} \subseteq  \mathbb{R} \times \mathbb{R}\)
+    \end{itemize}
+\end{example}
+
+
+\begin{definition}
+    Siano \(M_1 , M_2\) con identità \(e_1 , e_2\) rispettivamente. Si definisce prodotto diretto di \(M_1\)
+    e \(M_2\) l'insieme \(M_1 \times M_2\) con l'operazione \((m_1,m_2) \cdot (m_1',m_2') = (m_1 \cdot m_1',
+    m_2 \cdot m_2')\) e identità \((e_1,e_2)\). Analogamente si definisce prodotto diretto di
+    gruppi \(G_1 \text{e} G_2\).
+\end{definition}
+
+L'inverso di una coppia \((a,b) \in G_1 \times G_2\) è \((a^{-1},b^{-1})\).
+
+\subsection{Morfismi}
+
+\begin{definition}
+    Siano \(M_1 e M_2\) monoidi con identità \(e_1 e e_2\). Una funzione \(f : M_1 \rightarrow M_2\) è un
+    \textbf{morfismo di monoidi se:}
+    \
+    \begin{itemize}
+        \item \(f(e_1) = e_2\)
+        \item \(f(xy) = f(x)f(y)\)
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Siano \(G_1 e G_2\) gruppi con identità \(e_1 e e_2\). Una funzione \(f : G_1 \rightarrow G_2\) è un
+    \textbf{morfismo di gruppi se:}
+    \
+    \begin{itemize}
+        \item \(f(e_1) = e_2\)
+        \item \(f(xy) = f(x)f(y)\)
+    \end{itemize}
+\end{definition}
+
+
+\begin{definition}
+    Il \textbf{nucleo} di un morfismo di monoidi \(f: M_1 \rightarrow M_2\) è il sottomonoide di \(M_1\)
+    definito come: \(Ker(f):= \{x \in M_1 : f(x) = e_2\}\)
+\end{definition}
+
+\begin{definition}
+    Il nucleo di un morfismo di gruppi \(f: G_1 \rightarrow G_2\) è il sottogruppo di \(G_1\) definito
+    come: \(Ker(f):= \{x \in G_1 : f(x) = e_2\}\). \textbf{Il nucleo è un sottogruppo di \(G_1\)}. e
+    \textbf{\(Im(f)\) è un sottogruppo di \(G_2\)}.
+\end{definition}
+
+\begin{definition}
+    Un \textbf{isomorfismo di monoidi (e di gruppi)} èun morfismo biunivoco, tale che la funzione inversa sia un morfismo.
+\end{definition}
+
+
+\begin{proposition}
+    Sia \(f: M_1 \rightarrow M_2\) un morfismo di monoidi. Se \(f\) è biunivoco, allora è un isomorfismo.
+    Questo vale anche per i gruppi.
+\end{proposition}
+
+
+\begin{dimostrazione}
+    \
+    Dobbiamo far vedere che la funzione inversa \(f^{-1} : M_2 \rightarrow M_2\) è un morfismo di monoidi.
+    Poiché \(f(e_1) = e_2\), allora \(f^{-1}(e_2) = e_2\). Siano \(x_2,y_2 \in M_2\), allora esistono
+    \(x_1,y_1 \in M_1\) tali che \(f(x_1)=x_2 , f(y_1)=y_2\). Quindi \(f^{-1} (f(x_1)f(y_1)) = f^{-1}(f(x_1 y_1))
+    = x_1 y_1 = f^{-1}(x_2) f^{-1}(y_2)\)
+\end{dimostrazione}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item Siano \(M_1 = (\mathcal{P}(X), \cup) \text{ e } M_2 = (\mathcal{P}(X), \cup), \text{ dove } X\)
+              è un insieme. Sia \(f : M_1 \rightarrow M_2\) definita ponendo \(f(A) = A^C , \forall A \subseteq X\).
+              la funzione \(f\) è biunivoca. Inlotre, dalle formule di De Morgan segue che \(f(A \cap B) =
+              (A \cap B)^C = A^C \cup B^C = f(A) \cup f(B)\). Quindi \(f\) è un isomorfismo di monoidi, poiché
+              \(f(X) = X^C = \varnothing\), essendo \(X\) l'identità di \(M_1\) e \(\varnothing\) l'identità di \(M_2\).
+        \item Sia \(\mathbb{Z}_2 := \{0,1\}\) con l'operazione definita come: \(0+0=0, 0+1=1+0=1, 1+1=0\).
+              Sia \(X := \{1,2,...,n\}, n \in \mathbb{N}\). La funzione \(f: \mathcal{P}(X) \rightarrow
+              \mathbb{Z}_2 \times ... \times \mathbb{Z}_2\) (n volte) definita da: \(f(A) = (a_1,a_2,...,a_n)\),
+              dove \(a_i = 1\) se \(i \in A\) e \(a_i = 0\) se \(i \notin A\). \newline è un isomorfismo del gruppo
+              \((\mathcal{P}(X), \Delta)\) con il gruppo \(\mathcal{P}(X) \rightarrow \mathbb{Z}_2 \times ...
+              \times \mathbb{Z}_2 = (\mathbb{Z}_2)^n\)
+    \end{itemize}
+\end{example}
+
+\textbf{Vediamo ora come ogni monoide finito è isomorfo a un monoide di matrici quadrate, dove l'operazione
+    è il prodotto righe per colonne.}\newline
+Sia \(M=\{x_1,...,x_n\}\) un monoide, \(|M|=n \in \mathbb{N}\), con identità \(e = x_1\). Pero ogni \(x \in
+M\) definiamo una matrice \(A(x) \in Mat_{n \times n}(\mathbb{Z})\) nel seguente modo: \(A(x)_{ij} = 1\)
+se \(x_i \cdot x = x_j\) e \(A(x)_{ij} = 0\) altrimenti. La funzione \(F : M \rightarrow Mat_{n \times n}
+(\mathbb{Z})\) (\(x \mapsto A(x)\)) è iniettiva.\newline
+Infatti, se \(A(x) = a(y)\), allora \(A(x)_{i1} = A(y)_{i1} \text{ , } \forall i \in \{1,...,n\}\).\newline
+Quindi se \(A(x)_{i1} = A(y)_{i1} = 1\), allora \(xx_1 = xe = x = yx_1 = y\).\newline
+Risulta inoltre facile vedere che \(A(xy) = A(x)A(y)\) (prodotto righe per colonne), ossia che \(F\) è
+un morfismo di monoidi (\(Mat_{n \times n}(\mathbb{Z})\) è un monoide con l'operazione di
+prodotto righe per colonne, la cui identità è la matrice \(I_n\)).\newline
+Quindi \(F: M \rightarrow Im(F)\) è un isomorfismo di monoidi.
+
+\newpage
+\begin{example}
+    Sia \(M = (\mathbb{Z}_2, \cdot)\) il monoide definito da:
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \(\cdot\) & 0 & 1 \\ \hline
+            0         & 0 & 0 \\ \hline
+            1         & 0 & 1 \\ \hline
+        \end{tabular}
+    \end{table}
+    \newline costruiamo un sottomonoide di \(Mat_{4 \times 4}(\mathbb{Z})\) isomorfo a \(M \times M = \{(0,0), (0,1),
+    (1,0),(1,1)\}\).\newline
+    \newline\((0,0) \mapsto
+    \begin{bmatrix}
+        1 & 1 & 1 & 1 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{bmatrix}\),
+    \((0,1) \mapsto \begin{bmatrix}
+        1 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 1 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{bmatrix} \),
+    \((1,0) \mapsto \begin{bmatrix}
+        1 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 1 \\
+        0 & 0 & 0 & 0
+    \end{bmatrix} \),
+    \((1,1) \mapsto \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1
+    \end{bmatrix} \).\newline
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \(\cdot\) & \((0,0)\) & \((0,1)\) & \((1,0)\) & \((1,1)\) \\ \hline
+            \((0,0)\) & \((0,0)\) & \((0,0)\) & \((0,0)\) & \((0,0)\) \\ \hline
+            \((0,1)\) & \((0,0)\) & \((0,1)\) & \((0,0)\) & \((0,1)\) \\ \hline
+            \((1,0)\) & \((0,0)\) & \((0,0)\) & \((1,0)\) & \((1,0)\) \\ \hline
+            \((1,1)\) & \((0,0)\) & \((0,1)\) & \((1,0)\) & \((1,1)\) \\ \hline
+        \end{tabular}
+    \end{table}
+    Si può verificare direttamnete che le matrici hanno la stessa tabella moltiplicativa. (fine esempio)
+\end{example}
+
+Abbiamo quindi visto che un monoide finito di cardinalità \(n\) è isomorfo a un monoide di matrici \(n \times n\)
+le cui colonne hanno un unico \("1"\) e altrove sono \("0"\).\newline
+Ognuna di queste matrici può essere vista come una funzione da \(X = \{1,...,n\} in X\) :\newline
+\begin{center}
+    \(A_{ij} = 1 \Leftrightarrow f(j) = i\)
+\end{center}
+\begin{center}
+    \(A_{ij} = 0 \Leftrightarrow f(j) \neq i\)
+\end{center}
+Il prodotto righe per colonne corrisponde alla composizione di funzioni.\newline
+Quindi un monoide finito di cardinalità \(n\) è isomorfo a un sottomonide del monoide delle funzioni
+\(f\) da \(\{1,...,n\}\) in \(\{1,...,n\}\) con l'operazione di composizione.
+
+Notiamo che un elemento \(x \in M\) di un monoide finito M è invertibile se e solo se la matrice associata è
+invertibile (una matrice \(A \in Mat_{n \times n} (\mathbb{Z})\) è invertibile se e solo se il suo determinante è
+invertibile su \(\mathbb{Z}\), ossia se e solo se \(det(a) \in \{-1,1\}\)).
+
+Da ciò segue che un gruppo finito \(G\) di cardinalità \(|G|=n\), è isomorfo a un gruppo di matrici le cui componenti
+sono\("0"\) e \("1"\) e che hanno un unico \("1"\) in ogni riga e ogni colonna (matrici di permutazioni). \newline
+Il gruppo \(G\) è inoltre isomorfo a un sottogruppo del gruppo delle funzioni biunivoche da \(\{1,...,n\}\) in \(\{1,...,n\}\),
+che abbiamo chiamato \textbf{gruppo simmetrico \(S_n\)}. \newline
+Gli elementi di \(S_n\) in notazione a una linea sono indicati nel modo seguente: sia 
+\(\sigma \in S_n\) una funzione biunivoca da \(\{1,...,n\}\) in \(\{1,...,n\}\), allora \(\sigma\) è indicata come 
+\(\sigma(1)\sigma(2)...\sigma(n)\).
+
+
+\begin{teorema}[Teorema di Cayley]
+    Ogni sottogruppo finito di cardinalità \(n \in \mathbb{N} \backslash \{0\}\) è isomorfo a un sottogruppo di \(S_n\)
+\end{teorema}
+
+\begin{example}
+    
 \end{example}
 
 
