@@ -1,6 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsthm}
+\usepackage{xfrac}
 \usepackage[italian]{babel}
 \usepackage{amsmath, amssymb, amsthm, mdframed}
 \usepackage[a4paper, margin=1in]{geometry}
@@ -224,8 +225,8 @@ Una funzione \(f: X \rightarrow Y\) è invertibile se e solo se è biunivoca.
               = A \neq \varnothing \backslash A = \varnothing\), se \(A \neq \varnothing\)
         \item \(A \Delta B := (A \backslash B) \cup (B \backslash A)\) \textbf{(differenza simmetrica)}
               è un'operazione su \(\mathcal{P}(X)\). \newline è commutativa e anche associativa, facilmente verificabile
-              coi diagframmi di Venn.
-        \item sia \(F(X) := \{f : X\rightarrow X\}\).\newline La composizione" \(\circ\)" è un'operazione su \(F(X)\).
+              coi diagrammi di Venn.
+        \item Sia \(F(X) := \{f : X\rightarrow X\}\).\newline La composizione" \(\circ\)" è un'operazione su \(F(X)\).
               \newline è associativa, ma non è commutativa.
         \item \(a \circ b = \frac{a + b}{2} \) è un'operazione commutativa su \(\mathbb{Q}\), ma non associativa.
     \end{itemize}
@@ -507,14 +508,118 @@ Da ciò segue che un gruppo finito \(G\) di cardinalità \(|G|=n\), è isomorfo 
 sono\("0"\) e \("1"\) e che hanno un unico \("1"\) in ogni riga e ogni colonna (matrici di permutazioni). \newline
 Il gruppo \(G\) è inoltre isomorfo a un sottogruppo del gruppo delle funzioni biunivoche da \(\{1,...,n\}\) in \(\{1,...,n\}\),
 che abbiamo chiamato \textbf{gruppo simmetrico \(S_n\)}. \newline
-Gli elementi di \(S_n\) in notazione a una linea sono indicati nel modo seguente: sia 
-\(\sigma \in S_n\) una funzione biunivoca da \(\{1,...,n\}\) in \(\{1,...,n\}\), allora \(\sigma\) è indicata come 
+Gli elementi di \(S_n\) in notazione a una linea sono indicati nel modo seguente: sia
+\(\sigma \in S_n\) una funzione biunivoca da \(\{1,...,n\}\) in \(\{1,...,n\}\), allora \(\sigma\) è indicata come
 \(\sigma(1)\sigma(2)...\sigma(n)\).
 
 
 \begin{teorema}[Teorema di Cayley]
     Ogni sottogruppo finito di cardinalità \(n \in \mathbb{N} \backslash \{0\}\) è isomorfo a un sottogruppo di \(S_n\)
 \end{teorema}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item \(S_2 = \{12,21\}\)\newline
+              \(S_3 = \{123,132,213,231,312,321\}\)\newline
+
+        \item vediamo il gruppo \((\mathbb{Z}_2,+)\) come gruppo di matrici e come gruppo di permutazioni. \((\mathbb{Z}_2, +) \simeq \{\begin{bmatrix}
+                  1 & 0 \\
+                  0 & 1
+              \end{bmatrix}, \begin{bmatrix}
+                  0 & 1 \\
+                  1 & 0
+              \end{bmatrix}\} \simeq \{12,21\} = S_2\) (\(\simeq isomorfismo di gruppi\))
+    \end{itemize}
+\end{example}
+
+\subsection{Relazioni}
+
+\begin{definition}
+    Sia \(X\) un insieme. Un sottoinsieme \(R \subseteq X \times X\) è detto \textbf{relazione su \(X\)}.
+\end{definition}
+
+\begin{definition}
+    Una relazione \(R \subseteq X \times X\) è detta \textbf{relazione di equivalenza} se soddisfa le seguenti proprietà: \
+    \begin{itemize}
+        \item \textbf{riflessità}: \((x,x) \in R\), \(\forall x \in X\)
+        \item \textbf{simmetria}: \((x,y) \in R \implies (y,x) \in R\), \(\forall x,y \in X\)
+        \item \textbf{transitività}: \((x,y) \in R \text{ e } (y,z) \in R \implies (x,z) \in R\), \(\forall x,y,z \in X\)
+    \end{itemize}
+\end{definition}
+
+Se \(R\) è una relazione di equivalenza su \(X\) e \((x,y) \in R\), scriviamo \(x \sim y\),
+che si legge "\(x\) è equivalente a \(y\)".
+
+\begin{definition}
+    Sia \(X\) un insieme e \(R \subseteq X \times X\) una relazione di equivalenza su \(X\). L'insieme
+    \begin{math}
+        [x]_R := \{y \in X : x \sim y\}
+    \end{math} è detto \textbf{classe di equivalenza di \(x\) rispetto a \(R\)}.
+\end{definition}
+
+\begin{definition}
+    L'insieme \(\sfrac{X}{\sim} := \{[x] : x \in X\}\) è detto \textbf{insieme quoziente}.
+\end{definition}
+
+\begin{definition}
+    La funzione \begin{math}
+        \pi : X \rightarrow \sfrac{X}{\sim} \text{ , } x \mapsto [x] \end{math} è detta \textbf{proiezione canonica}.
+\end{definition}
+
+\begin{definition}
+    Siano \(x,y \in X\). Allora se \(x \sim y\) abbiamo che \([x] = [y]\).
+    Se \(x \nsim y\) abbiamo che \([x] \cap [y] = \varnothing\).
+    Quindi \(X = \underset{[x] \in \sfrac{X}{\sim}}{\uplus} [x]\), ossia \(\sfrac{X}{\sim}\) è una partizione di X.
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item L'uguaglianza \("="\) è una relazione di equivalenza
+              su ogni insieme \(X\).
+        \item Sia \(X = \{1,2,...,n\}\). Definiamo si \(\mathcal{P}(X)\)
+              la seguente relazione:
+              \(A \sim B \Leftrightarrow |A| = |B|, \forall A,B \subseteq X\).
+              Questa è una relazione di equivalenza e \(\sfrac{\mathcal{P}(X)}{\sim}
+              \equiv \{0,1,...,n\}\). Se \(A \subseteq X\) è tale che
+              \(|A| = k \leq n\) allora \(|[A]| = \binom{n}{k} := \frac{n!}{k!(n-k)!}\)
+        \item Sia \(G\) un gruppo e \(H \subseteq G\) un sottogruppo. La relazione
+              \(\sim \) su \(G\) definita da \(g_1 \sim g_2 \Leftrightarrow g_1=g_2 h\)
+              per qualche \(h \in H\) è una relazione di equivalenza.\
+              \begin{itemize}
+                  \item \(g \sim g : g \cdot e \text{ , } \forall g \in G , e \in H\)
+                  \item \(g_1 \sim g_2 \rightarrow g_2 \sim g_1 : g_1 = g_2 h \rightarrow
+                        g_1 h^{-1} = g_2\) (\(h^{-1} \in H\))
+                        \item \(g_1 \sim g_2 , g_2 \sim g_3 \rightarrow g_1 \sim g_3 : 
+                        g_1 = g_2 h, g_2 = g_3 h' \rightarrow g_1 = g_3 h h' = g_3 h''
+                        , \forall g_1,g_2,g_3 \in G\)
+              \end{itemize}
+              In questo caso l'insieme quoziente lo indichiamo con \sfrac{G}{H}.
+
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    Il numero \(\binom{n}{k}\) è chiamato \textbf{coefficiente binomiale},
+    questo perché \((x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^n y^{n-k},
+    \forall x,y \in \mathbb{C} \)
+\end{definition}
+
+
+\subsubsection{Insieme quoziente per gruppi abeliani}
+
+Se \(G\) è un gruppo abeliano, possiamo definire la seguente operazione "\(+\)"
+su \sfrac{G}{H}: \([g_1] + [g_2] := [g_1 + g_2]\), vediamo che è ben definita:
+se \(g_{1}' = g_1 + h_1 \text{ e } g_{2}' = g_2 + h_2\), allora \([g_{1}'] = [g_1]
+\), \([g_{2}'] = [g_2]\) e \(g_{1}' + g_{2}' = g_1 + h_1 + g_2 + h_2 = g_1 + g_2 + h\),
+dove \(h = h_1 + h_2 \in H\). Quindi \([g_{1}' + g_{2}'] = [g_1 + g_2]\).
+L'operazione è ovviamente associativa e commutativa, perché lo è quella su \(G\).
+Inoltre \([g] + [0] = [g] \text{, } \forall [g] \in \sfrac{G}{H}\) dove con \("0"\)
+abbiamo indicato l'identità di \(G\). Quindi la classe \([0]\) dell'identità di \((\sfrac{G}{H} , +) 
+\).
+Infine \([g] + [-g] = [g-g] = [0]\), dove con \(-g\) abbiamo indicato l'inverso di \(g\) in \(G\).
+Quindi \(-[g] = [-g], \forall [g] \in \sfrac{G}{H}\), ossia \((\sfrac{G}{H},+)\) è un gruppo abeliano.
 
 \begin{example}
     
