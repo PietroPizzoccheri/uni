@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % Use T1 encoding
 \usepackage{amsthm}
 \usepackage{xfrac}
 \usepackage[italian]{babel}
@@ -12,8 +13,11 @@
 % Modificando il contenuto di questo file e ricompilandolo, è possibile generare un nuovo file PDF.
 
 \title{Appunti di Logica e Algebra 2}
-\author{Pietro Pizzoccheri}
+\author{Pietro Pizzoccheri \\ https://github.com/PietroPizzoccheri/uni}
 \date{2024}
+
+
+\sloppy % Allow LaTeX to adjust spacing to avoid overfull/underfull boxes
 
 
 \newtheoremstyle{def}
@@ -48,25 +52,25 @@
 
 
 \newtheoremstyle{esempio}
-{10pt} % Space above
-{4pt} % Space below
-{} % Body font
-{} % Indent amount
-{\color[rgb]{0,0.7,0}\bfseries} % head font
-{:} % Punctuation after theorem head
-{.5em} % Space after theorem head
-{} % head spec 
+    {10pt} % Space above
+    {4pt} % Space below
+    {} % Body font
+    {} % Indent amount
+    {\color[rgb]{0,0.7,0}\bfseries} % head font
+    {:} % Punctuation after theorem head
+    {.5em} % Space after theorem head
+    {} % head spec 
 
 
 \newtheoremstyle{dimostrazione}
-{10pt} % Space above
-{5pt} % Space below
-{\itshape} % Body font
-{} % Indent amount
-{\color[rgb]{0.7,0,0.7}\itshape\bfseries} % head font
-{:} % Punctuation after theorem head
-{.5em} % Space after theorem head
-{} % head spec 
+    {10pt} % Space above
+    {5pt} % Space below
+    {\itshape} % Body font
+    {} % Indent amount
+    {\color[rgb]{0.7,0,0.7}\itshape\bfseries} % head font
+    {:} % Punctuation after theorem head
+    {.5em} % Space after theorem head
+    {} % head spec 
 
 
 
@@ -96,6 +100,8 @@
 
 \newpage
 \section{Teoria degli anelli commutativi e dei campi}
+
+
 \subsection{Insiemi}
 
 Un insieme è una collezione di oggetti, detti elementi dell'insieme.
@@ -869,10 +875,131 @@ In particolare, \(\langle \overline{m} \rangle = \mathbb{Z}_n \Leftrightarrow z=
 
 \end{example}
 
+\subsection{Anelli}
+
+\begin{definition}
+    Sia \(X\) un insieme su cui sono definite due operazioni \(+\) e \(\cdot \). \\
+    \(X\) è un \textbf{anello} con unità \(1_X\) se:
+    \
+    \begin{itemize}
+        \item \((X, +)\) è un gruppo abeliano
+        \item \((X, \cdot)\) è un monoide con unità \(1_X\)
+        \item vale la proprietà distributiva: \
+              \begin{itemize}
+                  \item \(a \cdot (b+c) = a \cdot b + a \cdot c\)
+                  \item \((a+b) \cdot c = a \cdot c + b \cdot c\) , \(\forall a,b,c \in X\)
+              \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Diaciamo che un anello \(X\) è \textbf{commutativo} se il monoide \((X, \cdot)\) è commutativo.
+\end{definition}
 
 
+Indichiamo con \("0"\) l'identità del gruppo \((X, +)\).
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item Gli insiemi \(\mathbb{Z} ,\mathbb{Q} ,\mathbb{R} ,\mathbb{C} \) con le operazioni di addizione e moltiplicazione
+              sono anelli commutativi con unità, che è il numero "1".
+        \item L'insieme delle matrici \(n \times n, n> 1\) a valori su \(\mathbb{Z} \), su \(\mathbb{Q} \), su \(\mathbb{R} \)
+              o su \(\mathbb{C} \), con l'operazione di somma e il prodotto righe per colonne, è un anello \textbf{non commutativo},
+              con unità la matrice identità.\\
+              In generale, se \(A\) è un anello commutativo con unità, l'insieme \(Mat_{n \times n}(A)\) delle matrici a valori
+              in \(\mathbb{R} \) con le operazioni di somma e prodotto righe per colonne, è un anello non commutativo con unità.
+        \item\(\{X\}\) è un anello, detto \textbf{anello nullo}. Le due operazioni sono la stessa e \(0 = 1_{\{X\}} = x\).
+    \end{itemize}
+\end{example}
+
+Considereremo sempre \(0 \neq 1_A\) e studieremo solo anelli commutativi con unità. Quindi quando diremo "anello" intendiamo "anello con unità".
+
+\begin{definition}
+    Sia \(A\) un anello commutativo. Un elemento \(x \in A\) è detto \textbf{zero divisore} se esiste \(y \in A \backslash \{0\}\)
+    tale che \(x y = 0\).
+\end{definition}
+
+\begin{definition}
+    Diciamo che un elemento \(x \in A\) è \textbf{invertibile} se è un elemento invertibile del 
+    monoide \((A, \cdot )\).
+\end{definition}
+
+\begin{proposition}
+    Sia \(A\) un anello commutativo. Allora l'insieme degli elementi invertibili di \(A\) è disgiunto
+    dall'insieme degli zero divisori di \(A\).
+\end{proposition}
+
+\begin{dimostrazione}
+\
+    Siano \(x,y \in A\) tali che \(x y = 0\). Se \(X\) è invertibile, allora \(x^{-1}xy = y = 0\),
+    quindi \(x\) non è uno zero-divisore.
+\end{dimostrazione}
+
+\begin{proposition}[legge di cancellazione]
+    Sia \(A\) un anello commutativo e sia \(x \in A\) un elemento che non è uno zero-divisore. Allora
+    \(xy=xz \rightarrow y =z , \forall y,z \in A\).
+\end{proposition}
+
+\begin{dimostrazione}
+\
+    Se \(xy = xz\) allora \(x(y - z) = 0 \). Poiché \(x\) non è uno zero-divisore, allora \(y-z = 0\), ossia \(y=z\).
+\end{dimostrazione}
+
+\begin{definition}
+    Un anello commutativo privo di zero-divisori non nulli è detto \textbf{dominio di integrità}.
+\end{definition}
+
+\begin{definition}
+    Un anello commutativo i cui elementi non nulli sono tutti invertibili è detto \textbf{campo}.
+\end{definition}
+
+\begin{example}
+    L'anello \(\mathbb{Z}\) è un dominio di integrità, ma non è un campo.\\
+    Gli anelli \(\mathbb{Q} ,\mathbb{R} ,\mathbb{C} \) sono campi.
+\end{example}
+
+\subsection{Ideali}
+
+\begin{definition}
+    Sia \(A\) un anello commutativo. Un sottoinsieme \(I \subseteq A\) è detto \textbf{ideale} di \(A\) se:
+    \
+    \begin{itemize}
+        \item \(I\) è un sottogruppo di \((A,+)\)
+        \item \(ax \in I, \forall a \in A, x \in I\)
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    Abbiamo già visto che ogni sottogruppo di \((\mathbb{Z} , +)\) è del tipo \(n \mathbb{Z} = \{kn : k \in \mathbb{Z} \}\),
+    dove \(n \in \mathbb{N} \). Inoltre, se \(a \in \mathbb{Z} \) e \(x \in n\mathbb{Z} \), ossia
+    \(x=kn\) per qualche \(k \in \mathbb{Z} \), si ha che \(ax=akn \in n \mathbb{Z} \).
+    Quindi \(n \mathbb{Z} \) è un ideale di \(\mathbb{Z}, \forall n \in \mathbb{N}  \), e tutti gli ideali di
+    \(\mathbb{Z} \) sono di questo tipo.
+\end{example}
+
+\textbf{Osservazioni:} Siano \(I,J \subseteq A\) ideali di un anello commutativo \(A\).\\
+Allora : \
+\begin{itemize}
+    \item \(I \cap J\) è un ideale di \(A\)
+    \item \(I + J := \{x+y : x \in I, y \in J\}\) è un ideale di \(A\)
+    \item \(IJ := \langle \{xy : x \in I, y \in J\} \rangle\) è un ideale di \(A\)
+\end{itemize}
+
+\begin{definition}
+    Sia \(S \subseteq A\) un sottoinsieme di un anello commutativo. \textbf{L'ideale generato da \(S\)} è 
+    l'intersezione di tutti gli ideali di \(A\) che contengono \(S\) e lo indichiamo con \(\langle S \rangle\).\\
+    Se \(S =\{x\}\), diciamo che \(\langle S \rangle\) è \textbf{l'ideale principale generato da \(x \in A\)}.
+\end{definition}
+
+\begin{example}
+    Abbiamo visto che gli ideali di \(\mathbb{Z} \) sono tutti e soli i sottoinsiemi \(n \mathbb{Z}  = \langle n \rangle, n \in \mathbb{N} \).
+    Quindi gli ideali di \(\mathbb{Z} \) sono tutti principali.
+\end{example}
 
 
-
+\begin{definition}
+    un anello i cui ideali sono tutti principali si dice \textbf{anello ad ideali principali}.
+\end{definition}
 
 \end{document}
