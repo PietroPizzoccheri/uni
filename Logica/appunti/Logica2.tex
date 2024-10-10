@@ -5,6 +5,7 @@
 \usepackage[italian]{babel}
 \usepackage{amsmath, amssymb, amsthm, mdframed}
 \usepackage[a4paper, margin=1in]{geometry}
+\usepackage{tikz-cd}
 
 % NOTA:
 % Questo file .tex deve essere compilato in locale utilizzando LaTeX in locale, oppure utilizzando il Overleaf.
@@ -99,11 +100,11 @@
 
 Un insieme è una collezione di oggetti, detti elementi dell'insieme.
 \[
-    \mathbb{N} := \{ 0,1,2,3,...\} \quad \text{insieme dei numeri naturali}
+    \mathbb{N} := \{ 0,1,2,3,\cdots\} \quad \text{insieme dei numeri naturali}
 \]
 
 \[
-    \mathbb{Z} := \{ ...,-2,-1,0,1,2,...\} \quad \text{insieme degli interi}
+    \mathbb{Z} := \{ \cdots,-2,-1,0,1,2,\cdots\} \quad \text{insieme degli interi}
 \]
 
 \[
@@ -291,7 +292,7 @@ L'identità del monoide è invertibile e il suo inverso è l'identità stessa.
         \item (\(\mathbb{Z},+\)), (\(\mathbb{Q},+\)), (\(\mathbb{R},+\)), (\(\mathbb{C},+\)) sono gruppi abeliani
         \item (\(\mathbb{Q}\backslash \{0\}, \centerdot\)), (\(\mathbb{R}\backslash \{0\}, \centerdot\)),
               (\(\mathbb{C}\backslash \{0\}, \centerdot\)) sono gruppi abeliani
-        \item sia \(X= \{1,2,...,n\}\) l'insieme delle funzioni invertibili \(f:X \rightarrow X\) è il
+        \item sia \(X= \{1,2,\cdots,n\}\) l'insieme delle funzioni invertibili \(f:X \rightarrow X\) è il
               \textbf{Gruppo delle permutazioni di n elementi (o gruppo simmetrico)}.Lo indiciamo con \(S?n\).
               \(|S_n| = m!\). Non è abeliano se \(n \geq 3\).
     \end{itemize}
@@ -318,7 +319,7 @@ L'identità del monoide è invertibile e il suo inverso è l'identità stessa.
 
 \begin{definition}
     Sia \(X\) un monoide e \(S \subseteq X\) un sottoinsieme. L'insieme \(\langle S \rangle := \{ x_1
-    \cdot x_2 \cdot ... \cdot x_n : n \in \mathbb{N}, x_1,x_2,...,x_n \in S \}\) è detto
+    \cdot x_2 \cdot \cdots \cdot x_n : n \in \mathbb{N}, x_1,x_2,\cdots,x_n \in S \}\) è detto
     \textbf{sottomonoide generato da \(S\)} (intersezione di utti i sottomonoidi di \(X\) che contengono
     \(S\)). Se \(X\) è un gruppo, \(\langle S \rangle\) è detto \textbf{sottogruppo generato da \(S\)}.
 \end{definition}
@@ -326,7 +327,7 @@ L'identità del monoide è invertibile e il suo inverso è l'identità stessa.
 \begin{example}
     \
     \begin{itemize}
-        \item \(S = \{1\} \subseteq  (\mathbb{N}, +)\). Allora \(\langle S \rangle = \{0,1,2,...\} = \mathbb{N}\)
+        \item \(S = \{1\} \subseteq  (\mathbb{N}, +)\). Allora \(\langle S \rangle = \{0,1,2,\cdots\} = \mathbb{N}\)
         \item sia \(S:= \{p \in \mathbb{N} : p \text{ è primo}\} \cup \{0\} \subseteq (\mathbb{N}, \cdot)\).
               allora \(\langle S \rangle = \mathbb{N}\)
         \item \(S = \{0,1\} \subseteq (\mathbb{N} , \centerdot)\). Allora \(\langle S \rangle = \{0,1\}\)
@@ -412,21 +413,21 @@ L'inverso di una coppia \((a,b) \in G_1 \times G_2\) è \((a^{-1},b^{-1})\).
               (A \cap B)^C = A^C \cup B^C = f(A) \cup f(B)\). Quindi \(f\) è un isomorfismo di monoidi, poiché
               \(f(X) = X^C = \varnothing\), essendo \(X\) l'identità di \(M_1\) e \(\varnothing\) l'identità di \(M_2\).
         \item Sia \(\mathbb{Z}_2 := \{0,1\}\) con l'operazione definita come: \(0+0=0, 0+1=1+0=1, 1+1=0\).
-              Sia \(X := \{1,2,...,n\}, n \in \mathbb{N}\). La funzione \(f: \mathcal{P}(X) \rightarrow
-              \mathbb{Z}_2 \times ... \times \mathbb{Z}_2\) (n volte) definita da: \(f(A) = (a_1,a_2,...,a_n)\),
+              Sia \(X := \{1,2,\cdots,n\}, n \in \mathbb{N}\). La funzione \(f: \mathcal{P}(X) \rightarrow
+              \mathbb{Z}_2 \times \cdots \times \mathbb{Z}_2\) (n volte) definita da: \(f(A) = (a_1,a_2,\cdots,a_n)\),
               dove \(a_i = 1\) se \(i \in A\) e \(a_i = 0\) se \(i \notin A\). \newline è un isomorfismo del gruppo
-              \((\mathcal{P}(X), \Delta)\) con il gruppo \(\mathcal{P}(X) \rightarrow \mathbb{Z}_2 \times ...
+              \((\mathcal{P}(X), \Delta)\) con il gruppo \(\mathcal{P}(X) \rightarrow \mathbb{Z}_2 \times \cdots
               \times \mathbb{Z}_2 = (\mathbb{Z}_2)^n\)
     \end{itemize}
 \end{example}
 
 \textbf{Vediamo ora come ogni monoide finito è isomorfo a un monoide di matrici quadrate, dove l'operazione
     è il prodotto righe per colonne.}\newline
-Sia \(M=\{x_1,...,x_n\}\) un monoide, \(|M|=n \in \mathbb{N}\), con identità \(e = x_1\). Pero ogni \(x \in
+Sia \(M=\{x_1,\cdots,x_n\}\) un monoide, \(|M|=n \in \mathbb{N}\), con identità \(e = x_1\). Pero ogni \(x \in
 M\) definiamo una matrice \(A(x) \in Mat_{n \times n}(\mathbb{Z})\) nel seguente modo: \(A(x)_{ij} = 1\)
 se \(x_i \cdot x = x_j\) e \(A(x)_{ij} = 0\) altrimenti. La funzione \(F : M \rightarrow Mat_{n \times n}
 (\mathbb{Z})\) (\(x \mapsto A(x)\)) è iniettiva.\newline
-Infatti, se \(A(x) = a(y)\), allora \(A(x)_{i1} = A(y)_{i1} \text{ , } \forall i \in \{1,...,n\}\).\newline
+Infatti, se \(A(x) = a(y)\), allora \(A(x)_{i1} = A(y)_{i1} \text{ , } \forall i \in \{1,\cdots,n\}\).\newline
 Quindi se \(A(x)_{i1} = A(y)_{i1} = 1\), allora \(xx_1 = xe = x = yx_1 = y\).\newline
 Risulta inoltre facile vedere che \(A(xy) = A(x)A(y)\) (prodotto righe per colonne), ossia che \(F\) è
 un morfismo di monoidi (\(Mat_{n \times n}(\mathbb{Z})\) è un monoide con l'operazione di
@@ -489,7 +490,7 @@ Quindi \(F: M \rightarrow Im(F)\) è un isomorfismo di monoidi.
 
 Abbiamo quindi visto che un monoide finito di cardinalità \(n\) è isomorfo a un monoide di matrici \(n \times n\)
 le cui colonne hanno un unico \("1"\) e altrove sono \("0"\).\newline
-Ognuna di queste matrici può essere vista come una funzione da \(X = \{1,...,n\} in X\) :\newline
+Ognuna di queste matrici può essere vista come una funzione da \(X = \{1,\cdots,n\} in X\) :\newline
 \begin{center}
     \(A_{ij} = 1 \Leftrightarrow f(j) = i\)
 \end{center}
@@ -498,7 +499,7 @@ Ognuna di queste matrici può essere vista come una funzione da \(X = \{1,...,n\
 \end{center}
 Il prodotto righe per colonne corrisponde alla composizione di funzioni.\newline
 Quindi un monoide finito di cardinalità \(n\) è isomorfo a un sottomonide del monoide delle funzioni
-\(f\) da \(\{1,...,n\}\) in \(\{1,...,n\}\) con l'operazione di composizione.
+\(f\) da \(\{1,\cdots,n\}\) in \(\{1,\cdots,n\}\) con l'operazione di composizione.
 
 Notiamo che un elemento \(x \in M\) di un monoide finito M è invertibile se e solo se la matrice associata è
 invertibile (una matrice \(A \in Mat_{n \times n} (\mathbb{Z})\) è invertibile se e solo se il suo determinante è
@@ -506,11 +507,11 @@ invertibile su \(\mathbb{Z}\), ossia se e solo se \(det(a) \in \{-1,1\}\)).
 
 Da ciò segue che un gruppo finito \(G\) di cardinalità \(|G|=n\), è isomorfo a un gruppo di matrici le cui componenti
 sono\("0"\) e \("1"\) e che hanno un unico \("1"\) in ogni riga e ogni colonna (matrici di permutazioni). \newline
-Il gruppo \(G\) è inoltre isomorfo a un sottogruppo del gruppo delle funzioni biunivoche da \(\{1,...,n\}\) in \(\{1,...,n\}\),
+Il gruppo \(G\) è inoltre isomorfo a un sottogruppo del gruppo delle funzioni biunivoche da \(\{1,\cdots,n\}\) in \(\{1,\cdots,n\}\),
 che abbiamo chiamato \textbf{gruppo simmetrico \(S_n\)}. \newline
 Gli elementi di \(S_n\) in notazione a una linea sono indicati nel modo seguente: sia
-\(\sigma \in S_n\) una funzione biunivoca da \(\{1,...,n\}\) in \(\{1,...,n\}\), allora \(\sigma\) è indicata come
-\(\sigma(1)\sigma(2)...\sigma(n)\).
+\(\sigma \in S_n\) una funzione biunivoca da \(\{1,\cdots,n\}\) in \(\{1,\cdots,n\}\), allora \(\sigma\) è indicata come
+\(\sigma(1)\sigma(2)\cdots\sigma(n)\).
 
 
 \begin{teorema}[Teorema di Cayley]
@@ -578,11 +579,11 @@ che si legge "\(x\) è equivalente a \(y\)".
     \begin{itemize}
         \item L'uguaglianza \("="\) è una relazione di equivalenza
               su ogni insieme \(X\).
-        \item Sia \(X = \{1,2,...,n\}\). Definiamo si \(\mathcal{P}(X)\)
+        \item Sia \(X = \{1,2,\cdots,n\}\). Definiamo si \(\mathcal{P}(X)\)
               la seguente relazione:
               \(A \sim B \Leftrightarrow |A| = |B|, \forall A,B \subseteq X\).
               Questa è una relazione di equivalenza e \(\sfrac{\mathcal{P}(X)}{\sim}
-              \equiv \{0,1,...,n\}\). Se \(A \subseteq X\) è tale che
+              \equiv \{0,1,\cdots,n\}\). Se \(A \subseteq X\) è tale che
               \(|A| = k \leq n\) allora \(|[A]| = \binom{n}{k} := \frac{n!}{k!(n-k)!}\)
         \item Sia \(G\) un gruppo e \(H \subseteq G\) un sottogruppo. La relazione
               \(\sim \) su \(G\) definita da \(g_1 \sim g_2 \Leftrightarrow g_1=g_2 h\)
@@ -630,8 +631,8 @@ Quindi \(-[g] = [-g], \forall [g] \in \sfrac{G}{H}\), ossia \((\sfrac{G}{H},+)\)
               \begin{itemize}
                   \item \(0 \mathbb{Z} = \{0\}\)
                   \item \(1 \mathbb{Z} = \{\mathbb{Z} \}\)
-                  \item \(2 \mathbb{Z} = \{...,-4,-2,0,2,4,...\}\)
-                  \item \(3 \mathbb{Z} = \{...,-6,-3,0,3,6,...\}\)
+                  \item \(2 \mathbb{Z} = \{\cdots,-4,-2,0,2,4,\cdots\}\)
+                  \item \(3 \mathbb{Z} = \{\cdots,-6,-3,0,3,6,\cdots\}\)
               \end{itemize}
               Definiamo il gruppo abeliano \(\mathbb{Z}_n := \sfrac{\mathbb{Z}}{n\mathbb{Z}}\),
               per \(\mathbb{Z}_0 = \sfrac{\mathbb{Z}}{0 \mathbb{Z}}
@@ -647,9 +648,9 @@ Quindi \(-[g] = [-g], \forall [g] \in \sfrac{G}{H}\), ossia \((\sfrac{G}{H},+)\)
               \end{itemize}
 
               I possibili resti della divisione
-              per \(n\) sono \(0,1,...,n-1\).\\
-              Quindi \(\mathbb{Z}_n = \{[0],[1],...,[n-1]\} = \{\overline{0}, \overline{1},...,\overline{n - 1}\}\).
-              (\(\{[0],[1],...,[n-1]\}\) sono le classi di resto)
+              per \(n\) sono \(0,1,\cdots,n-1\).\\
+              Quindi \(\mathbb{Z}_n = \{[0],[1],\cdots,[n-1]\} = \{\overline{0}, \overline{1},\cdots,\overline{n - 1}\}\).
+              (\(\{[0],[1],\cdots,[n-1]\}\) sono le classi di resto)
               \
               \begin{itemize}
                   \item \(\mathbb{Z}_2 = \{\overline{0},\overline{1}\}\),
@@ -731,16 +732,16 @@ In particolare la cardinalità o (\textbf{ordine}) di un sottogruppo di un grupp
     \end{itemize}
 \end{example}
 
-\textbf{Caso generale:} consideriamo il gruppo \(\mathbb{Z}_n = (\{\overline{0},\overline{1},...,\overline{n-1}\}
+\textbf{Caso generale:} consideriamo il gruppo \(\mathbb{Z}_n = (\{\overline{0},\overline{1},\cdots,\overline{n-1}\}
 ,+) \)  sia \(m \in \mathbb{N}, m < n\).\\
 Se \(m=0\), \(\langle \overline{0} \rangle = \{\overline{0}\}\).\\
 Sia \(m > 0 \) e \(z := \frac{mcm \{m,n\}}{m}\). (mcm = minimo comune multiplo)
 
-\(\overline{m}+\overline{m}+...=\overline{m} = \overline{zm} = \overline{mcm \{m,n\}} = \overline{0}\)
+\(\overline{m}+\overline{m}+\cdots=\overline{m} = \overline{zm} = \overline{mcm \{m,n\}} = \overline{0}\)
 
-Se \(i \leq i \leq z\): \(im < zm = mcm \{m,n\} \rightarrow n non divide im\).
+Se \(i \leq i \leq z\): \(im < zm = mcm \{m,n\} \rightarrow n \text{ non divide } im\).
 
-\(\overline{m}+\overline{m}+...=\overline{m} = \overline{im} \neq \overline{0}\) perché \(im\) è multiplo di \(m\)
+\(\overline{m}+\overline{m}+\cdots=\overline{m} = \overline{im} \neq \overline{0}\) perché \(im\) è multiplo di \(m\)
 e \(im < mcm \{m,n\}\), quindi \(im\) non è multiplo di \(n\). Dunque \(|\langle \overline{m} \rangle| =
 z= \frac{mcmc \{m,n\}}{m}\).
 
@@ -785,24 +786,88 @@ In particolare, \(\langle \overline{m} \rangle = \mathbb{Z}_n \Leftrightarrow z=
               \(\langle (a,b) \rangle = \{(ka,kb) : k \in \mathbb{Z} \} = \{(x,y) : a \text{ divide } x,b \text{ divide } y\}
               \subsetneq \mathbb{Z} \times \mathbb{Z} \).
         \item \(\mathbb{Z}_2 \times \mathbb{Z}_2\) non è ciclico. Infatti, in \(\mathbb{Z}_2 \times \mathbb{Z}_2\) si ha:
-        \
-        \begin{itemize}
-            \item \(\langle (\overline{0},\overline{0}) \rangle = \{(\overline{0},\overline{0})\}\)
-            \item \(\langle (\overline{0}, \overline{1}) \rangle = \{\overline{0}\} \times \mathbb{Z}_2\)
-            \item  \(\langle (\overline{1}, \overline{0}) \rangle = \mathbb{Z}_2 \times \{\overline{0}\}\)
-            \item \(\langle (\overline{1}, \overline{1}) \rangle = \{(\overline{0},\overline{0}),(\overline{1},\overline{1})\}\)
-        \end{itemize}
-        Quindi nessun elemento di \(\mathbb{Z}_2 \times \mathbb{Z}_2\) genera \(\mathbb{Z}_2 \times \mathbb{Z}_2\).
+              \
+              \begin{itemize}
+                  \item \(\langle (\overline{0},\overline{0}) \rangle = \{(\overline{0},\overline{0})\}\)
+                  \item \(\langle (\overline{0}, \overline{1}) \rangle = \{\overline{0}\} \times \mathbb{Z}_2\)
+                  \item  \(\langle (\overline{1}, \overline{0}) \rangle = \mathbb{Z}_2 \times \{\overline{0}\}\)
+                  \item \(\langle (\overline{1}, \overline{1}) \rangle = \{(\overline{0},\overline{0}),(\overline{1},\overline{1})\}\)
+              \end{itemize}
+              Quindi nessun elemento di \(\mathbb{Z}_2 \times \mathbb{Z}_2\) genera \(\mathbb{Z}_2 \times \mathbb{Z}_2\).
     \end{itemize}
-
-    \begin{teorema}[di isomorfismo per gruppi abeliani]
-        
-    \end{teorema}
-    
 \end{example}
 
+\begin{teorema}[di isomorfismo per gruppi abeliani]
+    Sia \(f: G_1 \rightarrow G_2\) un morfismo di gruppi abeliani. Allora esiste un morfismo iniettivo
+    \(\varphi : \sfrac{G_1}{Ker \varphi} \rightarrow G_2\) tale che il seguente diagramma è commutativo:
+    \[
+        \begin{tikzcd}
+            G_1 \arrow[r, "f"] \arrow[d, "\pi"'] & G_2 \\
+            \sfrac{G_1}{Ker(f)} \arrow[ru, "\varphi"']
+        \end{tikzcd}
+    \]
+    In particolare, \(\sfrac{G_1}{Ker(f)} \simeq \Im(f)\).
+\end{teorema}
+
+\begin{dimostrazione}
+    \
+    L'assegnazione \([g] \mapsto f(g), \forall g \in  G\), definisce una funzione \(\varphi : \sfrac{G_1}{Ker(f)}
+    \rightarrow G_2\).\\
+    Infatti, se \(g' \sim g\), ossia \([g]  = [g']\), allora \(g = g' + h , h \in Ker(f)\).\\
+    Dunque \(f(g) = f(g' + h) = f(g') + f(h) = f(g')\). Poiché \(f\) è morfismo di gruppi, anche \(\varphi\) lo è.\\
+    Inoltre \(Ker(f) = \{[g] \in \sfrac{G}{Ker(f)} : \varphi([g]) = O_2\}=\{[g] \in  \sfrac{G}{Ker(f)} : f(g) = O_2\}
+    = {[O_1]}\). Quindi \(\varphi\) è iniettiva.\\
+    Infine, \( \varphi : \sfrac{G_1}{Ker(f)} \rightarrow Im(f)\) è un morfismo di gruppi, iniettivo e suriettivo, quindi un isomorfismo.
+\end{dimostrazione}
 
 
+\begin{teorema}
+    Sia \(G\) un gruppo ciclico. Allora ogni sottogruppo di \(G\) è ciclico.
+\end{teorema}
+
+\begin{dimostrazione}
+    \
+    Sia \(g \in G\) tale che \(g = \langle g \rangle\). La funzione \(\varphi: (\mathbb{Z} , +) \rightarrow G\) definita
+    da \(\varphi(g) = g^n, \forall  n \in \mathbb{Z}, \) è un morfismo suriettivo di gruppi.\\
+    \
+    \begin{itemize}
+        \item G è infinito: allora \(Ker(f) = \{0\}\) e quindi \(\varphi\) è iniettivo. Dunque \(\varphi\) è un
+              isomorfismo di gruppi. Tutti i sottogruppi di \(\mathbb{Z} \) sono ciclici.
+        \item G è finito: sia \(H \subseteq G\) un sottogruppo. Allora \(\varphi^{-1}(H) := \{n \in \mathbb{Z} :
+              \varphi(n) \in H\} \subseteq \mathbb{Z} \) è un sottogruppo di \(\mathbb{Z} \), quindi esiste \(
+              \varphi^{-1}(H)= \langle k \rangle\) con \(k \in \mathbb{N} \).\\
+              La restrizione \(\varphi: k \mathbb{Z} \rightarrow H\) è un morfismo suriettivo di gruppi e 
+              \(\varphi(hk) = \varphi(\underbrace{k+k+\cdots+k}_{h \text{ volte}}) = \varphi(k) \varphi(k) \cdots 
+              \varphi(k) = [\varphi(k)]^h , \forall h \in \mathbb{Z} \). Quindi \(H = \langle \varphi(k) \rangle\).
+    \end{itemize}
+\end{dimostrazione}
+
+\textbf{Corollario:} L'insieme dei sottogruppi di \(\mathbb{Z}_n , n \in \mathbb{N} \) è \(\{\langle \overline{m} \rangle
+: \overline{m} \in \mathbb{Z}_n \}\).
+
+\begin{proposition}
+    Sia \(n \in \mathbb{N} \text{ e sia } d/n\) (d divide n). Allora esiste al più un unico sottogruppo di \(\mathbb{Z}_n\)
+    di cardinalità \(d\).
+\end{proposition}
+
+\begin{dimostrazione}
+\
+    Sia \(H \subseteq \mathbb{Z}_n\) sottogruppo tale che \(|H| = d\). Si considerino le proiezioni canoniche
+    \(\mathbb{Z} \rightarrow^{\pi_1} \mathbb{Z}_n \rightarrow^{\pi_2} \sfrac{\mathbb{Z}_n }{H}\).\\
+    Poiché \(\pi^{-1}_1 (H) = \{m \in \mathbb{Z} : \pi_1 (m) \in H\}\) è un sottogruppo di \(\mathbb{Z} \), allora esiste 
+    \(k \in \mathbb{N} \) tale che \(\pi^{-1}_1(H) = k \mathbb{Z}\). Inoltre \(Ker(\pi_1 \cdot \pi_2) = \pi^{-1}_1
+    (H)\) e quindi, essendo \(\pi_1 \cdot \pi_2\) un morfismo suriettivo di gruppi, \(\sfrac{\mathbb{Z}_n }{H}
+    \simeq \sfrac{\mathbb{Z} }{\pi^{-1}(H)} = \sfrac{\mathbb{Z} }{k \mathbb{Z} }= \mathbb{Z}_k\).\\
+    Quindi \(|\mathbb{Z}_k | = k =|\sfrac{\mathbb{Z}_n }{H}| = \sfrac{|\mathbb{Z}_n |}{|H|} = \frac{n}{d}\), ossia \(k\)
+    è univocamente determinato, e allora \(H = \pi_1 (k \mathbb{Z} )\) è univocamente determinato.
+\end{dimostrazione}
+
+\begin{example}
+    I sottogruppi di \(\mathbb{Z}_{899}\) sono quattro, perché \(899 = 31 \cdot 29\), quindi c'è un sottogruppo di
+    cardinalità 1 (il sottogruppo banale), uno di cardinalità 31, uno di cardinalità 29 e \(\mathbb{Z}_{899}\).\\
+    Sono: \(\{\{0\} , \langle \overline{29} \rangle , \langle \overline{31} \rangle , \mathbb{Z}_{899}\}\).
+
+\end{example}
 
 
 
