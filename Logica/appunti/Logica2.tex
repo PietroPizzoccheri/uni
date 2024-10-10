@@ -591,7 +591,7 @@ che si legge "\(x\) è equivalente a \(y\)".
                   \item \(g \sim g : g \cdot e \text{ , } \forall g \in G , e \in H\)
                   \item \(g_1 \sim g_2 \rightarrow g_2 \sim g_1 : g_1 = g_2 h \rightarrow
                         g_1 h^{-1} = g_2\) (\(h^{-1} \in H\))
-                        \item \(g_1 \sim g_2 , g_2 \sim g_3 \rightarrow g_1 \sim g_3 : 
+                  \item \(g_1 \sim g_2 , g_2 \sim g_3 \rightarrow g_1 \sim g_3 :
                         g_1 = g_2 h, g_2 = g_3 h' \rightarrow g_1 = g_3 h h' = g_3 h''
                         , \forall g_1,g_2,g_3 \in G\)
               \end{itemize}
@@ -616,14 +616,198 @@ se \(g_{1}' = g_1 + h_1 \text{ e } g_{2}' = g_2 + h_2\), allora \([g_{1}'] = [g_
 dove \(h = h_1 + h_2 \in H\). Quindi \([g_{1}' + g_{2}'] = [g_1 + g_2]\).
 L'operazione è ovviamente associativa e commutativa, perché lo è quella su \(G\).
 Inoltre \([g] + [0] = [g] \text{, } \forall [g] \in \sfrac{G}{H}\) dove con \("0"\)
-abbiamo indicato l'identità di \(G\). Quindi la classe \([0]\) dell'identità di \((\sfrac{G}{H} , +) 
+abbiamo indicato l'identità di \(G\). Quindi la classe \([0]\) dell'identità di \((\sfrac{G}{H} , +)
 \).
 Infine \([g] + [-g] = [g-g] = [0]\), dove con \(-g\) abbiamo indicato l'inverso di \(g\) in \(G\).
 Quindi \(-[g] = [-g], \forall [g] \in \sfrac{G}{H}\), ossia \((\sfrac{G}{H},+)\) è un gruppo abeliano.
 
 \begin{example}
+    \
+    \begin{itemize}
+        \item Se \(H = \{0\} \subseteq G\), allora \(\sfrac{G}{H}\) è isomorfo a \(G\). (\(\{0\}\) gruppo banale e \(G\) gruppo abeliano)
+        \item Sia \(G = (\mathbb{Z} , +) \text{ e } n \in \mathbb{N} \). Il sottoinsieme \(n\mathbb{Z} = \{nz : z \in \mathbb{Z}\}\)
+              è un sottogruppo di \(\mathbb{Z}\). \
+              \begin{itemize}
+                  \item \(0 \mathbb{Z} = \{0\}\)
+                  \item \(1 \mathbb{Z} = \{\mathbb{Z} \}\)
+                  \item \(2 \mathbb{Z} = \{...,-4,-2,0,2,4,...\}\)
+                  \item \(3 \mathbb{Z} = \{...,-6,-3,0,3,6,...\}\)
+              \end{itemize}
+              Definiamo il gruppo abeliano \(\mathbb{Z}_n := \sfrac{\mathbb{Z}}{n\mathbb{Z}}\),
+              per \(\mathbb{Z}_0 = \sfrac{\mathbb{Z}}{0 \mathbb{Z}}
+              = \sfrac{\mathbb{Z}}{\{0\}} = \mathbb{Z} \). \newline
+              Sia \(n \geq 0 \text{ e siano } x,y \in \mathbb{Z} \).
+              \
+              \begin{itemize}
+                  \item Allora \(x \sim y \Leftrightarrow
+                        x = y+h \text{  } (h \in n \mathbb{Z})
+                        \Leftrightarrow x-y = kn \text{ (per \(k \in \mathbb{Z}\)) }  \Leftrightarrow
+                        \text{ il resto della divisione di \(x\) per \(n\) è uguale
+                            al resto  della divisione di \(y\) per \(n\)}\).
+              \end{itemize}
+
+              I possibili resti della divisione
+              per \(n\) sono \(0,1,...,n-1\).\\
+              Quindi \(\mathbb{Z}_n = \{[0],[1],...,[n-1]\} = \{\overline{0}, \overline{1},...,\overline{n - 1}\}\).
+              (\(\{[0],[1],...,[n-1]\}\) sono le classi di resto)
+              \
+              \begin{itemize}
+                  \item \(\mathbb{Z}_2 = \{\overline{0},\overline{1}\}\),
+                        \begin{table}[htbp]
+                            \centering
+                            \begin{tabular}{|c|c|c|}
+                                \hline
+                                +                & \(\overline{0}\) & \(\overline{1}\) \\ \hline
+                                \(\overline{0}\) & \(\overline{0}\) & \(\overline{1}\) \\ \hline
+                                \(\overline{1}\) & \(\overline{1}\) & \(\overline{0}\) \\ \hline
+                            \end{tabular}
+                        \end{table}
+                        \(\overline{1} + \overline{1} = [1 + 1] = [2] = [0]\)
+                  \item \(\mathbb{Z}_3 = \{\overline{0},\overline{1},\overline{2}\}\),
+                        \begin{table}[htbp]
+                            \centering
+                            \begin{tabular}{|c|c|c|c|}
+                                \hline
+                                +                & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
+                                \(\overline{0}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
+                                \(\overline{1}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{0}\) \\ \hline
+                                \(\overline{2}\) & \(\overline{2}\) & \(\overline{0}\) & \(\overline{1}\) \\ \hline
+                            \end{tabular}
+                        \end{table}
+              \end{itemize}
+    \end{itemize}
+\end{example}
+
+
+\begin{definition}
+    Sia \(G\) un gruppo abeliano e \(H \subseteq G\) un sottogruppo. La proiezione canonica \(\pi : G \rightarrow \sfrac{G}{H}\)
+    è un \textbf{morfismo suriettivo di gruppi}
+\end{definition}
+
+Se \(G\) è un gruppo finito e \(H \subseteq G\) è un sottogruppo, allora \([g] \in \sfrac{G}{H} \rightarrow |[g]| = |H|\).\\
+Infatti \([g] = \{gh : h \in  H\}\) e \(gh_1 = gh_2 \rightarrow h_1 = h_2\).\\
+Poiché le classi di quivalenza sono una partizione di G , abbiamo \(|G| = |\sfrac{G}{H}| \cdot |H|\).\\
+In particolare la cardinalità o (\textbf{ordine}) di un sottogruppo di un gruppo finito divide la cardinalità del gruppo.\\
+
+\begin{teorema}
+    Sia \(f : G_1 \rightarrow G_2\) un morfismo di gruppi. Allora \(f\) è iniettivo se e solo se \(Ker(f) = \{e_1\}\).\\
+    (Questo non vale per i morfismi di monoidi.)
+\end{teorema}
+
+\begin{dimostrazione}
+    \
+    Sia \(f\) iniettivo. Sia \(x \in Ker(f)\). Allora \(f(x) = e_2\) e quindi, poiché anche \(f(e_1) = e_2\), si ha che \(x = e_1\)
+    per l'ipotesi di iniettività.\\\
+    Sia \(Ker(f) = \{e_1\}\). Siano \(x,y \in G_1\) tali che \(f(x) = f(y)\).\\
+    Allora \(f(x)f(y^{-1}) = e_2 \rightarrow  f(xy^{-1}) = e_2 \rightarrow  xy^{-1} \in Ker(f) \rightarrow xy^{-1} = e_1 \rightarrow
+    x=y\),
+\end{dimostrazione}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item \(G = \mathbb{Z}_4 = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}\), \
+              \begin{itemize}
+                  \item \(\langle \overline{0} \rangle = {\overline{0}}\) sottogruppo banale \(\simeq \mathbb{Z}_1\)
+                  \item \(\langle \overline{1} \rangle = \mathbb{Z}_4\)
+                  \item \(\langle \overline{2} \rangle = \{\overline{0}, \overline{2}\} \simeq \mathbb{Z}_2\) (\(2+2=0\))
+                  \item \(\langle \overline{3} \rangle = \mathbb{Z}_4\) (\(3 , 3+3=6=2, 3+2=5=1, 3+1=4=0\))
+              \end{itemize}
+              I sottogruppi di \(\mathbb{Z}_4\) possono averer cardinalità \(1,2,4\). L'insieme
+              dei sottogruppo di \(\mathbb{Z}_4\) è \(\{\{\overline{0}\}, \{\overline{0}, \overline{2}\},
+              \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}= \mathbb{Z}_4\}\)
+        \item \(G = \mathbb{Z}_6 = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}\}\), \
+              \begin{itemize}
+                  \item \(\langle \overline{0} \rangle = {\overline{0}}\) sottogruppo banale \(\simeq \mathbb{Z}_1\)
+                  \item \(\langle \overline{1} \rangle = \mathbb{Z}_6\)
+                  \item \(\langle \overline{2} \rangle = \{\overline{0}, \overline{2}, \overline{4}\} \simeq \mathbb{Z}_3\)
+                  \item \(\langle \overline{3} \rangle = \{\overline{0}, \overline{3}\} \simeq \mathbb{Z}_2\)
+                  \item \(\langle \overline{4} \rangle = \{\overline{0}, \overline{2}, \overline{4}\} \simeq \mathbb{Z}_3\)
+                  \item \(\langle \overline{5} \rangle = \mathbb{Z}_6\)
+              \end{itemize}
+              I sottogruppi di \(\mathbb{Z}_6\) possono averer cardinalità \(1,2,3,6\). L'insieme
+              dei sottogruppo di \(\mathbb{Z}_6\) è \(\{\{\overline{0}\}, \{\overline{0}, \overline{2}, \overline{4}\},
+              \{\overline{0}, \overline{3}\}, \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}\}= \mathbb{Z}_6\}\)
+    \end{itemize}
+\end{example}
+
+\textbf{Caso generale:} consideriamo il gruppo \(\mathbb{Z}_n = (\{\overline{0},\overline{1},...,\overline{n-1}\}
+,+) \)  sia \(m \in \mathbb{N}, m < n\).\\
+Se \(m=0\), \(\langle \overline{0} \rangle = \{\overline{0}\}\).\\
+Sia \(m > 0 \) e \(z := \frac{mcm \{m,n\}}{m}\). (mcm = minimo comune multiplo)
+
+\(\overline{m}+\overline{m}+...=\overline{m} = \overline{zm} = \overline{mcm \{m,n\}} = \overline{0}\)
+
+Se \(i \leq i \leq z\): \(im < zm = mcm \{m,n\} \rightarrow n non divide im\).
+
+\(\overline{m}+\overline{m}+...=\overline{m} = \overline{im} \neq \overline{0}\) perché \(im\) è multiplo di \(m\)
+e \(im < mcm \{m,n\}\), quindi \(im\) non è multiplo di \(n\). Dunque \(|\langle \overline{m} \rangle| =
+z= \frac{mcmc \{m,n\}}{m}\).
+
+In particolare, \(\langle \overline{m} \rangle = \mathbb{Z}_n \Leftrightarrow z=n \Leftrightarrow MCD \{m,n\}=1\). Ossia
+\textbf{l'insieme \(\{\overline{m}\}\) genera il gruppo \(\mathbb{Z}_n\) sse \(m \text{ e } n\) sono coprimi.}
+
+\begin{definition}
+    La funzione definita da \(\varphi : \mathbb{N} \backslash \{0\} \rightarrow \mathbb{N} \backslash \{0\}\) ,
+
+    \(\varphi(n) := |\{m \in \mathbb{N} \backslash \{0\} : m < n \text{ e } MCD \{m,n\} = 1\}|\)
+    è detta \textbf{funzione di Eulero}.
+
+    Quindi ci sono \(\varphi(n)\) elementi \(\overline{m}\) tali che \(\langle \overline{m} \rangle = \mathbb{Z}_n\).
+\end{definition}
+
+\begin{proposition}
+    L'insieme dei sottogruppi di \((\mathbb{Z} ,+)\) è \(\{n \mathbb{Z} : n \in \mathbb{N} \} \).
+\end{proposition}
+
+
+\begin{dimostrazione}
+    \
+    Sia \(H \subseteq \mathbb{Z} \) un sottogruppo non banale.\\
+    Sia \(k := min (H_{>0})\) dove \(H_{>0} := \{h \in H : h > 0\}\).\\
+    Sia \(h \in H_{>0}, h \neq k\).\\
+    Allora \(h > k\) e \(h = nk + r\), \(n \in \mathbb{N} , 0 \leq r <k\).\\
+    Dunque \(r = h - nk \in H \rightarrow r =0\) per la minimalità di \(k\).\\
+\end{dimostrazione}
+
+\begin{definition}
+    Un gruppo \(G\) è detto \textbf{ciclico} se esiste \(g \in G\) tale che \(\langle g \rangle = G\).\\
+    Un gruppo ciclico è anche abeliano
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item \(\mathbb{Z} = \langle 1 \rangle\) è ciclico
+        \item \(\mathbb{Z}_n = \langle \overline{1} \rangle\) è ciclico
+        \item \(\mathbb{Z} \times \mathbb{Z} = \langle (1,0), (0,1) \rangle\) non è ciclico,
+              infatti in \(\mathbb{Z}  \times \mathbb{Z} \), se \((a,b) \in \mathbb{Z} \times \mathbb{Z} \),
+              \(\langle (a,b) \rangle = \{(ka,kb) : k \in \mathbb{Z} \} = \{(x,y) : a \text{ divide } x,b \text{ divide } y\}
+              \subsetneq \mathbb{Z} \times \mathbb{Z} \).
+        \item \(\mathbb{Z}_2 \times \mathbb{Z}_2\) non è ciclico. Infatti, in \(\mathbb{Z}_2 \times \mathbb{Z}_2\) si ha:
+        \
+        \begin{itemize}
+            \item \(\langle (\overline{0},\overline{0}) \rangle = \{(\overline{0},\overline{0})\}\)
+            \item \(\langle (\overline{0}, \overline{1}) \rangle = \{\overline{0}\} \times \mathbb{Z}_2\)
+            \item  \(\langle (\overline{1}, \overline{0}) \rangle = \mathbb{Z}_2 \times \{\overline{0}\}\)
+            \item \(\langle (\overline{1}, \overline{1}) \rangle = \{(\overline{0},\overline{0}),(\overline{1},\overline{1})\}\)
+        \end{itemize}
+        Quindi nessun elemento di \(\mathbb{Z}_2 \times \mathbb{Z}_2\) genera \(\mathbb{Z}_2 \times \mathbb{Z}_2\).
+    \end{itemize}
+
+    \begin{teorema}[di isomorfismo per gruppi abeliani]
+        
+    \end{teorema}
     
 \end{example}
+
+
+
+
+
+
+
+
 
 
 \end{document}
