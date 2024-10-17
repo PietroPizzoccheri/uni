@@ -404,7 +404,7 @@ L'inverso di una coppia \((a,b) \in G_1 \times G_2\) è \((a^{-1},b^{-1})\).
 \begin{dimostrazione}
     \
     Dobbiamo far vedere che la funzione inversa \(f^{-1} : M_2 \rightarrow M_2\) è un morfismo di monoidi.
-    Poiché \(f(e_1) = e_2\), allora \(f^{-1}(e_2) = e_2\). Siano \(x_2,y_2 \in M_2\), allora esistono
+    Poiché \(f(e_1) = e_2\), allora \(f^{-1}(e_2) = e_1\). Siano \(x_2,y_2 \in M_2\), allora esistono
     \(x_1,y_1 \in M_1\) tali che \(f(x_1)=x_2 , f(y_1)=y_2\). Quindi \(f^{-1} (f(x_1)f(y_1)) = f^{-1}(f(x_1 y_1))
     = x_1 y_1 = f^{-1}(x_2) f^{-1}(y_2)\)
 \end{dimostrazione}
@@ -428,7 +428,7 @@ L'inverso di una coppia \((a,b) \in G_1 \times G_2\) è \((a^{-1},b^{-1})\).
 
 \textbf{Vediamo ora come ogni monoide finito è isomorfo a un monoide di matrici quadrate, dove l'operazione
     è il prodotto righe per colonne.}\newline
-Sia \(M=\{x_1,\cdots,x_n\}\) un monoide, \(|M|=n \in \mathbb{N}\), con identità \(e = x_1\). Pero ogni \(x \in
+Sia \(M=\{x_1,\cdots,x_n\}\) un monoide, \(|M|=n \in \mathbb{N}\), con identità \(e = x_1\). Per ogni \(x \in
 M\) definiamo una matrice \(A(x) \in Mat_{n \times n}(\mathbb{Z})\) nel seguente modo: \(A(x)_{ij} = 1\)
 se \(x_i \cdot x = x_j\) e \(A(x)_{ij} = 0\) altrimenti. La funzione \(F : M \rightarrow Mat_{n \times n}
 (\mathbb{Z})\) (\(x \mapsto A(x)\)) è iniettiva.\newline
@@ -535,7 +535,7 @@ Gli elementi di \(S_n\) in notazione a una linea sono indicati nel modo seguente
               \end{bmatrix}, \begin{bmatrix}
                   0 & 1 \\
                   1 & 0
-              \end{bmatrix}\} \simeq \{12,21\} = S_2\) (\(\simeq isomorfismo di gruppi\))
+              \end{bmatrix}\} \simeq \{12,21\} = S_2\) (\(\simeq\) : isomorfismo di gruppi)
     \end{itemize}
 \end{example}
 
