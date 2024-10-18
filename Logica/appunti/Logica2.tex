@@ -920,7 +920,7 @@ Considereremo sempre \(0 \neq 1_A\) e studieremo solo anelli commutativi con uni
 \end{definition}
 
 \begin{definition}
-    Diciamo che un elemento \(x \in A\) è \textbf{invertibile} se è un elemento invertibile del 
+    Diciamo che un elemento \(x \in A\) è \textbf{invertibile} se è un elemento invertibile del
     monoide \((A, \cdot )\).
 \end{definition}
 
@@ -930,7 +930,7 @@ Considereremo sempre \(0 \neq 1_A\) e studieremo solo anelli commutativi con uni
 \end{proposition}
 
 \begin{dimostrazione}
-\
+    \
     Siano \(x,y \in A\) tali che \(x y = 0\). Se \(X\) è invertibile, allora \(x^{-1}xy = y = 0\),
     quindi \(x\) non è uno zero-divisore.
 \end{dimostrazione}
@@ -941,7 +941,7 @@ Considereremo sempre \(0 \neq 1_A\) e studieremo solo anelli commutativi con uni
 \end{proposition}
 
 \begin{dimostrazione}
-\
+    \
     Se \(xy = xz\) allora \(x(y - z) = 0 \). Poiché \(x\) non è uno zero-divisore, allora \(y-z = 0\), ossia \(y=z\).
 \end{dimostrazione}
 
@@ -986,7 +986,7 @@ Allora : \
 \end{itemize}
 
 \begin{definition}
-    Sia \(S \subseteq A\) un sottoinsieme di un anello commutativo. \textbf{L'ideale generato da \(S\)} è 
+    Sia \(S \subseteq A\) un sottoinsieme di un anello commutativo. \textbf{L'ideale generato da \(S\)} è
     l'intersezione di tutti gli ideali di \(A\) che contengono \(S\) e lo indichiamo con \(\langle S \rangle\).\\
     Se \(S =\{x\}\), diciamo che \(\langle S \rangle\) è \textbf{l'ideale principale generato da \(x \in A\)}.
 \end{definition}
@@ -1000,5 +1000,35 @@ Allora : \
 \begin{definition}
     un anello i cui ideali sono tutti principali si dice \textbf{anello ad ideali principali}.
 \end{definition}
+
+\begin{proposition}
+    Sia \(A\) un anello commutativo e \(I \subseteq A\) un ideale.\\
+    Allora: \
+    \begin{itemize}
+        \item \(I = A\) se e solo se \(I\) contiene un elemento invertibile
+        \item \(A\) è un campo sse i suoi unici ideali sono
+              \(\langle 0 \rangle\) e \(A = \langle 1_A \rangle\)
+    \end{itemize}
+\end{proposition}
+
+\begin{dimostrazione}
+    \
+    \
+    \begin{itemize}
+        \item se \(I = A\) allora \(1_A \in I\) e \(1_A\) è invertibile.\\
+              Sia \(u \cap I\) un elemento invertibile. Allora \(u^{-1} \cap A\) e quindi
+              \(1_A u u^{-1} \in I\). Ne segue che \(A = \langle 1_A \rangle \subseteq I\).
+              e quindi \(I = A\).
+        \item Sia \(A\) un campo e sia \(I \neq \langle 0 \rangle\).\\
+        se \( n \in I\) e \(x \neq 0\) allora \(x\) è invertibile e quindi \(I = A\)
+        per il punto sopra.\\
+        Vicerversa, se \(\langle 0 \rangle\) e \(A\) sono gli unici ideali di \(A\),
+        e se \(x \in A  \backslash \{0\}\), allora \(\langle X \rangle = \langle 1_A \rangle\),
+         ossia \(ax = 1_A\) per qualche \(a \in A\). Quindi \(x\) è invertibile.
+
+    \end{itemize}
+
+\end{dimostrazione}
+
 
 \end{document}
