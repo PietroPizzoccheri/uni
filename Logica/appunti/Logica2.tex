@@ -1020,15 +1020,127 @@ Allora : \
               \(1_A u u^{-1} \in I\). Ne segue che \(A = \langle 1_A \rangle \subseteq I\).
               e quindi \(I = A\).
         \item Sia \(A\) un campo e sia \(I \neq \langle 0 \rangle\).\\
-        se \( n \in I\) e \(x \neq 0\) allora \(x\) è invertibile e quindi \(I = A\)
-        per il punto sopra.\\
-        Vicerversa, se \(\langle 0 \rangle\) e \(A\) sono gli unici ideali di \(A\),
-        e se \(x \in A  \backslash \{0\}\), allora \(\langle X \rangle = \langle 1_A \rangle\),
-         ossia \(ax = 1_A\) per qualche \(a \in A\). Quindi \(x\) è invertibile.
+              se \( n \in I\) e \(x \neq 0\) allora \(x\) è invertibile e quindi \(I = A\)
+              per il punto sopra.\\
+              Vicerversa, se \(\langle 0 \rangle\) e \(A\) sono gli unici ideali di \(A\),
+              e se \(x \in A  \backslash \{0\}\), allora \(\langle X \rangle = \langle 1_A \rangle\),
+              ossia \(ax = 1_A\) per qualche \(a \in A\). Quindi \(x\) è invertibile.
 
     \end{itemize}
 
 \end{dimostrazione}
+
+\subsubsection{Anelli quoziente}
+
+Sia \(A\) un anello commutativo e \(I \subseteq A\) un ideale.\\
+In particolare, \(A\) con l'operazione \("+"\) è un campo abeliano e \(I\) è un sottogruppo di \(A\).\\
+Allora possiamo definire il gruppo quoziente \(\sfrac{A}{I}\).\\
+Con l'operazione \([x] \cdot [y] := [xy]\), per ogni \([x] , [y] \in \sfrac{A}{I}\), abbiamo che
+\(\sfrac{A}{I}\) è un anello commutativo con unità \([1_A]\).\\
+Infatti, mostriamo che l'operazione è ben definita. Siano \(x' \in [x]\) e \(y' \in [y]\). Allora
+esistono \(i_x \in I\) e \(i_y \in I\) tali che \(x' = x + i_x\) e \(y' = y + i_y\).\\
+Quindi \(x'y' = (x + i_x) (y + i_y) = xy + \underbrace{x i_y + y i_x + i_x i_y}_{\in I \text{ perchè \(I\) è
+    un ideale di \(A\) }}  \)\\
+Quindi \([x'y'] = [xy]\).\\
+Inoltre \([1_A] [x] = [1_A x] = [x] \), per ogni \([x] \in \sfrac{A}{I}\), quindi \([1_A]\)
+è l'unità di \(\sfrac{A}{I}\).
+
+\begin{example}
+    Abbiamo visto che \(n \mathbb{Z} = \{kn : k \in \mathbb{Z} \}\) è un ideale
+    dell'anello \(\mathbb{Z} \). Quindi il quoziente \(\mathbb{Z}_n = \sfrac{\mathbb{Z}
+    }{n \mathbb{Z} }\) ha la struttura di anello.
+    \
+    \begin{itemize}
+        \item \(\mathbb{Z}_0 \simeq \mathbb{Z} \)
+        \item \(\mathbb{Z}_1 \simeq \{0\}\) anello nullo.
+        \item \(\mathbb{Z}_2 \simeq \{\overline{0}, \overline{1}\}\) \begin{table}[htbp]
+                  \centering
+                  \begin{tabular}{ c | c | c}
+
+                      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) \\ \hline
+                      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
+                      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) \\
+                  \end{tabular}
+              \end{table}
+        \item \(\mathbb{Z}_3 \simeq \{\overline{0}, \overline{1}, \overline{2}\}\) è un campo perchè
+              \(\overline{1}\) è invertibile e \(\overline{2} \cdot \overline{2} = \overline{1}\), quindi
+              anche \(\overline{2}\) è invertibile. \begin{table}[htbp]
+                  \centering
+                  \begin{tabular}{ c | c | c | c}
+
+                      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
+                      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
+                      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
+                      \(\overline{2}\) & \(\overline{0}\) & \(\overline{2}\) & \(\overline{1}\) \\
+                  \end{tabular}
+              \end{table}
+        \item \(\mathbb{Z}_4 = \{\overline{0},\overline{1},\overline{2},\overline{3}\}\) dove
+              \(\overline{2} \cdot \overline{2} = \overline{0}\), quindi \(\mathbb{Z}_4\) non è un dominio
+              di integrità.\\In particolare non è un campo.
+              \begin{table}[htbp]
+                  \centering
+                  \begin{tabular}{ c | c | c | c | c}
+
+                      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
+                      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
+                      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
+                      \(\overline{2}\) & \(\overline{0}\) & \(\overline{2}\) & \(\overline{0}\) & \(\overline{2}\) \\ \hline
+                      \(\overline{3}\) & \(\overline{0}\) & \(\overline{3}\) & \(\overline{2}\) & \(\overline{1}\) \\
+                  \end{tabular}
+              \end{table}
+    \end{itemize}
+\end{example}
+
+Vediamo che \(\mathbb{Z}_n\) è un campo se e solo se \(n \in \mathbb{N} \backslash \{0,1\}\)
+è un numero primo (per \(n =0 \) abbiamo \(\mathbb{Z}_0 \simeq \mathbb{Z} \) e per \(n = 1\) abbiamo l'anello nullo).\\
+Un ideale di \(\mathbb{Z}_n \) è un sottogruppo di \(\mathbb{Z}_n\).\\
+Poiché \(\mathbb{Z}_n\) è ciclico, i suoi sottogruppi sono ciclici e sono \(\{\langle \overline{m} \rangle :
+\overline{m} \in \mathbb{Z}_n\}\). Inoltre \(\langle \overline{m} \rangle \subseteq \mathbb{Z}_n\) è un ideale,
+\(\forall \overline{m} \in \mathbb{Z}_n\). Infatti, se \(\overline{a} \in \mathbb{Z} \), allora \(
+\overline{a} \overline{m} = \overline{am} = \underbrace{\overline{m} + \overline{m} + \cdots + \overline{m}}_{a \text{ volte }}  \in
+\langle \overline{m} \rangle\)\\
+Quindi \(\{\langle \overline{m} \rangle : \overline{m} \in \mathbb{Z}_n\}\) è l'insieme
+degli ideali di \(\mathbb{Z}_n\) (\(\mathbb{Z}_n\) è anello ad ideali principali).\\
+Inoltre, se \(n > 1, \{\langle \overline{m} \rangle \overline{m} \in \mathbb{Z}_n\} =
+\{\{\overline{0}\}, \mathbb{Z}_n\} \cup \{\langle \overline{m} \rangle : MCD_{m \neq 0} \{m,n\} \neq 1\}\)\\
+Quindi \(\mathbb{Z}_n\) è un campo se e solo se \(\{\langle \overline{m} \rangle : \overline{m} \in \mathbb{Z}_n\} =
+\{\{\overline{0}\}, \mathbb{Z}_n\}\) se e solo se \(n\) è un numero primo.
+
+\begin{example}
+    \(\mathbb{Z}_3\) è un campo, si ha che \(\overline{2}^{-1} = \overline{2}\). Infatti
+    \(\overline{2} \cdot \overline{2} = \overline{4} = \overline{1}\).\\Invece \(\mathbb{Z}_4\) non lo è;
+    infatti \(\overline{2} \cdot \overline{2} = \overline{0}\) e quindi \(\overline{2}\) non è invertibile.
+\end{example}
+
+
+\subsubsection{Algoritmo di Euclide e identità di Bézout su \(\mathbb{Z}\)}
+
+Vogliamo calcolare il massimo comun divisore tra 1876 e 365.\\
+Usiamo l'algoritmo di Euclide: \\
+\begin{center}
+    \(1876 = 5 \cdot 365 + 51\)\\
+    \(365 = 7 \cdot 51 + 8\)\\
+    \(51 = 6 \cdot 8 + 3\)\\
+    \(8 = 2 \cdot 3 + 2\)\\
+    \(3 = 1 \cdot 2 + 1\)\\
+    \(2 = 2 \cdot 1 + 0\)\\
+\end{center}
+
+Quindi \(MCD \{1876,365\} = 1\).\\
+Adesso vogliamo trovare due numeri \(x,y \in \mathbb{Z} \) tali che \(1876x + 365y = 1\).\\
+Un'identità del tipo \(ax + by = MCD \{a,b\}\) si chiama \textbf{identità di Bézout}.\\
+Dall'algoritmo di Euclide abbiamo:
+\begin{center}
+    \(1 = 3 - 2 \cdot 1\)\\
+    \(2 = 8 - 3 \cdot 2\)\\
+    \(3 = 51 - 6 \cdot 8\)\\
+    \(8 = 365 - 7 \cdot 51\)\\
+    \(51 = 1876 - 5 \cdot 365\)\\
+\end{center}
+Quindi\\
+\begin{center}
+    
+\end{center}
 
 
 \end{document}
