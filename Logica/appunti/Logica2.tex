@@ -71,6 +71,15 @@
     {.5em} % Space after theorem head
     {} % head spec 
 
+    \newtheoremstyle{osservazione}
+    {10pt} % Space above
+    {5pt} % Space below
+    {\itshape} % Body font
+    {} % Indent amount
+    {\color[rgb]{0.5,0.5,0}\itshape\bfseries} % head font
+    {:} % Punctuation after theorem head
+    {.5em} % Space after theorem head
+    {} % head spec
 
 
 \theoremstyle{def}
@@ -90,6 +99,9 @@
 
 \theoremstyle{teo}
 \newtheorem*{teorema}{Teorema}
+
+\theoremstyle{osservazione}
+\newtheorem*{osservazione}{Osservazione}
 
 \begin{document}
 
@@ -1001,8 +1013,6 @@ Allora : \
     un anello i cui ideali sono tutti principali si dice \textbf{anello ad ideali principali}.
 \end{definition}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 \begin{proposition}
     Sia \(A\) un anello commutativo e \(I \subseteq A\) un ideale.\\
     Allora: \
@@ -1035,7 +1045,7 @@ Allora : \
 \subsubsection{Anelli quoziente}
 
 Sia \(A\) un anello commutativo e \(I \subseteq A\) un ideale.\\
-In particolare, \(A\) con l'operazione \("+"\) è un campo abeliano e \(I\) è un sottogruppo di \(A\).\\
+In particolare, \(A\) con l'operazione \("+"\) è un gruppo abeliano e \(I\) è un sottogruppo di \(A\).\\
 Allora possiamo definire il gruppo quoziente \(\sfrac{A}{I}\).\\
 Con l'operazione \([x] \cdot [y] := [xy]\), per ogni \([x] , [y] \in \sfrac{A}{I}\), abbiamo che
 \(\sfrac{A}{I}\) è un anello commutativo con unità \([1_A]\).\\
@@ -1115,7 +1125,7 @@ Quindi \(\mathbb{Z}_n\) è un campo se e solo se \(\{\langle \overline{m} \rangl
 \end{example}
 
 
-\subsubsection{Algoritmo di Euclide e identità di Bézout su \(\mathbb{Z}\)}
+\subsection{Algoritmo di Euclide e identità di Bézout su \(\mathbb{Z}\)}
 
 Vogliamo calcolare il massimo comun divisore tra 1876 e 365.\\
 Usiamo l'algoritmo di Euclide: \\
@@ -1141,14 +1151,164 @@ Dall'algoritmo di Euclide abbiamo:
 \end{center}
 Quindi\\
 \begin{center}
-    
+    \(1 = 3 - 2 =\)\\
+    \(= 3 - (8 - 3 \cdot 2) = 3 \cdot 3 - 8\)\\
+    \(= 3 \cdot (51 - 8 \cdot 6) - 8 = 3 \cdot 51 - 8 \cdot 19\)\\
+    \(= 3 \cdot 51 - 19(365 - 51 \cdot 7)\)\\
+    \(= 136 \cdot 51 - 19 \cdot 365\)\\
+    \(= 136 \cdot (1876 - 365 \cdot 5) - 19 \cdot 365\)\\
+    \(= 136 \cdot 1876 - 699 \cdot 365\)\\
 \end{center}
+Quindi \(x = -699\) e \(y = 136\).\\
+In generale possiamo enunciare il seguente teorema:
+
+\begin{teorema}
+    siano \(a,b \in \mathbb{N} \setminus {0}\), se \(a \mid b\), allora \(a = MCD\{a,b\}\).\\
+    se \(a \nmid b\) e \(r\) è l'ultimo resto non nullo dell'algoritmo di Euclide, allora \(r = MCD \{a,b\}\).\\
+    inoltre esistono \(x,y \in \mathbb{Z} \) tali che \(ax + by = MCD \{a,b\}\).
+\end{teorema}
+
+\begin{dimostrazione}
+    \
+    Sia \(I = \{ax + by : x,y \in \mathbb{Z} \}\) l'insieme dei multipli di \(a\) e \(b\).\\
+    Poiché \(I\) è un ideale di \(\mathbb{Z} \), allora \(I = n \mathbb{Z} \) per qualche \(n \in \mathbb{N} \).\\
+    Poiché \(a \in I\), allora \(n \mid a\).\\
+    Poiché \(b \in I\), allora \(n \mid b\).\\
+    Quindi \(n = MCD \{a,b\}\).\\
+    Inoltre, poiché \(r \in I\), allora \(r = ax + by\) per qualche \(x,y \in \mathbb{Z} \).\\
+    Quindi \(r = MCD \{a,b\}\).\\
+    \\
+    fatta da copilot, controllare a pag 40 di "a concrete introduction to higher algebra" di Lindsay Childs
+\end{dimostrazione}
+
+\subsection{Equazioni diofantee lineari}
+sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
+
+\begin{proposition}
+    siano \(a,b,c \in \mathbb{Z} \).\\
+    allora esistono \(x,y \in \mathbb{Z} \) tali che \(ax + by = c\) se e solo se \(MCD \{a,b\} \mid c\).
+\end{proposition}
+
+\begin{dimostrazione}
+    \
+    Se \(ax + by = c\), allora \(MCD \{a,b\} \mid c\).\\
+    Viceversa, se \(d := MCD \{a,b\} \mid c\), allora abbiamo un'identità di Bézout \(ax + by = d\) \(\forall x,y \in \mathbb{Z}\).\\
+    se \(d \mid c\) cioè se \(c = d \cdot k\) per qualche \(k \in \mathbb{Z} \), \(a(kx) + b(ky) = kd = c\)\\
+\end{dimostrazione}
+
+\begin{example}
+    l'equazione diofantea:\\
+    \(365x - 1876y = 24\) ha soluzione perchè \(MCD \{365,1876\} = 1\) e \(1 \mid 24\).\\
+    Avevamo l'identità di Bézout \(365(-699) - 1876(-136) = 1\), moltiplicando per 24 otteniamo\\
+    \(365(-699 \cdot 24) - 1876(-136 \cdot 24) = 24\).\\
+    ossia una soluzione è \(x = -699 \cdot 24\) e \(y = -136 \cdot 24\).
+\end{example}
+
+\begin{example}
+    in \(\mathbb{Z}_{1876}\) calcolare, se esiste, l'inverso moltiplicativo di \(\overline{365}\).\\
+    abbiamo che \(\overline{365} \cdot \overline{a} = \overline{1}\) in \(\mathbb{Z}_{1876}\)\\
+    se e solo se esistono \(a,b \in \mathbb{Z}\) t.c. \(365 \cdot a = 1 + b \cdot 1876 \leftrightarrow 365 \cdot a - 1876 \cdot b = 1\).\\
+    una soluzione è \(a = -699\) e \(b = 136\), ossia \(\overline{365}^{-1} = \overline{-699} = \overline{1177}\).
+\end{example}
+\newpage
+
+\subsection{Morfismi di anelli}
+
+\begin{definition}
+    se \(p \in \mathbb{N}\) è un numero primo, scriviamo \(\mathbb{F}_p := \mathbb{Z}_p\) ;\\
+    il campo \(\mathbb{F}_p\) ha \(p\) elementi.
+\end{definition}
+
+\begin{definition}
+    Siano \(A,B\) due anelli. Un'applicazione \(f : A \rightarrow B\) è un \textbf{morfismo di anelli} se:
+    \
+    \begin{itemize}
+        \item \(f: (A,+) \rightarrow (B,+)\) è un morfismo di gruppi.
+        \item \(f: (A,\cdot) \rightarrow (B,\cdot)\) è un morfismo di monoidi.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    il nucleo di un morfismo di anelli\\
+    \(f : A \rightarrow B\) è l'insieme \(Ker(f):=\{a \in A : f(a) = 0\}\).\\
+\end{definition}
+
+\begin{osservazione}
+    \(Ker(f)\) è un ideale di \(A\), \(A\) anello commutativo.
+\end{osservazione}
+
+\begin{example}
+    sia \(I \subseteq A\) un ideale di un anello commutativo \(A\).\\
+    allora la proiezione canonica \(\pi : A \rightarrow \sfrac{A}{I}\) che mappa \(a \rightarrow [a]\)\\
+    è un morfismo di anelli il cui nucleo è \(I\).
+\end{example}
+
+\begin{example}
+    si consideri l'anello dei numeri complessi \(\mathbb{C}\).\\
+    allora il coniugio \(\overline{z} = \overline{a+bi} = a - bi\) è un morfismo di anelli da \(\mathbb{C}\) in \(\mathbb{C}\):\\
+    \(\overline{1} = 1, \overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}, \overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}\)
+\end{example}
+
+\begin{teorema}[di isomorfismo per anelli commutativi]
+    Sia \(f : A \rightarrow B\)\\
+    un morfismo di anelli commutativi. Allora esiste un morfismo iniettivo di anelli\\
+    \(\Psi : \sfrac{A}{Ker(f)} \rightarrow B\) tale che il seguente diagramma è commutativo:
+    \[
+        \begin{tikzcd}
+            A \arrow{r}{f} \arrow[swap]{d}{\pi} & B \\
+            \sfrac{A}{Ker(f)} \arrow[swap]{ur}{\Psi}
+        \end{tikzcd}
+    \]
+    in particolare, se \(f\) è suriettivo, allora \(\Psi\) è un isomorfismo di anelli.
+\end{teorema}
+
+\newpage
+
+\textbf{Notazione:} \(\overline{x} \in \mathbb{Z}_n\). La classe di equivalenza \(\overline{x}\) la scriveremo anche  \(x \mod n\).
+
+\begin{teorema} [Teorema cinese dei resti]
+    siano \(n_1,n_2,...,n_k \in \mathbb{N} \setminus \{0,1\}\) tali che\\
+    \(MCD \{n_i,n_j\} = 1\) per ogni \(1 \leq i,j \leq k, i \neq j\).\\
+    sia \(n := n_1 \cdot n_2 \cdot ... \cdot n_k\).\\
+    allora la funzione \(\Psi : \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\) che mappa\\
+    \(x mod n \rightarrow (x mod n_1, x mod n_2, ..., x mod n_k)\) è un isomorfismo di anelli.\\
+\end{teorema}
+
+\begin{dimostrazione}
+    vediamo prima di tutto che \(\Psi\) è un morfismo di anelli dove\\
+    \(f: \mathbb{Z} \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k} \).
+    è definita da \(f(x) = (x mod n_1, x mod n_2, ..., x mod n_k) \forall x \in \mathbb{Z}\).
+    \begin{itemize}
+        \item \(f(a+b) = ((a+b) mod n_1, ... , (a+b) mod n_k)\) \\
+                \(= (a mod n_1 + b mod n_1, ... , a mod n_k + b mod n_k)\)\\
+                \(= (a mod n_1, ... , a mod n_k) + (b mod n_1, ... , b mod n_k)\)\\
+                \(= f(a) + f(b), \forall a,b \in \mathbb{Z}\)
+
+        \item \(f(1) = (1 mod n_1, ... , 1 mod n_k)\) e \((1 mod n_1, ... , 1 mod n_k)\) è l'unità\\
+                del prodotto diretto di anelli \(\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)
+
+        \item \(f(a \cdot b) = ((a \cdot b) mod n_1, ... , (a \cdot b) mod n_k)\)\\
+                \(= (a mod n_1 \cdot b mod n_1, ... , a mod n_k \cdot b mod n_k)\)\\
+                \(= (a mod n_1, ... , a mod n_k) \cdot (b mod n_1, ... , b mod n_k)\)\\
+                \(= f(a) \cdot f(b), \forall a,b \in \mathbb{Z}\)
+    \end{itemize}
+    ora mostriamo che \(f\) è suriettivo:\\
+    sia \((a_1 mod n_1, ... , a_k mod n_k) \in \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)\\
+    osserviamo che \(MCD\{n_i,n_1 n_2 ... n_{i-1} n_{i+1} ... n_k\} = 1, \forall 1 \leq i \leq k\).\\
+    quindi abbiamo le identità di Bézout: \(c_i n_i + b_i \frac{n}{n_i} = 1\) ossia\\
+    \(u_i + v_i = 1\) dove \(u_i = c_i n_i \in <n_i>\) e \(v_i = b_i \frac{n}{n_i} \in <\frac{n}{n_i}>\).\\
+    diefiniamo \(x := a_1 v_1 + ... + a_k v_k\) e abbiamo che \(f(x) = (a_1 mod n_1, ... , a_k mod n_k)\).\\
+    infatti \(v_i mod n_j = 
+    \begin{cases}
+        0 & \text{se } i \neq j \\
+        1 & \text{se } i = j
+    \end{cases}\)\\
+    dal teorema di isomorfismo abbiamo che \(\sfrac{\mathbb{Z}}{Ker(f)} \simeq \mathbb{Z}_{n_1} \times ... \times \mathbb{Z}_{n_k} \) come anelli.\\
+    ma abbiamo che \(Ker(f) = <n_1> \cap <n_2> \cap ... \cap <n_k>\)\\
+    \(= <mcm\{n_1 ,..., n_k\}> = <n_1 n_2 ... n_k>\) dato che \(n_i\) e \(n_j\) sono coprimi \(\forall i \neq j\).\\
+    quindi \(\sfrac{\mathbb{Z}}{Ker(f)} = \sfrac{\mathbb{Z}}{<n>} = \mathbb{Z}_n \) e l'isomorfismo \(\Psi: \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times ... \times \mathbb{Z}_{n_k}\)\\
+    è quello dell'enunciato del teorema.
+\end{dimostrazione}
 
 
 \end{document}
-=======
-\end{document}a
->>>>>>> 9a3f41b (a)
-=======
-\end{document}a
->>>>>>> 8c708fae267537c13698b25013544bfc3b3a9254
