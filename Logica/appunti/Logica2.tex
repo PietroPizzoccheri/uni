@@ -1280,17 +1280,17 @@ sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
     è definita da \(f(x) = (x mod n_1, x mod n_2, ..., x mod n_k) \forall x \in \mathbb{Z}\).
     \begin{itemize}
         \item \(f(a+b) = ((a+b) mod n_1, ... , (a+b) mod n_k)\) \\
-                \(= (a mod n_1 + b mod n_1, ... , a mod n_k + b mod n_k)\)\\
-                \(= (a mod n_1, ... , a mod n_k) + (b mod n_1, ... , b mod n_k)\)\\
-                \(= f(a) + f(b), \forall a,b \in \mathbb{Z}\)
+              \(= (a mod n_1 + b mod n_1, ... , a mod n_k + b mod n_k)\)\\
+              \(= (a mod n_1, ... , a mod n_k) + (b mod n_1, ... , b mod n_k)\)\\
+              \(= f(a) + f(b), \forall a,b \in \mathbb{Z}\)
 
         \item \(f(1) = (1 mod n_1, ... , 1 mod n_k)\) e \((1 mod n_1, ... , 1 mod n_k)\) è l'unità\\
-                del prodotto diretto di anelli \(\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)
+              del prodotto diretto di anelli \(\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)
 
         \item \(f(a \cdot b) = ((a \cdot b) mod n_1, ... , (a \cdot b) mod n_k)\)\\
-                \(= (a mod n_1 \cdot b mod n_1, ... , a mod n_k \cdot b mod n_k)\)\\
-                \(= (a mod n_1, ... , a mod n_k) \cdot (b mod n_1, ... , b mod n_k)\)\\
-                \(= f(a) \cdot f(b), \forall a,b \in \mathbb{Z}\)
+              \(= (a mod n_1 \cdot b mod n_1, ... , a mod n_k \cdot b mod n_k)\)\\
+              \(= (a mod n_1, ... , a mod n_k) \cdot (b mod n_1, ... , b mod n_k)\)\\
+              \(= f(a) \cdot f(b), \forall a,b \in \mathbb{Z}\)
     \end{itemize}
     ora mostriamo che \(f\) è suriettivo:\\
     sia \((a_1 mod n_1, ... , a_k mod n_k) \in \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)\\
@@ -1298,7 +1298,7 @@ sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
     quindi abbiamo le identità di Bézout: \(c_i n_i + b_i \frac{n}{n_i} = 1\) ossia\\
     \(u_i + v_i = 1\) dove \(u_i = c_i n_i \in <n_i>\) e \(v_i = b_i \frac{n}{n_i} \in <\frac{n}{n_i}>\).\\
     diefiniamo \(x := a_1 v_1 + ... + a_k v_k\) e abbiamo che \(f(x) = (a_1 mod n_1, ... , a_k mod n_k)\).\\
-    infatti \(v_i mod n_j = 
+    infatti \(v_i mod n_j =
     \begin{cases}
         0 & \text{se } i \neq j \\
         1 & \text{se } i = j
@@ -1309,6 +1309,7 @@ sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
     quindi \(\sfrac{\mathbb{Z}}{Ker(f)} = \sfrac{\mathbb{Z}}{<n>} = \mathbb{Z}_n \) e l'isomorfismo \(\Psi: \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times ... \times \mathbb{Z}_{n_k}\)\\
     è quello dell'enunciato del teorema.
 \end{dimostrazione}
+
 
 
 \end{document}
