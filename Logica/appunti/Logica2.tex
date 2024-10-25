@@ -1310,5 +1310,59 @@ sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
     è quello dell'enunciato del teorema.
 \end{dimostrazione}
 
+\newpage
+
+\begin{example}
+    siano \(n_1 = 3, n_2 = 7 e n_3 = 10\). Allora \(n := n_1 n_2 n_3 = 210\)\\
+    e abbiamo l'isomorfismo di anelli \(\mathbb{Z}_{210} \simeq \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\).\\
+    sia \((2 mod 3, 5 mod 7, 4 mod 10) \in \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\), questa terna corrisponde ad un elemento\\
+    \(x mod 210 \in \mathbb{Z}_{210}\) che soddisfa il sistema
+    \[
+        \begin{cases}
+            x\mod 3 = 2\mod 3 \\
+            x\mod 7 = 5\mod 7 \\
+            x\mod 10 = 4\mod 10\\
+        \end{cases}
+        \]
+\end{example}
+
+la dimostrazione del teorema cinese dei resti ci dice come trovare x.\\
+\(x = 2 v_1 + 5 v_2 + 4 v_3\) dove se \(3 a + 70 b = 1, 7 a + 30 b = 1\) e \(10 a + 21 b = 1\)\\
+sono identità di Bézout, allora \(v_1 = 70 b, v_2 = 30 b  = 30, v_3 = 21 b\)\\
+\begin{center}
+    \(3 a + 70 b = 1 \rightarrow a = -23, b = 1 \rightarrow v_1 = 70\)\\
+    \(7 a + 30 b = 1 \rightarrow 30 = 4 \cdot 7 + 2 , 7 = 3 \cdot 2 + 1\)\\
+    \(\rightarrow 1 = 7 - 3 \cdot 2 = 7 - 3(30 - 4 \cdot 7) = \)\\
+    \(13 \cdot 7 - 3 \cdot 30 = 91 - 90 = 1 \rightarrow a = 13, b = -3 \rightarrow v_2 = -3 \cdot 30\)\\
+    \(10 a + 21 b = 1 \rightarrow a = -2, b = 1 \rightarrow v_3 = 21\)\\
+\end{center}
+
+quindi \(x = 2 \cdot 70 - 5 \cdot 3 \cdot 30 + 4 \cdot 21 = 194\mod 210\)\\
+
+\textbf{Corollario:} Sia \(U(\mathbb{Z}_n)\) il gruppo degli elementi invertibili dell'anello \(\mathbb{Z}_n\).\\
+sia \(n := n_1 ... n_k\) dove \(MCD\{n_i, n_j\} = 1 \forall 1 \leq i,j \leq k, i \neq j\).\\
+e \(n_i \in \mathbb{N} \setminus \{0,1\} \forall 1 \leq i \leq k\).\\
+allora come i gruppi \(U(\mathbb{Z}_n) \simeq U(\mathbb{Z}_{n_1}) \times ... \times U(\mathbb{Z}_{n_k})\)
+
+\begin{dimostrazione}
+    l'isomorfismo \(\Psi\) del teo. cinese dei restti, ristretto a \(U(\mathbb{Z}_n)\) dà un isomorfismo di gruppi\\
+\end{dimostrazione}
+
+Poiché un elemento \(\overline{x} \in \mathbb{Z}_n\) è invertibile s.s.e. esiste un'identità di Bézout \(ax + bn = 1\)\\
+abbiamo che \(\overline{x}\) è invertibile s.s.e. \(MCD\{x,n\} = 1\).\\
+Quindi \(|U(\mathbb{Z}_n)| = \varphi(n)\), con \(\varphi\) funzione di Eulero.\\
+
+dal precedente Corollario e da questo segue un altro Corollario:
+
+\textbf{Corollario:} Sia \(\varphi : \mathbb{N} \setminus \{0\} \rightarrow \mathbb{N} \setminus \{0\}\) la funzione \(\varphi\) di Eulero.\\
+siano \(x,y \in \mathbb{N} \setminus \{0\}\) tali che \(MCD\{x,y\} = 1\), allora \(\varphi(xy) = \varphi(x) \cdot \varphi(y)\).\\
+
+\begin{dimostrazione}
+    dal Corollario precedente abbiamo che \(U(\mathbb{Z}_{xy}) \simeq U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)\)\\
+    come i gruppi, quindi:
+    \begin{center}
+        \(\varphi(xy) = |U(\mathbb{Z}_{xy})| = |U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)| = |U(\mathbb{Z}_x)| \cdot |U(\mathbb{Z}_y)| = \varphi(x) \cdot \varphi(y)\)
+    \end{center}
+\end{dimostrazione}
 
 \end{document}
