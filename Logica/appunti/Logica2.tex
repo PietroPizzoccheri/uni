@@ -625,7 +625,7 @@ che si legge "\(x\) è equivalente a \(y\)".
 \end{definition}
 
 
-\subsubsection{Insieme quoziente per gruppi abeliani}
+\subsection{Insieme quoziente per gruppi abeliani}
 
 Se \(G\) è un gruppo abeliano, possiamo definire la seguente operazione "\(+\)"
 su \sfrac{G}{H}: \([g_1] + [g_2] := [g_1 + g_2]\), vediamo che è ben definita:
@@ -1042,7 +1042,7 @@ Allora : \
 
 \end{dimostrazione}
 
-\subsubsection{Anelli quoziente}
+\subsection{Anelli quoziente}
 
 Sia \(A\) un anello commutativo e \(I \subseteq A\) un ideale.\\
 In particolare, \(A\) con l'operazione \("+"\) è un gruppo abeliano e \(I\) è un sottogruppo di \(A\).\\
@@ -1364,5 +1364,230 @@ siano \(x,y \in \mathbb{N} \setminus \{0\}\) tali che \(MCD\{x,y\} = 1\), allora
         \(\varphi(xy) = |U(\mathbb{Z}_{xy})| = |U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)| = |U(\mathbb{Z}_x)| \cdot |U(\mathbb{Z}_y)| = \varphi(x) \cdot \varphi(y)\)
     \end{center}
 \end{dimostrazione}
+\newpage
+
+Come conseguenza del corollario precedente otteniamo una formula per calcolare \\
+la funzione \(\varphi\) di Eulero.\\
+Se \(p\) è un numero primo, allora ci sono \(p^k\) numeri \(1 \leq n \leq p^k\).\\
+Di questi numeri \(p, 2p, ... , p^{k-1}p\) hanno fattori comuni con \(p^k\) e quindi
+\begin{center}
+    \(\varphi(p^k) = p^k - p^{k-1}\).\\
+\end{center}
+se \(n = p^{k_1}...p^{k_s}\) per il corollario precedente \((n>1)\):\\
+\(\varphi(n)= \varphi(p_1^{k_1}...\varphi(p_s^{k_s}) = (p_1^{k_1}-p_1^{k_1-1})...(p_s^{k_s}-p_s^{k_s-1}) = p_1^{k_1}...p_s^{k_s}\prod_{p|n, p primo}(1-\frac{1}{p}) = \)\\
+\(= n \prod_{p|n, p primo}(1-\frac{1}{p})\).\\
+
+\begin{teorema}[di Eulero]
+    Sia \(n \in \mathbb{N} \setminus \{0,\}\) ed \(a \in \mathbb{N} \setminus \{0\}\) tale che \(MCD\{a,n\} = 1\).\\
+    allora \(a^{\overline{\varphi(n)}} = \overline{1} \in \mathbb{Z}_n\). (diciamo che \(a^{\varphi(n)} \equiv 1 \mod n\))\\
+\end{teorema}
+
+\begin{dimostrazione}
+    sappiamo che la cardinalità del gruppo degli elementi invertibili \\
+    di \(\mathbb{Z}_n\) è \(\varphi(n)\).\\
+    Sia \(<\overline{a}> \subseteq U(\mathbb{Z}_n)\) il sottogruppo generato da \(\overline{a} in U(\mathbb{Z}_n)\). allora \(|<\overline{a}>|\) divide \(\varphi(n)\),\\
+    ossia \(\varphi(n) = k |<\overline{a}>|\), per qualche \(k \in \mathbb{N}\). Sia \(c := |<\overline{a}>|\);\\
+    abbiamo che \( = \overline{1} = \overline{a}^c = (\overline{a^c})^k  = \overline{a^{ck}} = \overline{a^{\varphi(n)}} \).\\
+\end{dimostrazione}
+
+\textbf{Corollario:}(piccolo teorema di Fermat) Sia \(p\) un numero primo e \(a \in \mathbb{N}\).\\
+allora in \(\mathbb{Z}_p\) abbiamo che \(\overline{a} = \overline{a^p} (a^p \equiv a \mod p)\).\\
+
+\begin{dimostrazione}
+    se \(p\) è primo si ha che \(\varphi(p) = p-1\). allora dal Teo. di Eulero segue che, se \(a \neq 0, p \nmid a\), \(a^{varphi(p) \equiv 1 \mod p}\implies a ^{p-1} \equiv 1 \mod p \implies a^p \equiv a \mod p\).\\
+    se \(a = 0 o p | a\) l' uguaglianza si riduce a \(\overline{0} = \overline{0}\).
+\end{dimostrazione}
+
+\subsection{Caratteristica di un anello}
+sia \(A\) un anello. il sottogruppo \(<1_A> \subseteq (A,+)\)è un gruppo ciclico.\\
+quindi esiste un \(n \in \mathbb{N}\) tale che \(<1_A> \simeq \mathbb{Z}_n\). \(n\) è detto la caratteristica dell'anello \(A\).\\
+
+\begin{example}
+    la caratteristica di \(\mathbb{Z}\) è 0, infatti \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\).\\
+    la caratteristica degli anelli \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è sempre 0 poiché \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\) in  \(\mathbb{Q},\mathbb{R},\mathbb{C}\)\\
+\end{example}
+
+\begin{example}
+    sia \(n \in \mathbb{N}\) allora la caratteristica dell'anello \(\mathbb{Z}_n\) è \(n\).\\
+    infatti \(<\overline{1}> = \mathbb{Z}_n\), rispetto all'operazione +\\
+\end{example}
+
+indichiamo con \(CHAR(A)\) la caratteristica di un anello \(A\).\\
+\begin{definition}
+    sia A un anello e sia \(<1_A>\) il sottogruppo di (A,+) generato da \(1_a\).
+    l'intersezione di tutti i sottoanelli di A contenenti \(<1_a>\)\\
+    si chiama \textbf{sottoanello fondamentale di A}.\\
+\end{definition}
+
+\begin{example}
+    il sottoanello fondamentale di \(\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Z}\)
+\end{example}
+
+\begin{definition}
+    sia K un campo\\
+    l'intersezione di tutti i sottocampi di K contenenti il gruppo \(<1_k> \subseteq (K,+)\) si chiama \\
+    \textbf{sottocampo fondamentale di K}.\\
+\end{definition}
+
+\begin{example}
+    il sottocampo fondamentale di \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Q}\).\\
+    se \(p \in \mathbb{N}\) è primo, il sottocampo fondamentale di \(\mathbb{F}_p\) è \(\mathbb{F}_p\) perché \(<\overline{1}> = \mathbb{F}_p\).\\
+\end{example}
+
+\subsection{Anello dei polinomi in una indeterminata a coefficienti in un campo}
+Sia \(K\) un campo. una funzione \(f: \mathbb{N} \rightarrow K\) si chiama \textbf{successione a valori in \(K\)}.\\
+ad una successione a valori in \(K\) corrisponde una serie formale nella variabile \(x\) su \(K\):\\
+\begin{center}
+    \(\sum_{n=0}^{\infty} f(n) x^n\)
+\end{center}
+se l'insieme \(\{ m \ in \mathbb{N} : f(n) \neq 0\}\) è finito diciamo che la serie formale\\
+è un polinomio in \(x\) di grado \(deg(P) := MAX \{ n \in \mathbb{N}: f(n) \neq 0\}\).\\
+il grado del poliniomio 0 non è definito.\\
+l'insieme dei polinomi in \(x\) a coefficienti in \(K\) si indica con \(K[x]\) ed è un anello commutativo con le operazioni:\\
+\begin{itemize}
+    \item somma: \((\sum_{n=0}^{\infty} a_n X^n) + (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (a_n + b_n) X^n\)
+    \item prodotto: \((\sum_{n=0}^{\infty} a_n X^n) \cdot (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (\sum_{k=0}^{n} a_k b_{n-k}) X^n\)
+\end{itemize}
+l'unità di \(K[x]\) è il polinomio \(1_k\).\\
+
+\begin{example}
+    in \(\mathbb{F}_2[x]\) siano \(P := 1 + X^2 + X^3\) e \(Q:= X + X^2\).\\
+    allora \(P+Q = 1 + X + X^2 + X^3\) e \(P \cdot Q = X + X^2 + X^3 + X^5\)
+\end{example}
+
+\begin{proposition}
+    siano \(P,Q \in K[x]\) polinomi non nulli. allora il grado del prodotto \(P \cdot Q\) è \(deg(P) + deg(Q)\).\\
+    in particolare \(K[x]\) è un dominio di integrità.\\
+\end{proposition}
+
+\begin{definition}
+    un polinomio si dice \textbf{monico} se il coefficiente del termine di grado massimo è 1.\\
+\end{definition}
+
+\begin{definition}
+    sia K un campo. un polinomio \(P \in K[x]\) si dice \textbf{irriducibile}\\
+    se i suoi unici divisori sono del tipo \(a, aP\) con \(a \in K \setminus \{0\}\).\\
+    altrimenti si dice \textbf{riducibile}.\\
+\end{definition}
+
+\newpage
+
+\begin{example}
+    in \(\mathbb{F}_2[X]\) il polinomio \(X^2 + 1\) è irriducibile, infatti:\\
+    \(X^2 + 1 = (X + 1)^2\), quindi \(X + 1\) divide \(X^2 + 1\) e \(X + 1 \notin K \setminus \{0\}\).
+\end{example}
+
+\begin{example}
+    in \(K[X]\) ogni polinomio di grado 1 è irriducibile, infatti:\\
+    se \(deg(P) = 1\) allora \(P = aX + b\) con \(a,b \in K, a \neq 0\).\\
+    i suoi divisori sono \(c\) e \(c^{-1} (aX + b), c \in K \setminus \{0\}\).
+\end{example}
+
+\begin{definition}
+    sia \(\alpha \in K\). l'elemento \(\alpha\) è detto \textbf{radice} del polinomio\\
+    \(P = \sum_{n=0}^{\infty} a_n X^n \in K[X]\) se \(P(\alpha) = \sum_{n=0}^{\infty} a_n \alpha^n = 0\).\\
+\end{definition}
+
+anche nell'anello \(K[X]\) come in \(\mathbb{Z}\) abiamo un algoritmo di divisione Euclidea.\\
+se \(f(X), g(X) \in K[X]\) sono polinomi non nulli allora esistono unici polinomi \(q(X), r(X) \in K[X]\) tali che:\\
+\(f(X) = q(X) \cdot g(X) + r(X)\) e \(r(X) = 0\) oppure \(deg(r) < deg(g)\).\\
+\(q(X)\) si chiama \textbf{quoziente} e \(r(X)\) si chiama \textbf{resto} della divisione.\\
+ne segue il seguente teorema, dimostrato come in \(\mathbb{Z}\):
+\begin{teorema}
+    l'anello \(K[X]\) è a ideali principali.\\
+    se \(I = <p(X)>\) allora esiste un unico generatore monico di \(I\).\\
+\end{teorema}
+
+\begin{definition}
+    definiamo il \textbf{massimo comune divisore} di due polinomi \(f(X), g(X) \in K[X]\) come l'unico massimo comune divisore monico.
+\end{definition}
+
+Come in \(\mathbb{Z}\) possiamo trovarlo con l'algoritmo delle divisioni successive\\
+che dà anche un \underline{identità di Bézout}.
+
+\begin{example}
+        \(f(X) = X^4 - X^3 -4X^2 + 4X + 1\) e \(g(X) = X^2 - 1\) in \(\mathbb{Q}[X]\), allora:
+        \begin{center}
+            \(f(X) = g(X)(X^2 - 3) + (X - 2)\)\\
+            \(g(X) = (X - 2)(X + 1) +1 \implies MCD(f,g) = 1\)
+        \end{center}
+        inoltre
+        \begin{center}
+             \(1 = g(X) - (X - 2)(X + 1) + 1 = g(X) - [f(X) - g(X)(X^2 - 3)](X + 1) =\)\\
+            \(= -(X - 1)f(X) + (X^3 + X^2 - 3X -2)g(X)\).\\
+        \end{center}
+\end{example}
+
+\textbf{proprietà:} sia K un campo e \(P(X) \in K[X]\) un poliniomio irriducibile.\\
+allora l'anello quoziente \( \sfrac{K[X]}{<P(X)>}\) è un campo.\\
+
+\begin{dimostrazione}
+    sia \([f] \ in \sfrac{K[X]}{<P(X)>}\) tale che \([p] \neq [0]\) ossia \(p(X)\) non divide \(f(X)\).\\
+    Dunque \(MCD\{f(X),p(X)\} = 1\) perchè \(p(X)\) è irriducibile.\\
+    quindi abbiamo un'identità di Bézout \(a(X)f(X) + b(X)p(X) = 1\).\\
+    ossia \([a(X)] = [f(X)]^{-1}\) in \(\sfrac{K[X]}{<P(X)>}\).
+\end{dimostrazione}
+
+\newpage
+
+\begin{example}
+    in \(\mathbb{F}_2[X]\) il polinomio \(P(X) = 1 + X + X^2\) è irriducibile.\\
+    infatti non ha radici in \(\mathbb{F}_2\).\\
+    quindi l'anello \(\sfrac{\mathbb{F}_2[X]}{<1 + X + X^2>}\) è un campo, che chiamiamo \(\mathbb{F}_4\).\\
+    un elemento di \(\mathbb{F}_4\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_2\).\\
+    la tavola moltiplicativa è la seguente:
+    \begin{center}
+        \begin{tabular}{c|cccc}
+            \(\cdot\) & 0 & 1 & X & 1 + X \\
+            \hline
+            0 & 0 & 0 & 0 & 0 \\
+            1 & 0 & 1 & X & 1 + X \\
+            X & 0 & X & 1 + X & 1\\
+            1 + X & 0 & 1 + X & 1 & X\\
+        \end{tabular}
+    \end{center}
+    l'inverso di \(X\) è \(1 + X\).\\
+\end{example}
+
+\begin{example}
+    in \(\mathbb{F}_3[X]\) il polinomio \(P(X) = 1 + X^2\) è irriducibile.\\
+    indichiamo con \(\mathbb{F}_9\) il campo\(\sfrac{\mathbb{F}_3[X]}{<1 + X^2>}\).\\
+    un elemento di \(\mathbb{F}_9\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_3\) quindi sono 9.\\
+    la tavola moltiplicativa è la seguente:
+    \begin{center}
+        \begin{tabular}{c|ccccccccc}
+            \(\cdot\) & 0 & 1 & 2 & X & 1 + X & 2 + X & 2X & 1 + 2X & 2 + 2X\\
+            \hline
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &0 & 0 \\
+            1 & 0 & 1 & 2 & X & 1 + X & 2 + X & 2X & 1 + 2X & 2 + 2X \\
+            2 & 0 & 2 & 1 & 2X & 2 + 2X & 1 + 2X & X & 2 + X & 1 + X \\
+            X & 0 & X & 2X & 2 & 2 + X & 2 + 2X & 1 & 1 + X & 1 + 2X \\
+            1 + X & 0 & 1 + X & 2 + 2X & 2 + X & 2X & 1 & 1 + 2X & 2 & X \\
+            2 + X & 0 & 2 + X & 1 + 2X & 2 + 2X & 1 & X & 1 + X & 2X & 2 \\
+            2X & 0 & 2X & X & 1 & 1 + 2X & 1 + X & 2 & 2 + 2X & 2 + X \\
+            1 + 2X & 0 & 1 + 2X & 2 + X & 1 + X & 2 & 2X & 2 + 2X & X & 1 \\
+            2 + 2X & 0 & 2 + 2X & 1 + X & 1 + 2X & X & 2 & 2 + X & 1 & 2X \\
+        \end{tabular}
+    \end{center}
+    l'inverso di \(X\) è 2.\\
+\end{example}
+
+\begin{teorema}[di Ruffini]
+    sia \(f(X) \in K[X]\) un polinomio non nullo.\\
+    se \(\alpha \in K\), il resto della divisione di \(f(X)\) per \(X - \alpha\) è \(f(\alpha)\),\\
+    in particolare \(\alpha\) è una radice di \(f(X)\) s.s.e. \(X - \alpha\) divide \(f(X)\) in \(K[X]\).\\
+\end{teorema}
+
+\begin{dimostrazione}
+    \(f(X) = (X - \alpha) q(X) + r(X)\) con \(r(X) = 0\) oppure \(deg(r(X)) < 1\).\\
+    quindi \(r(X)\) è un polinomio costante, \(r(X) = x \in K\).\\
+    calcolando in \(\alpha\) otteniamo \(f(\alpha) = c\).\\
+\end{dimostrazione}
+
+\begin{example}
+    il polinomio \(X^2 + 1 \in \mathbb{R}[X]\) non ha radici in \(\mathbb{R}\)\\
+    quindi è irriducibile e \(\sfrac{\mathbb{R}[X]}{<X^2 + 1>}\) è un campo isomorfo a \(\mathbb{C}\),\\
+    dove l'isomorfismo è dato dall'assegnazione \(1 \rightarrow 1\) e \(x \rightarrow i\)\\
+\end{example}
 
 \end{document}
