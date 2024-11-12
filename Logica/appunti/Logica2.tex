@@ -1398,6 +1398,8 @@ allora in \(\mathbb{Z}_p\) abbiamo che \(\overline{a} = \overline{a^p} (a^p \equ
     se \(a = 0 o p | a\) l' uguaglianza si riduce a \(\overline{0} = \overline{0}\).
 \end{dimostrazione}
 
+\newpage
+
 \subsection{Caratteristica di un anello}
 sia \(A\) un anello. il sottogruppo \(<1_A> \subseteq (A,+)\)è un gruppo ciclico.\\
 quindi esiste un \(n \in \mathbb{N}\) tale che \(<1_A> \simeq \mathbb{Z}_n\). \(n\) è detto la caratteristica dell'anello \(A\).\\
@@ -1433,6 +1435,8 @@ indichiamo con \(CHAR(A)\) la caratteristica di un anello \(A\).\\
     il sottocampo fondamentale di \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Q}\).\\
     se \(p \in \mathbb{N}\) è primo, il sottocampo fondamentale di \(\mathbb{F}_p\) è \(\mathbb{F}_p\) perché \(<\overline{1}> = \mathbb{F}_p\).\\
 \end{example}
+
+\newpage
 
 \subsection{Anello dei polinomi in una indeterminata a coefficienti in un campo}
 Sia \(K\) un campo. una funzione \(f: \mathbb{N} \rightarrow K\) si chiama \textbf{successione a valori in \(K\)}.\\
@@ -1470,8 +1474,6 @@ l'unità di \(K[x]\) è il polinomio \(1_k\).\\
     altrimenti si dice \textbf{riducibile}.\\
 \end{definition}
 
-\newpage
-
 \begin{example}
     in \(\mathbb{F}_2[X]\) il polinomio \(X^2 + 1\) è irriducibile, infatti:\\
     \(X^2 + 1 = (X + 1)^2\), quindi \(X + 1\) divide \(X^2 + 1\) e \(X + 1 \notin K \setminus \{0\}\).
@@ -1487,6 +1489,8 @@ l'unità di \(K[x]\) è il polinomio \(1_k\).\\
     sia \(\alpha \in K\). l'elemento \(\alpha\) è detto \textbf{radice} del polinomio\\
     \(P = \sum_{n=0}^{\infty} a_n X^n \in K[X]\) se \(P(\alpha) = \sum_{n=0}^{\infty} a_n \alpha^n = 0\).\\
 \end{definition}
+
+\newpage
 
 anche nell'anello \(K[X]\) come in \(\mathbb{Z}\) abiamo un algoritmo di divisione Euclidea.\\
 se \(f(X), g(X) \in K[X]\) sono polinomi non nulli allora esistono unici polinomi \(q(X), r(X) \in K[X]\) tali che:\\
@@ -1528,8 +1532,6 @@ allora l'anello quoziente \( \sfrac{K[X]}{<P(X)>}\) è un campo.\\
     ossia \([a(X)] = [f(X)]^{-1}\) in \(\sfrac{K[X]}{<P(X)>}\).
 \end{dimostrazione}
 
-\newpage
-
 \begin{example}
     in \(\mathbb{F}_2[X]\) il polinomio \(P(X) = 1 + X + X^2\) è irriducibile.\\
     infatti non ha radici in \(\mathbb{F}_2\).\\
@@ -1548,6 +1550,8 @@ allora l'anello quoziente \( \sfrac{K[X]}{<P(X)>}\) è un campo.\\
     \end{center}
     l'inverso di \(X\) è \(1 + X\).\\
 \end{example}
+
+\newpage
 
 \begin{example}
     in \(\mathbb{F}_3[X]\) il polinomio \(P(X) = 1 + X^2\) è irriducibile.\\
@@ -1589,5 +1593,348 @@ allora l'anello quoziente \( \sfrac{K[X]}{<P(X)>}\) è un campo.\\
     quindi è irriducibile e \(\sfrac{\mathbb{R}[X]}{<X^2 + 1>}\) è un campo isomorfo a \(\mathbb{C}\),\\
     dove l'isomorfismo è dato dall'assegnazione \(1 \rightarrow 1\) e \(x \rightarrow i\)\\
 \end{example}
+
+\newpage
+
+enunciamo il seguente importante risultato, senza fornire la dimostrazione.\\
+(vedi proposizione 4.3.5 di "Teoria delle equazioni e teoria di Galois" - S.Gabelli).\\
+
+\begin{proposition}
+    se K è un campo, ogni sottogruppo finito del gruppo moltiplicativo\\
+    \(K \setminus \{0\}\) è ciclico. in particolare, se K è un campo finito, \(K \setminus \{0\}\) è un gruppo ciclico.
+\end{proposition}
+
+\begin{example}
+    \begin{itemize}
+        \item in \(\mathbb{F}_4 = \sfrac{\mathbb{F}_2}{<1 + X + X^2>}\) si ha che \(\{ X, X^2, X^3\} = \{ X, 1 + X, 1\} = \mathbb{F}_4 \setminus \{0\}\)\\
+                quindi \(X\) è un generatore del gruppo moltiplicativo \(\mathbb{F}_4 \setminus \{0\}\), l'altro è \(1 + X\)\\
+        \item in \(\mathbb{F}_9 = \sfrac{\mathbb{F}_3}{<1 + X^2>}\) abbiamo:\\ 
+                \(<X> = \{X, X^2, X^3, X^4\} = \{X, 2, 2X,1\}\)\\
+                \(<1 + X> = \{1 + X, (1 + X)^2, (1 + X)^3, (1 + X)^4, (1 + X)^5, (1 + X)^6, (1 + X)^7, (1 + X)^8\} =\)\\
+                \(= \{1 + X, 2X, 1 + 2X, 2, 2 + 2X, X, 2 + X, 1 \}\)\\
+                \(= \mathbb{F}_9 \setminus \{0\}\) quindi \(1 + X\) genera il gruppo moltiplicativo.
+    \end{itemize}
+\end{example}
+
+Sia \(p \in \mathbb{N}\) un numero prima e sia \(n \in \mathbb{N} \setminus \{0\}\).\\
+sia \(Q(X), \mathbb{F}_p[X]\) un qualsiasi polinomio irriducibile di grado n.\\
+definiamo il campo
+\begin{center}
+    \(\mathbb{F}_{p^n} = \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+
+vogliamo ora mostrare che se \(Q(X), Q'(X) e \mathbb{F}_p[X]\) sono polinomi irriducibili di grado n,\\
+allora 
+\begin{center}
+    \(\sfrac{\mathbb{F}_p[X]}{<Q(X)>} \simeq \sfrac{\mathbb{F}_p[X]}{<Q'(X)>}\), isomorfismo tra campi
+\end{center}
+
+quindi la definizione di \(\mathbb{F}_p\) è ben posta, a meno di isomorfismi.\\
+
+\begin{definition}
+    siano \(F \subseteq K\) due campi (ampliamento di campi).\\
+    un elemento \(\alpha \in K\) si dice \underline{algebrico} su F se è radice di qualche polinomio non nullo\\
+    su \(f(X) \in F(X)\), altrimenti si dice \underline{trascendente} su F.
+\end{definition}
+
+dato un ampliamento di campi \(F \subseteq K\) e  \(\alpha \in K\), si consideri il morfismo di anelli
+\begin{center}
+    \(v_\alpha : F[X] \rightarrow K\)\\
+    \(f(X) \rightarrow f(\alpha)\).
+\end{center}
+
+\(Ker(v_\alpha)\) è l'ideale di \(F[X]\) costituito dai polinomi che si annullano in \(\alpha\).\\
+quindi \(\alpha\) è algebrico su F s.s.e. \(Ker(v_\alpha)\) è un ideale non nullo di \(F[X]\).\\
+poiche \(F[X]\) è ad ideali principali, \(ker(v_\alpha) = <m(X)>\)\\
+dove \(m(X)\) è l'unico polinomio monico di grado minimo in \(Ker(v_\alpha)\).
+
+\begin{definition}
+    se \(\alpha \in K\) è algebrico su F, il polinomio \(m(X)\) definito sopra si chiama\\
+    \textbf{polinomio minimmo di \(\alpha\) su F}, se \(deg(m(X)) = n\), \(\alpha \) si dice algebrico di grado n
+\end{definition}
+
+\textbf{Nota:} sia \(\alpha \in K\) e \(P(X) \in F[X] \setminus \{0\})\) tale che \(p(\alpha) = 0\),\\
+allora \(p(X)\) è il polinomio minimo di \(\alpha\) su F s.s.e. \(p(X)\) è monico e irriducibile.\\
+
+\begin{example}
+    si consideri l'ampliamento \(\mathbb{R} \subseteq \mathbb{C}\). allora \(1 + X^2 \in \mathbb{R}[X]\)\\
+    è il polinomio minimo di \(i \in \mathbb{C}\) su \(\mathbb{R}\).
+\end{example}
+
+\newpage
+
+\textbf{Proprietà:} sia \(F \in K\) un ampliamento di campi e \(\alpha \in K\).\\
+si consideri il morfismo di anelli \(v_\alpha: F[X] \rightarrow K\).\\
+allora \(Im(v_\alpha)\) è il più piccolo sottoanello di K contenente sia F che \(\alpha\)
+
+\begin{dimostrazione}
+    si osservi che l'immagine di un morfismo di anelli è un sottoanello.\\
+    di conseguenza \(Im(v_\alpha)\) è un sottoanello di K.\\
+    sia \(c \in F\) e si consideri il polinomio costante \(c \in F[X]\). allora \(v_\alpha(c)=c\).\\
+    quindi \(F \subseteq Im(v_\alpha)\) e \(v_\alpha(X) = \alpha\ \implies \alpha \in Im(v_\alpha)\)\\
+    d'altra parte per chiusura aditiva e moltiplicativa,\\
+    ogni sottoanello di K contenete sia F che \(\alpha\) contiene anche \(Im(v_\alpha)\).
+\end{dimostrazione}
+
+\begin{proposition}
+    sia \(F \subseteq K\) un ampliamento di campi e sia \(\alpha \in K\).\\
+    il più piccolo sottocampo di K contenente sia F che \(\alpha\) si chiama\\
+    \textbf{ampliamento di F in K generato da \(\alpha\)} e si indica con \textbf{F(\(\alpha\))}
+    tale ampliamento si dice \textbf{semplice} (poichè generato da un solo elemento)
+\end{proposition}
+
+\vspace{\baselineskip}
+
+da questa proposizione segue questo Corollario:\\
+
+\textbf{Corollario:} sia \(F \subseteq K\) un ampliamento di campi e sia \(\alpha \in K\).\\
+allora \(F(\alpha) = \{f(\alpha)g(\alpha)^{-1} : f(X),g(X) \in F[X], g(\alpha) \neq 0\}\).
+
+\begin{dimostrazione}
+    per la proposizione precedente\\
+    il più piccolo sottoanello di K contenente sia F che \(\alpha\) è \(Im(v_\alpha = \{f(\alpha) : f(X) \in F[X]\})\).\\
+    prendendo gli inversi in K si ottiene la tesi.
+\end{dimostrazione}
+
+\vspace{\baselineskip}
+
+se \(\alpha \in K\) è algebrico su F si ha che \(Im(v_\alpha \simeq \sfrac{F[X]}{<m(X)>})\),\\
+dove \(m(X)\) è il polinomio minimo di \(\alpha\). quindi \(Im(v_\alpha)\) è un campo e \(F(\alpha) = Im(v_\alpha)\).\\
+se n è il grado di \(\alpha\) si ha quindi:
+\begin{center}
+    \(F(\alpha) = \{c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} : c_i \in F\}\)
+\end{center}
+
+\begin{example}
+    si consideri l'ampliamento \(\mathbb{Q} \subseteq \mathbb{R}\). l'elemento \(\sqrt{2}\in \mathbb{R} \setminus \mathbb{Q}\) è akgebrico su \(\mathbb{Q}\)\\
+    con polinomio minimo \(X^2 -2\). quindi \(\sqrt{2}\) ha grado 2 su \(\mathbb{Q}\) e
+    \begin{center}
+        \(\mathbb{Q}(\sqrt{2}) = \{ c_0 + c_1 \sqrt{2} : c_0,c_1 \in \mathbb{Q}\})\).
+    \end{center}
+\end{example}
+
+adesso mostriamo che il campo \(\mathbb{F}_{p^n}\) è un ampliamento semplice di \(\mathbb{F}_p\)
+\begin{proposition}
+    sia \(\alpha \in \mathbb{F}_{p^n}\) un generatore del campo moltiplicativo \(\mathbb{F}_{p^n} \setminus \{0\}\).\\
+    allora \(\mathbb{F}_{p^n} = \mathbb{F}_p(\alpha)\).
+\end{proposition}
+
+\begin{dimostrazione}
+    \(\mathbb{F}_p(\alpha)\) è il più piccolo sottocampo di \(\mathbb{F}_{p^n}\) contenente sia \(\mathbb{F}_p\) che \(\alpha\)\\
+    quindi \(\mathbb{F}_p(\alpha) \subseteq \mathbb{F}_{p^n}\). Poiché \(\alpha\) genera il gruppo moltiploicativo \(\mathbb{F}_{p^n} \setminus \{0\}\) anche \(\mathbb{F}_{p^n} \subseteq \mathbb{F}_p(\alpha)\)
+\end{dimostrazione}
+
+\newpage
+
+Ora, se \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono due polinomi irriducibili di grado n,\\
+vogliamo costruire un isomorfismo 
+\begin{center}
+    \(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+ci serve il seguente risultato:
+
+\begin{proposition}
+    siano \(F \subseteq K\) e \(F \subseteq K'\) due ampliamenti di campi.\\
+    se \(\alpha \in K\) è algebrico di grado n su F, con polinomio minimo \(m(x)\),\\
+    esiste un morfismo di campi \(\varphi : F(\alpha) \rightarrow K'\) che fissa F in K'.\\
+    in questo caso i morfismi \(\varphi\) sono tanti quante le radici distinte \(\beta_1, ... ,\beta_s\) di \(m(X)\) in K'.\\
+    sono tutti e soli quelli definiti da:
+    \begin{center}
+        \(c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} \rightarrow c_0 + c_1\beta_i + ... + c_{n-1}\beta_i^{n-1} \)
+    \end{center}
+\end{proposition}
+
+\begin{dimostrazione}
+    se \(\alpha\) è algebrico di grado n su F con polinomio minimo \(m(X)\)\\
+    e \(\varphi : F(\alpha) \rightarrow K'\) è isomorfismo, allora \(0 = \varphi(0) = \varphi(m(\alpha)) = m(\varphi(\alpha))\)\\
+    quindi \(\varphi(\alpha)\) deve essere radice di \(m(X)\) in K'.\\
+    viceversa, sia \(\beta\) una radice di \(m(X)\) in K' e consideriamo il morfismo di anelli\\
+    \begin{center}
+        \(v_\beta : F[X] \rightarrow K'\)\\
+        \(f(X) \rightarrow f(\beta)\)
+    \end{center}
+    poiché \(m(X) \in Ker(v_\beta)\), dal Teorema di isomorfismo per anelli\\
+    abbiamo che il seguente diagramma è commutativo:\\
+    \begin{center}
+        \begin{tikzcd}
+            F[X] \arrow{r}{v_\beta} \arrow{d}{\pi} & K'\\
+            F(\alpha) \simeq \sfrac{F[X]}{<m(X)>} \arrow{ur}{\varphi}
+        \end{tikzcd}
+    \end{center}
+    infatti \(Ker(v_\beta) = <m(X)>\), essedo \(m(X)\) irriducibile.\\
+    quindi abbiamo trovato un morfismo iniettivo \(\varphi : F(\alpha) \rightarrow K'\) che soddisfa le proprietà dell'enunciato.\\
+\end{dimostrazione}
+
+sia F un campo e \(f(X) \in F[X]\) un polinomio di grado \(n \geq 1\).\\
+un campo K, ampliamento di F, si dice \textbf{campo di spezzamento di f(X) su F} se:\\  
+\begin{itemize}
+    \item \(f(X)\) fattorizza in polinomi di grado 1 su \(K[X]\)
+    \item non ci sono campi intermedi \(F \subseteq L \subsetneq K\) con la stessa proprietà.
+\end{itemize}
+
+\begin{example}
+    \(\mathbb{Q}(\sqrt{2})\) è un campo di spezzamenro di \(X^2 - 2 \in \mathbb{Q}[X]\).\\
+    \(\mathbb{C}\) è un campo di spezzamenro di \(X^2 + 1 \in \mathbb{R}[X]\).\\
+\end{example}
+
+\newpage
+
+Ora vogliamo mostrare che un campo che ha cardinalità \(p^n\)\\
+è un campo di spezzamento del polinomio \(X^{p^n} - X \in \mathbb{F}_p[X]\).\\
+infatti se K è un campo e \(|K| = p^n\), allora il suo gruppo moltiplicativo \(K \setminus \{0\}\) ha cardinalità \(p^n - 1\)\\
+e quindi oer ogni \(\alpha \in K \setminus \{0\}\) si ha \(\alpha^{p^n - 1} = 1\).\\
+quindi ogni elemento di K è radice del polinomio \(X^{p^n} - X\).\\
+per il teorema di Ruffini, K è un campo di spezzamento di \(X^{p^n} - X\).\\
+Adesso mostriamo che ogni poliniomio di grado n irriducibile in \(\mathbb{F}_p[X]\)\\
+divide \(X^{p^n} - X\ \in \mathbb{F}_p[X]\).\\
+
+\begin{proposition}
+    tutti e soli i polinomi irriducibili su \(\mathbb{F}_p\) di grado n\\
+    dividono \(X^{p^n} - X \in \mathbb{F}_p[X]\).
+\end{proposition}
+
+\begin{dimostrazione}
+    sia \(P(X) \in \mathbb{F}_p[X]\) irriducibile di grado n e sia \(K := \sfrac{\mathbb{F}_p[Y]}{<P(Y)>}\).\\
+    allora K ha \(p^n\) elementi che sono le radici di \(X^{p^n} - X \in K[X]\).\\
+    poichè \(Y \in K\) è una radice \(P(X) \in K[X]\), \(P(X) e X^{p^n} - X\) hanno una radice in comune in K,\\
+    allora per il teorema di Ruffini hanno un fattore comune \(X - Y in K[X]\).\\
+    quindi, poiché \(\mathbb{F}_p \subseteq K\) e \(MCD\) in \(\mathbb{F}_p = MCD\) in \(K[X]\)\\
+    \(\implies P(X), X^{p^n} - X\) hanno \(MCD \neq 1\) in \(\mathbb{F}_p[X]\).\\
+    poiché \(P(X)\) è irriducibile in \(\mathbb{F}_p[X]\), \(P(X)\) divide \(X^{p^n} - X\).\\
+\end{dimostrazione}
+
+\vspace{\baselineskip}
+
+adesso vogliamo costruire un isomorfismo di campi
+\begin{center}
+    \(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+dove \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono monici irriducibili di grado n.\\
+basta costruire un isomorfismo di anelli.\\
+Infatti un morfismo di anelli che sono campi è iniettivo. Inoltre:
+\begin{center}
+    \(|\sfrac{\mathbb{F}_p[X]}{<P(X)>}| = |\sfrac{\mathbb{F}_p[X]}{<Q(X)>}| = p^n\)
+\end{center}
+
+quindi tale morfismo è biunivoco, ossia è isomorfismo.
+
+\vspace{\baselineskip}
+
+Si ha che, se \(y \in \sfrac{\mathbb{F}_p[Y]}{<P(Y)>}\) allora \(P(X) \in \mathbb{F}_p[X]\) è il polinomio minimo di \(y\) su \(\mathbb{F}_p\).\\
+quindi, se \(P(X)\) ha una radice in \(\sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\),\\
+possiamo usare la proposizione sull'estensione di morfismi di campi per definire\\
+il morfismo f, che sarà un isomorfismo. Infatti \(\mathbb{F}_p \subseteq \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\). \\
+Inoltre \(\sfrac{\mathbb{F}_p[X]}{<P(X)>} = \mathbb{F}_p([X])\), dove \([X]\) è la classe di \(X\) in \(\sfrac{\mathbb{F}_p[X]}{<P(X)>}\).\\
+poiché \(\sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\) è un campo di spezzamento di \(X^{p^n} - X\) e \(P(X)\) divide \(X^{p^n} - X\),\\
+allora \(P(X)\) si fattorizza in fattori di grado 1 in \(\sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\).
+
+\vspace{\baselineskip}
+
+sia \(\beta \in \sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\) tale che \(p(\beta)\) = 0.\\
+allora l'assegnazione
+\begin{center}
+    \(c_0 + c_1 x + ... + c_{n-1} x^{n-1} \rightarrow c_0 + c_1 \beta + ... + c_{n-1} \beta^{n-1}\)
+\end{center}
+definisce un morfismo di anelli
+\begin{center}
+    \(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+
+\newpage
+
+\begin{example}
+    in \(\mathbb{F}_3[X]\) si considerino i polinomi irriducibili 
+    \begin{center}
+        \(1 + X^2\) e \(2 + X + X^2\).
+    \end{center}
+    il polinomio minimo di \(X\) in \(\sfrac{\mathbb{F}_3[X]}{<1 + X^2 >} := K\) su \(\mathbb{F}_3\) è \(1 + X^2\).\\
+    in \(K' := \sfrac{\mathbb{F}_3[Y]}{<1 + Y + Y^2>}\) si ha che 
+    \begin{center}
+        \(1 + X^2 = (X + Y + 2)(X + 2Y + 1)\)
+    \end{center}
+    quindi in \(K'[X], 1 + X^2\) ha due radici:
+    \begin{center}
+        \(-Y-2 = 2Y+1\) e \(-2Y - 1 = y + 2\).
+    \end{center}
+    abbiamo quindi due isomorfismi
+    \begin{center}
+        \(f: K \rightarrow K'\)\\
+        \(a_0 + a_1x \rightarrow a_0 + a_1(2Y + 1)\)\\
+        \(g: K \rightarrow K'\)\\
+        \(a_0 + a_1x \rightarrow a_0 + a_1(Y + 2)\)\\
+    \end{center}
+    \(f(0) = 0\)\\
+    \(f(1) = 1\)\\
+    \(f(2) = 2\)\\
+    \(f(X) = 2Y + 1\)\\
+    \(f(1 + X) = f(1) + f(X) = 2Y + 2\)\\
+    \(f(2 + X) = f(2) + f(X) = 2Y\)\\
+    \(f(2X) = f(2)f(X) = 2f(X) = y + 2\)\\
+    \(f(1 + 2X) = f(1) + f(2X) = Y\)\\
+    \(f(2 + 2X) = f(2) + f(2X) = y + 1\) \vspace{\baselineskip}\\
+    \(g(0) = 0\)\\
+    \(g(1) = 1\)\\
+    \(g(2) = 2\)\\
+    \(g(X) = Y + 2\)\\
+    \(g(1 + X) = g(1) + g(X) = Y\)\\
+    \(g(2 + X) = g(2) + g(X) = Y + 1\)\\
+    \(g(2X) = g(2)g(X) = 2g(X) = 2Y + 1\)\\
+    \(g(1 + 2X) = g(1) + g(2X) = 2Y + 2\)\\
+    \(g(2 + 2X) = g(2) + g(2X) = 2Y\)\\
+\end{example}
+
+\begin{osservazione}
+    \(X \in K\) non è un generatore di \(K \setminus \{0\}\).\\
+    infatti il sottogruppo del gruppo moltiplicativo \(K \setminus \{0\}\) generato da \(X\) è\\
+    \(<X> = \{X, 2, 2X, 1\} \subsetneq K \setminus \{0\}\)\\
+\end{osservazione}
+
+\newpage
+
+\textbf{Lemma:} se K è un anello commutativo di caratteristica prima p, allora
+\begin{center}
+    \((X + Y)^{p^h} = X^{p^h} + Y^{p^h}\)
+\end{center}
+per ogni \(x, y \in K, h \geq 1\).
+
+\begin{dimostrazione}
+    sia \(h = 1\). se \(p > k > 0\), p divide tutti i coefficienti binomiali\\
+    \(\binom{p}{k} := \frac{p!}{k!(p-k)!}\) perché non divide \(k!(p-k)!\).\\
+    allora \((X + Y)^p = \sum_{k=0}^{p} \binom{p}{k} X^k Y^{p-k} = X^p + Y^p\).\\
+    la tesi segue per induzione.\\
+\end{dimostrazione}
+
+\textbf{Automorfismo di Frobenius:}\\
+Dal lemma precedente segue che se K è un campo di caratteristica p, allora la funzione 
+\begin{center}
+    \(\Phi : K \rightarrow K\)\\
+    \(x \rightarrow x^p\)
+\end{center}
+è un morfismo di campi. infatti\\
+\(\Phi(x + y) = (x + y)^p = x^p + y^p = \Phi(x) + \Phi(y)\)\\
+\(\Phi(xy) = (xy)^p = x^p y^p = \Phi(x) \Phi(y)\)\\
+\(\forall x,y \in K\).\\
+se \(K = \mathbb{F}_{p^n}, \Phi\) è un automorfismo\\
+(essendo morfismo initettivo da un campo di cardinalità finita in se stesso)\\
+detto \textbf{automorfismo di Frobenius}.
+
+\begin{teorema}
+    il gruppo degli automorfismi di \(\mathbb{F}_{p^n}, AUT(\mathbb{F}_p^n)\) è ciclico di cardinalità n,\\
+    generato dall'automorfismo di Frobenius.
+\end{teorema}
+
+\begin{dimostrazione}
+    vedi teorema 4.3.17 del libro di Stefania Gabelli. 
+\end{dimostrazione}
+
+\textbf{Lemma:} sia F un campo. Il polinomio \(X^d - 1\) divide il polinomio \(X^n - 1\) s.s.e. d divide n.
+
+\begin{dimostrazione}
+    se \(n = qd + r, 0 \leq r \leq d\), in \(\mathbb{F}[X]\) si ha:
+    \begin{center}
+        \((x^n - 1) = (X^d - 1)(X^{n-d} + X^{n-2d} + ... + x^{n-(p-1)d} + X^r) + (X^r -1).\)\\
+    \end{center}
+    quindi \(X^d - 1\) divide \(X^n - 1\) s.s.e. \(X^r - 1\) è il polinomio nullo, cioè s.s.e. \(r = 0\)
+\end{dimostrazione}
 
 \end{document}
