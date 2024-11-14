@@ -1,5 +1,6 @@
+.idea
 
-
+NSDS/NSDS_spark_tutorial/target
 # User-specific files
 *.rsuser
 *.suo
@@ -406,3 +407,4 @@ DistributedSystems/Immagini
 DistributedSystems/Slides
 /.vscode
 Miniforge3-Linux-x86_64.sh
+*Zone.Identifier
