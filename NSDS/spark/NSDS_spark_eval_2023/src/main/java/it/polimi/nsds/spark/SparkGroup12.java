@@ -22,7 +22,7 @@ import static org.apache.spark.sql.functions.col;
  *  - Student 3
  */
 
-public class SparkGroupXX {
+public class SparkGroup12 {
     private static final int numCourses = 3000;
 
     public static void main(String[] args) throws TimeoutException {

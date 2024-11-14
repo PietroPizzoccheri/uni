@@ -467,30 +467,30 @@ Quindi \(F: M \rightarrow Im(F)\) è un isomorfismo di monoidi.
     (1,0),(1,1)\}\).\newline
     \newline\((0,0) \mapsto
     \begin{bmatrix}
-        1 & 1 & 1 & 1 \\
-        0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 \\
+        1 & 1 & 1 & 1  \\
+        0 & 0 & 0 & 0  \\
+        0 & 0 & 0 & 0  \\
         0 & 0 & 0 & 0
     \end{bmatrix}\),
     \((0,1) \mapsto \begin{bmatrix}
-        1 & 0 & 1 & 0 \\
-        0 & 1 & 0 & 1 \\
-        0 & 0 & 0 & 0 \\
+        1 & 0 & 1 & 0  \\
+        0 & 1 & 0 & 1  \\
+        0 & 0 & 0 & 0  \\
         0 & 0 & 0 & 0
     \end{bmatrix} \),
     \((1,0) \mapsto \begin{bmatrix}
-        1 & 1 & 0 & 0 \\
-        0 & 0 & 0 & 0 \\
-        0 & 0 & 1 & 1 \\
+        1 & 1 & 0 & 0  \\
+        0 & 0 & 0 & 0  \\
+        0 & 0 & 1 & 1  \\
         0 & 0 & 0 & 0
     \end{bmatrix} \),
     \((1,1) \mapsto \begin{bmatrix}
-        1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 1 & 0 \\
+        1 & 0 & 0 & 0  \\
+        0 & 1 & 0 & 0  \\
+        0 & 0 & 1 & 0  \\
         0 & 0 & 0 & 1
     \end{bmatrix} \).\newline
-
+    
     \begin{table}[htbp]
         \centering
         \begin{tabular}{|c|c|c|c|c|}
@@ -540,12 +540,12 @@ Gli elementi di \(S_n\) in notazione a una linea sono indicati nel modo seguente
     \begin{itemize}
         \item \(S_2 = \{12,21\}\)\newline
               \(S_3 = \{123,132,213,231,312,321\}\)\newline
-
+              
         \item vediamo il gruppo \((\mathbb{Z}_2,+)\) come gruppo di matrici e come gruppo di permutazioni. \((\mathbb{Z}_2, +) \simeq \{\begin{bmatrix}
-                  1 & 0 \\
+                  1 & 0  \\
                   0 & 1
               \end{bmatrix}, \begin{bmatrix}
-                  0 & 1 \\
+                  0 & 1  \\
                   1 & 0
               \end{bmatrix}\} \simeq \{12,21\} = S_2\) (\(\simeq\) : isomorfismo di gruppi)
     \end{itemize}
@@ -614,7 +614,7 @@ che si legge "\(x\) è equivalente a \(y\)".
                         , \forall g_1,g_2,g_3 \in G\)
               \end{itemize}
               In questo caso l'insieme quoziente lo indichiamo con \sfrac{G}{H}.
-
+              
     \end{itemize}
 \end{example}
 
@@ -625,7 +625,7 @@ che si legge "\(x\) è equivalente a \(y\)".
 \end{definition}
 
 
-\subsubsection{Insieme quoziente per gruppi abeliani}
+\subsection{Insieme quoziente per gruppi abeliani}
 
 Se \(G\) è un gruppo abeliano, possiamo definire la seguente operazione "\(+\)"
 su \sfrac{G}{H}: \([g_1] + [g_2] := [g_1 + g_2]\), vediamo che è ben definita:
@@ -663,7 +663,7 @@ Quindi \(-[g] = [-g], \forall [g] \in \sfrac{G}{H}\), ossia \((\sfrac{G}{H},+)\)
                         \text{ il resto della divisione di \(x\) per \(n\) è uguale
                             al resto  della divisione di \(y\) per \(n\)}\).
               \end{itemize}
-
+              
               I possibili resti della divisione
               per \(n\) sono \(0,1,\cdots,n-1\).\\
               Quindi \(\mathbb{Z}_n = \{[0],[1],\cdots,[n-1]\} = \{\overline{0}, \overline{1},\cdots,\overline{n - 1}\}\).
@@ -767,10 +767,10 @@ In particolare, \(\langle \overline{m} \rangle = \mathbb{Z}_n \Leftrightarrow z=
 
 \begin{definition}
     La funzione definita da \(\varphi : \mathbb{N} \backslash \{0\} \rightarrow \mathbb{N} \backslash \{0\}\) ,
-
+    
     \(\varphi(n) := |\{m \in \mathbb{N} \backslash \{0\} : m < n \text{ e } MCD \{m,n\} = 1\}|\)
     è detta \textbf{funzione di Eulero}.
-
+    
     Quindi ci sono \(\varphi(n)\) elementi \(\overline{m}\) tali che \(\langle \overline{m} \rangle = \mathbb{Z}_n\).
 \end{definition}
 
@@ -883,7 +883,7 @@ In particolare, \(\langle \overline{m} \rangle = \mathbb{Z}_n \Leftrightarrow z=
     I sottogruppi di \(\mathbb{Z}_{899}\) sono quattro, perché \(899 = 31 \cdot 29\), quindi c'è un sottogruppo di
     cardinalità 1 (il sottogruppo banale), uno di cardinalità 31, uno di cardinalità 29 e \(\mathbb{Z}_{899}\).\\
     Sono: \(\{\{0\} , \langle \overline{29} \rangle , \langle \overline{31} \rangle , \mathbb{Z}_{899}\}\).
-
+    
 \end{example}
 
 \subsection{Anelli}
@@ -920,7 +920,7 @@ Indichiamo con \("0"\) l'identità del gruppo \((X, +)\).
               con unità la matrice identità.\\
               In generale, se \(A\) è un anello commutativo con unità, l'insieme \(Mat_{n \times n}(A)\) delle matrici a valori
               in \(\mathbb{R} \) con le operazioni di somma e prodotto righe per colonne, è un anello non commutativo con unità.
-              \item\(\{X\}\) è un anello, detto \textbf{anello nullo}. Le due operazioni sono la stessa e \(0 = 1_{\{X\}} = x\).
+        \item\(\{X\}\) è un anello, detto \textbf{anello nullo}. Le due operazioni sono la stessa e \(0 = 1_{\{X\}} = x\).
     \end{itemize}
 \end{example}
 
@@ -1037,12 +1037,12 @@ Allora : \
               Vicerversa, se \(\langle 0 \rangle\) e \(A\) sono gli unici ideali di \(A\),
               e se \(x \in A  \backslash \{0\}\), allora \(\langle X \rangle = \langle 1_A \rangle\),
               ossia \(ax = 1_A\) per qualche \(a \in A\). Quindi \(x\) è invertibile.
-
+              
     \end{itemize}
-
+    
 \end{dimostrazione}
 
-\subsubsection{Anelli quoziente}
+\subsection{Anelli quoziente}
 
 Sia \(A\) un anello commutativo e \(I \subseteq A\) un ideale.\\
 In particolare, \(A\) con l'operazione \("+"\) è un gruppo abeliano e \(I\) è un sottogruppo di \(A\).\\
@@ -1068,7 +1068,7 @@ Inoltre \([1_A] [x] = [1_A x] = [x] \), per ogni \([x] \in \sfrac{A}{I}\), quind
         \item \(\mathbb{Z}_2 \simeq \{\overline{0}, \overline{1}\}\) \begin{table}[htbp]
                   \centering
                   \begin{tabular}{ c | c | c}
-
+                      
                       \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) \\ \hline
                       \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
                       \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) \\
@@ -1079,7 +1079,7 @@ Inoltre \([1_A] [x] = [1_A x] = [x] \), per ogni \([x] \in \sfrac{A}{I}\), quind
               anche \(\overline{2}\) è invertibile. \begin{table}[htbp]
                   \centering
                   \begin{tabular}{ c | c | c | c}
-
+                      
                       \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
                       \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
                       \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
@@ -1092,7 +1092,7 @@ Inoltre \([1_A] [x] = [1_A x] = [x] \), per ogni \([x] \in \sfrac{A}{I}\), quind
               \begin{table}[htbp]
                   \centering
                   \begin{tabular}{ c | c | c | c | c}
-
+                      
                       \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
                       \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
                       \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
@@ -1283,10 +1283,10 @@ sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
               \(= (a mod n_1 + b mod n_1, ... , a mod n_k + b mod n_k)\)\\
               \(= (a mod n_1, ... , a mod n_k) + (b mod n_1, ... , b mod n_k)\)\\
               \(= f(a) + f(b), \forall a,b \in \mathbb{Z}\)
-
+              
         \item \(f(1) = (1 mod n_1, ... , 1 mod n_k)\) e \((1 mod n_1, ... , 1 mod n_k)\) è l'unità\\
               del prodotto diretto di anelli \(\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)
-
+              
         \item \(f(a \cdot b) = ((a \cdot b) mod n_1, ... , (a \cdot b) mod n_k)\)\\
               \(= (a mod n_1 \cdot b mod n_1, ... , a mod n_k \cdot b mod n_k)\)\\
               \(= (a mod n_1, ... , a mod n_k) \cdot (b mod n_1, ... , b mod n_k)\)\\
@@ -1308,7 +1308,7 @@ sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
     \(= <mcm\{n_1 ,..., n_k\}> = <n_1 n_2 ... n_k>\) dato che \(n_i\) e \(n_j\) sono coprimi \(\forall i \neq j\).\\
     quindi \(\sfrac{\mathbb{Z}}{Ker(f)} = \sfrac{\mathbb{Z}}{<n>} = \mathbb{Z}_n \) e l'isomorfismo \(\Psi: \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times ... \times \mathbb{Z}_{n_k}\)\\
     è quello dell'enunciato del teorema.
-
+    
 \end{dimostrazione}
 
 \newpage
@@ -1366,6 +1366,632 @@ siano \(x,y \in \mathbb{N} \setminus \{0\}\) tali che \(MCD\{x,y\} = 1\), allora
     \end{center}
 \end{dimostrazione}
 
+\newpage
+
+\begin{example}
+    siano \(n_1 = 3, n_2 = 7 e n_3 = 10\). Allora \(n := n_1 n_2 n_3 = 210\)\\
+    e abbiamo l'isomorfismo di anelli \(\mathbb{Z}_{210} \simeq \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\).\\
+    sia \((2 mod 3, 5 mod 7, 4 mod 10) \in \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\), questa terna corrisponde ad un elemento\\
+    \(x mod 210 \in \mathbb{Z}_{210}\) che soddisfa il sistema
+    \[
+        \begin{cases}
+            x\mod 3 = 2\mod 3   \\
+            x\mod 7 = 5\mod 7   \\
+            x\mod 10 = 4\mod 10 \\
+        \end{cases}
+    \]
+\end{example}
+
+la dimostrazione del teorema cinese dei resti ci dice come trovare x.\\
+\(x = 2 v_1 + 5 v_2 + 4 v_3\) dove se \(3 a + 70 b = 1, 7 a + 30 b = 1\) e \(10 a + 21 b = 1\)\\
+sono identità di Bézout, allora \(v_1 = 70 b, v_2 = 30 b  = 30, v_3 = 21 b\)\\
+\begin{center}
+    \(3 a + 70 b = 1 \rightarrow a = -23, b = 1 \rightarrow v_1 = 70\)\\
+    \(7 a + 30 b = 1 \rightarrow 30 = 4 \cdot 7 + 2 , 7 = 3 \cdot 2 + 1\)\\
+    \(\rightarrow 1 = 7 - 3 \cdot 2 = 7 - 3(30 - 4 \cdot 7) = \)\\
+    \(13 \cdot 7 - 3 \cdot 30 = 91 - 90 = 1 \rightarrow a = 13, b = -3 \rightarrow v_2 = -3 \cdot 30\)\\
+    \(10 a + 21 b = 1 \rightarrow a = -2, b = 1 \rightarrow v_3 = 21\)\\
+\end{center}
+
+quindi \(x = 2 \cdot 70 - 5 \cdot 3 \cdot 30 + 4 \cdot 21 = 194\mod 210\)\\
+
+\textbf{Corollario:} Sia \(U(\mathbb{Z}_n)\) il gruppo degli elementi invertibili dell'anello \(\mathbb{Z}_n\).\\
+sia \(n := n_1 ... n_k\) dove \(MCD\{n_i, n_j\} = 1 \forall 1 \leq i,j \leq k, i \neq j\).\\
+e \(n_i \in \mathbb{N} \setminus \{0,1\} \forall 1 \leq i \leq k\).\\
+allora come i gruppi \(U(\mathbb{Z}_n) \simeq U(\mathbb{Z}_{n_1}) \times ... \times U(\mathbb{Z}_{n_k})\)
+
+\begin{dimostrazione}
+    l'isomorfismo \(\Psi\) del teo. cinese dei restti, ristretto a \(U(\mathbb{Z}_n)\) dà un isomorfismo di gruppi\\
+\end{dimostrazione}
+
+Poiché un elemento \(\overline{x} \in \mathbb{Z}_n\) è invertibile s.s.e. esiste un'identità di Bézout \(ax + bn = 1\)\\
+abbiamo che \(\overline{x}\) è invertibile s.s.e. \(MCD\{x,n\} = 1\).\\
+Quindi \(|U(\mathbb{Z}_n)| = \varphi(n)\), con \(\varphi\) funzione di Eulero.\\
+
+dal precedente Corollario e da questo segue un altro Corollario:
+
+\textbf{Corollario:} Sia \(\varphi : \mathbb{N} \setminus \{0\} \rightarrow \mathbb{N} \setminus \{0\}\) la funzione \(\varphi\) di Eulero.\\
+siano \(x,y \in \mathbb{N} \setminus \{0\}\) tali che \(MCD\{x,y\} = 1\), allora \(\varphi(xy) = \varphi(x) \cdot \varphi(y)\).\\
+
+\begin{dimostrazione}
+    dal Corollario precedente abbiamo che \(U(\mathbb{Z}_{xy}) \simeq U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)\)\\
+    come i gruppi, quindi:
+    \begin{center}
+        \(\varphi(xy) = |U(\mathbb{Z}_{xy})| = |U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)| = |U(\mathbb{Z}_x)| \cdot |U(\mathbb{Z}_y)| = \varphi(x) \cdot \varphi(y)\)
+    \end{center}
+\end{dimostrazione}
+\newpage
+
+Come conseguenza del corollario precedente otteniamo una formula per calcolare \\
+la funzione \(\varphi\) di Eulero.\\
+Se \(p\) è un numero primo, allora ci sono \(p^k\) numeri \(1 \leq n \leq p^k\).\\
+Di questi numeri \(p, 2p, ... , p^{k-1}p\) hanno fattori comuni con \(p^k\) e quindi
+\begin{center}
+    \(\varphi(p^k) = p^k - p^{k-1}\).\\
+\end{center}
+se \(n = p^{k_1}...p^{k_s}\) per il corollario precedente \((n>1)\):\\
+\(\varphi(n)= \varphi(p_1^{k_1}...\varphi(p_s^{k_s}) = (p_1^{k_1}-p_1^{k_1-1})...(p_s^{k_s}-p_s^{k_s-1}) = p_1^{k_1}...p_s^{k_s}\prod_{p|n, p primo}(1-\frac{1}{p}) = \)\\
+\(= n \prod_{p|n, p primo}(1-\frac{1}{p})\).\\
+
+\begin{teorema}[di Eulero]
+    Sia \(n \in \mathbb{N} \setminus \{0,\}\) ed \(a \in \mathbb{N} \setminus \{0\}\) tale che \(MCD\{a,n\} = 1\).\\
+    allora \(a^{\overline{\varphi(n)}} = \overline{1} \in \mathbb{Z}_n\). (diciamo che \(a^{\varphi(n)} \equiv 1 \mod n\))\\
+\end{teorema}
+
+\begin{dimostrazione}
+    sappiamo che la cardinalità del gruppo degli elementi invertibili \\
+    di \(\mathbb{Z}_n\) è \(\varphi(n)\).\\
+    Sia \(<\overline{a}> \subseteq U(\mathbb{Z}_n)\) il sottogruppo generato da \(\overline{a} in U(\mathbb{Z}_n)\). allora \(|<\overline{a}>|\) divide \(\varphi(n)\),\\
+    ossia \(\varphi(n) = k |<\overline{a}>|\), per qualche \(k \in \mathbb{N}\). Sia \(c := |<\overline{a}>|\);\\
+    abbiamo che \( = \overline{1} = \overline{a}^c = (\overline{a^c})^k  = \overline{a^{ck}} = \overline{a^{\varphi(n)}} \).\\
+\end{dimostrazione}
+
+\textbf{Corollario:}(piccolo teorema di Fermat) Sia \(p\) un numero primo e \(a \in \mathbb{N}\).\\
+allora in \(\mathbb{Z}_p\) abbiamo che \(\overline{a} = \overline{a^p} (a^p \equiv a \mod p)\).\\
+
+\begin{dimostrazione}
+    se \(p\) è primo si ha che \(\varphi(p) = p-1\). allora dal Teo. di Eulero segue che, se \(a \neq 0, p \nmid a\), \(a^{varphi(p) \equiv 1 \mod p}\implies a ^{p-1} \equiv 1 \mod p \implies a^p \equiv a \mod p\).\\
+    se \(a = 0 o p | a\) l' uguaglianza si riduce a \(\overline{0} = \overline{0}\).
+\end{dimostrazione}
+
+\newpage
+
+\subsection{Caratteristica di un anello}
+sia \(A\) un anello. il sottogruppo \(<1_A> \subseteq (A,+)\)è un gruppo ciclico.\\
+quindi esiste un \(n \in \mathbb{N}\) tale che \(<1_A> \simeq \mathbb{Z}_n\). \(n\) è detto la caratteristica dell'anello \(A\).\\
+
+\begin{example}
+    la caratteristica di \(\mathbb{Z}\) è 0, infatti \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\).\\
+    la caratteristica degli anelli \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è sempre 0 poiché \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\) in  \(\mathbb{Q},\mathbb{R},\mathbb{C}\)\\
+\end{example}
+
+\begin{example}
+    sia \(n \in \mathbb{N}\) allora la caratteristica dell'anello \(\mathbb{Z}_n\) è \(n\).\\
+    infatti \(<\overline{1}> = \mathbb{Z}_n\), rispetto all'operazione +\\
+\end{example}
+
+indichiamo con \(CHAR(A)\) la caratteristica di un anello \(A\).\\
+\begin{definition}
+    sia A un anello e sia \(<1_A>\) il sottogruppo di (A,+) generato da \(1_a\).
+    l'intersezione di tutti i sottoanelli di A contenenti \(<1_a>\)\\
+    si chiama \textbf{sottoanello fondamentale di A}.\\
+\end{definition}
+
+\begin{example}
+    il sottoanello fondamentale di \(\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Z}\)
+\end{example}
+
+\begin{definition}
+    sia K un campo\\
+    l'intersezione di tutti i sottocampi di K contenenti il gruppo \(<1_k> \subseteq (K,+)\) si chiama \\
+    \textbf{sottocampo fondamentale di K}.\\
+\end{definition}
+
+\begin{example}
+    il sottocampo fondamentale di \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Q}\).\\
+    se \(p \in \mathbb{N}\) è primo, il sottocampo fondamentale di \(\mathbb{F}_p\) è \(\mathbb{F}_p\) perché \(<\overline{1}> = \mathbb{F}_p\).\\
+\end{example}
+
+\newpage
+
+\subsection{Anello dei polinomi in una indeterminata a coefficienti in un campo}
+Sia \(K\) un campo. una funzione \(f: \mathbb{N} \rightarrow K\) si chiama \textbf{successione a valori in \(K\)}.\\
+ad una successione a valori in \(K\) corrisponde una serie formale nella variabile \(x\) su \(K\):\\
+\begin{center}
+    \(\sum_{n=0}^{\infty} f(n) x^n\)
+\end{center}
+se l'insieme \(\{ m \ in \mathbb{N} : f(n) \neq 0\}\) è finito diciamo che la serie formale\\
+è un polinomio in \(x\) di grado \(deg(P) := MAX \{ n \in \mathbb{N}: f(n) \neq 0\}\).\\
+il grado del poliniomio 0 non è definito.\\
+l'insieme dei polinomi in \(x\) a coefficienti in \(K\) si indica con \(K[x]\) ed è un anello commutativo con le operazioni:\\
+\begin{itemize}
+    \item somma: \((\sum_{n=0}^{\infty} a_n X^n) + (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (a_n + b_n) X^n\)
+    \item prodotto: \((\sum_{n=0}^{\infty} a_n X^n) \cdot (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (\sum_{k=0}^{n} a_k b_{n-k}) X^n\)
+\end{itemize}
+l'unità di \(K[x]\) è il polinomio \(1_k\).\\
+
+\begin{example}
+    in \(\mathbb{F}_2[x]\) siano \(P := 1 + X^2 + X^3\) e \(Q:= X + X^2\).\\
+    allora \(P+Q = 1 + X + X^2 + X^3\) e \(P \cdot Q = X + X^2 + X^3 + X^5\)
+\end{example}
+
+\begin{proposition}
+    siano \(P,Q \in K[x]\) polinomi non nulli. allora il grado del prodotto \(P \cdot Q\) è \(deg(P) + deg(Q)\).\\
+    in particolare \(K[x]\) è un dominio di integrità.\\
+\end{proposition}
+
+\begin{definition}
+    un polinomio si dice \textbf{monico} se il coefficiente del termine di grado massimo è 1.\\
+\end{definition}
+
+\begin{definition}
+    sia K un campo. un polinomio \(P \in K[x]\) si dice \textbf{irriducibile}\\
+    se i suoi unici divisori sono del tipo \(a, aP\) con \(a \in K \setminus \{0\}\).\\
+    altrimenti si dice \textbf{riducibile}.\\
+\end{definition}
+
+\begin{example}
+    in \(\mathbb{F}_2[X]\) il polinomio \(X^2 + 1\) è irriducibile, infatti:\\
+    \(X^2 + 1 = (X + 1)^2\), quindi \(X + 1\) divide \(X^2 + 1\) e \(X + 1 \notin K \setminus \{0\}\).
+\end{example}
+
+\begin{example}
+    in \(K[X]\) ogni polinomio di grado 1 è irriducibile, infatti:\\
+    se \(deg(P) = 1\) allora \(P = aX + b\) con \(a,b \in K, a \neq 0\).\\
+    i suoi divisori sono \(c\) e \(c^{-1} (aX + b), c \in K \setminus \{0\}\).
+\end{example}
+
+\begin{definition}
+    sia \(\alpha \in K\). l'elemento \(\alpha\) è detto \textbf{radice} del polinomio\\
+    \(P = \sum_{n=0}^{\infty} a_n X^n \in K[X]\) se \(P(\alpha) = \sum_{n=0}^{\infty} a_n \alpha^n = 0\).\\
+\end{definition}
+
+\newpage
+
+anche nell'anello \(K[X]\) come in \(\mathbb{Z}\) abiamo un algoritmo di divisione Euclidea.\\
+se \(f(X), g(X) \in K[X]\) sono polinomi non nulli allora esistono unici polinomi \(q(X), r(X) \in K[X]\) tali che:\\
+\(f(X) = q(X) \cdot g(X) + r(X)\) e \(r(X) = 0\) oppure \(deg(r) < deg(g)\).\\
+\(q(X)\) si chiama \textbf{quoziente} e \(r(X)\) si chiama \textbf{resto} della divisione.\\
+ne segue il seguente teorema, dimostrato come in \(\mathbb{Z}\):
+\begin{teorema}
+    l'anello \(K[X]\) è a ideali principali.\\
+    se \(I = <p(X)>\) allora esiste un unico generatore monico di \(I\).\\
+\end{teorema}
+
+\begin{definition}
+    definiamo il \textbf{massimo comune divisore} di due polinomi \(f(X), g(X) \in K[X]\) come l'unico massimo comune divisore monico.
+\end{definition}
+
+Come in \(\mathbb{Z}\) possiamo trovarlo con l'algoritmo delle divisioni successive\\
+che dà anche un \underline{identità di Bézout}.
+
+\begin{example}
+    \(f(X) = X^4 - X^3 -4X^2 + 4X + 1\) e \(g(X) = X^2 - 1\) in \(\mathbb{Q}[X]\), allora:
+    \begin{center}
+        \(f(X) = g(X)(X^2 - 3) + (X - 2)\)\\
+        \(g(X) = (X - 2)(X + 1) +1 \implies MCD(f,g) = 1\)
+    \end{center}
+    inoltre
+    \begin{center}
+        \(1 = g(X) - (X - 2)(X + 1) + 1 = g(X) - [f(X) - g(X)(X^2 - 3)](X + 1) =\)\\
+        \(= -(X - 1)f(X) + (X^3 + X^2 - 3X -2)g(X)\).\\
+    \end{center}
+\end{example}
+
+\textbf{proprietà:} sia K un campo e \(P(X) \in K[X]\) un poliniomio irriducibile.\\
+allora l'anello quoziente \( \sfrac{K[X]}{<P(X)>}\) è un campo.\\
+
+\begin{dimostrazione}
+    sia \([f] \ in \sfrac{K[X]}{<P(X)>}\) tale che \([p] \neq [0]\) ossia \(p(X)\) non divide \(f(X)\).\\
+    Dunque \(MCD\{f(X),p(X)\} = 1\) perchè \(p(X)\) è irriducibile.\\
+    quindi abbiamo un'identità di Bézout \(a(X)f(X) + b(X)p(X) = 1\).\\
+    ossia \([a(X)] = [f(X)]^{-1}\) in \(\sfrac{K[X]}{<P(X)>}\).
+\end{dimostrazione}
+
+\begin{example}
+    in \(\mathbb{F}_2[X]\) il polinomio \(P(X) = 1 + X + X^2\) è irriducibile.\\
+    infatti non ha radici in \(\mathbb{F}_2\).\\
+    quindi l'anello \(\sfrac{\mathbb{F}_2[X]}{<1 + X + X^2>}\) è un campo, che chiamiamo \(\mathbb{F}_4\).\\
+    un elemento di \(\mathbb{F}_4\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_2\).\\
+    la tavola moltiplicativa è la seguente:
+    \begin{center}
+        \begin{tabular}{c|cccc}
+            \(\cdot\) & 0 & 1     & X     & 1 + X \\
+            \hline
+            0         & 0 & 0     & 0     & 0     \\
+            1         & 0 & 1     & X     & 1 + X \\
+            X         & 0 & X     & 1 + X & 1     \\
+            1 + X     & 0 & 1 + X & 1     & X     \\
+        \end{tabular}
+    \end{center}
+    l'inverso di \(X\) è \(1 + X\).\\
+\end{example}
+
+\newpage
+
+\begin{example}
+    in \(\mathbb{F}_3[X]\) il polinomio \(P(X) = 1 + X^2\) è irriducibile.\\
+    indichiamo con \(\mathbb{F}_9\) il campo\(\sfrac{\mathbb{F}_3[X]}{<1 + X^2>}\).\\
+    un elemento di \(\mathbb{F}_9\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_3\) quindi sono 9.\\
+    la tavola moltiplicativa è la seguente:
+    \begin{center}
+        \begin{tabular}{c|ccccccccc}
+            \(\cdot\) & 0 & 1      & 2      & X      & 1 + X  & 2 + X  & 2X     & 1 + 2X & 2 + 2X \\
+            \hline
+            0         & 0 & 0      & 0      & 0      & 0      & 0      & 0      & 0      & 0      \\
+            1         & 0 & 1      & 2      & X      & 1 + X  & 2 + X  & 2X     & 1 + 2X & 2 + 2X \\
+            2         & 0 & 2      & 1      & 2X     & 2 + 2X & 1 + 2X & X      & 2 + X  & 1 + X  \\
+            X         & 0 & X      & 2X     & 2      & 2 + X  & 2 + 2X & 1      & 1 + X  & 1 + 2X \\
+            1 + X     & 0 & 1 + X  & 2 + 2X & 2 + X  & 2X     & 1      & 1 + 2X & 2      & X      \\
+            2 + X     & 0 & 2 + X  & 1 + 2X & 2 + 2X & 1      & X      & 1 + X  & 2X     & 2      \\
+            2X        & 0 & 2X     & X      & 1      & 1 + 2X & 1 + X  & 2      & 2 + 2X & 2 + X  \\
+            1 + 2X    & 0 & 1 + 2X & 2 + X  & 1 + X  & 2      & 2X     & 2 + 2X & X      & 1      \\
+            2 + 2X    & 0 & 2 + 2X & 1 + X  & 1 + 2X & X      & 2      & 2 + X  & 1      & 2X     \\
+        \end{tabular}
+    \end{center}
+    l'inverso di \(X\) è 2.\\
+\end{example}
+
+\begin{teorema}[di Ruffini]
+    sia \(f(X) \in K[X]\) un polinomio non nullo.\\
+    se \(\alpha \in K\), il resto della divisione di \(f(X)\) per \(X - \alpha\) è \(f(\alpha)\),\\
+    in particolare \(\alpha\) è una radice di \(f(X)\) s.s.e. \(X - \alpha\) divide \(f(X)\) in \(K[X]\).\\
+\end{teorema}
+
+\begin{dimostrazione}
+    \(f(X) = (X - \alpha) q(X) + r(X)\) con \(r(X) = 0\) oppure \(deg(r(X)) < 1\).\\
+    quindi \(r(X)\) è un polinomio costante, \(r(X) = x \in K\).\\
+    calcolando in \(\alpha\) otteniamo \(f(\alpha) = c\).\\
+\end{dimostrazione}
+
+\begin{example}
+    il polinomio \(X^2 + 1 \in \mathbb{R}[X]\) non ha radici in \(\mathbb{R}\)\\
+    quindi è irriducibile e \(\sfrac{\mathbb{R}[X]}{<X^2 + 1>}\) è un campo isomorfo a \(\mathbb{C}\),\\
+    dove l'isomorfismo è dato dall'assegnazione \(1 \rightarrow 1\) e \(x \rightarrow i\)\\
+\end{example}
+
+\newpage
+
+enunciamo il seguente importante risultato, senza fornire la dimostrazione.\\
+(vedi proposizione 4.3.5 di "Teoria delle equazioni e teoria di Galois" - S.Gabelli).\\
+
+\begin{proposition}
+    se K è un campo, ogni sottogruppo finito del gruppo moltiplicativo\\
+    \(K \setminus \{0\}\) è ciclico. in particolare, se K è un campo finito, \(K \setminus \{0\}\) è un gruppo ciclico.
+\end{proposition}
+
+\begin{example}
+    \begin{itemize}
+        \item in \(\mathbb{F}_4 = \sfrac{\mathbb{F}_2}{<1 + X + X^2>}\) si ha che \(\{ X, X^2, X^3\} = \{ X, 1 + X, 1\} = \mathbb{F}_4 \setminus \{0\}\)\\
+              quindi \(X\) è un generatore del gruppo moltiplicativo \(\mathbb{F}_4 \setminus \{0\}\), l'altro è \(1 + X\)\\
+        \item in \(\mathbb{F}_9 = \sfrac{\mathbb{F}_3}{<1 + X^2>}\) abbiamo:\\
+              \(<X> = \{X, X^2, X^3, X^4\} = \{X, 2, 2X,1\}\)\\
+              \(<1 + X> = \{1 + X, (1 + X)^2, (1 + X)^3, (1 + X)^4, (1 + X)^5, (1 + X)^6, (1 + X)^7, (1 + X)^8\} =\)\\
+              \(= \{1 + X, 2X, 1 + 2X, 2, 2 + 2X, X, 2 + X, 1 \}\)\\
+              \(= \mathbb{F}_9 \setminus \{0\}\) quindi \(1 + X\) genera il gruppo moltiplicativo.
+    \end{itemize}
+\end{example}
+
+Sia \(p \in \mathbb{N}\) un numero prima e sia \(n \in \mathbb{N} \setminus \{0\}\).\\
+sia \(Q(X), \mathbb{F}_p[X]\) un qualsiasi polinomio irriducibile di grado n.\\
+definiamo il campo
+\begin{center}
+    \(\mathbb{F}_{p^n} = \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+
+vogliamo ora mostrare che se \(Q(X), Q'(X) e \mathbb{F}_p[X]\) sono polinomi irriducibili di grado n,\\
+allora 
+\begin{center}
+    \(\sfrac{\mathbb{F}_p[X]}{<Q(X)>} \simeq \sfrac{\mathbb{F}_p[X]}{<Q'(X)>}\), isomorfismo tra campi
+\end{center}
+
+quindi la definizione di \(\mathbb{F}_p\) è ben posta, a meno di isomorfismi.\\
+
+\begin{definition}
+    siano \(F \subseteq K\) due campi (ampliamento di campi).\\
+    un elemento \(\alpha \in K\) si dice \underline{algebrico} su F se è radice di qualche polinomio non nullo\\
+    su \(f(X) \in F(X)\), altrimenti si dice \underline{trascendente} su F.
+\end{definition}
+
+dato un ampliamento di campi \(F \subseteq K\) e  \(\alpha \in K\), si consideri il morfismo di anelli
+\begin{center}
+    \(v_\alpha : F[X] \rightarrow K\)\\
+    \(f(X) \rightarrow f(\alpha)\).
+\end{center}
+
+\(Ker(v_\alpha)\) è l'ideale di \(F[X]\) costituito dai polinomi che si annullano in \(\alpha\).\\
+quindi \(\alpha\) è algebrico su F s.s.e. \(Ker(v_\alpha)\) è un ideale non nullo di \(F[X]\).\\
+poiche \(F[X]\) è ad ideali principali, \(ker(v_\alpha) = <m(X)>\)\\
+dove \(m(X)\) è l'unico polinomio monico di grado minimo in \(Ker(v_\alpha)\).
+
+\begin{definition}
+    se \(\alpha \in K\) è algebrico su F, il polinomio \(m(X)\) definito sopra si chiama\\
+    \textbf{polinomio minimmo di \(\alpha\) su F}, se \(deg(m(X)) = n\), \(\alpha \) si dice algebrico di grado n
+\end{definition}
+
+\textbf{Nota:} sia \(\alpha \in K\) e \(P(X) \in F[X] \setminus \{0\})\) tale che \(p(\alpha) = 0\),\\
+allora \(p(X)\) è il polinomio minimo di \(\alpha\) su F s.s.e. \(p(X)\) è monico e irriducibile.\\
+
+\begin{example}
+    si consideri l'ampliamento \(\mathbb{R} \subseteq \mathbb{C}\). allora \(1 + X^2 \in \mathbb{R}[X]\)\\
+    è il polinomio minimo di \(i \in \mathbb{C}\) su \(\mathbb{R}\).
+\end{example}
+
+\newpage
+
+\textbf{Proprietà:} sia \(F \in K\) un ampliamento di campi e \(\alpha \in K\).\\
+si consideri il morfismo di anelli \(v_\alpha: F[X] \rightarrow K\).\\
+allora \(Im(v_\alpha)\) è il più piccolo sottoanello di K contenente sia F che \(\alpha\)
+
+\begin{dimostrazione}
+    si osservi che l'immagine di un morfismo di anelli è un sottoanello.\\
+    di conseguenza \(Im(v_\alpha)\) è un sottoanello di K.\\
+    sia \(c \in F\) e si consideri il polinomio costante \(c \in F[X]\). allora \(v_\alpha(c)=c\).\\
+    quindi \(F \subseteq Im(v_\alpha)\) e \(v_\alpha(X) = \alpha\ \implies \alpha \in Im(v_\alpha)\)\\
+    d'altra parte per chiusura aditiva e moltiplicativa,\\
+    ogni sottoanello di K contenete sia F che \(\alpha\) contiene anche \(Im(v_\alpha)\).
+\end{dimostrazione}
+
+\begin{proposition}
+    sia \(F \subseteq K\) un ampliamento di campi e sia \(\alpha \in K\).\\
+    il più piccolo sottocampo di K contenente sia F che \(\alpha\) si chiama\\
+    \textbf{ampliamento di F in K generato da \(\alpha\)} e si indica con \textbf{F(\(\alpha\))}
+    tale ampliamento si dice \textbf{semplice} (poichè generato da un solo elemento)
+\end{proposition}
+
+\vspace{\baselineskip}
+
+da questa proposizione segue questo Corollario:\\
+
+\textbf{Corollario:} sia \(F \subseteq K\) un ampliamento di campi e sia \(\alpha \in K\).\\
+allora \(F(\alpha) = \{f(\alpha)g(\alpha)^{-1} : f(X),g(X) \in F[X], g(\alpha) \neq 0\}\).
+
+\begin{dimostrazione}
+    per la proposizione precedente\\
+    il più piccolo sottoanello di K contenente sia F che \(\alpha\) è \(Im(v_\alpha = \{f(\alpha) : f(X) \in F[X]\})\).\\
+    prendendo gli inversi in K si ottiene la tesi.
+\end{dimostrazione}
+
+\vspace{\baselineskip}
+
+se \(\alpha \in K\) è algebrico su F si ha che \(Im(v_\alpha \simeq \sfrac{F[X]}{<m(X)>})\),\\
+dove \(m(X)\) è il polinomio minimo di \(\alpha\). quindi \(Im(v_\alpha)\) è un campo e \(F(\alpha) = Im(v_\alpha)\).\\
+se n è il grado di \(\alpha\) si ha quindi:
+\begin{center}
+    \(F(\alpha) = \{c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} : c_i \in F\}\)
+\end{center}
+
+\begin{example}
+    si consideri l'ampliamento \(\mathbb{Q} \subseteq \mathbb{R}\). l'elemento \(\sqrt{2}\in \mathbb{R} \setminus \mathbb{Q}\) è akgebrico su \(\mathbb{Q}\)\\
+    con polinomio minimo \(X^2 -2\). quindi \(\sqrt{2}\) ha grado 2 su \(\mathbb{Q}\) e
+    \begin{center}
+        \(\mathbb{Q}(\sqrt{2}) = \{ c_0 + c_1 \sqrt{2} : c_0,c_1 \in \mathbb{Q}\})\).
+    \end{center}
+\end{example}
+
+adesso mostriamo che il campo \(\mathbb{F}_{p^n}\) è un ampliamento semplice di \(\mathbb{F}_p\)
+\begin{proposition}
+    sia \(\alpha \in \mathbb{F}_{p^n}\) un generatore del campo moltiplicativo \(\mathbb{F}_{p^n} \setminus \{0\}\).\\
+    allora \(\mathbb{F}_{p^n} = \mathbb{F}_p(\alpha)\).
+\end{proposition}
+
+\begin{dimostrazione}
+    \(\mathbb{F}_p(\alpha)\) è il più piccolo sottocampo di \(\mathbb{F}_{p^n}\) contenente sia \(\mathbb{F}_p\) che \(\alpha\)\\
+    quindi \(\mathbb{F}_p(\alpha) \subseteq \mathbb{F}_{p^n}\). Poiché \(\alpha\) genera il gruppo moltiploicativo \(\mathbb{F}_{p^n} \setminus \{0\}\) anche \(\mathbb{F}_{p^n} \subseteq \mathbb{F}_p(\alpha)\)
+\end{dimostrazione}
+
+\newpage
+
+Ora, se \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono due polinomi irriducibili di grado n,\\
+vogliamo costruire un isomorfismo 
+\begin{center}
+    \(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+ci serve il seguente risultato:
+
+\begin{proposition}
+    siano \(F \subseteq K\) e \(F \subseteq K'\) due ampliamenti di campi.\\
+    se \(\alpha \in K\) è algebrico di grado n su F, con polinomio minimo \(m(x)\),\\
+    esiste un morfismo di campi \(\varphi : F(\alpha) \rightarrow K'\) che fissa F in K'.\\
+    in questo caso i morfismi \(\varphi\) sono tanti quante le radici distinte \(\beta_1, ... ,\beta_s\) di \(m(X)\) in K'.\\
+    sono tutti e soli quelli definiti da:
+    \begin{center}
+        \(c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} \rightarrow c_0 + c_1\beta_i + ... + c_{n-1}\beta_i^{n-1} \)
+    \end{center}
+\end{proposition}
+
+\begin{dimostrazione}
+    se \(\alpha\) è algebrico di grado n su F con polinomio minimo \(m(X)\)\\
+    e \(\varphi : F(\alpha) \rightarrow K'\) è isomorfismo, allora \(0 = \varphi(0) = \varphi(m(\alpha)) = m(\varphi(\alpha))\)\\
+    quindi \(\varphi(\alpha)\) deve essere radice di \(m(X)\) in K'.\\
+    viceversa, sia \(\beta\) una radice di \(m(X)\) in K' e consideriamo il morfismo di anelli\\
+    \begin{center}
+        \(v_\beta : F[X] \rightarrow K'\)\\
+        \(f(X) \rightarrow f(\beta)\)
+    \end{center}
+    poiché \(m(X) \in Ker(v_\beta)\), dal Teorema di isomorfismo per anelli\\
+    abbiamo che il seguente diagramma è commutativo:\\
+    \begin{center}
+        \begin{tikzcd}
+            F[X] \arrow{r}{v_\beta} \arrow{d}{\pi} & K'\\
+            F(\alpha) \simeq \sfrac{F[X]}{<m(X)>} \arrow{ur}{\varphi}
+        \end{tikzcd}
+    \end{center}
+    infatti \(Ker(v_\beta) = <m(X)>\), essedo \(m(X)\) irriducibile.\\
+    quindi abbiamo trovato un morfismo iniettivo \(\varphi : F(\alpha) \rightarrow K'\) che soddisfa le proprietà dell'enunciato.\\
+\end{dimostrazione}
+
+sia F un campo e \(f(X) \in F[X]\) un polinomio di grado \(n \geq 1\).\\
+un campo K, ampliamento di F, si dice \textbf{campo di spezzamento di f(X) su F} se:\\  
+\begin{itemize}
+    \item \(f(X)\) fattorizza in polinomi di grado 1 su \(K[X]\)
+    \item non ci sono campi intermedi \(F \subseteq L \subsetneq K\) con la stessa proprietà.
+\end{itemize}
+
+\begin{example}
+    \(\mathbb{Q}(\sqrt{2})\) è un campo di spezzamenro di \(X^2 - 2 \in \mathbb{Q}[X]\).\\
+    \(\mathbb{C}\) è un campo di spezzamenro di \(X^2 + 1 \in \mathbb{R}[X]\).\\
+\end{example}
+
+\newpage
+
+Ora vogliamo mostrare che un campo che ha cardinalità \(p^n\)\\
+è un campo di spezzamento del polinomio \(X^{p^n} - X \in \mathbb{F}_p[X]\).\\
+infatti se K è un campo e \(|K| = p^n\), allora il suo gruppo moltiplicativo \(K \setminus \{0\}\) ha cardinalità \(p^n - 1\)\\
+e quindi oer ogni \(\alpha \in K \setminus \{0\}\) si ha \(\alpha^{p^n - 1} = 1\).\\
+quindi ogni elemento di K è radice del polinomio \(X^{p^n} - X\).\\
+per il teorema di Ruffini, K è un campo di spezzamento di \(X^{p^n} - X\).\\
+Adesso mostriamo che ogni poliniomio di grado n irriducibile in \(\mathbb{F}_p[X]\)\\
+divide \(X^{p^n} - X\ \in \mathbb{F}_p[X]\).\\
+
+\begin{proposition}
+    tutti e soli i polinomi irriducibili su \(\mathbb{F}_p\) di grado n\\
+    dividono \(X^{p^n} - X \in \mathbb{F}_p[X]\).
+\end{proposition}
+
+\begin{dimostrazione}
+    sia \(P(X) \in \mathbb{F}_p[X]\) irriducibile di grado n e sia \(K := \sfrac{\mathbb{F}_p[Y]}{<P(Y)>}\).\\
+    allora K ha \(p^n\) elementi che sono le radici di \(X^{p^n} - X \in K[X]\).\\
+    poichè \(Y \in K\) è una radice \(P(X) \in K[X]\), \(P(X) e X^{p^n} - X\) hanno una radice in comune in K,\\
+    allora per il teorema di Ruffini hanno un fattore comune \(X - Y in K[X]\).\\
+    quindi, poiché \(\mathbb{F}_p \subseteq K\) e \(MCD\) in \(\mathbb{F}_p = MCD\) in \(K[X]\)\\
+    \(\implies P(X), X^{p^n} - X\) hanno \(MCD \neq 1\) in \(\mathbb{F}_p[X]\).\\
+    poiché \(P(X)\) è irriducibile in \(\mathbb{F}_p[X]\), \(P(X)\) divide \(X^{p^n} - X\).\\
+\end{dimostrazione}
+
+\vspace{\baselineskip}
+
+adesso vogliamo costruire un isomorfismo di campi
+\begin{center}
+    \(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+dove \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono monici irriducibili di grado n.\\
+basta costruire un isomorfismo di anelli.\\
+Infatti un morfismo di anelli che sono campi è iniettivo. Inoltre:
+\begin{center}
+    \(|\sfrac{\mathbb{F}_p[X]}{<P(X)>}| = |\sfrac{\mathbb{F}_p[X]}{<Q(X)>}| = p^n\)
+\end{center}
+
+quindi tale morfismo è biunivoco, ossia è isomorfismo.
+
+\vspace{\baselineskip}
+
+Si ha che, se \(y \in \sfrac{\mathbb{F}_p[Y]}{<P(Y)>}\) allora \(P(X) \in \mathbb{F}_p[X]\) è il polinomio minimo di \(y\) su \(\mathbb{F}_p\).\\
+quindi, se \(P(X)\) ha una radice in \(\sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\),\\
+possiamo usare la proposizione sull'estensione di morfismi di campi per definire\\
+il morfismo f, che sarà un isomorfismo. Infatti \(\mathbb{F}_p \subseteq \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\). \\
+Inoltre \(\sfrac{\mathbb{F}_p[X]}{<P(X)>} = \mathbb{F}_p([X])\), dove \([X]\) è la classe di \(X\) in \(\sfrac{\mathbb{F}_p[X]}{<P(X)>}\).\\
+poiché \(\sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\) è un campo di spezzamento di \(X^{p^n} - X\) e \(P(X)\) divide \(X^{p^n} - X\),\\
+allora \(P(X)\) si fattorizza in fattori di grado 1 in \(\sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\).
+
+\vspace{\baselineskip}
+
+sia \(\beta \in \sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\) tale che \(p(\beta)\) = 0.\\
+allora l'assegnazione
+\begin{center}
+    \(c_0 + c_1 x + ... + c_{n-1} x^{n-1} \rightarrow c_0 + c_1 \beta + ... + c_{n-1} \beta^{n-1}\)
+\end{center}
+definisce un morfismo di anelli
+\begin{center}
+    \(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+
+\newpage
+
+\begin{example}
+    in \(\mathbb{F}_3[X]\) si considerino i polinomi irriducibili 
+    \begin{center}
+        \(1 + X^2\) e \(2 + X + X^2\).
+    \end{center}
+    il polinomio minimo di \(X\) in \(\sfrac{\mathbb{F}_3[X]}{<1 + X^2 >} := K\) su \(\mathbb{F}_3\) è \(1 + X^2\).\\
+    in \(K' := \sfrac{\mathbb{F}_3[Y]}{<1 + Y + Y^2>}\) si ha che 
+    \begin{center}
+        \(1 + X^2 = (X + Y + 2)(X + 2Y + 1)\)
+    \end{center}
+    quindi in \(K'[X], 1 + X^2\) ha due radici:
+    \begin{center}
+        \(-Y-2 = 2Y+1\) e \(-2Y - 1 = y + 2\).
+    \end{center}
+    abbiamo quindi due isomorfismi
+    \begin{center}
+        \(f: K \rightarrow K'\)\\
+        \(a_0 + a_1x \rightarrow a_0 + a_1(2Y + 1)\)\\
+        \(g: K \rightarrow K'\)\\
+        \(a_0 + a_1x \rightarrow a_0 + a_1(Y + 2)\)\\
+    \end{center}
+    \(f(0) = 0\)\\
+    \(f(1) = 1\)\\
+    \(f(2) = 2\)\\
+    \(f(X) = 2Y + 1\)\\
+    \(f(1 + X) = f(1) + f(X) = 2Y + 2\)\\
+    \(f(2 + X) = f(2) + f(X) = 2Y\)\\
+    \(f(2X) = f(2)f(X) = 2f(X) = y + 2\)\\
+    \(f(1 + 2X) = f(1) + f(2X) = Y\)\\
+    \(f(2 + 2X) = f(2) + f(2X) = y + 1\) \vspace{\baselineskip}\\
+    \(g(0) = 0\)\\
+    \(g(1) = 1\)\\
+    \(g(2) = 2\)\\
+    \(g(X) = Y + 2\)\\
+    \(g(1 + X) = g(1) + g(X) = Y\)\\
+    \(g(2 + X) = g(2) + g(X) = Y + 1\)\\
+    \(g(2X) = g(2)g(X) = 2g(X) = 2Y + 1\)\\
+    \(g(1 + 2X) = g(1) + g(2X) = 2Y + 2\)\\
+    \(g(2 + 2X) = g(2) + g(2X) = 2Y\)\\
+\end{example}
+
+\begin{osservazione}
+    \(X \in K\) non è un generatore di \(K \setminus \{0\}\).\\
+    infatti il sottogruppo del gruppo moltiplicativo \(K \setminus \{0\}\) generato da \(X\) è\\
+    \(<X> = \{X, 2, 2X, 1\} \subsetneq K \setminus \{0\}\)\\
+\end{osservazione}
+
+\newpage
+
+\textbf{Lemma:} se K è un anello commutativo di caratteristica prima p, allora
+\begin{center}
+    \((X + Y)^{p^h} = X^{p^h} + Y^{p^h}\)
+\end{center}
+per ogni \(x, y \in K, h \geq 1\).
+
+\begin{dimostrazione}
+    sia \(h = 1\). se \(p > k > 0\), p divide tutti i coefficienti binomiali\\
+    \(\binom{p}{k} := \frac{p!}{k!(p-k)!}\) perché non divide \(k!(p-k)!\).\\
+    allora \((X + Y)^p = \sum_{k=0}^{p} \binom{p}{k} X^k Y^{p-k} = X^p + Y^p\).\\
+    la tesi segue per induzione.\\
+\end{dimostrazione}
+
+\textbf{Automorfismo di Frobenius:}\\
+Dal lemma precedente segue che se K è un campo di caratteristica p, allora la funzione 
+\begin{center}
+    \(\Phi : K \rightarrow K\)\\
+    \(x \rightarrow x^p\)
+\end{center}
+è un morfismo di campi. infatti\\
+\(\Phi(x + y) = (x + y)^p = x^p + y^p = \Phi(x) + \Phi(y)\)\\
+\(\Phi(xy) = (xy)^p = x^p y^p = \Phi(x) \Phi(y)\)\\
+\(\forall x,y \in K\).\\
+se \(K = \mathbb{F}_{p^n}, \Phi\) è un automorfismo\\
+(essendo morfismo initettivo da un campo di cardinalità finita in se stesso)\\
+detto \textbf{automorfismo di Frobenius}.
+
+\begin{teorema}
+    il gruppo degli automorfismi di \(\mathbb{F}_{p^n}, AUT(\mathbb{F}_p^n)\) è ciclico di cardinalità n,\\
+    generato dall'automorfismo di Frobenius.
+\end{teorema}
+
+\begin{dimostrazione}
+    vedi teorema 4.3.17 del libro di Stefania Gabelli. 
+\end{dimostrazione}
+
+\textbf{Lemma:} sia F un campo. Il polinomio \(X^d - 1\) divide il polinomio \(X^n - 1\) s.s.e. d divide n.
+
+\begin{dimostrazione}
+    se \(n = qd + r, 0 \leq r \leq d\), in \(\mathbb{F}[X]\) si ha:
+    \begin{center}
+        \((x^n - 1) = (X^d - 1)(X^{n-d} + X^{n-2d} + ... + x^{n-(p-1)d} + X^r) + (X^r -1).\)\\
+    \end{center}
+    quindi \(X^d - 1\) divide \(X^n - 1\) s.s.e. \(X^r - 1\) è il polinomio nullo, cioè s.s.e. \(r = 0\)
+\end{dimostrazione}
 
 
 
