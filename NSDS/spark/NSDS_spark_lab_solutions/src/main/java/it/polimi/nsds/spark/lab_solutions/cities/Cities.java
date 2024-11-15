@@ -72,7 +72,10 @@ public class Cities {
 
         final Dataset<Row> q2 = joinedDataset
                 .groupBy("region")
-                .agg(count("city"), max("population"));
+                .agg(
+                        count("city"),
+                        max("population")
+                );
 
         q2.show();
 
