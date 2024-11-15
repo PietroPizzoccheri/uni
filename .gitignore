@@ -411,3 +411,4 @@ Miniforge3-Linux-x86_64.sh
 *.idea
 *.vscode
 *.bak0
+*/target
