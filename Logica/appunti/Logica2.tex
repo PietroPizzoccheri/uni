@@ -2265,6 +2265,121 @@ fincé non otteniamo \(MCD\{ D_i, D_i'\} = 1\).
     \end{center}
 \end{example}
 
-\section{Tensori}
+\newpage
 
+\section{Tensori}
+\subsection{Prodotto tra matrici}
+\begin{definition}
+    prodotto righe per colonne di matrici 2 x 2\\
+    sia \(Mat_{2 \times 2}(K) = \{\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} : x_i \in K \}\) l'insieme delle matrici 2 x 2 a coefficienti in un campo K.\\
+\end{definition}
+diamo all'insieme una struttura di anello:\\
+\begin{itemize}
+    \item somma: \(\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} + \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 + y_1 & x_2 + y_2 \\ x_3 + y_3 & x_4 + y_4 \end{pmatrix}\)
+    \item prodotto: \(\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} \cdot \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 y_1 + x_2 y_3 & x_1 y_2 + x_2 y_4 \\ x_3 y_1 + x_4 y_3 & x_3 y_2 + x_4 y_4 \end{pmatrix}\)
+\end{itemize}
+con queste operazioni \(Mat_{2 \times 2}(K)\) è un anello con unità 
+\(\begin{pmatrix} 1_k & 0\\ 0 & 1_k 
+\end{pmatrix}\).\\
+
+il prodotto così definito richiede di eseguire 8 moltiplicazioni.\\
+abalogamente possiamo dotare \(Mat_{n \times n}(K)\) di una struttura di anello.\\
+la moltiplicazione righe per colonne richiede l'esecuzione di \(n^3\) moltiplicazioni.\\
+
+\begin{example}
+    in \(Mat_{3 \times 3}(\mathbb{F}_2)\) abbiamo
+    \begin{center}
+        \(\begin{pmatrix}
+            1 & 1 & 1\\
+            0 & 1 & 1\\
+            1 & 0 & 1
+        \end{pmatrix} 
+        \cdot
+        \begin{pmatrix}
+            1 & 0 & 0\\
+            1 & 1 & 0\\
+            1 & 1 & 1
+        \end{pmatrix}
+        = 
+        \begin{pmatrix}
+            1 & 0 & 1\\
+            0 & 0 & 1\\
+            1 & 1 & 1
+        \end{pmatrix}\)
+    \end{center}
+\end{example}
+
+\begin{definition}
+    Algorimo di Strassen per il prodotto di matrici 2 x 2:\\
+    sia \(A = \begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix}\) e \(B = \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix}\)\\
+    e \(AB = \begin{pmatrix} z_1 & z_2 \\ z_3 & z_4 \end{pmatrix}\)\\
+    definiamo
+    \begin{enumerate}
+        \item \((x_1 + x_4)(y_1 + y_4)\)
+        \item \((x_3 + x_4)y_1\)
+        \item \(x_1(y_2 + y_4)\)
+        \item \(x_4(-y_1 + y_3)\)
+        \item \((x_1 + x_2)y_4\)
+        \item \((-x_1 + x_3)(y_1 + y_2)\)
+        \item \((x_2 - x_4)(y_3 + y_4)\)
+    \end{enumerate}
+    allora \(z_1 = 1 + 4 - 5 + 7, z_2 = 3 + 5, z_3 = 2 + 4, z_4 = 1 + 3 - 2 + 6\)\\
+\end{definition}
+
+\begin{example}
+    in \(Mat_{2 \times 2}(\mathbb{F}_2)\) siano
+    \begin{center}
+        \(A = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}\) e \(B = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\)\\
+    \end{center}
+        allora \(.1 = 0, .2 = 0, .3 = 1, .4 = 0, .5 = 0, .6 = 0, .7 = 0 \)\\
+        quindi \(AB = \begin{pmatrix} .1 + .4 - .5 + .7 & .3 + .5 \\ .2 + .5 & .1 + .3 - .2 + .6 \end{pmatrix} = 
+        \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}\)
+\end{example}
+
+Nell'algoritmo di Strassen per matrici 2 x 2 si eseguono 7 moltiplicazioni.\\
+L'algoritmo può anche essere usato ricorsivamente per motiplicare matici più grandi.\\
+ad esempio, se \(M, N \in Mat_{4 \times 4}(K)\), possiamo scrivere:
+\begin{center}
+    \(M = \begin{pmatrix} A & B \\ C & D \end{pmatrix}\) e \(N = \begin{pmatrix} A' & B' \\ C' & D' \end{pmatrix}\)\\
+    dove \(A, B, C, D, A', B', C', D' \in Mat_{2 \times 2}(K)\)\\
+    poiche \(MN = \begin{pmatrix} AA' + BC' & AB' + BD' \\ CA' + DC' & CB' + DD' \end{pmatrix}\)\\
+\end{center}
+possiamo usare l'algoritmo in due passi.\\
+primo passo:
+\begin{enumerate}
+    \item \((A + D)(A' + D')\)
+    \item \((C + D) A'\)
+    \item \(A(B' + D')\)
+    \item \(D(-A' + C')\)
+    \item \((A + B)D'\)
+    \item \((-A + C)(A' + B')\)
+    \item \((B - D)(C' + D')\)
+\end{enumerate}
+e quindi \(MN = \begin{pmatrix}
+    .1 + .4 - .5 + .7 & .2 + .5\\
+    .3 + .4 & .1 + .3 - .2 + .6
+\end{pmatrix}\)\\
+\vspace{\baselineskip}secondo passo: calcoliamo il prodotto in (.1, .2, 3, ... , .7) con l'algoritmo di Strassen. 
+Quindi l'algoritmo di Strassen per il prodotto tra due matrici 4 x 4 richiede\\
+\(7^2\) moltiplicazioni.\\
+se vogliamo moltiplicare matrici 3 x 3\\
+\vspace{\baselineskip}possiamo aggiungerre una riga e una colonna di zeri e considerarle 4 x 4.\\
+
+In generale la moltiplicazione di due matrici n x n usando l'algoritmo di Strassen richiede\\
+\(7^k\) moltiplicazioni se \(n = 2^k\)\\
+abbiamo che
+\begin{center}
+    \(7^k = 2^{\log_2 7^k}=2^{k \log_2 7} \approx 2^{2.81}\)
+\end{center}
+
+\begin{definition}
+    \textbf{L'esponente w} della moltiplicazione di matrici è\\
+    \(w := INF\{ h \in \mathbb{R} : Mat_{n \times n}(K)\) può essere moltiplicato con \(O(n^h)\) operazioni aritmrtiche \(\}\)\\
+\end{definition}
+
+\vspace{\baselineskip} L'algoritmo di Strassen mostra che \(w \leq 2.81\).\\
+Se n = 2 l'algoritmo di Strassen è ottimale (dal Teorema di Brockett- Dobkin).\\
+Non è noto un algoritmo ottimale per la moltiplicazione matrici 3 x 3.\\
+Nel 2022 è stato pubblicato un algoritmo trovato da Alphatensor per matrici 4 x 4 su \(\mathbb{F}_2\)\\
+che richiede l'esecuzione di 47 moltiplicazioni, l'algoritmo di Strassen ne richiederebbe 49.\\
 \end{document}
