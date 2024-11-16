@@ -32,7 +32,7 @@ public class EventEnrichment {
         final String master = args.length > 0 ? args[0] : "local[4]";
         final String socketHost = args.length > 1 ? args[1] : "localhost";
         final int socketPort = args.length > 2 ? Integer.parseInt(args[2]) : 9999;
-        final String filePath = args.length > 3 ? args[3] : "./";
+        final String filePath = args.length > 3 ? args[3] : "./NSDS/spark/NSDS_spark_lab_solutions/";
 
         final SparkSession spark = SparkSession
                 .builder()
@@ -59,7 +59,25 @@ public class EventEnrichment {
                 .schema(productClassificationSchema)
                 .csv(filePath + "files/enrichment/product_classification.csv");
 
-        // TODO
+        final StreamingQuery query = inStream.join(productsClassification,
+                        inStream.col("value").equalTo(productsClassification.col("product")))
+                .groupBy(
+                        col("classification"),
+                        window(col("timestamp"), "30 seconds", "10 seconds")
+                )
+                .count()
+                .writeStream()
+                .outputMode("update")
+                .format("console")
+                .start();
+
+        try {
+            query.awaitTermination();
+        } catch (final StreamingQueryException e) {
+            e.printStackTrace();
+        }
+
+
 
         spark.close();
     }

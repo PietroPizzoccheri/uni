@@ -14,16 +14,16 @@ import static org.apache.spark.sql.functions.*;
 
 /**
  * Bank example
- *
+ * <p>
  * Input: csv files with list of deposits and withdrawals, having the following
  * schema ("person: String, account: String, amount: Int)
- *
+ * <p>
  * Queries
  * Q1. Print the total amount of withdrawals for each person
  * Q2. Print the person with the maximum total amount of withdrawals
  * Q3. Print all the accounts with a negative balance
  * Q4. Print all accounts in descending order of balance
- *
+ * <p>
  * The code exemplifies the use of SQL primitives.  By setting the useCache variable,
  * one can see the differences when enabling/disabling cache.
  */
@@ -32,7 +32,7 @@ public class Bank {
 
     public static void main(String[] args) {
         final String master = args.length > 0 ? args[0] : "local[4]";
-        final String filePath = args.length > 1 ? args[1] : "./";
+        final String filePath = args.length > 1 ? args[1] : "./NSDS/spark/NSDS_spark_lab_solutions/";
         final String appName = useCache ? "BankWithCache" : "BankNoCache";
 
         final SparkSession spark = SparkSession
@@ -65,27 +65,67 @@ public class Bank {
         // Used in two different queries
         if (useCache) {
             withdrawals.cache();
+            deposits.cache();
         }
 
         // Q1. Total amount of withdrawals for each person
         System.out.println("Total amount of withdrawals for each person");
+        final Dataset<Row> totalAmountWithdrawalsForEachPerson = withdrawals
+                .groupBy("person")
+                .sum()
+                .withColumnRenamed("sum(amount)", "total");
 
-        // TODO
+        totalAmountWithdrawalsForEachPerson.show();
+
 
         // Q2. Person with the maximum total amount of withdrawals
         System.out.println("Person with the maximum total amount of withdrawals");
+        Row maxRow = totalAmountWithdrawalsForEachPerson.agg(max("total")).first();
+        long maxTotal = maxRow.getLong(0);
 
-        // TODO
+        Dataset<Row> personWithMaxWithdrawalAmount = totalAmountWithdrawalsForEachPerson
+                .filter(col("total").equalTo(maxTotal));
+
+
+        personWithMaxWithdrawalAmount.show();
+
 
         // Q3 Accounts with negative balance
         System.out.println("Accounts with negative balance");
 
-        // TODO
+        final Dataset<Row> totWithdrawals = withdrawals
+                .groupBy("account")
+                .sum("amount")
+                .drop("person");
+
+        final Dataset<Row> totDeposits = deposits
+                .groupBy("account")
+                .sum("amount")
+                .drop("person");
+
+        final Dataset<Row> negativeAccounts = totWithdrawals.join(totDeposits,
+                        totDeposits.col("account").equalTo(totWithdrawals.col("account"))
+                        , "left_outer")
+                .filter(
+                        totDeposits.col("sum(amount)").isNull().and(totWithdrawals.col("sum(amount)").gt(0))
+                                .or(totWithdrawals.col("sum(amount)").gt(totDeposits.col("sum(amount)"))))
+                .select(totWithdrawals.col("account"));
+
+        negativeAccounts.show();
 
         // Q4 Accounts in descending order of balance
         System.out.println("Accounts in descending order of balance");
 
-        // TODO
+        Dataset<Row> totalOps = withdrawals
+                .withColumn("amount", col("amount").multiply(-1))
+                .union(deposits);
+
+        Dataset<Row> sortedAccountsBalances = totalOps
+                .groupBy("account")
+                .sum()
+                .sort(desc("sum(amount)"));
+
+        sortedAccountsBalances.show();
 
         spark.close();
 

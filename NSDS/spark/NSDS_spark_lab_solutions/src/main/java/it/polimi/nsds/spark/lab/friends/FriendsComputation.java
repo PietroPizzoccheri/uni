@@ -21,7 +21,7 @@ public class FriendsComputation {
 
     public static void main(String[] args) {
         final String master = args.length > 0 ? args[0] : "local[4]";
-        final String filePath = args.length > 1 ? args[1] : "./";
+        final String filePath = args.length > 1 ? args[1] : "./NSDS/spark/NSDS_spark_lab_solutions/";
         final String appName = useCache ? "FriendsCache" : "FriendsNoCache";
 
         final SparkSession spark = SparkSession
@@ -43,7 +43,40 @@ public class FriendsComputation {
                 .schema(schema)
                 .csv(filePath + "files/friends/friends.csv");
 
-        // TODO
+        if (useCache) {
+            input.cache();
+        }
+
+        Dataset<Row> allFriends = input;
+        long oldCount = 0;
+        long newCount = allFriends.count();
+        int iteration = 0;
+
+        while (newCount > oldCount) {
+            iteration++;
+            // One could also join allFriends with allFriends.
+            // It is a tradeoff between the number of joins and the size of the tables to join.
+            Dataset<Row> newFriends = allFriends
+                    .withColumnRenamed("friend", "to-join")
+                    .join(
+                            input.withColumnRenamed("person", "to-join"),
+                            "to-join"
+                    )
+                    .drop("to-join");
+
+            allFriends = allFriends
+                    .union(newFriends)
+                    .distinct();
+
+            if (useCache) {
+                allFriends.cache();
+            }
+            oldCount = newCount;
+            newCount = allFriends.count();
+            System.out.println("Iteration: " + iteration + " - Count: " + newCount);
+        }
+
+        allFriends.show();
 
         spark.close();
     }
