@@ -1937,4 +1937,334 @@ detto \textbf{automorfismo di Frobenius}.
     quindi \(X^d - 1\) divide \(X^n - 1\) s.s.e. \(X^r - 1\) è il polinomio nullo, cioè s.s.e. \(r = 0\)
 \end{dimostrazione}
 
+\vspace{\baselineskip}
+
+dalla fattorizzazione nella dimostrazione del lemma otteniamo che, calcolazndo in p,\\
+se \(p^d - 1\) divide \(p^n - 1\) allora d divide n.\\
+
+\textbf{Corollario:} \(d\) divide \(n \iff (X^{p^d} - X)\) divide \((X^{p^n} - X)\) in \(\mathbb{F}_p[X]\).
+
+\begin{dimostrazione}
+    \(\implies\)\\
+    per il lemma precedente, \(X^d - 1\) divide \(X^n - 1\).\\
+    calcolando in p si ottiene che \(p^d - 1\) divide \(p^n - 1\).\\
+    quindi sempre per il lemma, \(X^{p^{d - 1}} - 1\) divide \(X^{p^n - 1} - 1\).\\
+    \(\impliedby\)\\
+    viceversa se \(X^{p^{d - 1}} - 1\) divide \(X^{p^n -1 } - 1\), allora \(p^d - 1\) divide \(p^n - 1 \implies d | n\).\\
+\end{dimostrazione}
+
+\begin{proposition}
+    tutti e soli i sottocampi di \(\mathbb{F}_{p^n}\) sono i campi \(\mathbb{F}_{p^d}\) con \(d | n\).
+\end{proposition}
+
+\begin{dimostrazione}
+    abbiamo che, se \(\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^n}\),\\
+    allora tutte le radici di \(X^{p^d} - X\) in \(\mathbb{F}_{p^d}\) sono radici di \(X^{p^n} - X\) in \(\mathbb{F}_{p^n}\),\\
+    ossia \(X^{p^d} - X\) divide \(X^{p^n} - X \implies d | n\).\\
+    se d divide n, \(X^{p^d} - X \) divide \(X^{p^n} - X\)\\
+    e l'insieme delle radici di \(X^{p^d} - X\) (è un campo) sta in \(\mathbb{F}_{p^n}\)\\
+\end{dimostrazione}
+
+\vspace{\baselineskip}
+
+Finora, dato un numero primo \(p\) e un numero naturale \(n \neq 0\), abbiamo costruito il campo \(\mathbb{F}_{p^n}\)\\
+di cardinalità \(p^n\) prendendo un polinomio irriducibile \(Q \in \mathbb{F}_p\) e facendo il quoziente:
+\begin{center}
+    \(\mathbb{F}_{p^n} = \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+Abbiamo visto che due campi costruiti in questo modo sono isomorfi.\\
+Facciamo alcune osservazioni e un discorso più generale.\\
+
+\begin{enumerate}
+    \item sia \(K\) un campo finito. qual'è la caratteristica di \(K\)?\\
+        prendiamo il sottogruppo \(<1_K> \subseteq K\). poiché \(<1_K>\) è finito,\\
+        \(<1_K> \simeq \mathbb{Z}_n\) per qualche \(n > 1\).\\
+        dato che gli elementi di \(<1_K>\) sono di un campo, non sono divisori dello zero,\\
+        quindi \(n\) è primo, ossia \underline{un campo finito ha caratteristica prima \(p\)}\\
+        e il suo sottocampo fondamentale è \(\mathbb{F}_p\)\\
+    \item sia \(K\) un campo finito. Abbiamo detto nel punto 1. che \(\mathbb{F}_p \subseteq K\) per qualche primo p.\\
+        inoltre il gruppo moltiplicativo \(K \setminus \{0\}\) è ciclico e quindi,\\
+        come precedentemente dimostrato, \(se K \setminus \{0\} = \alpha, K = \mathbb{F}_p(\alpha)\).\\
+        Quindi, se il grado di \(\alpha\) su \(\mathbb{F}_p\) è n, abbiamo che:\\
+        \(|K| = p^n\), ossia \underline{ogni campo finito ha cardinalità \(p^n\)}, per qualche \(p\) primo e \(n \neq 0\).\\
+    \item siano \(K_1\) e \(K_2\) due campi finiti di cardinalità \(p^n\).\\
+        sia \(K_1 = \mathbb{F}_p(\alpha)\) dove \(\alpha\) è un generatore del gruppo \(K_1 \setminus \{0\}\) e ha grado \(n\) su \(K_1\).\\
+        sia \(Q \in \mathbb{F}_p[X]\) il suo polinomio minimo. Quindi \(deg(Q) = n\), e \(Q\) è irriducibile.\\
+        \begin{enumerate}
+            \item \(K_1\) e \(K_2\) sono campi di spezzamento di \(X^{p^n} - X \in \mathbb{F}_p[X]\).
+            \item ogni polinomio irriducibile di grado n in \(\mathbb{F}_p[X]\) è fattore di \(X^{p^n} - X\).
+            \item da (b) segue che \(Q\) ha una radice in \(K_2\), la chiamiamo \(\beta\).
+            \item l'assegnazione \(\alpha \rightarrow \beta\) definisce un mofismo di campi da \(K_1\) in \(K_2\).\\
+                poiché un morfismo tra campi è sempre iniettivo, ed essendo anche suriettivo,
+                perché \(K_1\) e \(K_2\) hanno la stessa cardinalità, è un isomorfismo:
+                \begin{center}
+                    \(K_1 \simeq K_2\)
+                \end{center}
+        \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\subsection{Algoritmo di Berlekamp}
+
+\begin{teorema}
+    sia \(f(x) \in \mathbb{F}_p[x]\) di grado \(d > 1\), sia \(h(x) \in \mathbb{F}_p[x]\) di grado \(1 < deg(h) < d\)\\
+    tale che \(f(x)\) divide \(h(x)^p - h(x)\).\\
+    allora
+    \begin{center}
+        \(f(x) = MCD\{f(x), h(x)\} \cdot MCD\{f(x), h(x) - 1\} \cdot ... \cdot MCD\{f(x), h(x) - (p - 1)\}\)
+    \end{center}
+    è una fattorizzazione non banale di \(f(x)\) in \(\mathbb{F}_p[x]\).
+\end{teorema}
+
+\begin{dimostrazione}
+    supponiamo che \(f(x)\) divida \(h(x)^p - h(x)\). il polinomio \(X^p - X \in \mathbb{F}_p[X]\) si fattorizza come:
+    \begin{center}
+        \(X^p - X = X(X - 1)(X - 2)...(X - (p - 1))\)
+    \end{center}
+    mettendo \(h(x)\) al posto di \(X\) si ha:
+    \begin{center}
+        \(h(x)^p - h(x) = h(x)(h(x) - 1)(h(x) - 2)...(h(x) - (p - 1))\)
+    \end{center}
+    abbiamo che \(MCD\{ h(x) - i, h(x) - j\} = 1 \forall i,j \in \mathbb{F}_p, i \neq j\).\\
+    infatti, se \(MCD\{ h(x) - i, h(x) - j\} = D(x)\) allora
+    \begin{center}
+        \[
+        \begin{cases}
+            h(x) - i = D(x) \cdot H_i(x)\\
+            h(x) - j = D(x) \cdot H_j(x)
+        \end{cases}
+        \]
+        \(\implies D(x)[H_i(x) - H_j(x)] = j - i \in \mathbb{F}_p\)\\
+        \(\implies deg(D) = 0, i \neq j\)
+    \end{center}
+    inoltre, se \( MCD\{ a, b\} = 1\) si ha che \(MCD\{ f, ab\} = MCD\{ f, a\} = MCD\{ f, b\} \).\\
+    per induzione si ha che 
+    \begin{center}
+        \(MCD\{ f, a_1 \cdot ... \cdot a_k\} = MCD\{ f, a_1\} \cdot ... \cdot MCD\{ f, a_k\}\)
+    \end{center}
+    dato che \(f(x)\) divide \(h(x)^p - h(x)\), abbiamo che
+    \begin{center}
+        \(f(x) = MCD\{ f(x), h(x)^p - h(x)\}\)
+    \end{center}
+    poiché, se \(i \neq j\), \(MCD\{ h(x) - i, h(x) - j\} = 1\), si ha\\
+    \begin{center}
+        \(f(x) = MCD\{ f(x), h(x)^p - h(x)\} = MCD\{ f(x), h(x)[h(x) - 1] \cdot ... \cdot [h(x) - p + 1]\} =\)\\
+        \(= MCD\{ f, h\} \cdot MCD\{ f, h - 1\} \cdot ... \cdot MCD\{ f, h - p + 1\}\).
+    \end{center}
+    poiché \(deg(h - i) < deg(f), MCD\{f, h - i\} \neq f(x), \forall i \in \mathbb{F}_p\).\\
+    quindi nella fattoriazzazione precedente appaiono solo polinomi di grado \(< d\),\\
+    perciò è non banale.
+\end{dimostrazione}
+
+\newpage
+
+\textbf{Proposizione:} Un polinomio \(h(x) \in \mathbb{F}_p[x]\) che soddisfa le condizioni del teorema esiste sempre.\\
+\begin{dimostrazione}
+    Sia
+    \begin{center}
+        \(h(x) = b_0 + b_1 x + ... + b_{d - 1} x^{d - 1} \in \mathbb{F}_p[X]\)
+    \end{center}
+    allora
+    \begin{center}
+        \(h(x)^p = b_0^p + b_1^p x + ... + b_{d - 1}^p x^{p(d - 1)}\)\\
+        (avendo dimostrato che \((X + Y)^p = x^p + Y^p\) e induttivamente che \((\sum_{i=1}^{k} x_i)^p = \sum_{i=1}^{k} x_i^p\))
+    \end{center}
+    ma
+    \begin{center}
+        \(b_i^p = b_i \forall 0 \leq i \leq d - 1\) quindi \(h(x)^p = b_0 + b_1 x^p + ... + b_{d - 1} x^{p(d - 1)}\)
+    \end{center}
+    si ha che
+    \begin{center}
+        \(h(x)^p \mod f(x) = b_0 (\mod f) + b_1 (x^p \mod f) + ... + b_{d - 1} (x^{p(d - 1)} \mod f)\)
+    \end{center}
+    sia \(x^{ip} = f(x) q_i(x) + r_i(x)\) con \(deg(r_i) < d, 0 \leq i \leq d - 1\).\\
+    abbiamo che
+    \begin{center}
+        \([h(x)^p - h(x)] \mod f = 0 \mod f \iff h(x)^p \mod f = h(x) \mod f\)\\
+        \(\iff b_0 r_0(x) + b_1 r_1(x) + ... + b_{d - 1} r_{d - 1}(x) = b_0 + b_1 x + ... + b_{d - 1} x^{d - 1}\).
+    \end{center}
+    otteniamo così un sistema lineare di \(d\) equazioni nelle incognite \(b_i\).\\
+    dobbiamo mostrare che esistono soluzioni non nulle.\\
+    sia \(f(x) = p_1(x) ... p_k(x)\) una fattoriazzazione di \(f(x) \in \mathbb{F}_p[x]\) in fattori irriducibili.\\
+    supponiamo che \(f\) non habbia fattori multipli (verificabile con Teorema seguente).\\
+\end{dimostrazione}
+
+\begin{teorema}
+    sia K un campo.
+    \begin{enumerate}
+        \item se \(f(x) \in K[x]\) è ha un fattore multiplo, allora \(MCD\{f, f'\} \neq 1\)\\
+            dove \(f'\) è la derivata di \(f\) rispetto a \(x\).
+        \item se K ha caratteristica 0 o \(p\), e \(MCD\{f, f'\} \neq 1\), allora \(f(x)\) ha un fattore multiplo.
+    \end{enumerate}
+\end{teorema}
+
+abbiamo una versione in \(\mathbb{F}_p[x]\) del teorema cinese dei resti.\\
+\begin{center}
+    \( MCD\{ p_i(x), p_j(x)\} = 1, \forall \ \leq i \leq k, 1 \leq j \leq k, i \neq j\)\\
+    \(\sfrac{\mathbb{F}_p[x]}{<f>} \simeq \sfrac{\mathbb{F}_p[x]}{<p_1(x)} \times ... \times \sfrac{\mathbb{F}_p[x]}{<p_k(x)>}\)
+\end{center}
+dato \((s_1, ..., s_k) \in \mathbb{F}_p^k\), esisite un unica classe \([h(x)] \in \sfrac{\mathbb{F}_p[x]}{f}\) tale che
+\begin{center}
+    \[
+    \begin{cases}
+        [h(x)] = s_1 in  \sfrac{\mathbb{F}_p[x]}{<p_1(x)>}\\
+        ...\\
+        [h(x)] = s_k in \sfrac{\mathbb{F}_p[x]}{<p_k(x)>}
+    \end{cases}
+    \]
+\end{center}
+ossia \(h(x) - s_i\) è divisibile per \(p_i(x), \forall 1 \leq i \leq k\)\\
+quindi \(p_i(x)\) divide \(h(x)[h(x) - 1] ... [h(x) - (p - 1)] = h(x)^p - h(x), \forall 1 \leq i \leq k\)\\
+
+\newpage
+
+\begin{example}
+    fattorizziamo \(f = x^5 + x^2 + 2x + 1 \in \mathbb{F}_3[x]\).\\
+    ferifichiamo che \(MCD\{f, f'\} = MCD\{ x^5 + x^2 + 2x + 1, 2x^4 + 2x + 2\} = 1\)\\
+    poi calcoliamo i resti:
+    \begin{center}
+        \(x^{3(5-1)} = x^{12} \equiv (x^2 + 2) \mod f\)
+        \(x^{3\cdot3} = x^9 \equiv (2x^4 + x^3 + x^2 + 2x + 2) \mod f\)
+        \(x^{3 \cdot 2} = x^6 \equiv (2x^3 + x^2 + 2x) \mod f\)
+        \(x^3 \equiv x^3 \mod f\)
+        \(1 \equiv 1 \mod f\)
+        \(\implies b_0 + b_1 x^3 + b_2(2x^3 + x^2 + 2x) + b_3 (2x^4 + x^3 + x^2 + 2x + 2) + b_4(x^2 + 2) = \)\\
+        \(= b_0 + b_1 x + b_2x^2 + b_3 x^3 + b_4 x^4\)\\
+        \(\iff\) \[
+        \begin{cases}
+            2 b_3 + 2 b_4 = 0\\
+            2 b_2 + 2 b_3 - b_1 = 0\\
+            b_2 + b_3 + b_4 - b_2 = 0\\
+            b_1 + 2 b_2 = 0\\
+            2 b_3 - b_4 = 0
+        \end{cases}
+        \iff
+        \begin{cases}
+            b_3 = 2 b_4\\
+            b_1 + b_2 + b_3 = 0\\
+            b_1 = b2
+        \end{cases}
+        \iff
+        b_1 = b_2 = b_3 = 2 b_4
+        \]
+    \end{center}
+    una soluzione è dunque \((0, 1, 1, 1, 2)\), ossia \(h(x) =x + x^2 + x^3 +2 x^4\).\\
+    quindi
+    \begin{center}
+        \(f(x) = MCD\{f, x + x^2 + x^3 +2 x^4\} \cdot MCD\{f, 1 + x^2 + x^3 +2 x^4\} \cdot MCD\{f, 2 + x^2 + x^3 + 2x^4\} = \)\\
+        \(= (1 + x^2)(x^3 + 2x + 1)\)
+    \end{center}
+\end{example}
+
+Sia \(f(x) \mathbb{F}_p[x], deg(f) = d\).\\
+sia \(f(x) = p_1(x)\cdot ... \cdot p_k(x)\) una fattoriazzazione di \(f(x)\) in fattori irriducibili,\\
+non banali e aventi molteplicità 1.\\
+siano 
+\begin{center}
+    \(r_0 = 1 \mod f(x)\)\\
+    \(r_1 = x^p \mod f(x)\)\\
+    ...\\
+    \(r_{d - 1} = x^{p(d - 1)} \mod f(x)\)
+\end{center}
+con \(deg(r_i) < d \forall 0 \leq i \leq d - 1\)\\
+definiamo la matrice \(A \in Mat_{d \times d}(\mathbb{F}_p)\) nel segueente modo:\\
+\(A_{ij} = \) coefficiente del termine di grado i del polinomio \(r_j(x)\)\\
+\begin{example}
+    considerando l'esempio precedente, si ha:\\
+    \(A \in Mat_{5 \times 5}(\mathbb{F}_3) = 
+    \begin{bmatrix}
+    1 & 0 & 0 & 2 & 2 \\
+    0 & 0 & 2 & 2 & 0 \\
+    0 & 0 & 1 & 1 & 1 \\
+    0 & 1 & 2 & 1 & 0 \\
+    0 & 0 & 0 & 2 & 0
+    \end{bmatrix}\)\\
+    la matrice \(A - I\) è la matrice del sistema che abbiamo risolto, ossia \((A - I)\overline{b} = \overline{0}\)
+\end{example} 
+
+\newpage
+
+\begin{teorema}
+    Il numero di fattori irriducibili k nella fattorizzazione di f \\
+    è uguale alla dimensione del nucleo di A - I.\\
+    ossia \(k = d - rk(A - I)\), rango calcolato sul campo \(\mathbb{F}_p\).
+\end{teorema}
+
+\begin{dimostrazione}
+    osserviamo innanzitutto che \(dim(ker(A - I)) \geq 1\).\\
+    infatti la d-tupla \((b_0, 0 , ..., 0)\) è sempre soluzione del sistema \(\forall b_0 \in \mathbb{F}_p\).\\
+    abbiamo visto che l'Insieme
+    \begin{center}
+        \(H = \{ h \in \mathbb{F}_p[x] : deg (h) < d, f | h^p - h\}\)
+    \end{center}
+    è uno spazio vettoriale su \(\mathbb{F}_p\) isomorfo a \(ker(A - I)\).\\
+    sia k il numero di fattori irriducibili non banali di \(f\), aventi tutti molteplicità 1.\\
+    dimostriamo che \(\mathbb{F}_p^k\) è isomorfo a H.\\
+    abbiamo già dimostrato che per ogni \((s_1, ... s_k) \in \mathbb{F}_p^k\) troviamo un unico elemento di H,\\
+    usando il Teorema cinese dei resti per l'anello \(\mathbb{F}_p[X]\).\\
+    quindi abbiamo definito una funzione \(\varphi : \mathbb{F}_p^k \rightarrow H\)
+    \begin{enumerate}
+        \item \(\varphi\) è un morfismo si spazi vettoriali.
+        \item \(\varphi\) è iniettiva:\\
+                \(ker(\varphi) = \{(s_1, ... s_k) \in \mathbb{F}_p^k : s_i \mod p_i = 0, \forall 1 \leq i \leq k\}\)\\
+                \(=\{(0, ... , 0)\}\)
+        \item \(\varphi\) è suriettiva:\\
+                se \(h \in H\), abbiamo visto che \(h^p - h = h (h - 1)(h - 2)...(h - (p - 1))\).\\
+                questi fattori sono coprimi a coppie, quindi se \(f | h^p - h\), allora \(p_i(x) | (h - s_i)\)\\
+                per un unico \(s_i \in \mathbb{F}_p, \forall 1 \leq i \leq k\).\\
+                quindi \(h\) è soluzione del sistema
+                \[
+                \begin{cases}
+                    h \equiv s_1 \mod p_1\\
+                    ...\\
+                    h \equiv s_k \mod p_k
+                \end{cases}
+                \]
+    \end{enumerate}
+    abbiamo dimostrato che \(\varphi : \mathbb{F}_p^k \rightarrow H \) è un isomorfismo do spazi vettoriali, quindi
+    \begin{center}
+        \(\mathbb{F}_p^k \simeq H \simeq ker(A - I)\)
+    \end{center}
+    ossia \(dim(ker(A - I)) = k = d - rk(A - I)\).
+\end{dimostrazione}
+
+\begin{example}
+    sempre considerando l'esempio precedente, si ha che \(2 = 5 - rk(A - I)\)\\
+\end{example}
+
+\newpage
+
+se \(f \in \mathbb{F}_p[x]\) ha fattori irriducibili di molteplicità > 1, procediamo come segue:\\
+abbiamo che \(D = MCD\{f, f'\} \neq 1\).\\
+osserviamo che il polinomio \(\frac{f}{D}\) ha fattori irriducibili tutti di molteplicità 1.\\
+infatti se \(p_1, ... , p_k\) sono tutti distinti,\\
+\begin{center}
+    \(f' = (p_1^{e_1}(x) ... p_k^{e_k}(x))' =\)\\
+    \(e_1 p_1 ^ {e_1 - 1} p_1'p_2^{e_2} ... p_k^{e_k} + ... + e_k p_1^{e_1}p_2^{e_2} ... p_k^{e_k - 1}p_k'\)\\
+\end{center}
+e \(D = p_1^{e_1 - 1} ... p_k^{e_k - 1}\) quindi \(\frac{f}{D} = p_1 ... p_k\)\\
+allora fattorizziamo \(\frac{f}{D}\) poi fattorizziamo \(D\), eventualmente ripetendo con \(D, D'\).\\
+fincé non otteniamo \(MCD\{ D_i, D_i'\} = 1\).
+
+\begin{example}
+    in \(\mathbb{F}_3[x]\) consideriamo il polinomio \(f = 1 + 2x + 2x^2 + x^5 + x^6 + x^7\).\\
+    si ha che 
+    \begin{center}
+        \(f' = 2 + 4x + 5x^4 + 7x^6 = 2 + x + 2x^4 + x^6\).\\
+    \end{center}
+    e
+    \begin{center}
+        \(MCD\{f, f'\} = 1 + 2x + x^3 =: D\).\\
+        \(\frac{f}{D} = 1 + 2x^2 + x^3 + x^4\), fattorizzando otteniamo \((x + 1)(1 + 2x+x^3)\).\\
+    \end{center}
+    dato che \(D\) non ha radici in \(\mathbb{F}_3\), \(D\) è irriducibile.\\
+    allora
+    \begin{center}
+        \(f = \frac{f}{D} \cdot D = (x + 1)(1 + 2x + x^3)^2\)
+    \end{center}
+\end{example}
+
+\section{Tensori}
+
 \end{document}
