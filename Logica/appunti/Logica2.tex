@@ -117,37 +117,37 @@
 
 Un insieme è una collezione di oggetti, detti elementi dell'insieme.
 \[
-    \mathbb{N} := \{ 0,1,2,3,\cdots\} \quad \text{insieme dei numeri naturali}
+	\mathbb{N} := \{ 0,1,2,3,\cdots\} \quad \text{insieme dei numeri naturali}
 \]
 
 \[
-    \mathbb{Z} := \{ \cdots,-2,-1,0,1,2,\cdots\} \quad \text{insieme degli interi}
+	\mathbb{Z} := \{ \cdots,-2,-1,0,1,2,\cdots\} \quad \text{insieme degli interi}
 \]
 
 \[
-    \mathbb{Q} := \left\{ \frac{a}{b} \mid a,b \in \mathbb{Z}, b \neq 0
-    \right\} \quad \text{insieme dei numeri razionali}
+	\mathbb{Q} := \left\{ \frac{a}{b} \mid a,b \in \mathbb{Z}, b \neq 0
+	\right\} \quad \text{insieme dei numeri razionali}
 \]
 
 \[
-    \mathbb{R} := \text{insieme dei numeri reali}
+	\mathbb{R} := \text{insieme dei numeri reali}
 \]
 
 \[
-    \mathbb{C} := \text{insieme dei numeri complessi}
+	\mathbb{C} := \text{insieme dei numeri complessi}
 \]
 
 \subsubsection{Operazioni tra insiemi}
 
 \[
-    \subseteq \quad \text{inclusione tra insiemi}
+	\subseteq \quad \text{inclusione tra insiemi}
 \]
 \[
-    \subsetneq \quad \text{inclusione propria tra insiemi}
+	\subsetneq \quad \text{inclusione propria tra insiemi}
 \]
 \[
-    X \subseteq Y \quad \text{si legge "} X \text{ è sottoinsieme di }Y \text{"
-        o "} X \text{ è incluso in } Y\text{"}
+	X \subseteq Y \quad \text{si legge "} X \text{ è sottoinsieme di }Y \text{"
+		o "} X \text{ è incluso in } Y\text{"}
 \]
 
 Se \(X\) è un insieme finito, indico con \(|X|\) il numero di elementi di
@@ -156,16 +156,16 @@ Se \(X\) è un insieme finito, indico con \(|X|\) il numero di elementi di
 \[\varnothing : \text{Insieme vuoto e } |\varnothing| = 0\]
 
 Siano \(X\) e \(Y\) due insiemi. L'insieme \begin{math}
-    X \times Y := \{ (x,y) : x \in X , y \in Y \}
+	X \times Y := \{ (x,y) : x \in X , y \in Y \}
 \end{math} lo chiamiamo \textbf{prodotto cartesiano} di \(X\) e \(Y\).
 \vspace{\baselineskip}
 
 Sia \begin{math}
-    A \in \mathcal{P} (x)
+	A \in \mathcal{P} (x)
 \end{math}, dove \begin{math}
-    \mathcal{P} (X) := \{ A : A \subseteq X \}
+	\mathcal{P} (X) := \{ A : A \subseteq X \}
 \end{math} è detto \textbf{Insieme delle parti di \(X\)}. L'insieme \begin{math}
-    A^c := X \setminus A
+	A^c := X \setminus A
 \end{math} è detto \textbf{complementare} di \(A\)
 
 
@@ -174,8 +174,8 @@ Sia \begin{math}
 Siano \(X\) e \(Y\) due insiemi. \textbf{Una funzione \(f\) da \(X\) a \(Y\)} è un sottoinsieme \(F \subseteq X \times Y\)
 tale che:
 \begin{itemize}
-    \item \((x, y_1) \in F\), \((x,y_2) \in F\) \(\implies y_1 = y_2\), \(\forall x \in X\), \(y_1,y_2 \in Y\).
-    \item \(x \in X \implies \exists y \in Y \text{ tale che } (x,y) \in F\)
+	\item \((x, y_1) \in F\), \((x,y_2) \in F\) \(\implies y_1 = y_2\), \(\forall x \in X\), \(y_1,y_2 \in Y\).
+	\item \(x \in X \implies \exists y \in Y \text{ tale che } (x,y) \in F\)
 \end{itemize}
 
 
@@ -183,22 +183,22 @@ Una funzione \(F \subseteq X \times Y\) la indichiamo con \(f : X \to Y\). E scr
 
 
 \begin{definition}
-    La funzione \(Id_x : X \rightarrow X \) tale che \(Id_x (x) = x, \forall x \in X\) la chiamiamo \textbf{funzione
-        identità su \(X\)}
+	La funzione \(Id_x : X \rightarrow X \) tale che \(Id_x (x) = x, \forall x \in X\) la chiamiamo \textbf{funzione
+		identità su \(X\)}
 \end{definition}
 
 \begin{definition}
-    Una funzione \(f: X \rightarrow Y\) è \textbf{iniettiva} se \(\forall x_1, x_2 \in X, f(x_1) = f(x_2)
-    \implies x_1 = x_2\)
+	Una funzione \(f: X \rightarrow Y\) è \textbf{iniettiva} se \(\forall x_1, x_2 \in X, f(x_1) = f(x_2)
+	\implies x_1 = x_2\)
 \end{definition}
 
 \begin{definition}
-    Una funzione \(f: X \rightarrow Y\) è \textbf{suriettiva} se \(Im(f) = Y\), dove \(Im(f) = \{ y \in Y :
-    \exists x \in X \text{ tale che } f(x) = y \}\) è detta \textbf{immagine di \(f\)}
+	Una funzione \(f: X \rightarrow Y\) è \textbf{suriettiva} se \(Im(f) = Y\), dove \(Im(f) = \{ y \in Y :
+	\exists x \in X \text{ tale che } f(x) = y \}\) è detta \textbf{immagine di \(f\)}
 \end{definition}
 
 \begin{definition}
-    Una funzione \(f: X \rightarrow Y\) è \textbf{biunivoca} se è sia iniettiva che suriettiva.
+	Una funzione \(f: X \rightarrow Y\) è \textbf{biunivoca} se è sia iniettiva che suriettiva.
 \end{definition}
 
 \subsubsection{Composizione di funzioni}
@@ -206,12 +206,12 @@ Siano \(f: X \rightarrow Y\) e \(g: Y \rightarrow Z\) due funzioni. La \textbf{c
 è la funzione \(g \circ f : X \rightarrow Z\) tale che \((g \circ f)(x) = g(f(x))\), \(\forall x \in X\).
 
 \begin{definition}
-    una funzione \(f: X \rightarrow Y\) è detta \textbf{invertibile} se esiste una funzione \(g: Y \rightarrow X\) tale che
-    \begin{itemize}
-        \item \(g \circ f = Id_X\)
-        \item \(f \circ g = Id_Y\)
-    \end{itemize}
-    la funzione \(g\) è detta \textbf{funzione inversa di \(f\)} e la indichiamo con \(f^{-1}\).
+	una funzione \(f: X \rightarrow Y\) è detta \textbf{invertibile} se esiste una funzione \(g: Y \rightarrow X\) tale che
+	\begin{itemize}
+		\item \(g \circ f = Id_X\)
+		\item \(f \circ g = Id_Y\)
+	\end{itemize}
+	la funzione \(g\) è detta \textbf{funzione inversa di \(f\)} e la indichiamo con \(f^{-1}\).
 \end{definition}
 
 Una funzione \(f: X \rightarrow Y\) è invertibile se e solo se è biunivoca.
@@ -219,39 +219,39 @@ Una funzione \(f: X \rightarrow Y\) è invertibile se e solo se è biunivoca.
 \subsubsection{Operazioni su insiemi}
 
 \begin{definition}
-    Una funzione \(f: X \times X \rightarrow X\) è detta \textbf{operazione su \(X\)}. Invece di \(f(x,y)\)
-    scriveremo \(x \cdot y\).
+	Una funzione \(f: X \times X \rightarrow X\) è detta \textbf{operazione su \(X\)}. Invece di \(f(x,y)\)
+	scriveremo \(x \cdot y\).
 \end{definition}
 
 \begin{definition}
-    Un'operazione \(\cdot\) su \(X\) è detta \textbf{associativa} se \((x \cdot y) \cdot z = x \cdot (y \cdot z)\),
-    \(\forall x,y,z \in X\).
+	Un'operazione \(\cdot\) su \(X\) è detta \textbf{associativa} se \((x \cdot y) \cdot z = x \cdot (y \cdot z)\),
+	\(\forall x,y,z \in X\).
 \end{definition}
 
 \begin{definition}
-    Un'operazione \(\cdot\) su \(X\) è detta \textbf{commutativa} se \(x \cdot y = y \cdot x\), \(\forall x,y \in X\).
+	Un'operazione \(\cdot\) su \(X\) è detta \textbf{commutativa} se \(x \cdot y = y \cdot x\), \(\forall x,y \in X\).
 \end{definition}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item \(\mathcal{P}(X) \)con l'operazione di unione \(\cup\) è associativa e commutativa, così come lo è con
-              l'intersezione \( \cap \).
-        \item \(A \backslash B  := A \cup B^C\) \textbf{(differenza insiemistica)} è un'operazione su
-              \(\mathcal{P}(X)\).\newline non è associativa: sia \(A \neq \varnothing.\) Allora \(A \backslash (A \backslash A)
-              = A \neq (A\backslash A) \backslash A = \varnothing\)\newline non è commutativa: \(A \backslash \varnothing
-              = A \neq \varnothing \backslash A = \varnothing\), se \(A \neq \varnothing\)
-        \item \(A \Delta B := (A \backslash B) \cup (B \backslash A)\) \textbf{(differenza simmetrica)}
-              è un'operazione su \(\mathcal{P}(X)\). \newline è commutativa e anche associativa, facilmente verificabile
-              coi diagrammi di Venn.
-        \item Sia \(F(X) := \{f : X\rightarrow X\}\).\newline La composizione" \(\circ\)" è un'operazione su \(F(X)\).
-              \newline è associativa, ma non è commutativa.
-        \item \(a \circ b = \frac{a + b}{2} \) è un'operazione commutativa su \(\mathbb{Q}\), ma non associativa.
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item \(\mathcal{P}(X) \)con l'operazione di unione \(\cup\) è associativa e commutativa, così come lo è con
+		      l'intersezione \( \cap \).
+		\item \(A \backslash B  := A \cup B^C\) \textbf{(differenza insiemistica)} è un'operazione su
+		      \(\mathcal{P}(X)\).\newline non è associativa: sia \(A \neq \varnothing.\) Allora \(A \backslash (A \backslash A)
+		      = A \neq (A\backslash A) \backslash A = \varnothing\)\newline non è commutativa: \(A \backslash \varnothing
+		      = A \neq \varnothing \backslash A = \varnothing\), se \(A \neq \varnothing\)
+		\item \(A \Delta B := (A \backslash B) \cup (B \backslash A)\) \textbf{(differenza simmetrica)}
+		      è un'operazione su \(\mathcal{P}(X)\). \newline è commutativa e anche associativa, facilmente verificabile
+		      coi diagrammi di Venn.
+		\item Sia \(F(X) := \{f : X\rightarrow X\}\).\newline La composizione" \(\circ\)" è un'operazione su \(F(X)\).
+		      \newline è associativa, ma non è commutativa.
+		\item \(a \circ b = \frac{a + b}{2} \) è un'operazione commutativa su \(\mathbb{Q}\), ma non associativa.
+	\end{itemize}
 \end{example}
 
 \begin{definition}
-    Sia \(\cdot\) un'operazione su \(X\). Un elemento \(e \in X\) tale che \(e \cdot x = x \cdot e = x\), \(\forall x \in X\) è detto \textbf{elemento neutro }o \textbf{identità}.
+	Sia \(\cdot\) un'operazione su \(X\). Un elemento \(e \in X\) tale che \(e \cdot x = x \cdot e = x\), \(\forall x \in X\) è detto \textbf{elemento neutro }o \textbf{identità}.
 \end{definition}
 
 L'identità è unica; se \(e,e' \in X\) sono due identità, allora \(e = e \cdot e' = e'\).
@@ -259,111 +259,111 @@ L'identità è unica; se \(e,e' \in X\) sono due identità, allora \(e = e \cdot
 \subsection{Monoidi e Gruppi}
 
 \begin{definition}
-    Un insieme \(X\) con un'operazione associativa e un'identità è detto \newline \textbf{monoide}.
+	Un insieme \(X\) con un'operazione associativa e un'identità è detto \newline \textbf{monoide}.
 \end{definition}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item \(\mathbb{N,Z,Q,R,C}\) con l'addizione e identità 0 sono monoidi.
-        \item \(\mathbb{N,Z,Q,R,C}\) con la moltiplicazione e identità 1 sono monoidi.
-        \item \(\mathcal{P} (X)\) con \(\cup\)  e come identità l'insieme X è un monoide.
-        \item \(\mathcal{P} (X)\) con \(\cap\)  e come identità l'insieme vuoto è un monoide.
-        \item \(F(X):= \{f: X \rightarrow X\}\) con la composizione" \(\circ\) "e come identità
-              la funzione identità (\(Id_X\)) è un monoide.
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item \(\mathbb{N,Z,Q,R,C}\) con l'addizione e identità 0 sono monoidi.
+		\item \(\mathbb{N,Z,Q,R,C}\) con la moltiplicazione e identità 1 sono monoidi.
+		\item \(\mathcal{P} (X)\) con \(\cup\)  e come identità l'insieme X è un monoide.
+		\item \(\mathcal{P} (X)\) con \(\cap\)  e come identità l'insieme vuoto è un monoide.
+		\item \(F(X):= \{f: X \rightarrow X\}\) con la composizione" \(\circ\) "e come identità
+		      la funzione identità (\(Id_X\)) è un monoide.
+	\end{itemize}
 \end{example}
 
 \begin{definition}
-    Sia \(X \)un monoide. Un elemento \(x \in X\) è detto \textbf{invertibile} se esiste \(y \in X\) tale che
-    \(x \cdot y = y \cdot x = e\), dove \(e\) è l'identità di \(X\). L'elemento \(y\) è detto \textbf{inverso} di \(x\).
+	Sia \(X \)un monoide. Un elemento \(x \in X\) è detto \textbf{invertibile} se esiste \(y \in X\) tale che
+	\(x \cdot y = y \cdot x = e\), dove \(e\) è l'identità di \(X\). L'elemento \(y\) è detto \textbf{inverso} di \(x\).
 \end{definition}
 
 Se \(x \in X\) è invertibile, il suo inverso è unico e lo indichiamo con \(x^{-1}\).\newline
 L'identità del monoide è invertibile e il suo inverso è l'identità stessa.
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item L'insieme degli elementi invertibili di \((\mathbb{N},+)\) è \(\{0\}\).
-        \item Linsieme degli elementi invertibili di \((\mathbb{Z},+)\) è \(\mathbb{Z}\), di \((\mathbb{Q},+)\)
-              è \(\mathbb{Q}\), di \((\mathbb{R},+)\) è \(\mathbb{R}\), di \((\mathbb{C},+)\) è \(\mathbb{C}\).
-        \item L'insieme degli elementi invertibili di \((\mathbb{N},\cdot)\) è \(\{1\}\), di \((\mathbb{Z},\cdot)\)
-              è \(\{1,-1\}\), di \((\mathbb{Q},\cdot)\) è \(\mathbb{Q} \setminus \{0\}\), di \((\mathbb{R},\cdot)\) è
-              \(\mathbb{R} \setminus \{0\}\), di \((\mathbb{C},\cdot)\) è \(\mathbb{C} \setminus \{0\}\).
-        \item L'insieme degli elementi invertibili di \(F(X) = \{f: X \rightarrow X\}\) è l'insieme delle funzioni
-              invertibili.
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item L'insieme degli elementi invertibili di \((\mathbb{N},+)\) è \(\{0\}\).
+		\item Linsieme degli elementi invertibili di \((\mathbb{Z},+)\) è \(\mathbb{Z}\), di \((\mathbb{Q},+)\)
+		      è \(\mathbb{Q}\), di \((\mathbb{R},+)\) è \(\mathbb{R}\), di \((\mathbb{C},+)\) è \(\mathbb{C}\).
+		\item L'insieme degli elementi invertibili di \((\mathbb{N},\cdot)\) è \(\{1\}\), di \((\mathbb{Z},\cdot)\)
+		      è \(\{1,-1\}\), di \((\mathbb{Q},\cdot)\) è \(\mathbb{Q} \setminus \{0\}\), di \((\mathbb{R},\cdot)\) è
+		      \(\mathbb{R} \setminus \{0\}\), di \((\mathbb{C},\cdot)\) è \(\mathbb{C} \setminus \{0\}\).
+		\item L'insieme degli elementi invertibili di \(F(X) = \{f: X \rightarrow X\}\) è l'insieme delle funzioni
+		      invertibili.
+	\end{itemize}
 \end{example}
 
 \begin{definition}
-    Un monoide \(X\) è detto \textbf{gruppo} se ogni suo elemento è invertibile. Se l'operazione è
-    commutativa, il gruppo è detto \textbf{gruppo abeliano}.
+	Un monoide \(X\) è detto \textbf{gruppo} se ogni suo elemento è invertibile. Se l'operazione è
+	commutativa, il gruppo è detto \textbf{gruppo abeliano}.
 \end{definition}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item (\(\mathcal{P}(x) ,\Delta \)) è un gruppo abeliano. L'identità è l'insieme vuoto e l'inverso
-              di \(A \in \mathcal{P}(x)\) è \(A\) stesso. (\(A^2 = \varnothing,  \forall A \subseteq X \))
-        \item (\(\mathbb{Z},+\)), (\(\mathbb{Q},+\)), (\(\mathbb{R},+\)), (\(\mathbb{C},+\)) sono gruppi abeliani
-        \item (\(\mathbb{Q}\backslash \{0\}, \centerdot\)), (\(\mathbb{R}\backslash \{0\}, \centerdot\)),
-              (\(\mathbb{C}\backslash \{0\}, \centerdot\)) sono gruppi abeliani
-        \item sia \(X= \{1,2,\cdots,n\}\) l'insieme delle funzioni invertibili \(f:X \rightarrow X\) è il
-              \textbf{Gruppo delle permutazioni di n elementi (o gruppo simmetrico)}.Lo indiciamo con \(S?n\).
-              \(|S_n| = m!\). Non è abeliano se \(n \geq 3\).
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item (\(\mathcal{P}(x) ,\Delta \)) è un gruppo abeliano. L'identità è l'insieme vuoto e l'inverso
+		      di \(A \in \mathcal{P}(x)\) è \(A\) stesso. (\(A^2 = \varnothing,  \forall A \subseteq X \))
+		\item (\(\mathbb{Z},+\)), (\(\mathbb{Q},+\)), (\(\mathbb{R},+\)), (\(\mathbb{C},+\)) sono gruppi abeliani
+		\item (\(\mathbb{Q}\backslash \{0\}, \centerdot\)), (\(\mathbb{R}\backslash \{0\}, \centerdot\)),
+		      (\(\mathbb{C}\backslash \{0\}, \centerdot\)) sono gruppi abeliani
+		\item sia \(X= \{1,2,\cdots,n\}\) l'insieme delle funzioni invertibili \(f:X \rightarrow X\) è il
+		      \textbf{Gruppo delle permutazioni di n elementi (o gruppo simmetrico)}.Lo indiciamo con \(S?n\).
+		      \(|S_n| = m!\). Non è abeliano se \(n \geq 3\).
+	\end{itemize}
 \end{example}
 
 \begin{definition}
-    Sia \(X\) un monoide con identità \(e\). Un sottoinsieme \(Y \subseteq X\) tale che \(e \in Y\) e \(Y\)
-    è chiuso rispetto all'operazione di \(X\) è detto \textbf{sottomonide di \(X\)}. Analogamente definiamo
-    la nozione di \textbf{sottogruppo di \(X\)}. il gruppo \{\(e\)\} è detto \textbf{sottogruppo banale di \(X\)}.
+	Sia \(X\) un monoide con identità \(e\). Un sottoinsieme \(Y \subseteq X\) tale che \(e \in Y\) e \(Y\)
+	è chiuso rispetto all'operazione di \(X\) è detto \textbf{sottomonide di \(X\)}. Analogamente definiamo
+	la nozione di \textbf{sottogruppo di \(X\)}. il gruppo \{\(e\)\} è detto \textbf{sottogruppo banale di \(X\)}.
 \end{definition}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item Con l'addizione, \(\{0\}\) èun sottomonoide di \(\mathbb{N}\). \(\{0\}\) è anche sottogruppo banale.
-        \item Con la moltiplicazione abbiamo la catena di sottomonoidi \(\{1\} \subseteq \mathbb{N} \subseteq
-              \mathbb{Z} \subseteq \mathbb{Q} \subseteq insieme R \subseteq  \mathbb{C}\) e di sottogruppi \(\{1\}
-              \subseteq \mathbb{Q}\backslash \{0\} \subseteq \mathbb{R} \backslash \{0\} \subseteq \mathbb{C}
-              \backslash \{0\}\)
-        \item con l'addizione abbiamo la caten di sottogruppi \(\{0\} \subseteq \mathbb{Z} \subseteq \mathbb{Q}
-              \subseteq \mathbb{R} \subseteq \mathbb{C}\)
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item Con l'addizione, \(\{0\}\) èun sottomonoide di \(\mathbb{N}\). \(\{0\}\) è anche sottogruppo banale.
+		\item Con la moltiplicazione abbiamo la catena di sottomonoidi \(\{1\} \subseteq \mathbb{N} \subseteq
+		      \mathbb{Z} \subseteq \mathbb{Q} \subseteq insieme R \subseteq  \mathbb{C}\) e di sottogruppi \(\{1\}
+		      \subseteq \mathbb{Q}\backslash \{0\} \subseteq \mathbb{R} \backslash \{0\} \subseteq \mathbb{C}
+		      \backslash \{0\}\)
+		\item con l'addizione abbiamo la caten di sottogruppi \(\{0\} \subseteq \mathbb{Z} \subseteq \mathbb{Q}
+		      \subseteq \mathbb{R} \subseteq \mathbb{C}\)
+	\end{itemize}
 \end{example}
 
 \begin{definition}
-    Sia \(X\) un monoide e \(S \subseteq X\) un sottoinsieme. L'insieme \(\langle S \rangle := \{ x_1
-    \cdot x_2 \cdot \cdots \cdot x_n : n \in \mathbb{N}, x_1,x_2,\cdots,x_n \in S \}\) è detto
-    \textbf{sottomonoide generato da \(S\)} (intersezione di utti i sottomonoidi di \(X\) che contengono
-    \(S\)). Se \(X\) è un gruppo, \(\langle S \rangle\) è detto \textbf{sottogruppo generato da \(S\)}.
+	Sia \(X\) un monoide e \(S \subseteq X\) un sottoinsieme. L'insieme \(\langle S \rangle := \{ x_1
+	\cdot x_2 \cdot \cdots \cdot x_n : n \in \mathbb{N}, x_1,x_2,\cdots,x_n \in S \}\) è detto
+	\textbf{sottomonoide generato da \(S\)} (intersezione di utti i sottomonoidi di \(X\) che contengono
+	\(S\)). Se \(X\) è un gruppo, \(\langle S \rangle\) è detto \textbf{sottogruppo generato da \(S\)}.
 \end{definition}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item \(S = \{1\} \subseteq  (\mathbb{N}, +)\). Allora \(\langle S \rangle = \{0,1,2,\cdots\} = \mathbb{N}\)
-        \item sia \(S:= \{p \in \mathbb{N} : p \text{ è primo}\} \cup \{0\} \subseteq (\mathbb{N}, \cdot)\).
-              allora \(\langle S \rangle = \mathbb{N}\)
-        \item \(S = \{0,1\} \subseteq (\mathbb{N} , \centerdot)\). Allora \(\langle S \rangle = \{0,1\}\)
-        \item sia \(S = \{1\} \subseteq  (\mathbb{Z}, +)\). il sottogruppo generato da \(S\) è \(\langle S \rangle
-              = \mathbb{Z}\)
-        \item uno spazio ettoriale \(V\) è un gruppo abeliano se consideriamo l'operazione di addizione fra vettori.
-              Prendiamo \(V=\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}\). Sia \(v = (1,1) \in \mathbb{R}^2\).
-              Il sottogruppo \(\langle \{v\} \rangle = \{(n,n): n \in \mathbb{Z}\}\) è un sottogruppo proprio del
-              sottospazio generato da \(\{v\}\). Sia \(v_1 = (1,0)\) ed \(v_2 = (0,1)\), allora il sottogruppo
-              \(\langle \{v_1,v_2\} \rangle\) è \(\mathbb{Z} \times \mathbb{Z} \subseteq  \mathbb{R} \times \mathbb{R}\)
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item \(S = \{1\} \subseteq  (\mathbb{N}, +)\). Allora \(\langle S \rangle = \{0,1,2,\cdots\} = \mathbb{N}\)
+		\item sia \(S:= \{p \in \mathbb{N} : p \text{ è primo}\} \cup \{0\} \subseteq (\mathbb{N}, \cdot)\).
+		      allora \(\langle S \rangle = \mathbb{N}\)
+		\item \(S = \{0,1\} \subseteq (\mathbb{N} , \centerdot)\). Allora \(\langle S \rangle = \{0,1\}\)
+		\item sia \(S = \{1\} \subseteq  (\mathbb{Z}, +)\). il sottogruppo generato da \(S\) è \(\langle S \rangle
+		      = \mathbb{Z}\)
+		\item uno spazio ettoriale \(V\) è un gruppo abeliano se consideriamo l'operazione di addizione fra vettori.
+		      Prendiamo \(V=\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}\). Sia \(v = (1,1) \in \mathbb{R}^2\).
+		      Il sottogruppo \(\langle \{v\} \rangle = \{(n,n): n \in \mathbb{Z}\}\) è un sottogruppo proprio del
+		      sottospazio generato da \(\{v\}\). Sia \(v_1 = (1,0)\) ed \(v_2 = (0,1)\), allora il sottogruppo
+		      \(\langle \{v_1,v_2\} \rangle\) è \(\mathbb{Z} \times \mathbb{Z} \subseteq  \mathbb{R} \times \mathbb{R}\)
+	\end{itemize}
 \end{example}
 
 
 \begin{definition}
-    Siano \(M_1 , M_2\) con identità \(e_1 , e_2\) rispettivamente. Si definisce prodotto diretto di \(M_1\)
-    e \(M_2\) l'insieme \(M_1 \times M_2\) con l'operazione \((m_1,m_2) \cdot (m_1',m_2') = (m_1 \cdot m_1',
-    m_2 \cdot m_2')\) e identità \((e_1,e_2)\). Analogamente si definisce prodotto diretto di
-    gruppi \(G_1 \text{e} G_2\).
+	Siano \(M_1 , M_2\) con identità \(e_1 , e_2\) rispettivamente. Si definisce prodotto diretto di \(M_1\)
+	e \(M_2\) l'insieme \(M_1 \times M_2\) con l'operazione \((m_1,m_2) \cdot (m_1',m_2') = (m_1 \cdot m_1',
+	m_2 \cdot m_2')\) e identità \((e_1,e_2)\). Analogamente si definisce prodotto diretto di
+	gruppi \(G_1 \text{e} G_2\).
 \end{definition}
 
 L'inverso di una coppia \((a,b) \in G_1 \times G_2\) è \((a^{-1},b^{-1})\).
@@ -371,75 +371,75 @@ L'inverso di una coppia \((a,b) \in G_1 \times G_2\) è \((a^{-1},b^{-1})\).
 \subsection{Morfismi}
 
 \begin{definition}
-    Siano \(M_1 e M_2\) monoidi con identità \(e_1 e e_2\). Una funzione \(f : M_1 \rightarrow M_2\) è un
-    \textbf{morfismo di monoidi se:}
-    \
-    \begin{itemize}
-        \item \(f(e_1) = e_2\)
-        \item \(f(xy) = f(x)f(y)\)
-    \end{itemize}
+	Siano \(M_1 e M_2\) monoidi con identità \(e_1 e e_2\). Una funzione \(f : M_1 \rightarrow M_2\) è un
+	\textbf{morfismo di monoidi se:}
+	\
+	\begin{itemize}
+		\item \(f(e_1) = e_2\)
+		\item \(f(xy) = f(x)f(y)\)
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    Siano \(G_1 e G_2\) gruppi con identità \(e_1 e e_2\). Una funzione \(f : G_1 \rightarrow G_2\) è un
-    \textbf{morfismo di gruppi se:}
-    \
-    \begin{itemize}
-        \item \(f(e_1) = e_2\)
-        \item \(f(xy) = f(x)f(y)\)
-    \end{itemize}
+	Siano \(G_1 e G_2\) gruppi con identità \(e_1 e e_2\). Una funzione \(f : G_1 \rightarrow G_2\) è un
+	\textbf{morfismo di gruppi se:}
+	\
+	\begin{itemize}
+		\item \(f(e_1) = e_2\)
+		\item \(f(xy) = f(x)f(y)\)
+	\end{itemize}
 \end{definition}
 
 
 \begin{definition}
-    Il \textbf{nucleo} di un morfismo di monoidi \(f: M_1 \rightarrow M_2\) è il sottomonoide di \(M_1\)
-    definito come: \(Ker(f):= \{x \in M_1 : f(x) = e_2\}\)
+	Il \textbf{nucleo} di un morfismo di monoidi \(f: M_1 \rightarrow M_2\) è il sottomonoide di \(M_1\)
+	definito come: \(Ker(f):= \{x \in M_1 : f(x) = e_2\}\)
 \end{definition}
 
 \begin{definition}
-    Il nucleo di un morfismo di gruppi \(f: G_1 \rightarrow G_2\) è il sottogruppo di \(G_1\) definito
-    come: \(Ker(f):= \{x \in G_1 : f(x) = e_2\}\). \textbf{Il nucleo è un sottogruppo di \(G_1\)}. e
-    \textbf{\(Im(f)\) è un sottogruppo di \(G_2\)}.
+	Il nucleo di un morfismo di gruppi \(f: G_1 \rightarrow G_2\) è il sottogruppo di \(G_1\) definito
+	come: \(Ker(f):= \{x \in G_1 : f(x) = e_2\}\). \textbf{Il nucleo è un sottogruppo di \(G_1\)}. e
+	\textbf{\(Im(f)\) è un sottogruppo di \(G_2\)}.
 \end{definition}
 
 \begin{definition}
-    Un \textbf{isomorfismo di monoidi (e di gruppi)} èun morfismo biunivoco, tale che la funzione inversa sia un morfismo.
+	Un \textbf{isomorfismo di monoidi (e di gruppi)} èun morfismo biunivoco, tale che la funzione inversa sia un morfismo.
 \end{definition}
 
 
 \begin{proposition}
-    Sia \(f: M_1 \rightarrow M_2\) un morfismo di monoidi. Se \(f\) è biunivoco, allora è un isomorfismo.
-    Questo vale anche per i gruppi.
+	Sia \(f: M_1 \rightarrow M_2\) un morfismo di monoidi. Se \(f\) è biunivoco, allora è un isomorfismo.
+	Questo vale anche per i gruppi.
 \end{proposition}
 
 
 \begin{dimostrazione}
-    \
-    Dobbiamo far vedere che la funzione inversa \(f^{-1} : M_2 \rightarrow M_2\) è un morfismo di monoidi.
-    Poiché \(f(e_1) = e_2\), allora \(f^{-1}(e_2) = e_1\). Siano \(x_2,y_2 \in M_2\), allora esistono
-    \(x_1,y_1 \in M_1\) tali che \(f(x_1)=x_2 , f(y_1)=y_2\). Quindi \(f^{-1} (f(x_1)f(y_1)) = f^{-1}(f(x_1 y_1))
-    = x_1 y_1 = f^{-1}(x_2) f^{-1}(y_2)\)
+	\
+	Dobbiamo far vedere che la funzione inversa \(f^{-1} : M_2 \rightarrow M_2\) è un morfismo di monoidi.
+	Poiché \(f(e_1) = e_2\), allora \(f^{-1}(e_2) = e_1\). Siano \(x_2,y_2 \in M_2\), allora esistono
+	\(x_1,y_1 \in M_1\) tali che \(f(x_1)=x_2 , f(y_1)=y_2\). Quindi \(f^{-1} (f(x_1)f(y_1)) = f^{-1}(f(x_1 y_1))
+	= x_1 y_1 = f^{-1}(x_2) f^{-1}(y_2)\)
 \end{dimostrazione}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item Siano \(M_1 = (\mathcal{P}(X), \cup) \text{ e } M_2 = (\mathcal{P}(X), \cup), \text{ dove } X\)
-              è un insieme. Sia \(f : M_1 \rightarrow M_2\) definita ponendo \(f(A) = A^C , \forall A \subseteq X\).
-              la funzione \(f\) è biunivoca. Inotre, dalle formule di De Morgan segue che \(f(A \cap B) =
-              (A \cap B)^C = A^C \cup B^C = f(A) \cup f(B)\). Quindi \(f\) è un isomorfismo di monoidi, poiché
-              \(f(X) = X^C = \varnothing\), essendo \(X\) l'identità di \(M_1\) e \(\varnothing\) l'identità di \(M_2\).
-        \item Sia \(\mathbb{Z}_2 := \{0,1\}\) con l'operazione definita come: \(0+0=0, 0+1=1+0=1, 1+1=0\).
-              Sia \(X := \{1,2,\cdots,n\}, n \in \mathbb{N}\). La funzione \(f: \mathcal{P}(X) \rightarrow
-              \mathbb{Z}_2 \times \cdots \times \mathbb{Z}_2\) (n volte) definita da: \(f(A) = (a_1,a_2,\cdots,a_n)\),
-              dove \(a_i = 1\) se \(i \in A\) e \(a_i = 0\) se \(i \notin A\). \newline è un isomorfismo del gruppo
-              \((\mathcal{P}(X), \Delta)\) con il gruppo \(\mathcal{P}(X) \rightarrow \mathbb{Z}_2 \times \cdots
-              \times \mathbb{Z}_2 = (\mathbb{Z}_2)^n\)
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item Siano \(M_1 = (\mathcal{P}(X), \cup) \text{ e } M_2 = (\mathcal{P}(X), \cup), \text{ dove } X\)
+		      è un insieme. Sia \(f : M_1 \rightarrow M_2\) definita ponendo \(f(A) = A^C , \forall A \subseteq X\).
+		      la funzione \(f\) è biunivoca. Inotre, dalle formule di De Morgan segue che \(f(A \cap B) =
+		      (A \cap B)^C = A^C \cup B^C = f(A) \cup f(B)\). Quindi \(f\) è un isomorfismo di monoidi, poiché
+		      \(f(X) = X^C = \varnothing\), essendo \(X\) l'identità di \(M_1\) e \(\varnothing\) l'identità di \(M_2\).
+		\item Sia \(\mathbb{Z}_2 := \{0,1\}\) con l'operazione definita come: \(0+0=0, 0+1=1+0=1, 1+1=0\).
+		      Sia \(X := \{1,2,\cdots,n\}, n \in \mathbb{N}\). La funzione \(f: \mathcal{P}(X) \rightarrow
+		      \mathbb{Z}_2 \times \cdots \times \mathbb{Z}_2\) (n volte) definita da: \(f(A) = (a_1,a_2,\cdots,a_n)\),
+		      dove \(a_i = 1\) se \(i \in A\) e \(a_i = 0\) se \(i \notin A\). \newline è un isomorfismo del gruppo
+		      \((\mathcal{P}(X), \Delta)\) con il gruppo \(\mathcal{P}(X) \rightarrow \mathbb{Z}_2 \times \cdots
+		      \times \mathbb{Z}_2 = (\mathbb{Z}_2)^n\)
+	\end{itemize}
 \end{example}
 
 \textbf{Vediamo ora come ogni monoide finito è isomorfo a un monoide di matrici quadrate, dove l'operazione
-    è il prodotto righe per colonne.}\newline
+	è il prodotto righe per colonne.}\newline
 Sia \(M=\{x_1,\cdots,x_n\}\) un monoide, \(|M|=n \in \mathbb{N}\), con identità \(e = x_1\). Per ogni \(x \in
 M\) definiamo una matrice \(A(x) \in Mat_{n \times n}(\mathbb{Z})\) nel seguente modo: \(A(x)_{ij} = 1\)
 se \(x_i \cdot x = x_j\) e \(A(x)_{ij} = 0\) altrimenti. La funzione \(F : M \rightarrow Mat_{n \times n}
@@ -453,66 +453,66 @@ Quindi \(F: M \rightarrow Im(F)\) è un isomorfismo di monoidi.
 
 \newpage
 \begin{example}
-    Sia \(M = (\mathbb{Z}_2, \cdot)\) il monoide definito da:
-    \begin{table}[htbp]
-        \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            \(\cdot\) & 0 & 1 \\ \hline
-            0         & 0 & 0 \\ \hline
-            1         & 0 & 1 \\ \hline
-        \end{tabular}
-    \end{table}
-    \newline costruiamo un sottomonoide di \(Mat_{4 \times 4}(\mathbb{Z})\) isomorfo a \(M \times M = \{(0,0), (0,1),
-    (1,0),(1,1)\}\).\newline
-    \newline\((0,0) \mapsto
-    \begin{bmatrix}
-        1 & 1 & 1 & 1 \\
-        0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0
-    \end{bmatrix}\),
-    \((0,1) \mapsto \begin{bmatrix}
-        1 & 0 & 1 & 0 \\
-        0 & 1 & 0 & 1 \\
-        0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0
-    \end{bmatrix} \),
-    \((1,0) \mapsto \begin{bmatrix}
-        1 & 1 & 0 & 0 \\
-        0 & 0 & 0 & 0 \\
-        0 & 0 & 1 & 1 \\
-        0 & 0 & 0 & 0
-    \end{bmatrix} \),
-    \((1,1) \mapsto \begin{bmatrix}
-        1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 1 & 0 \\
-        0 & 0 & 0 & 1
-    \end{bmatrix} \).\newline
-
-    \begin{table}[htbp]
-        \centering
-        \begin{tabular}{|c|c|c|c|c|}
-            \hline
-            \(\cdot\) & \((0,0)\) & \((0,1)\) & \((1,0)\) & \((1,1)\) \\ \hline
-            \((0,0)\) & \((0,0)\) & \((0,0)\) & \((0,0)\) & \((0,0)\) \\ \hline
-            \((0,1)\) & \((0,0)\) & \((0,1)\) & \((0,0)\) & \((0,1)\) \\ \hline
-            \((1,0)\) & \((0,0)\) & \((0,0)\) & \((1,0)\) & \((1,0)\) \\ \hline
-            \((1,1)\) & \((0,0)\) & \((0,1)\) & \((1,0)\) & \((1,1)\) \\ \hline
-        \end{tabular}
-    \end{table}
-    Si può verificare direttamnete che le matrici hanno la stessa tabella moltiplicativa. (fine esempio)
+	Sia \(M = (\mathbb{Z}_2, \cdot)\) il monoide definito da:
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\(\cdot\) & 0 & 1 \\ \hline
+			0         & 0 & 0 \\ \hline
+			1         & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{table}
+	\newline costruiamo un sottomonoide di \(Mat_{4 \times 4}(\mathbb{Z})\) isomorfo a \(M \times M = \{(0,0), (0,1),
+	(1,0),(1,1)\}\).\newline
+	\newline\((0,0) \mapsto
+	\begin{bmatrix}
+		1 & 1 & 1 & 1  \\
+		0 & 0 & 0 & 0  \\
+		0 & 0 & 0 & 0  \\
+		0 & 0 & 0 & 0
+	\end{bmatrix}\),
+	\((0,1) \mapsto \begin{bmatrix}
+		1 & 0 & 1 & 0  \\
+		0 & 1 & 0 & 1  \\
+		0 & 0 & 0 & 0  \\
+		0 & 0 & 0 & 0
+	\end{bmatrix} \),
+	\((1,0) \mapsto \begin{bmatrix}
+		1 & 1 & 0 & 0  \\
+		0 & 0 & 0 & 0  \\
+		0 & 0 & 1 & 1  \\
+		0 & 0 & 0 & 0
+	\end{bmatrix} \),
+	\((1,1) \mapsto \begin{bmatrix}
+		1 & 0 & 0 & 0  \\
+		0 & 1 & 0 & 0  \\
+		0 & 0 & 1 & 0  \\
+		0 & 0 & 0 & 1
+	\end{bmatrix} \).\newline
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\(\cdot\) & \((0,0)\) & \((0,1)\) & \((1,0)\) & \((1,1)\) \\ \hline
+			\((0,0)\) & \((0,0)\) & \((0,0)\) & \((0,0)\) & \((0,0)\) \\ \hline
+			\((0,1)\) & \((0,0)\) & \((0,1)\) & \((0,0)\) & \((0,1)\) \\ \hline
+			\((1,0)\) & \((0,0)\) & \((0,0)\) & \((1,0)\) & \((1,0)\) \\ \hline
+			\((1,1)\) & \((0,0)\) & \((0,1)\) & \((1,0)\) & \((1,1)\) \\ \hline
+		\end{tabular}
+	\end{table}
+	Si può verificare direttamnete che le matrici hanno la stessa tabella moltiplicativa. (fine esempio)
 \end{example}
 
 Abbiamo quindi visto che un monoide finito di cardinalità \(n\) è isomorfo a un monoide di matrici \(n \times n\)
 le cui colonne hanno un unico \("1"\) e altrove sono \("0"\).\newline
 Ognuna di queste matrici può essere vista come una funzione da \(X = \{1,\cdots,n\} in X\) :\newline
 \begin{center}
-    \(A_{ij} = 1 \Leftrightarrow f(j) = i\)
+	\(A_{ij} = 1 \Leftrightarrow f(j) = i\)
 \end{center}
 \begin{center}
-    \(A_{ij} = 0 \Leftrightarrow f(j) \neq i\)
+	\(A_{ij} = 0 \Leftrightarrow f(j) \neq i\)
 \end{center}
 Il prodotto righe per colonne corrisponde alla composizione di funzioni.\newline
 Quindi un monoide finito di cardinalità \(n\) è isomorfo a un sottomonide del monoide delle funzioni
@@ -532,96 +532,96 @@ Gli elementi di \(S_n\) in notazione a una linea sono indicati nel modo seguente
 
 
 \begin{teorema}[Teorema di Cayley]
-    Ogni sottogruppo finito di cardinalità \(n \in \mathbb{N} \backslash \{0\}\) è isomorfo a un sottogruppo di \(S_n\)
+	Ogni sottogruppo finito di cardinalità \(n \in \mathbb{N} \backslash \{0\}\) è isomorfo a un sottogruppo di \(S_n\)
 \end{teorema}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item \(S_2 = \{12,21\}\)\newline
-              \(S_3 = \{123,132,213,231,312,321\}\)\newline
-
-        \item vediamo il gruppo \((\mathbb{Z}_2,+)\) come gruppo di matrici e come gruppo di permutazioni. \((\mathbb{Z}_2, +) \simeq \{\begin{bmatrix}
-                  1 & 0 \\
-                  0 & 1
-              \end{bmatrix}, \begin{bmatrix}
-                  0 & 1 \\
-                  1 & 0
-              \end{bmatrix}\} \simeq \{12,21\} = S_2\) (\(\simeq\) : isomorfismo di gruppi)
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item \(S_2 = \{12,21\}\)\newline
+		      \(S_3 = \{123,132,213,231,312,321\}\)\newline
+		      
+		\item vediamo il gruppo \((\mathbb{Z}_2,+)\) come gruppo di matrici e come gruppo di permutazioni. \((\mathbb{Z}_2, +) \simeq \{\begin{bmatrix}
+			      1 & 0  \\
+			      0 & 1
+		      \end{bmatrix}, \begin{bmatrix}
+			      0 & 1  \\
+			      1 & 0
+		      \end{bmatrix}\} \simeq \{12,21\} = S_2\) (\(\simeq\) : isomorfismo di gruppi)
+	\end{itemize}
 \end{example}
 
 \subsection{Relazioni}
 
 \begin{definition}
-    Sia \(X\) un insieme. Un sottoinsieme \(R \subseteq X \times X\) è detto \textbf{relazione su \(X\)}.
+	Sia \(X\) un insieme. Un sottoinsieme \(R \subseteq X \times X\) è detto \textbf{relazione su \(X\)}.
 \end{definition}
 
 \begin{definition}
-    Una relazione \(R \subseteq X \times X\) è detta \textbf{relazione di equivalenza} se soddisfa le seguenti proprietà: \
-    \begin{itemize}
-        \item \textbf{riflessità}: \((x,x) \in R\), \(\forall x \in X\)
-        \item \textbf{simmetria}: \((x,y) \in R \implies (y,x) \in R\), \(\forall x,y \in X\)
-        \item \textbf{transitività}: \((x,y) \in R \text{ e } (y,z) \in R \implies (x,z) \in R\), \(\forall x,y,z \in X\)
-    \end{itemize}
+	Una relazione \(R \subseteq X \times X\) è detta \textbf{relazione di equivalenza} se soddisfa le seguenti proprietà: \
+	\begin{itemize}
+		\item \textbf{riflessità}: \((x,x) \in R\), \(\forall x \in X\)
+		\item \textbf{simmetria}: \((x,y) \in R \implies (y,x) \in R\), \(\forall x,y \in X\)
+		\item \textbf{transitività}: \((x,y) \in R \text{ e } (y,z) \in R \implies (x,z) \in R\), \(\forall x,y,z \in X\)
+	\end{itemize}
 \end{definition}
 
 Se \(R\) è una relazione di equivalenza su \(X\) e \((x,y) \in R\), scriviamo \(x \sim y\),
 che si legge "\(x\) è equivalente a \(y\)".
 
 \begin{definition}
-    Sia \(X\) un insieme e \(R \subseteq X \times X\) una relazione di equivalenza su \(X\). L'insieme
-    \begin{math}
-        [x]_R := \{y \in X : x \sim y\}
-    \end{math} è detto \textbf{classe di equivalenza di \(x\) rispetto a \(R\)}.
+	Sia \(X\) un insieme e \(R \subseteq X \times X\) una relazione di equivalenza su \(X\). L'insieme
+	\begin{math}
+		[x]_R := \{y \in X : x \sim y\}
+	\end{math} è detto \textbf{classe di equivalenza di \(x\) rispetto a \(R\)}.
 \end{definition}
 
 \begin{definition}
-    L'insieme \(\sfrac{X}{\sim} := \{[x] : x \in X\}\) è detto \textbf{insieme quoziente}.
+	L'insieme \(\sfrac{X}{\sim} := \{[x] : x \in X\}\) è detto \textbf{insieme quoziente}.
 \end{definition}
 
 \begin{definition}
-    La funzione \begin{math}
-        \pi : X \rightarrow \sfrac{X}{\sim} \text{ , } x \mapsto [x] \end{math} è detta \textbf{proiezione canonica}.
+	La funzione \begin{math}
+		\pi : X \rightarrow \sfrac{X}{\sim} \text{ , } x \mapsto [x] \end{math} è detta \textbf{proiezione canonica}.
 \end{definition}
 
 \begin{definition}
-    Siano \(x,y \in X\). Allora se \(x \sim y\) abbiamo che \([x] = [y]\).
-    Se \(x \nsim y\) abbiamo che \([x] \cap [y] = \varnothing\).
-    Quindi \(X = \underset{[x] \in \sfrac{X}{\sim}}{\uplus} [x]\), ossia \(\sfrac{X}{\sim}\) è una partizione di X.
+	Siano \(x,y \in X\). Allora se \(x \sim y\) abbiamo che \([x] = [y]\).
+	Se \(x \nsim y\) abbiamo che \([x] \cap [y] = \varnothing\).
+	Quindi \(X = \underset{[x] \in \sfrac{X}{\sim}}{\uplus} [x]\), ossia \(\sfrac{X}{\sim}\) è una partizione di X.
 \end{definition}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item L'uguaglianza \("="\) è una relazione di equivalenza
-              su ogni insieme \(X\).
-        \item Sia \(X = \{1,2,\cdots,n\}\). Definiamo si \(\mathcal{P}(X)\)
-              la seguente relazione:
-              \(A \sim B \Leftrightarrow |A| = |B|, \forall A,B \subseteq X\).
-              Questa è una relazione di equivalenza e \(\sfrac{\mathcal{P}(X)}{\sim}
-              \equiv \{0,1,\cdots,n\}\). Se \(A \subseteq X\) è tale che
-              \(|A| = k \leq n\) allora \(|[A]| = \binom{n}{k} := \frac{n!}{k!(n-k)!}\)
-        \item Sia \(G\) un gruppo e \(H \subseteq G\) un sottogruppo. La relazione
-              \(\sim \) su \(G\) definita da \(g_1 \sim g_2 \Leftrightarrow g_1=g_2 h\)
-              per qualche \(h \in H\) è una relazione di equivalenza.\
-              \begin{itemize}
-                  \item \(g \sim g : g \cdot e \text{ , } \forall g \in G , e \in H\)
-                  \item \(g_1 \sim g_2 \rightarrow g_2 \sim g_1 : g_1 = g_2 h \rightarrow
-                        g_1 h^{-1} = g_2\) (\(h^{-1} \in H\))
-                  \item \(g_1 \sim g_2 , g_2 \sim g_3 \rightarrow g_1 \sim g_3 :
-                        g_1 = g_2 h, g_2 = g_3 h' \rightarrow g_1 = g_3 h h' = g_3 h''
-                        , \forall g_1,g_2,g_3 \in G\)
-              \end{itemize}
-              In questo caso l'insieme quoziente lo indichiamo con \sfrac{G}{H}.
-
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item L'uguaglianza \("="\) è una relazione di equivalenza
+		      su ogni insieme \(X\).
+		\item Sia \(X = \{1,2,\cdots,n\}\). Definiamo si \(\mathcal{P}(X)\)
+		      la seguente relazione:
+		      \(A \sim B \Leftrightarrow |A| = |B|, \forall A,B \subseteq X\).
+		      Questa è una relazione di equivalenza e \(\sfrac{\mathcal{P}(X)}{\sim}
+		      \equiv \{0,1,\cdots,n\}\). Se \(A \subseteq X\) è tale che
+		      \(|A| = k \leq n\) allora \(|[A]| = \binom{n}{k} := \frac{n!}{k!(n-k)!}\)
+		\item Sia \(G\) un gruppo e \(H \subseteq G\) un sottogruppo. La relazione
+		      \(\sim \) su \(G\) definita da \(g_1 \sim g_2 \Leftrightarrow g_1=g_2 h\)
+		      per qualche \(h \in H\) è una relazione di equivalenza.\
+		      \begin{itemize}
+			      \item \(g \sim g : g \cdot e \text{ , } \forall g \in G , e \in H\)
+			      \item \(g_1 \sim g_2 \rightarrow g_2 \sim g_1 : g_1 = g_2 h \rightarrow
+			            g_1 h^{-1} = g_2\) (\(h^{-1} \in H\))
+			      \item \(g_1 \sim g_2 , g_2 \sim g_3 \rightarrow g_1 \sim g_3 :
+			            g_1 = g_2 h, g_2 = g_3 h' \rightarrow g_1 = g_3 h h' = g_3 h''
+			            , \forall g_1,g_2,g_3 \in G\)
+		      \end{itemize}
+		      In questo caso l'insieme quoziente lo indichiamo con \sfrac{G}{H}.
+		      
+	\end{itemize}
 \end{example}
 
 \begin{definition}
-    Il numero \(\binom{n}{k}\) è chiamato \textbf{coefficiente binomiale},
-    questo perché \((x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^n y^{n-k},
-    \forall x,y \in \mathbb{C} \)
+	Il numero \(\binom{n}{k}\) è chiamato \textbf{coefficiente binomiale},
+	questo perché \((x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^n y^{n-k},
+	\forall x,y \in \mathbb{C} \)
 \end{definition}
 
 
@@ -640,66 +640,66 @@ Infine \([g] + [-g] = [g-g] = [0]\), dove con \(-g\) abbiamo indicato l'inverso 
 Quindi \(-[g] = [-g], \forall [g] \in \sfrac{G}{H}\), ossia \((\sfrac{G}{H},+)\) è un gruppo abeliano.
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item Se \(H = \{0\} \subseteq G\), allora \(\sfrac{G}{H}\) è isomorfo a \(G\). (\(\{0\}\) gruppo banale e \(G\) gruppo abeliano)
-        \item Sia \(G = (\mathbb{Z} , +) \text{ e } n \in \mathbb{N} \). Il sottoinsieme \(n\mathbb{Z} = \{nz : z \in \mathbb{Z}\}\)
-              è un sottogruppo di \(\mathbb{Z}\). \
-              \begin{itemize}
-                  \item \(0 \mathbb{Z} = \{0\}\)
-                  \item \(1 \mathbb{Z} = \{\mathbb{Z} \}\)
-                  \item \(2 \mathbb{Z} = \{\cdots,-4,-2,0,2,4,\cdots\}\)
-                  \item \(3 \mathbb{Z} = \{\cdots,-6,-3,0,3,6,\cdots\}\)
-              \end{itemize}
-              Definiamo il gruppo abeliano \(\mathbb{Z}_n := \sfrac{\mathbb{Z}}{n\mathbb{Z}}\),
-              per \(\mathbb{Z}_0 = \sfrac{\mathbb{Z}}{0 \mathbb{Z}}
-              = \sfrac{\mathbb{Z}}{\{0\}} = \mathbb{Z} \). \newline
-              Sia \(n \geq 0 \text{ e siano } x,y \in \mathbb{Z} \).
-              \
-              \begin{itemize}
-                  \item Allora \(x \sim y \Leftrightarrow
-                        x = y+h \text{  } (h \in n \mathbb{Z})
-                        \Leftrightarrow x-y = kn \text{ (per \(k \in \mathbb{Z}\)) }  \Leftrightarrow
-                        \text{ il resto della divisione di \(x\) per \(n\) è uguale
-                            al resto  della divisione di \(y\) per \(n\)}\).
-              \end{itemize}
-
-              I possibili resti della divisione
-              per \(n\) sono \(0,1,\cdots,n-1\).\\
-              Quindi \(\mathbb{Z}_n = \{[0],[1],\cdots,[n-1]\} = \{\overline{0}, \overline{1},\cdots,\overline{n - 1}\}\).
-              (\(\{[0],[1],\cdots,[n-1]\}\) sono le classi di resto)
-              \
-              \begin{itemize}
-                  \item \(\mathbb{Z}_2 = \{\overline{0},\overline{1}\}\),
-                        \begin{table}[htbp]
-                            \centering
-                            \begin{tabular}{|c|c|c|}
-                                \hline
-                                +                & \(\overline{0}\) & \(\overline{1}\) \\ \hline
-                                \(\overline{0}\) & \(\overline{0}\) & \(\overline{1}\) \\ \hline
-                                \(\overline{1}\) & \(\overline{1}\) & \(\overline{0}\) \\ \hline
-                            \end{tabular}
-                        \end{table}
-                        \(\overline{1} + \overline{1} = [1 + 1] = [2] = [0]\)
-                  \item \(\mathbb{Z}_3 = \{\overline{0},\overline{1},\overline{2}\}\),
-                        \begin{table}[htbp]
-                            \centering
-                            \begin{tabular}{|c|c|c|c|}
-                                \hline
-                                +                & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
-                                \(\overline{0}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
-                                \(\overline{1}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{0}\) \\ \hline
-                                \(\overline{2}\) & \(\overline{2}\) & \(\overline{0}\) & \(\overline{1}\) \\ \hline
-                            \end{tabular}
-                        \end{table}
-              \end{itemize}
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item Se \(H = \{0\} \subseteq G\), allora \(\sfrac{G}{H}\) è isomorfo a \(G\). (\(\{0\}\) gruppo banale e \(G\) gruppo abeliano)
+		\item Sia \(G = (\mathbb{Z} , +) \text{ e } n \in \mathbb{N} \). Il sottoinsieme \(n\mathbb{Z} = \{nz : z \in \mathbb{Z}\}\)
+		      è un sottogruppo di \(\mathbb{Z}\). \
+		      \begin{itemize}
+			      \item \(0 \mathbb{Z} = \{0\}\)
+			      \item \(1 \mathbb{Z} = \{\mathbb{Z} \}\)
+			      \item \(2 \mathbb{Z} = \{\cdots,-4,-2,0,2,4,\cdots\}\)
+			      \item \(3 \mathbb{Z} = \{\cdots,-6,-3,0,3,6,\cdots\}\)
+		      \end{itemize}
+		      Definiamo il gruppo abeliano \(\mathbb{Z}_n := \sfrac{\mathbb{Z}}{n\mathbb{Z}}\),
+		      per \(\mathbb{Z}_0 = \sfrac{\mathbb{Z}}{0 \mathbb{Z}}
+		      = \sfrac{\mathbb{Z}}{\{0\}} = \mathbb{Z} \). \newline
+		      Sia \(n \geq 0 \text{ e siano } x,y \in \mathbb{Z} \).
+		      \
+		      \begin{itemize}
+			      \item Allora \(x \sim y \Leftrightarrow
+			            x = y+h \text{  } (h \in n \mathbb{Z})
+			            \Leftrightarrow x-y = kn \text{ (per \(k \in \mathbb{Z}\)) }  \Leftrightarrow
+			            \text{ il resto della divisione di \(x\) per \(n\) è uguale
+				            al resto  della divisione di \(y\) per \(n\)}\).
+		      \end{itemize}
+		      
+		      I possibili resti della divisione
+		      per \(n\) sono \(0,1,\cdots,n-1\).\\
+		      Quindi \(\mathbb{Z}_n = \{[0],[1],\cdots,[n-1]\} = \{\overline{0}, \overline{1},\cdots,\overline{n - 1}\}\).
+		      (\(\{[0],[1],\cdots,[n-1]\}\) sono le classi di resto)
+		      \
+		      \begin{itemize}
+			      \item \(\mathbb{Z}_2 = \{\overline{0},\overline{1}\}\),
+			            \begin{table}[htbp]
+				            \centering
+				            \begin{tabular}{|c|c|c|}
+					            \hline
+					            +                & \(\overline{0}\) & \(\overline{1}\) \\ \hline
+					            \(\overline{0}\) & \(\overline{0}\) & \(\overline{1}\) \\ \hline
+					            \(\overline{1}\) & \(\overline{1}\) & \(\overline{0}\) \\ \hline
+				            \end{tabular}
+			            \end{table}
+			            \(\overline{1} + \overline{1} = [1 + 1] = [2] = [0]\)
+			      \item \(\mathbb{Z}_3 = \{\overline{0},\overline{1},\overline{2}\}\),
+			            \begin{table}[htbp]
+				            \centering
+				            \begin{tabular}{|c|c|c|c|}
+					            \hline
+					            +                & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
+					            \(\overline{0}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
+					            \(\overline{1}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{0}\) \\ \hline
+					            \(\overline{2}\) & \(\overline{2}\) & \(\overline{0}\) & \(\overline{1}\) \\ \hline
+				            \end{tabular}
+			            \end{table}
+		      \end{itemize}
+	\end{itemize}
 \end{example}
 
 
 \begin{definition}
-    Sia \(G\) un gruppo abeliano e \(H \subseteq G\) un sottogruppo. La proiezione canonica \(\pi : G \rightarrow \sfrac{G}{H}\)
-    è un \textbf{morfismo suriettivo di gruppi}
+	Sia \(G\) un gruppo abeliano e \(H \subseteq G\) un sottogruppo. La proiezione canonica \(\pi : G \rightarrow \sfrac{G}{H}\)
+	è un \textbf{morfismo suriettivo di gruppi}
 \end{definition}
 
 Se \(G\) è un gruppo finito e \(H \subseteq G\) è un sottogruppo, allora \([g] \in \sfrac{G}{H} \rightarrow |[g]| = |H|\).\\
@@ -708,45 +708,45 @@ Poiché le classi di quivalenza sono una partizione di G , abbiamo \(|G| = |\sfr
 In particolare la cardinalità o (\textbf{ordine}) di un sottogruppo di un gruppo finito divide la cardinalità del gruppo.\\
 
 \begin{teorema}
-    Sia \(f : G_1 \rightarrow G_2\) un morfismo di gruppi. Allora \(f\) è iniettivo se e solo se \(Ker(f) = \{e_1\}\).\\
-    (Questo non vale per i morfismi di monoidi.)
+	Sia \(f : G_1 \rightarrow G_2\) un morfismo di gruppi. Allora \(f\) è iniettivo se e solo se \(Ker(f) = \{e_1\}\).\\
+	(Questo non vale per i morfismi di monoidi.)
 \end{teorema}
 
 \begin{dimostrazione}
-    \
-    Sia \(f\) iniettivo. Sia \(x \in Ker(f)\). Allora \(f(x) = e_2\) e quindi, poiché anche \(f(e_1) = e_2\), si ha che \(x = e_1\)
-    per l'ipotesi di iniettività.\\\
-    Sia \(Ker(f) = \{e_1\}\). Siano \(x,y \in G_1\) tali che \(f(x) = f(y)\).\\
-    Allora \(f(x)f(y^{-1}) = e_2 \rightarrow  f(xy^{-1}) = e_2 \rightarrow  xy^{-1} \in Ker(f) \rightarrow xy^{-1} = e_1 \rightarrow
-    x=y\),
+	\
+	Sia \(f\) iniettivo. Sia \(x \in Ker(f)\). Allora \(f(x) = e_2\) e quindi, poiché anche \(f(e_1) = e_2\), si ha che \(x = e_1\)
+	per l'ipotesi di iniettività.\\\
+	Sia \(Ker(f) = \{e_1\}\). Siano \(x,y \in G_1\) tali che \(f(x) = f(y)\).\\
+	Allora \(f(x)f(y^{-1}) = e_2 \rightarrow  f(xy^{-1}) = e_2 \rightarrow  xy^{-1} \in Ker(f) \rightarrow xy^{-1} = e_1 \rightarrow
+	x=y\),
 \end{dimostrazione}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item \(G = \mathbb{Z}_4 = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}\), \
-              \begin{itemize}
-                  \item \(\langle \overline{0} \rangle = {\overline{0}}\) sottogruppo banale \(\simeq \mathbb{Z}_1\)
-                  \item \(\langle \overline{1} \rangle = \mathbb{Z}_4\)
-                  \item \(\langle \overline{2} \rangle = \{\overline{0}, \overline{2}\} \simeq \mathbb{Z}_2\) (\(2+2=0\))
-                  \item \(\langle \overline{3} \rangle = \mathbb{Z}_4\) (\(3 , 3+3=6=2, 3+2=5=1, 3+1=4=0\))
-              \end{itemize}
-              I sottogruppi di \(\mathbb{Z}_4\) possono averer cardinalità \(1,2,4\). L'insieme
-              dei sottogruppo di \(\mathbb{Z}_4\) è \(\{\{\overline{0}\}, \{\overline{0}, \overline{2}\},
-              \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}= \mathbb{Z}_4\}\)
-        \item \(G = \mathbb{Z}_6 = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}\}\), \
-              \begin{itemize}
-                  \item \(\langle \overline{0} \rangle = {\overline{0}}\) sottogruppo banale \(\simeq \mathbb{Z}_1\)
-                  \item \(\langle \overline{1} \rangle = \mathbb{Z}_6\)
-                  \item \(\langle \overline{2} \rangle = \{\overline{0}, \overline{2}, \overline{4}\} \simeq \mathbb{Z}_3\)
-                  \item \(\langle \overline{3} \rangle = \{\overline{0}, \overline{3}\} \simeq \mathbb{Z}_2\)
-                  \item \(\langle \overline{4} \rangle = \{\overline{0}, \overline{2}, \overline{4}\} \simeq \mathbb{Z}_3\)
-                  \item \(\langle \overline{5} \rangle = \mathbb{Z}_6\)
-              \end{itemize}
-              I sottogruppi di \(\mathbb{Z}_6\) possono averer cardinalità \(1,2,3,6\). L'insieme
-              dei sottogruppo di \(\mathbb{Z}_6\) è \(\{\{\overline{0}\}, \{\overline{0}, \overline{2}, \overline{4}\},
-              \{\overline{0}, \overline{3}\}, \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}\}= \mathbb{Z}_6\}\)
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item \(G = \mathbb{Z}_4 = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}\), \
+		      \begin{itemize}
+			      \item \(\langle \overline{0} \rangle = {\overline{0}}\) sottogruppo banale \(\simeq \mathbb{Z}_1\)
+			      \item \(\langle \overline{1} \rangle = \mathbb{Z}_4\)
+			      \item \(\langle \overline{2} \rangle = \{\overline{0}, \overline{2}\} \simeq \mathbb{Z}_2\) (\(2+2=0\))
+			      \item \(\langle \overline{3} \rangle = \mathbb{Z}_4\) (\(3 , 3+3=6=2, 3+2=5=1, 3+1=4=0\))
+		      \end{itemize}
+		      I sottogruppi di \(\mathbb{Z}_4\) possono averer cardinalità \(1,2,4\). L'insieme
+		      dei sottogruppo di \(\mathbb{Z}_4\) è \(\{\{\overline{0}\}, \{\overline{0}, \overline{2}\},
+		      \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}= \mathbb{Z}_4\}\)
+		\item \(G = \mathbb{Z}_6 = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}\}\), \
+		      \begin{itemize}
+			      \item \(\langle \overline{0} \rangle = {\overline{0}}\) sottogruppo banale \(\simeq \mathbb{Z}_1\)
+			      \item \(\langle \overline{1} \rangle = \mathbb{Z}_6\)
+			      \item \(\langle \overline{2} \rangle = \{\overline{0}, \overline{2}, \overline{4}\} \simeq \mathbb{Z}_3\)
+			      \item \(\langle \overline{3} \rangle = \{\overline{0}, \overline{3}\} \simeq \mathbb{Z}_2\)
+			      \item \(\langle \overline{4} \rangle = \{\overline{0}, \overline{2}, \overline{4}\} \simeq \mathbb{Z}_3\)
+			      \item \(\langle \overline{5} \rangle = \mathbb{Z}_6\)
+		      \end{itemize}
+		      I sottogruppi di \(\mathbb{Z}_6\) possono averer cardinalità \(1,2,3,6\). L'insieme
+		      dei sottogruppo di \(\mathbb{Z}_6\) è \(\{\{\overline{0}\}, \{\overline{0}, \overline{2}, \overline{4}\},
+		      \{\overline{0}, \overline{3}\}, \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}\}= \mathbb{Z}_6\}\)
+	\end{itemize}
 \end{example}
 
 \textbf{Caso generale:} consideriamo il gruppo \(\mathbb{Z}_n = (\{\overline{0},\overline{1},\cdots,\overline{n-1}\}
@@ -766,280 +766,280 @@ In particolare, \(\langle \overline{m} \rangle = \mathbb{Z}_n \Leftrightarrow z=
 \textbf{l'insieme \(\{\overline{m}\}\) genera il gruppo \(\mathbb{Z}_n\) sse \(m \text{ e } n\) sono coprimi.}
 
 \begin{definition}
-    La funzione definita da \(\varphi : \mathbb{N} \backslash \{0\} \rightarrow \mathbb{N} \backslash \{0\}\) ,
-
-    \(\varphi(n) := |\{m \in \mathbb{N} \backslash \{0\} : m < n \text{ e } MCD \{m,n\} = 1\}|\)
-    è detta \textbf{funzione di Eulero}.
-
-    Quindi ci sono \(\varphi(n)\) elementi \(\overline{m}\) tali che \(\langle \overline{m} \rangle = \mathbb{Z}_n\).
+	La funzione definita da \(\varphi : \mathbb{N} \backslash \{0\} \rightarrow \mathbb{N} \backslash \{0\}\) ,
+	
+	\(\varphi(n) := |\{m \in \mathbb{N} \backslash \{0\} : m < n \text{ e } MCD \{m,n\} = 1\}|\)
+	è detta \textbf{funzione di Eulero}.
+	
+	Quindi ci sono \(\varphi(n)\) elementi \(\overline{m}\) tali che \(\langle \overline{m} \rangle = \mathbb{Z}_n\).
 \end{definition}
 
 \begin{proposition}
-    L'insieme dei sottogruppi di \((\mathbb{Z} ,+)\) è \(\{n \mathbb{Z} : n \in \mathbb{N} \} \).
+	L'insieme dei sottogruppi di \((\mathbb{Z} ,+)\) è \(\{n \mathbb{Z} : n \in \mathbb{N} \} \).
 \end{proposition}
 
 
 \begin{dimostrazione}
-    \
-    Sia \(H \subseteq \mathbb{Z} \) un sottogruppo non banale.\\
-    Sia \(k := min (H_{>0})\) dove \(H_{>0} := \{h \in H : h > 0\}\).\\
-    Sia \(h \in H_{>0}, h \neq k\).\\
-    Allora \(h > k\) e \(h = nk + r\), \(n \in \mathbb{N} , 0 \leq r <k\).\\
-    Dunque \(r = h - nk \in H \rightarrow r =0\) per la minimalità di \(k\).\\
+	\
+	Sia \(H \subseteq \mathbb{Z} \) un sottogruppo non banale.\\
+	Sia \(k := min (H_{>0})\) dove \(H_{>0} := \{h \in H : h > 0\}\).\\
+	Sia \(h \in H_{>0}, h \neq k\).\\
+	Allora \(h > k\) e \(h = nk + r\), \(n \in \mathbb{N} , 0 \leq r <k\).\\
+	Dunque \(r = h - nk \in H \rightarrow r =0\) per la minimalità di \(k\).\\
 \end{dimostrazione}
 
 \begin{definition}
-    Un gruppo \(G\) è detto \textbf{ciclico} se esiste \(g \in G\) tale che \(\langle g \rangle = G\).\\
-    Un gruppo ciclico è anche abeliano
+	Un gruppo \(G\) è detto \textbf{ciclico} se esiste \(g \in G\) tale che \(\langle g \rangle = G\).\\
+	Un gruppo ciclico è anche abeliano
 \end{definition}
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item \(\mathbb{Z} = \langle 1 \rangle\) è ciclico
-        \item \(\mathbb{Z}_n = \langle \overline{1} \rangle\) è ciclico
-        \item \(\mathbb{Z} \times \mathbb{Z} = \langle (1,0), (0,1) \rangle\) non è ciclico,
-              infatti in \(\mathbb{Z}  \times \mathbb{Z} \), se \((a,b) \in \mathbb{Z} \times \mathbb{Z} \),
-              \(\langle (a,b) \rangle = \{(ka,kb) : k \in \mathbb{Z} \} = \{(x,y) : a \text{ divide } x,b \text{ divide } y\}
-              \subsetneq \mathbb{Z} \times \mathbb{Z} \).
-        \item \(\mathbb{Z}_2 \times \mathbb{Z}_2\) non è ciclico. Infatti, in \(\mathbb{Z}_2 \times \mathbb{Z}_2\) si ha:
-              \
-              \begin{itemize}
-                  \item \(\langle (\overline{0},\overline{0}) \rangle = \{(\overline{0},\overline{0})\}\)
-                  \item \(\langle (\overline{0}, \overline{1}) \rangle = \{\overline{0}\} \times \mathbb{Z}_2\)
-                  \item  \(\langle (\overline{1}, \overline{0}) \rangle = \mathbb{Z}_2 \times \{\overline{0}\}\)
-                  \item \(\langle (\overline{1}, \overline{1}) \rangle = \{(\overline{0},\overline{0}),(\overline{1},\overline{1})\}\)
-              \end{itemize}
-              Quindi nessun elemento di \(\mathbb{Z}_2 \times \mathbb{Z}_2\) genera \(\mathbb{Z}_2 \times \mathbb{Z}_2\).
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item \(\mathbb{Z} = \langle 1 \rangle\) è ciclico
+		\item \(\mathbb{Z}_n = \langle \overline{1} \rangle\) è ciclico
+		\item \(\mathbb{Z} \times \mathbb{Z} = \langle (1,0), (0,1) \rangle\) non è ciclico,
+		      infatti in \(\mathbb{Z}  \times \mathbb{Z} \), se \((a,b) \in \mathbb{Z} \times \mathbb{Z} \),
+		      \(\langle (a,b) \rangle = \{(ka,kb) : k \in \mathbb{Z} \} = \{(x,y) : a \text{ divide } x,b \text{ divide } y\}
+		      \subsetneq \mathbb{Z} \times \mathbb{Z} \).
+		\item \(\mathbb{Z}_2 \times \mathbb{Z}_2\) non è ciclico. Infatti, in \(\mathbb{Z}_2 \times \mathbb{Z}_2\) si ha:
+		      \
+		      \begin{itemize}
+			      \item \(\langle (\overline{0},\overline{0}) \rangle = \{(\overline{0},\overline{0})\}\)
+			      \item \(\langle (\overline{0}, \overline{1}) \rangle = \{\overline{0}\} \times \mathbb{Z}_2\)
+			      \item  \(\langle (\overline{1}, \overline{0}) \rangle = \mathbb{Z}_2 \times \{\overline{0}\}\)
+			      \item \(\langle (\overline{1}, \overline{1}) \rangle = \{(\overline{0},\overline{0}),(\overline{1},\overline{1})\}\)
+		      \end{itemize}
+		      Quindi nessun elemento di \(\mathbb{Z}_2 \times \mathbb{Z}_2\) genera \(\mathbb{Z}_2 \times \mathbb{Z}_2\).
+	\end{itemize}
 \end{example}
 
 \begin{teorema}[di isomorfismo per gruppi abeliani]
-    Sia \(f: G_1 \rightarrow G_2\) un morfismo di gruppi abeliani. Allora esiste un morfismo iniettivo
-    \(\varphi : \sfrac{G_1}{Ker \varphi} \rightarrow G_2\) tale che il seguente diagramma è commutativo:
-    \[
-        \begin{tikzcd}
-            G_1 \arrow[r, "f"] \arrow[d, "\pi"'] & G_2 \\
-            \sfrac{G_1}{Ker(f)} \arrow[ru, "\varphi"']
-        \end{tikzcd}
-    \]
-    In particolare, \(\sfrac{G_1}{Ker(f)} \simeq \Im(f)\).
+	Sia \(f: G_1 \rightarrow G_2\) un morfismo di gruppi abeliani. Allora esiste un morfismo iniettivo
+	\(\varphi : \sfrac{G_1}{Ker \varphi} \rightarrow G_2\) tale che il seguente diagramma è commutativo:
+	\[
+		\begin{tikzcd}
+			G_1 \arrow[r, "f"] \arrow[d, "\pi"'] & G_2 \\
+			\sfrac{G_1}{Ker(f)} \arrow[ru, "\varphi"']
+		\end{tikzcd}
+	\]
+	In particolare, \(\sfrac{G_1}{Ker(f)} \simeq \Im(f)\).
 \end{teorema}
 
 \begin{dimostrazione}
-    \
-    L'assegnazione \([g] \mapsto f(g), \forall g \in  G\), definisce una funzione \(\varphi : \sfrac{G_1}{Ker(f)}
-    \rightarrow G_2\).\\
-    Infatti, se \(g' \sim g\), ossia \([g]  = [g']\), allora \(g = g' + h , h \in Ker(f)\).\\
-    Dunque \(f(g) = f(g' + h) = f(g') + f(h) = f(g')\). Poiché \(f\) è morfismo di gruppi, anche \(\varphi\) lo è.\\
-    Inoltre \(Ker(f) = \{[g] \in \sfrac{G}{Ker(f)} : \varphi([g]) = O_2\}=\{[g] \in  \sfrac{G}{Ker(f)} : f(g) = O_2\}
-    = {[O_1]}\). Quindi \(\varphi\) è iniettiva.\\
-    Infine, \( \varphi : \sfrac{G_1}{Ker(f)} \rightarrow Im(f)\) è un morfismo di gruppi, iniettivo e suriettivo, quindi un isomorfismo.
+	\
+	L'assegnazione \([g] \mapsto f(g), \forall g \in  G\), definisce una funzione \(\varphi : \sfrac{G_1}{Ker(f)}
+	\rightarrow G_2\).\\
+	Infatti, se \(g' \sim g\), ossia \([g]  = [g']\), allora \(g = g' + h , h \in Ker(f)\).\\
+	Dunque \(f(g) = f(g' + h) = f(g') + f(h) = f(g')\). Poiché \(f\) è morfismo di gruppi, anche \(\varphi\) lo è.\\
+	Inoltre \(Ker(f) = \{[g] \in \sfrac{G}{Ker(f)} : \varphi([g]) = O_2\}=\{[g] \in  \sfrac{G}{Ker(f)} : f(g) = O_2\}
+	= {[O_1]}\). Quindi \(\varphi\) è iniettiva.\\
+	Infine, \( \varphi : \sfrac{G_1}{Ker(f)} \rightarrow Im(f)\) è un morfismo di gruppi, iniettivo e suriettivo, quindi un isomorfismo.
 \end{dimostrazione}
 
 
 \begin{teorema}
-    Sia \(G\) un gruppo ciclico. Allora ogni sottogruppo di \(G\) è ciclico.
+	Sia \(G\) un gruppo ciclico. Allora ogni sottogruppo di \(G\) è ciclico.
 \end{teorema}
 
 \begin{dimostrazione}
-    \
-    Sia \(g \in G\) tale che \(g = \langle g \rangle\). La funzione \(\varphi: (\mathbb{Z} , +) \rightarrow G\) definita
-    da \(\varphi(g) = g^n, \forall  n \in \mathbb{Z}, \) è un morfismo suriettivo di gruppi.\\
-    \
-    \begin{itemize}
-        \item G è infinito: allora \(Ker(f) = \{0\}\) e quindi \(\varphi\) è iniettivo. Dunque \(\varphi\) è un
-              isomorfismo di gruppi. Tutti i sottogruppi di \(\mathbb{Z} \) sono ciclici.
-        \item G è finito: sia \(H \subseteq G\) un sottogruppo. Allora \(\varphi^{-1}(H) := \{n \in \mathbb{Z} :
-              \varphi(n) \in H\} \subseteq \mathbb{Z} \) è un sottogruppo di \(\mathbb{Z} \), quindi esiste \(
-              \varphi^{-1}(H)= \langle k \rangle\) con \(k \in \mathbb{N} \).\\
-              La restrizione \(\varphi: k \mathbb{Z} \rightarrow H\) è un morfismo suriettivo di gruppi e
-              \(\varphi(hk) = \varphi(\underbrace{k+k+\cdots+k}_{h \text{ volte}}) = \varphi(k) \varphi(k) \cdots
-              \varphi(k) = [\varphi(k)]^h , \forall h \in \mathbb{Z} \). Quindi \(H = \langle \varphi(k) \rangle\).
-    \end{itemize}
+	\
+	Sia \(g \in G\) tale che \(g = \langle g \rangle\). La funzione \(\varphi: (\mathbb{Z} , +) \rightarrow G\) definita
+	da \(\varphi(g) = g^n, \forall  n \in \mathbb{Z}, \) è un morfismo suriettivo di gruppi.\\
+	\
+	\begin{itemize}
+		\item G è infinito: allora \(Ker(f) = \{0\}\) e quindi \(\varphi\) è iniettivo. Dunque \(\varphi\) è un
+		      isomorfismo di gruppi. Tutti i sottogruppi di \(\mathbb{Z} \) sono ciclici.
+		\item G è finito: sia \(H \subseteq G\) un sottogruppo. Allora \(\varphi^{-1}(H) := \{n \in \mathbb{Z} :
+		      \varphi(n) \in H\} \subseteq \mathbb{Z} \) è un sottogruppo di \(\mathbb{Z} \), quindi esiste \(
+		      \varphi^{-1}(H)= \langle k \rangle\) con \(k \in \mathbb{N} \).\\
+		      La restrizione \(\varphi: k \mathbb{Z} \rightarrow H\) è un morfismo suriettivo di gruppi e
+		      \(\varphi(hk) = \varphi(\underbrace{k+k+\cdots+k}_{h \text{ volte}}) = \varphi(k) \varphi(k) \cdots
+		      \varphi(k) = [\varphi(k)]^h , \forall h \in \mathbb{Z} \). Quindi \(H = \langle \varphi(k) \rangle\).
+	\end{itemize}
 \end{dimostrazione}
 
 \textbf{Corollario:} L'insieme dei sottogruppi di \(\mathbb{Z}_n , n \in \mathbb{N} \) è \(\{\langle \overline{m} \rangle
 : \overline{m} \in \mathbb{Z}_n \}\).
 
 \begin{proposition}
-    Sia \(n \in \mathbb{N} \text{ e sia } d/n\) (d divide n). Allora esiste al più un unico sottogruppo di \(\mathbb{Z}_n\)
-    di cardinalità \(d\).
+	Sia \(n \in \mathbb{N} \text{ e sia } d/n\) (d divide n). Allora esiste al più un unico sottogruppo di \(\mathbb{Z}_n\)
+	di cardinalità \(d\).
 \end{proposition}
 
 \begin{dimostrazione}
-    \
-    Sia \(H \subseteq \mathbb{Z}_n\) sottogruppo tale che \(|H| = d\). Si considerino le proiezioni canoniche
-    \(\mathbb{Z} \rightarrow^{\pi_1} \mathbb{Z}_n \rightarrow^{\pi_2} \sfrac{\mathbb{Z}_n }{H}\).\\
-    Poiché \(\pi^{-1}_1 (H) = \{m \in \mathbb{Z} : \pi_1 (m) \in H\}\) è un sottogruppo di \(\mathbb{Z} \), allora esiste
-    \(k \in \mathbb{N} \) tale che \(\pi^{-1}_1(H) = k \mathbb{Z}\). Inoltre \(Ker(\pi_1 \cdot \pi_2) = \pi^{-1}_1
-    (H)\) e quindi, essendo \(\pi_1 \cdot \pi_2\) un morfismo suriettivo di gruppi, \(\sfrac{\mathbb{Z}_n }{H}
-    \simeq \sfrac{\mathbb{Z} }{\pi^{-1}(H)} = \sfrac{\mathbb{Z} }{k \mathbb{Z} }= \mathbb{Z}_k\).\\
-    Quindi \(|\mathbb{Z}_k | = k =|\sfrac{\mathbb{Z}_n }{H}| = \sfrac{|\mathbb{Z}_n |}{|H|} = \frac{n}{d}\), ossia \(k\)
-    è univocamente determinato, e allora \(H = \pi_1 (k \mathbb{Z} )\) è univocamente determinato.
+	\
+	Sia \(H \subseteq \mathbb{Z}_n\) sottogruppo tale che \(|H| = d\). Si considerino le proiezioni canoniche
+	\(\mathbb{Z} \rightarrow^{\pi_1} \mathbb{Z}_n \rightarrow^{\pi_2} \sfrac{\mathbb{Z}_n }{H}\).\\
+	Poiché \(\pi^{-1}_1 (H) = \{m \in \mathbb{Z} : \pi_1 (m) \in H\}\) è un sottogruppo di \(\mathbb{Z} \), allora esiste
+	\(k \in \mathbb{N} \) tale che \(\pi^{-1}_1(H) = k \mathbb{Z}\). Inoltre \(Ker(\pi_1 \cdot \pi_2) = \pi^{-1}_1
+	(H)\) e quindi, essendo \(\pi_1 \cdot \pi_2\) un morfismo suriettivo di gruppi, \(\sfrac{\mathbb{Z}_n }{H}
+	\simeq \sfrac{\mathbb{Z} }{\pi^{-1}(H)} = \sfrac{\mathbb{Z} }{k \mathbb{Z} }= \mathbb{Z}_k\).\\
+	Quindi \(|\mathbb{Z}_k | = k =|\sfrac{\mathbb{Z}_n }{H}| = \sfrac{|\mathbb{Z}_n |}{|H|} = \frac{n}{d}\), ossia \(k\)
+	è univocamente determinato, e allora \(H = \pi_1 (k \mathbb{Z} )\) è univocamente determinato.
 \end{dimostrazione}
 
 \begin{example}
-    I sottogruppi di \(\mathbb{Z}_{899}\) sono quattro, perché \(899 = 31 \cdot 29\), quindi c'è un sottogruppo di
-    cardinalità 1 (il sottogruppo banale), uno di cardinalità 31, uno di cardinalità 29 e \(\mathbb{Z}_{899}\).\\
-    Sono: \(\{\{0\} , \langle \overline{29} \rangle , \langle \overline{31} \rangle , \mathbb{Z}_{899}\}\).
-
+	I sottogruppi di \(\mathbb{Z}_{899}\) sono quattro, perché \(899 = 31 \cdot 29\), quindi c'è un sottogruppo di
+	cardinalità 1 (il sottogruppo banale), uno di cardinalità 31, uno di cardinalità 29 e \(\mathbb{Z}_{899}\).\\
+	Sono: \(\{\{0\} , \langle \overline{29} \rangle , \langle \overline{31} \rangle , \mathbb{Z}_{899}\}\).
+	
 \end{example}
 
 \subsection{Anelli}
 
 \begin{definition}
-    Sia \(X\) un insieme su cui sono definite due operazioni \(+\) e \(\cdot \). \\
-    \(X\) è un \textbf{anello} con unità \(1_X\) se:
-    \
-    \begin{itemize}
-        \item \((X, +)\) è un gruppo abeliano
-        \item \((X, \cdot)\) è un monoide con unità \(1_X\)
-        \item vale la proprietà distributiva: \
-              \begin{itemize}
-                  \item \(a \cdot (b+c) = a \cdot b + a \cdot c\)
-                  \item \((a+b) \cdot c = a \cdot c + b \cdot c\) , \(\forall a,b,c \in X\)
-              \end{itemize}
-    \end{itemize}
+	Sia \(X\) un insieme su cui sono definite due operazioni \(+\) e \(\cdot \). \\
+	\(X\) è un \textbf{anello} con unità \(1_X\) se:
+	\
+	\begin{itemize}
+		\item \((X, +)\) è un gruppo abeliano
+		\item \((X, \cdot)\) è un monoide con unità \(1_X\)
+		\item vale la proprietà distributiva: \
+		      \begin{itemize}
+			      \item \(a \cdot (b+c) = a \cdot b + a \cdot c\)
+			      \item \((a+b) \cdot c = a \cdot c + b \cdot c\) , \(\forall a,b,c \in X\)
+		      \end{itemize}
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    Diaciamo che un anello \(X\) è \textbf{commutativo} se il monoide \((X, \cdot)\) è commutativo.
+	Diaciamo che un anello \(X\) è \textbf{commutativo} se il monoide \((X, \cdot)\) è commutativo.
 \end{definition}
 
 
 Indichiamo con \("0"\) l'identità del gruppo \((X, +)\).
 
 \begin{example}
-    \
-    \begin{itemize}
-        \item Gli insiemi \(\mathbb{Z} ,\mathbb{Q} ,\mathbb{R} ,\mathbb{C} \) con le operazioni di addizione e moltiplicazione
-              sono anelli commutativi con unità, che è il numero "1".
-        \item L'insieme delle matrici \(n \times n, n> 1\) a valori su \(\mathbb{Z} \), su \(\mathbb{Q} \), su \(\mathbb{R} \)
-              o su \(\mathbb{C} \), con l'operazione di somma e il prodotto righe per colonne, è un anello \textbf{non commutativo},
-              con unità la matrice identità.\\
-              In generale, se \(A\) è un anello commutativo con unità, l'insieme \(Mat_{n \times n}(A)\) delle matrici a valori
-              in \(\mathbb{R} \) con le operazioni di somma e prodotto righe per colonne, è un anello non commutativo con unità.
-        \item\(\{X\}\) è un anello, detto \textbf{anello nullo}. Le due operazioni sono la stessa e \(0 = 1_{\{X\}} = x\).
-    \end{itemize}
+	\
+	\begin{itemize}
+		\item Gli insiemi \(\mathbb{Z} ,\mathbb{Q} ,\mathbb{R} ,\mathbb{C} \) con le operazioni di addizione e moltiplicazione
+		      sono anelli commutativi con unità, che è il numero "1".
+		\item L'insieme delle matrici \(n \times n, n> 1\) a valori su \(\mathbb{Z} \), su \(\mathbb{Q} \), su \(\mathbb{R} \)
+		      o su \(\mathbb{C} \), con l'operazione di somma e il prodotto righe per colonne, è un anello \textbf{non commutativo},
+		      con unità la matrice identità.\\
+		      In generale, se \(A\) è un anello commutativo con unità, l'insieme \(Mat_{n \times n}(A)\) delle matrici a valori
+		      in \(\mathbb{R} \) con le operazioni di somma e prodotto righe per colonne, è un anello non commutativo con unità.
+		\item\(\{X\}\) è un anello, detto \textbf{anello nullo}. Le due operazioni sono la stessa e \(0 = 1_{\{X\}} = x\).
+	\end{itemize}
 \end{example}
 
 Considereremo sempre \(0 \neq 1_A\) e studieremo solo anelli commutativi con unità. Quindi quando diremo "anello" intendiamo "anello con unità".
 
 \begin{definition}
-    Sia \(A\) un anello commutativo. Un elemento \(x \in A\) è detto \textbf{zero divisore} se esiste \(y \in A \backslash \{0\}\)
-    tale che \(x y = 0\).
+	Sia \(A\) un anello commutativo. Un elemento \(x \in A\) è detto \textbf{zero divisore} se esiste \(y \in A \backslash \{0\}\)
+	tale che \(x y = 0\).
 \end{definition}
 
 \begin{definition}
-    Diciamo che un elemento \(x \in A\) è \textbf{invertibile} se è un elemento invertibile del
-    monoide \((A, \cdot )\).
+	Diciamo che un elemento \(x \in A\) è \textbf{invertibile} se è un elemento invertibile del
+	monoide \((A, \cdot )\).
 \end{definition}
 
 \begin{proposition}
-    Sia \(A\) un anello commutativo. Allora l'insieme degli elementi invertibili di \(A\) è disgiunto
-    dall'insieme degli zero-divisori di \(A\).
+	Sia \(A\) un anello commutativo. Allora l'insieme degli elementi invertibili di \(A\) è disgiunto
+	dall'insieme degli zero-divisori di \(A\).
 \end{proposition}
 
 \begin{dimostrazione}
-    \
-    Siano \(x,y \in A\) tali che \(x y = 0\). Se \(X\) è invertibile, allora \(x^{-1}xy = y = 0\),
-    quindi \(x\) non è uno zero-divisore.
+	\
+	Siano \(x,y \in A\) tali che \(x y = 0\). Se \(X\) è invertibile, allora \(x^{-1}xy = y = 0\),
+	quindi \(x\) non è uno zero-divisore.
 \end{dimostrazione}
 
 \begin{proposition}[legge di cancellazione]
-    Sia \(A\) un anello commutativo e sia \(x \in A\) un elemento che non è uno zero-divisore. Allora
-    \(xy=xz \rightarrow y =z , \forall y,z \in A\).
+	Sia \(A\) un anello commutativo e sia \(x \in A\) un elemento che non è uno zero-divisore. Allora
+	\(xy=xz \rightarrow y =z , \forall y,z \in A\).
 \end{proposition}
 
 \begin{dimostrazione}
-    \
-    Se \(xy = xz\) allora \(x(y - z) = 0 \). Poiché \(x\) non è uno zero-divisore, allora \(y-z = 0\), ossia \(y=z\).
+	\
+	Se \(xy = xz\) allora \(x(y - z) = 0 \). Poiché \(x\) non è uno zero-divisore, allora \(y-z = 0\), ossia \(y=z\).
 \end{dimostrazione}
 
 \begin{definition}
-    Un anello commutativo privo di zero-divisori non nulli è detto \textbf{dominio di integrità}.
+	Un anello commutativo privo di zero-divisori non nulli è detto \textbf{dominio di integrità}.
 \end{definition}
 
 \begin{definition}
-    Un anello commutativo i cui elementi non nulli sono tutti invertibili è detto \textbf{campo}.
+	Un anello commutativo i cui elementi non nulli sono tutti invertibili è detto \textbf{campo}.
 \end{definition}
 
 \begin{example}
-    L'anello \(\mathbb{Z}\) è un dominio di integrità, ma non è un campo.\\
-    Gli anelli \(\mathbb{Q} ,\mathbb{R} ,\mathbb{C} \) sono campi.
+	L'anello \(\mathbb{Z}\) è un dominio di integrità, ma non è un campo.\\
+	Gli anelli \(\mathbb{Q} ,\mathbb{R} ,\mathbb{C} \) sono campi.
 \end{example}
 
 \subsection{Ideali}
 
 \begin{definition}
-    Sia \(A\) un anello commutativo. Un sottoinsieme \(I \subseteq A\) è detto \textbf{ideale} di \(A\) se:
-    \
-    \begin{itemize}
-        \item \(I\) è un sottogruppo di \((A,+)\)
-        \item \(ax \in I, \forall a \in A, x \in I\)
-    \end{itemize}
+	Sia \(A\) un anello commutativo. Un sottoinsieme \(I \subseteq A\) è detto \textbf{ideale} di \(A\) se:
+	\
+	\begin{itemize}
+		\item \(I\) è un sottogruppo di \((A,+)\)
+		\item \(ax \in I, \forall a \in A, x \in I\)
+	\end{itemize}
 \end{definition}
 
 \begin{example}
-    Abbiamo già visto che ogni sottogruppo di \((\mathbb{Z} , +)\) è del tipo \(n \mathbb{Z} = \{kn : k \in \mathbb{Z} \}\),
-    dove \(n \in \mathbb{N} \). Inoltre, se \(a \in \mathbb{Z} \) e \(x \in n\mathbb{Z} \), ossia
-    \(x=kn\) per qualche \(k \in \mathbb{Z} \), si ha che \(ax=akn \in n \mathbb{Z} \).
-    Quindi \(n \mathbb{Z} \) è un ideale di \(\mathbb{Z}, \forall n \in \mathbb{N}  \), e tutti gli ideali di
-    \(\mathbb{Z} \) sono di questo tipo.
+	Abbiamo già visto che ogni sottogruppo di \((\mathbb{Z} , +)\) è del tipo \(n \mathbb{Z} = \{kn : k \in \mathbb{Z} \}\),
+	dove \(n \in \mathbb{N} \). Inoltre, se \(a \in \mathbb{Z} \) e \(x \in n\mathbb{Z} \), ossia
+	\(x=kn\) per qualche \(k \in \mathbb{Z} \), si ha che \(ax=akn \in n \mathbb{Z} \).
+	Quindi \(n \mathbb{Z} \) è un ideale di \(\mathbb{Z}, \forall n \in \mathbb{N}  \), e tutti gli ideali di
+	\(\mathbb{Z} \) sono di questo tipo.
 \end{example}
 
 \textbf{Osservazioni:} Siano \(I,J \subseteq A\) ideali di un anello commutativo \(A\).\\
 Allora : \
 \begin{itemize}
-    \item \(I \cap J\) è un ideale di \(A\)
-    \item \(I + J := \{x+y : x \in I, y \in J\}\) è un ideale di \(A\)
-    \item \(IJ := \langle \{xy : x \in I, y \in J\} \rangle\) è un ideale di \(A\)
+	\item \(I \cap J\) è un ideale di \(A\)
+	\item \(I + J := \{x+y : x \in I, y \in J\}\) è un ideale di \(A\)
+	\item \(IJ := \langle \{xy : x \in I, y \in J\} \rangle\) è un ideale di \(A\)
 \end{itemize}
 
 \begin{definition}
-    Sia \(S \subseteq A\) un sottoinsieme di un anello commutativo. \textbf{L'ideale generato da \(S\)} è
-    l'intersezione di tutti gli ideali di \(A\) che contengono \(S\) e lo indichiamo con \(\langle S \rangle\).\\
-    Se \(S =\{x\}\), diciamo che \(\langle S \rangle\) è \textbf{l'ideale principale generato da \(x \in A\)}.
+	Sia \(S \subseteq A\) un sottoinsieme di un anello commutativo. \textbf{L'ideale generato da \(S\)} è
+	l'intersezione di tutti gli ideali di \(A\) che contengono \(S\) e lo indichiamo con \(\langle S \rangle\).\\
+	Se \(S =\{x\}\), diciamo che \(\langle S \rangle\) è \textbf{l'ideale principale generato da \(x \in A\)}.
 \end{definition}
 
 \begin{example}
-    Abbiamo visto che gli ideali di \(\mathbb{Z} \) sono tutti e soli i sottoinsiemi \(n \mathbb{Z}  = \langle n \rangle, n \in \mathbb{N} \).
-    Quindi gli ideali di \(\mathbb{Z} \) sono tutti principali.
+	Abbiamo visto che gli ideali di \(\mathbb{Z} \) sono tutti e soli i sottoinsiemi \(n \mathbb{Z}  = \langle n \rangle, n \in \mathbb{N} \).
+	Quindi gli ideali di \(\mathbb{Z} \) sono tutti principali.
 \end{example}
 
 
 \begin{definition}
-    un anello i cui ideali sono tutti principali si dice \textbf{anello ad ideali principali}.
+	un anello i cui ideali sono tutti principali si dice \textbf{anello ad ideali principali}.
 \end{definition}
 
 \begin{proposition}
-    Sia \(A\) un anello commutativo e \(I \subseteq A\) un ideale.\\
-    Allora: \
-    \begin{itemize}
-        \item \(I = A\) se e solo se \(I\) contiene un elemento invertibile
-        \item \(A\) è un campo sse i suoi unici ideali sono
-              \(\langle 0 \rangle\) e \(A = \langle 1_A \rangle\)
-    \end{itemize}
+	Sia \(A\) un anello commutativo e \(I \subseteq A\) un ideale.\\
+	Allora: \
+	\begin{itemize}
+		\item \(I = A\) se e solo se \(I\) contiene un elemento invertibile
+		\item \(A\) è un campo sse i suoi unici ideali sono
+		      \(\langle 0 \rangle\) e \(A = \langle 1_A \rangle\)
+	\end{itemize}
 \end{proposition}
 
 \begin{dimostrazione}
-    \
-    \
-    \begin{itemize}
-        \item se \(I = A\) allora \(1_A \in I\) e \(1_A\) è invertibile.\\
-              Sia \(u \cap I\) un elemento invertibile. Allora \(u^{-1} \cap A\) e quindi
-              \(1_A u u^{-1} \in I\). Ne segue che \(A = \langle 1_A \rangle \subseteq I\).
-              e quindi \(I = A\).
-        \item Sia \(A\) un campo e sia \(I \neq \langle 0 \rangle\).\\
-              se \( n \in I\) e \(x \neq 0\) allora \(x\) è invertibile e quindi \(I = A\)
-              per il punto sopra.\\
-              Vicerversa, se \(\langle 0 \rangle\) e \(A\) sono gli unici ideali di \(A\),
-              e se \(x \in A  \backslash \{0\}\), allora \(\langle X \rangle = \langle 1_A \rangle\),
-              ossia \(ax = 1_A\) per qualche \(a \in A\). Quindi \(x\) è invertibile.
-
-    \end{itemize}
-
+	\
+	\
+	\begin{itemize}
+		\item se \(I = A\) allora \(1_A \in I\) e \(1_A\) è invertibile.\\
+		      Sia \(u \cap I\) un elemento invertibile. Allora \(u^{-1} \cap A\) e quindi
+		      \(1_A u u^{-1} \in I\). Ne segue che \(A = \langle 1_A \rangle \subseteq I\).
+		      e quindi \(I = A\).
+		\item Sia \(A\) un campo e sia \(I \neq \langle 0 \rangle\).\\
+		      se \( n \in I\) e \(x \neq 0\) allora \(x\) è invertibile e quindi \(I = A\)
+		      per il punto sopra.\\
+		      Vicerversa, se \(\langle 0 \rangle\) e \(A\) sono gli unici ideali di \(A\),
+		      e se \(x \in A  \backslash \{0\}\), allora \(\langle X \rangle = \langle 1_A \rangle\),
+		      ossia \(ax = 1_A\) per qualche \(a \in A\). Quindi \(x\) è invertibile.
+		      
+	\end{itemize}
+	
 \end{dimostrazione}
 
 \subsection{Anelli quoziente}
@@ -1052,55 +1052,55 @@ Con l'operazione \([x] \cdot [y] := [xy]\), per ogni \([x] , [y] \in \sfrac{A}{I
 Infatti, mostriamo che l'operazione è ben definita. Siano \(x' \in [x]\) e \(y' \in [y]\). Allora
 esistono \(i_x \in I\) e \(i_y \in I\) tali che \(x' = x + i_x\) e \(y' = y + i_y\).\\
 Quindi \(x'y' = (x + i_x) (y + i_y) = xy + \underbrace{x i_y + y i_x + i_x i_y}_{\in I \text{ perchè \(I\) è
-    un ideale di \(A\) }}  \)\\
+	un ideale di \(A\) }}  \)\\
 Quindi \([x'y'] = [xy]\).\\
 Inoltre \([1_A] [x] = [1_A x] = [x] \), per ogni \([x] \in \sfrac{A}{I}\), quindi \([1_A]\)
 è l'unità di \(\sfrac{A}{I}\).
 
 \begin{example}
-    Abbiamo visto che \(n \mathbb{Z} = \{kn : k \in \mathbb{Z} \}\) è un ideale
-    dell'anello \(\mathbb{Z} \). Quindi il quoziente \(\mathbb{Z}_n = \sfrac{\mathbb{Z}
-    }{n \mathbb{Z} }\) ha la struttura di anello.
-    \
-    \begin{itemize}
-        \item \(\mathbb{Z}_0 \simeq \mathbb{Z} \)
-        \item \(\mathbb{Z}_1 \simeq \{0\}\) anello nullo.
-        \item \(\mathbb{Z}_2 \simeq \{\overline{0}, \overline{1}\}\) \begin{table}[htbp]
-                  \centering
-                  \begin{tabular}{ c | c | c}
-
-                      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) \\ \hline
-                      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
-                      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) \\
-                  \end{tabular}
-              \end{table}
-        \item \(\mathbb{Z}_3 \simeq \{\overline{0}, \overline{1}, \overline{2}\}\) è un campo perchè
-              \(\overline{1}\) è invertibile e \(\overline{2} \cdot \overline{2} = \overline{1}\), quindi
-              anche \(\overline{2}\) è invertibile. \begin{table}[htbp]
-                  \centering
-                  \begin{tabular}{ c | c | c | c}
-
-                      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
-                      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
-                      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
-                      \(\overline{2}\) & \(\overline{0}\) & \(\overline{2}\) & \(\overline{1}\) \\
-                  \end{tabular}
-              \end{table}
-        \item \(\mathbb{Z}_4 = \{\overline{0},\overline{1},\overline{2},\overline{3}\}\) dove
-              \(\overline{2} \cdot \overline{2} = \overline{0}\), quindi \(\mathbb{Z}_4\) non è un dominio
-              di integrità.\\In particolare non è un campo.
-              \begin{table}[htbp]
-                  \centering
-                  \begin{tabular}{ c | c | c | c | c}
-
-                      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
-                      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
-                      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
-                      \(\overline{2}\) & \(\overline{0}\) & \(\overline{2}\) & \(\overline{0}\) & \(\overline{2}\) \\ \hline
-                      \(\overline{3}\) & \(\overline{0}\) & \(\overline{3}\) & \(\overline{2}\) & \(\overline{1}\) \\
-                  \end{tabular}
-              \end{table}
-    \end{itemize}
+	Abbiamo visto che \(n \mathbb{Z} = \{kn : k \in \mathbb{Z} \}\) è un ideale
+	dell'anello \(\mathbb{Z} \). Quindi il quoziente \(\mathbb{Z}_n = \sfrac{\mathbb{Z}
+	}{n \mathbb{Z} }\) ha la struttura di anello.
+	\
+	\begin{itemize}
+		\item \(\mathbb{Z}_0 \simeq \mathbb{Z} \)
+		\item \(\mathbb{Z}_1 \simeq \{0\}\) anello nullo.
+		\item \(\mathbb{Z}_2 \simeq \{\overline{0}, \overline{1}\}\) \begin{table}[htbp]
+			      \centering
+			      \begin{tabular}{ c | c | c}
+				      
+				      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) \\ \hline
+				      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
+				      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) \\
+			      \end{tabular}
+		      \end{table}
+		\item \(\mathbb{Z}_3 \simeq \{\overline{0}, \overline{1}, \overline{2}\}\) è un campo perchè
+		      \(\overline{1}\) è invertibile e \(\overline{2} \cdot \overline{2} = \overline{1}\), quindi
+		      anche \(\overline{2}\) è invertibile. \begin{table}[htbp]
+			      \centering
+			      \begin{tabular}{ c | c | c | c}
+				      
+				      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
+				      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
+				      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
+				      \(\overline{2}\) & \(\overline{0}\) & \(\overline{2}\) & \(\overline{1}\) \\
+			      \end{tabular}
+		      \end{table}
+		\item \(\mathbb{Z}_4 = \{\overline{0},\overline{1},\overline{2},\overline{3}\}\) dove
+		      \(\overline{2} \cdot \overline{2} = \overline{0}\), quindi \(\mathbb{Z}_4\) non è un dominio
+		      di integrità.\\In particolare non è un campo.
+		      \begin{table}[htbp]
+			      \centering
+			      \begin{tabular}{ c | c | c | c | c}
+				      
+				      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
+				      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
+				      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
+				      \(\overline{2}\) & \(\overline{0}\) & \(\overline{2}\) & \(\overline{0}\) & \(\overline{2}\) \\ \hline
+				      \(\overline{3}\) & \(\overline{0}\) & \(\overline{3}\) & \(\overline{2}\) & \(\overline{1}\) \\
+			      \end{tabular}
+		      \end{table}
+	\end{itemize}
 \end{example}
 
 Vediamo che \(\mathbb{Z}_n\) è un campo se e solo se \(n \in \mathbb{N} \backslash \{0,1\}\)
@@ -1119,9 +1119,9 @@ Quindi \(\mathbb{Z}_n\) è un campo se e solo se \(\{\langle \overline{m} \rangl
 \{\{\overline{0}\}, \mathbb{Z}_n\}\) se e solo se \(n\) è un numero primo.
 
 \begin{example}
-    \(\mathbb{Z}_3\) è un campo, si ha che \(\overline{2}^{-1} = \overline{2}\). Infatti
-    \(\overline{2} \cdot \overline{2} = \overline{4} = \overline{1}\).\\Invece \(\mathbb{Z}_4\) non lo è;
-    infatti \(\overline{2} \cdot \overline{2} = \overline{0}\) e quindi \(\overline{2}\) non è invertibile.
+	\(\mathbb{Z}_3\) è un campo, si ha che \(\overline{2}^{-1} = \overline{2}\). Infatti
+	\(\overline{2} \cdot \overline{2} = \overline{4} = \overline{1}\).\\Invece \(\mathbb{Z}_4\) non lo è;
+	infatti \(\overline{2} \cdot \overline{2} = \overline{0}\) e quindi \(\overline{2}\) non è invertibile.
 \end{example}
 
 
@@ -1130,12 +1130,12 @@ Quindi \(\mathbb{Z}_n\) è un campo se e solo se \(\{\langle \overline{m} \rangl
 Vogliamo calcolare il massimo comun divisore tra 1876 e 365.\\
 Usiamo l'algoritmo di Euclide: \\
 \begin{center}
-    \(1876 = 5 \cdot 365 + 51\)\\
-    \(365 = 7 \cdot 51 + 8\)\\
-    \(51 = 6 \cdot 8 + 3\)\\
-    \(8 = 2 \cdot 3 + 2\)\\
-    \(3 = 1 \cdot 2 + 1\)\\
-    \(2 = 2 \cdot 1 + 0\)\\
+	\(1876 = 5 \cdot 365 + 51\)\\
+	\(365 = 7 \cdot 51 + 8\)\\
+	\(51 = 6 \cdot 8 + 3\)\\
+	\(8 = 2 \cdot 3 + 2\)\\
+	\(3 = 1 \cdot 2 + 1\)\\
+	\(2 = 2 \cdot 1 + 0\)\\
 \end{center}
 
 Quindi \(MCD \{1876,365\} = 1\).\\
@@ -1143,123 +1143,123 @@ Adesso vogliamo trovare due numeri \(x,y \in \mathbb{Z} \) tali che \(1876x + 36
 Un'identità del tipo \(ax + by = MCD \{a,b\}\) si chiama \textbf{identità di Bézout}.\\
 Dall'algoritmo di Euclide abbiamo:
 \begin{center}
-    \(1 = 3 - 2 \cdot 1\)\\
-    \(2 = 8 - 3 \cdot 2\)\\
-    \(3 = 51 - 6 \cdot 8\)\\
-    \(8 = 365 - 7 \cdot 51\)\\
-    \(51 = 1876 - 5 \cdot 365\)\\
+	\(1 = 3 - 2 \cdot 1\)\\
+	\(2 = 8 - 3 \cdot 2\)\\
+	\(3 = 51 - 6 \cdot 8\)\\
+	\(8 = 365 - 7 \cdot 51\)\\
+	\(51 = 1876 - 5 \cdot 365\)\\
 \end{center}
 Quindi\\
 \begin{center}
-    \(1 = 3 - 2 =\)\\
-    \(= 3 - (8 - 3 \cdot 2) = 3 \cdot 3 - 8\)\\
-    \(= 3 \cdot (51 - 8 \cdot 6) - 8 = 3 \cdot 51 - 8 \cdot 19\)\\
-    \(= 3 \cdot 51 - 19(365 - 51 \cdot 7)\)\\
-    \(= 136 \cdot 51 - 19 \cdot 365\)\\
-    \(= 136 \cdot (1876 - 365 \cdot 5) - 19 \cdot 365\)\\
-    \(= 136 \cdot 1876 - 699 \cdot 365\)\\
+	\(1 = 3 - 2 =\)\\
+	\(= 3 - (8 - 3 \cdot 2) = 3 \cdot 3 - 8\)\\
+	\(= 3 \cdot (51 - 8 \cdot 6) - 8 = 3 \cdot 51 - 8 \cdot 19\)\\
+	\(= 3 \cdot 51 - 19(365 - 51 \cdot 7)\)\\
+	\(= 136 \cdot 51 - 19 \cdot 365\)\\
+	\(= 136 \cdot (1876 - 365 \cdot 5) - 19 \cdot 365\)\\
+	\(= 136 \cdot 1876 - 699 \cdot 365\)\\
 \end{center}
 Quindi \(x = -699\) e \(y = 136\).\\
 In generale possiamo enunciare il seguente teorema:
 
 \begin{teorema}
-    siano \(a,b \in \mathbb{N} \setminus {0}\), se \(a \mid b\), allora \(a = MCD\{a,b\}\).\\
-    se \(a \nmid b\) e \(r\) è l'ultimo resto non nullo dell'algoritmo di Euclide, allora \(r = MCD \{a,b\}\).\\
-    inoltre esistono \(x,y \in \mathbb{Z} \) tali che \(ax + by = MCD \{a,b\}\).
+	siano \(a,b \in \mathbb{N} \setminus {0}\), se \(a \mid b\), allora \(a = MCD\{a,b\}\).\\
+	se \(a \nmid b\) e \(r\) è l'ultimo resto non nullo dell'algoritmo di Euclide, allora \(r = MCD \{a,b\}\).\\
+	inoltre esistono \(x,y \in \mathbb{Z} \) tali che \(ax + by = MCD \{a,b\}\).
 \end{teorema}
 
 \begin{dimostrazione}
-    \
-    Sia \(I = \{ax + by : x,y \in \mathbb{Z} \}\) l'insieme dei multipli di \(a\) e \(b\).\\
-    Poiché \(I\) è un ideale di \(\mathbb{Z} \), allora \(I = n \mathbb{Z} \) per qualche \(n \in \mathbb{N} \).\\
-    Poiché \(a \in I\), allora \(n \mid a\).\\
-    Poiché \(b \in I\), allora \(n \mid b\).\\
-    Quindi \(n = MCD \{a,b\}\).\\
-    Inoltre, poiché \(r \in I\), allora \(r = ax + by\) per qualche \(x,y \in \mathbb{Z} \).\\
-    Quindi \(r = MCD \{a,b\}\).\\
-    \\
-    fatta da copilot, controllare a pag 40 di "a concrete introduction to higher algebra" di Lindsay Childs
+	\
+	Sia \(I = \{ax + by : x,y \in \mathbb{Z} \}\) l'insieme dei multipli di \(a\) e \(b\).\\
+	Poiché \(I\) è un ideale di \(\mathbb{Z} \), allora \(I = n \mathbb{Z} \) per qualche \(n \in \mathbb{N} \).\\
+	Poiché \(a \in I\), allora \(n \mid a\).\\
+	Poiché \(b \in I\), allora \(n \mid b\).\\
+	Quindi \(n = MCD \{a,b\}\).\\
+	Inoltre, poiché \(r \in I\), allora \(r = ax + by\) per qualche \(x,y \in \mathbb{Z} \).\\
+	Quindi \(r = MCD \{a,b\}\).\\
+	\\
+	fatta da copilot, controllare a pag 40 di "a concrete introduction to higher algebra" di Lindsay Childs
 \end{dimostrazione}
 
 \subsection{Equazioni diofantee lineari}
 sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
 
 \begin{proposition}
-    siano \(a,b,c \in \mathbb{Z} \).\\
-    allora esistono \(x,y \in \mathbb{Z} \) tali che \(ax + by = c\) se e solo se \(MCD \{a,b\} \mid c\).
+	siano \(a,b,c \in \mathbb{Z} \).\\
+	allora esistono \(x,y \in \mathbb{Z} \) tali che \(ax + by = c\) se e solo se \(MCD \{a,b\} \mid c\).
 \end{proposition}
 
 \begin{dimostrazione}
-    \
-    Se \(ax + by = c\), allora \(MCD \{a,b\} \mid c\).\\
-    Viceversa, se \(d := MCD \{a,b\} \mid c\), allora abbiamo un'identità di Bézout \(ax + by = d\) \(\forall x,y \in \mathbb{Z}\).\\
-    se \(d \mid c\) cioè se \(c = d \cdot k\) per qualche \(k \in \mathbb{Z} \), \(a(kx) + b(ky) = kd = c\)\\
+	\
+	Se \(ax + by = c\), allora \(MCD \{a,b\} \mid c\).\\
+	Viceversa, se \(d := MCD \{a,b\} \mid c\), allora abbiamo un'identità di Bézout \(ax + by = d\) \(\forall x,y \in \mathbb{Z}\).\\
+	se \(d \mid c\) cioè se \(c = d \cdot k\) per qualche \(k \in \mathbb{Z} \), \(a(kx) + b(ky) = kd = c\)\\
 \end{dimostrazione}
 
 \begin{example}
-    l'equazione diofantea:\\
-    \(365x - 1876y = 24\) ha soluzione perchè \(MCD \{365,1876\} = 1\) e \(1 \mid 24\).\\
-    Avevamo l'identità di Bézout \(365(-699) - 1876(-136) = 1\), moltiplicando per 24 otteniamo\\
-    \(365(-699 \cdot 24) - 1876(-136 \cdot 24) = 24\).\\
-    ossia una soluzione è \(x = -699 \cdot 24\) e \(y = -136 \cdot 24\).
+	l'equazione diofantea:\\
+	\(365x - 1876y = 24\) ha soluzione perchè \(MCD \{365,1876\} = 1\) e \(1 \mid 24\).\\
+	Avevamo l'identità di Bézout \(365(-699) - 1876(-136) = 1\), moltiplicando per 24 otteniamo\\
+	\(365(-699 \cdot 24) - 1876(-136 \cdot 24) = 24\).\\
+	ossia una soluzione è \(x = -699 \cdot 24\) e \(y = -136 \cdot 24\).
 \end{example}
 
 \begin{example}
-    in \(\mathbb{Z}_{1876}\) calcolare, se esiste, l'inverso moltiplicativo di \(\overline{365}\).\\
-    abbiamo che \(\overline{365} \cdot \overline{a} = \overline{1}\) in \(\mathbb{Z}_{1876}\)\\
-    se e solo se esistono \(a,b \in \mathbb{Z}\) t.c. \(365 \cdot a = 1 + b \cdot 1876 \leftrightarrow 365 \cdot a - 1876 \cdot b = 1\).\\
-    una soluzione è \(a = -699\) e \(b = 136\), ossia \(\overline{365}^{-1} = \overline{-699} = \overline{1177}\).
+	in \(\mathbb{Z}_{1876}\) calcolare, se esiste, l'inverso moltiplicativo di \(\overline{365}\).\\
+	abbiamo che \(\overline{365} \cdot \overline{a} = \overline{1}\) in \(\mathbb{Z}_{1876}\)\\
+	se e solo se esistono \(a,b \in \mathbb{Z}\) t.c. \(365 \cdot a = 1 + b \cdot 1876 \leftrightarrow 365 \cdot a - 1876 \cdot b = 1\).\\
+	una soluzione è \(a = -699\) e \(b = 136\), ossia \(\overline{365}^{-1} = \overline{-699} = \overline{1177}\).
 \end{example}
 \newpage
 
 \subsection{Morfismi di anelli}
 
 \begin{definition}
-    se \(p \in \mathbb{N}\) è un numero primo, scriviamo \(\mathbb{F}_p := \mathbb{Z}_p\) ;\\
-    il campo \(\mathbb{F}_p\) ha \(p\) elementi.
+	se \(p \in \mathbb{N}\) è un numero primo, scriviamo \(\mathbb{F}_p := \mathbb{Z}_p\) ;\\
+	il campo \(\mathbb{F}_p\) ha \(p\) elementi.
 \end{definition}
 
 \begin{definition}
-    Siano \(A,B\) due anelli. Un'applicazione \(f : A \rightarrow B\) è un \textbf{morfismo di anelli} se:
-    \
-    \begin{itemize}
-        \item \(f: (A,+) \rightarrow (B,+)\) è un morfismo di gruppi.
-        \item \(f: (A,\cdot) \rightarrow (B,\cdot)\) è un morfismo di monoidi.
-    \end{itemize}
+	Siano \(A,B\) due anelli. Un'applicazione \(f : A \rightarrow B\) è un \textbf{morfismo di anelli} se:
+	\
+	\begin{itemize}
+		\item \(f: (A,+) \rightarrow (B,+)\) è un morfismo di gruppi.
+		\item \(f: (A,\cdot) \rightarrow (B,\cdot)\) è un morfismo di monoidi.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    il nucleo di un morfismo di anelli\\
-    \(f : A \rightarrow B\) è l'insieme \(Ker(f):=\{a \in A : f(a) = 0\}\).\\
+	il nucleo di un morfismo di anelli\\
+	\(f : A \rightarrow B\) è l'insieme \(Ker(f):=\{a \in A : f(a) = 0\}\).\\
 \end{definition}
 
 \begin{osservazione}
-    \(Ker(f)\) è un ideale di \(A\), \(A\) anello commutativo.
+	\(Ker(f)\) è un ideale di \(A\), \(A\) anello commutativo.
 \end{osservazione}
 
 \begin{example}
-    sia \(I \subseteq A\) un ideale di un anello commutativo \(A\).\\
-    allora la proiezione canonica \(\pi : A \rightarrow \sfrac{A}{I}\) che mappa \(a \rightarrow [a]\)\\
-    è un morfismo di anelli il cui nucleo è \(I\).
+	sia \(I \subseteq A\) un ideale di un anello commutativo \(A\).\\
+	allora la proiezione canonica \(\pi : A \rightarrow \sfrac{A}{I}\) che mappa \(a \rightarrow [a]\)\\
+	è un morfismo di anelli il cui nucleo è \(I\).
 \end{example}
 
 \begin{example}
-    si consideri l'anello dei numeri complessi \(\mathbb{C}\).\\
-    allora il coniugio \(\overline{z} = \overline{a+bi} = a - bi\) è un morfismo di anelli da \(\mathbb{C}\) in \(\mathbb{C}\):\\
-    \(\overline{1} = 1, \overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}, \overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}\)
+	si consideri l'anello dei numeri complessi \(\mathbb{C}\).\\
+	allora il coniugio \(\overline{z} = \overline{a+bi} = a - bi\) è un morfismo di anelli da \(\mathbb{C}\) in \(\mathbb{C}\):\\
+	\(\overline{1} = 1, \overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}, \overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}\)
 \end{example}
 
 \begin{teorema}[di isomorfismo per anelli commutativi]
-    Sia \(f : A \rightarrow B\)\\
-    un morfismo di anelli commutativi. Allora esiste un morfismo iniettivo di anelli\\
-    \(\Psi : \sfrac{A}{Ker(f)} \rightarrow B\) tale che il seguente diagramma è commutativo:
-    \[
-        \begin{tikzcd}
-            A \arrow{r}{f} \arrow[swap]{d}{\pi} & B \\
-            \sfrac{A}{Ker(f)} \arrow[swap]{ur}{\Psi}
-        \end{tikzcd}
-    \]
-    in particolare, se \(f\) è suriettivo, allora \(\Psi\) è un isomorfismo di anelli.
+	Sia \(f : A \rightarrow B\)\\
+	un morfismo di anelli commutativi. Allora esiste un morfismo iniettivo di anelli\\
+	\(\Psi : \sfrac{A}{Ker(f)} \rightarrow B\) tale che il seguente diagramma è commutativo:
+	\[
+		\begin{tikzcd}
+			A \arrow{r}{f} \arrow[swap]{d}{\pi} & B \\
+			\sfrac{A}{Ker(f)} \arrow[swap]{ur}{\Psi}
+		\end{tikzcd}
+	\]
+	in particolare, se \(f\) è suriettivo, allora \(\Psi\) è un isomorfismo di anelli.
 \end{teorema}
 
 \newpage
@@ -1267,47 +1267,730 @@ sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
 \textbf{Notazione:} \(\overline{x} \in \mathbb{Z}_n\). La classe di equivalenza \(\overline{x}\) la scriveremo anche  \(x \mod n\).
 
 \begin{teorema} [Teorema cinese dei resti]
-    siano \(n_1,n_2,...,n_k \in \mathbb{N} \setminus \{0,1\}\) tali che\\
-    \(MCD \{n_i,n_j\} = 1\) per ogni \(1 \leq i,j \leq k, i \neq j\).\\
-    sia \(n := n_1 \cdot n_2 \cdot ... \cdot n_k\).\\
-    allora la funzione \(\Psi : \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\) che mappa\\
-    \(x mod n \rightarrow (x mod n_1, x mod n_2, ..., x mod n_k)\) è un isomorfismo di anelli.\\
+	siano \(n_1,n_2,...,n_k \in \mathbb{N} \setminus \{0,1\}\) tali che\\
+	\(MCD \{n_i,n_j\} = 1\) per ogni \(1 \leq i,j \leq k, i \neq j\).\\
+	sia \(n := n_1 \cdot n_2 \cdot ... \cdot n_k\).\\
+	allora la funzione \(\Psi : \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\) che mappa\\
+	\(x mod n \rightarrow (x mod n_1, x mod n_2, ..., x mod n_k)\) è un isomorfismo di anelli.\\
 \end{teorema}
 
 \begin{dimostrazione}
-    vediamo prima di tutto che \(\Psi\) è un morfismo di anelli dove\\
-    \(f: \mathbb{Z} \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k} \).
-    è definita da \(f(x) = (x mod n_1, x mod n_2, ..., x mod n_k) \forall x \in \mathbb{Z}\).
-    \begin{itemize}
-        \item \(f(a+b) = ((a+b) mod n_1, ... , (a+b) mod n_k)\) \\
-                \(= (a mod n_1 + b mod n_1, ... , a mod n_k + b mod n_k)\)\\
-                \(= (a mod n_1, ... , a mod n_k) + (b mod n_1, ... , b mod n_k)\)\\
-                \(= f(a) + f(b), \forall a,b \in \mathbb{Z}\)
+	vediamo prima di tutto che \(\Psi\) è un morfismo di anelli dove\\
+	\(f: \mathbb{Z} \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k} \).
+	è definita da \(f(x) = (x mod n_1, x mod n_2, ..., x mod n_k) \forall x \in \mathbb{Z}\).
+	\begin{itemize}
+		\item \(f(a+b) = ((a+b) mod n_1, ... , (a+b) mod n_k)\) \\
+		      \(= (a mod n_1 + b mod n_1, ... , a mod n_k + b mod n_k)\)\\
+		      \(= (a mod n_1, ... , a mod n_k) + (b mod n_1, ... , b mod n_k)\)\\
+		      \(= f(a) + f(b), \forall a,b \in \mathbb{Z}\)
+		      
+		\item \(f(1) = (1 mod n_1, ... , 1 mod n_k)\) e \((1 mod n_1, ... , 1 mod n_k)\) è l'unità\\
+		      del prodotto diretto di anelli \(\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)
+		      
+		\item \(f(a \cdot b) = ((a \cdot b) mod n_1, ... , (a \cdot b) mod n_k)\)\\
+		      \(= (a mod n_1 \cdot b mod n_1, ... , a mod n_k \cdot b mod n_k)\)\\
+		      \(= (a mod n_1, ... , a mod n_k) \cdot (b mod n_1, ... , b mod n_k)\)\\
+		      \(= f(a) \cdot f(b), \forall a,b \in \mathbb{Z}\)
+	\end{itemize}
+	ora mostriamo che \(f\) è suriettivo:\\
+	sia \((a_1 mod n_1, ... , a_k mod n_k) \in \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)\\
+	osserviamo che \(MCD\{n_i,n_1 n_2 ... n_{i-1} n_{i+1} ... n_k\} = 1, \forall 1 \leq i \leq k\).\\
+	quindi abbiamo le identità di Bézout: \(c_i n_i + b_i \frac{n}{n_i} = 1\) ossia\\
+	\(u_i + v_i = 1\) dove \(u_i = c_i n_i \in <n_i>\) e \(v_i = b_i \frac{n}{n_i} \in <\frac{n}{n_i}>\).\\
+	diefiniamo \(x := a_1 v_1 + ... + a_k v_k\) e abbiamo che \(f(x) = (a_1 mod n_1, ... , a_k mod n_k)\).\\
+	infatti \(v_i mod n_j =
+	\begin{cases}
+		0 & \text{se } i \neq j \\
+		1 & \text{se } i = j
+	\end{cases}\)\\
+	dal teorema di isomorfismo abbiamo che \(\sfrac{\mathbb{Z}}{Ker(f)} \simeq \mathbb{Z}_{n_1} \times ... \times \mathbb{Z}_{n_k} \) come anelli.\\
+	ma abbiamo che \(Ker(f) = <n_1> \cap <n_2> \cap ... \cap <n_k>\)\\
+	\(= <mcm\{n_1 ,..., n_k\}> = <n_1 n_2 ... n_k>\) dato che \(n_i\) e \(n_j\) sono coprimi \(\forall i \neq j\).\\
+	quindi \(\sfrac{\mathbb{Z}}{Ker(f)} = \sfrac{\mathbb{Z}}{<n>} = \mathbb{Z}_n \) e l'isomorfismo \(\Psi: \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times ... \times \mathbb{Z}_{n_k}\)\\
+	è quello dell'enunciato del teorema.
+	
+\end{dimostrazione}
 
-        \item \(f(1) = (1 mod n_1, ... , 1 mod n_k)\) e \((1 mod n_1, ... , 1 mod n_k)\) è l'unità\\
-                del prodotto diretto di anelli \(\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)
+\newpage
 
-        \item \(f(a \cdot b) = ((a \cdot b) mod n_1, ... , (a \cdot b) mod n_k)\)\\
-                \(= (a mod n_1 \cdot b mod n_1, ... , a mod n_k \cdot b mod n_k)\)\\
-                \(= (a mod n_1, ... , a mod n_k) \cdot (b mod n_1, ... , b mod n_k)\)\\
-                \(= f(a) \cdot f(b), \forall a,b \in \mathbb{Z}\)
-    \end{itemize}
-    ora mostriamo che \(f\) è suriettivo:\\
-    sia \((a_1 mod n_1, ... , a_k mod n_k) \in \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)\\
-    osserviamo che \(MCD\{n_i,n_1 n_2 ... n_{i-1} n_{i+1} ... n_k\} = 1, \forall 1 \leq i \leq k\).\\
-    quindi abbiamo le identità di Bézout: \(c_i n_i + b_i \frac{n}{n_i} = 1\) ossia\\
-    \(u_i + v_i = 1\) dove \(u_i = c_i n_i \in <n_i>\) e \(v_i = b_i \frac{n}{n_i} \in <\frac{n}{n_i}>\).\\
-    diefiniamo \(x := a_1 v_1 + ... + a_k v_k\) e abbiamo che \(f(x) = (a_1 mod n_1, ... , a_k mod n_k)\).\\
-    infatti \(v_i mod n_j = 
-    \begin{cases}
-        0 & \text{se } i \neq j \\
-        1 & \text{se } i = j
-    \end{cases}\)\\
-    dal teorema di isomorfismo abbiamo che \(\sfrac{\mathbb{Z}}{Ker(f)} \simeq \mathbb{Z}_{n_1} \times ... \times \mathbb{Z}_{n_k} \) come anelli.\\
-    ma abbiamo che \(Ker(f) = <n_1> \cap <n_2> \cap ... \cap <n_k>\)\\
-    \(= <mcm\{n_1 ,..., n_k\}> = <n_1 n_2 ... n_k>\) dato che \(n_i\) e \(n_j\) sono coprimi \(\forall i \neq j\).\\
-    quindi \(\sfrac{\mathbb{Z}}{Ker(f)} = \sfrac{\mathbb{Z}}{<n>} = \mathbb{Z}_n \) e l'isomorfismo \(\Psi: \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times ... \times \mathbb{Z}_{n_k}\)\\
-    è quello dell'enunciato del teorema.
+\begin{example}
+	siano \(n_1 = 3, n_2 = 7 e n_3 = 10\). Allora \(n := n_1 n_2 n_3 = 210\)\\
+	e abbiamo l'isomorfismo di anelli \(\mathbb{Z}_{210} \simeq \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\).\\
+	sia \((2 mod 3, 5 mod 7, 4 mod 10) \in \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\), questa terna corrisponde ad un elemento\\
+	\(x mod 210 \in \mathbb{Z}_{210}\) che soddisfa il sistema
+	\[
+		\begin{cases}
+			x\mod 3 = 2\mod 3   \\
+			x\mod 7 = 5\mod 7   \\
+			x\mod 10 = 4\mod 10 \\
+		\end{cases}
+	\]
+\end{example}
+
+la dimostrazione del teorema cinese dei resti ci dice come trovare x.\\
+\(x = 2 v_1 + 5 v_2 + 4 v_3\) dove se \(3 a + 70 b = 1, 7 a + 30 b = 1\) e \(10 a + 21 b = 1\)\\
+sono identità di Bézout, allora \(v_1 = 70 b, v_2 = 30 b  = 30, v_3 = 21 b\)\\
+\begin{center}
+	\(3 a + 70 b = 1 \rightarrow a = -23, b = 1 \rightarrow v_1 = 70\)\\
+	\(7 a + 30 b = 1 \rightarrow 30 = 4 \cdot 7 + 2 , 7 = 3 \cdot 2 + 1\)\\
+	\(\rightarrow 1 = 7 - 3 \cdot 2 = 7 - 3(30 - 4 \cdot 7) = \)\\
+	\(13 \cdot 7 - 3 \cdot 30 = 91 - 90 = 1 \rightarrow a = 13, b = -3 \rightarrow v_2 = -3 \cdot 30\)\\
+	\(10 a + 21 b = 1 \rightarrow a = -2, b = 1 \rightarrow v_3 = 21\)\\
+\end{center}
+
+quindi \(x = 2 \cdot 70 - 5 \cdot 3 \cdot 30 + 4 \cdot 21 = 194\mod 210\)\\
+
+\textbf{Corollario:} Sia \(U(\mathbb{Z}_n)\) il gruppo degli elementi invertibili dell'anello \(\mathbb{Z}_n\).\\
+sia \(n := n_1 ... n_k\) dove \(MCD\{n_i, n_j\} = 1 \forall 1 \leq i,j \leq k, i \neq j\).\\
+e \(n_i \in \mathbb{N} \setminus \{0,1\} \forall 1 \leq i \leq k\).\\
+allora come i gruppi \(U(\mathbb{Z}_n) \simeq U(\mathbb{Z}_{n_1}) \times ... \times U(\mathbb{Z}_{n_k})\)
+
+\begin{dimostrazione}
+	l'isomorfismo \(\Psi\) del teo. cinese dei restti, ristretto a \(U(\mathbb{Z}_n)\) dà un isomorfismo di gruppi\\
+\end{dimostrazione}
+
+Poiché un elemento \(\overline{x} \in \mathbb{Z}_n\) è invertibile s.s.e. esiste un'identità di Bézout \(ax + bn = 1\)\\
+abbiamo che \(\overline{x}\) è invertibile s.s.e. \(MCD\{x,n\} = 1\).\\
+Quindi \(|U(\mathbb{Z}_n)| = \varphi(n)\), con \(\varphi\) funzione di Eulero.\\
+
+dal precedente Corollario e da questo segue un altro Corollario:
+
+\textbf{Corollario:} Sia \(\varphi : \mathbb{N} \setminus \{0\} \rightarrow \mathbb{N} \setminus \{0\}\) la funzione \(\varphi\) di Eulero.\\
+siano \(x,y \in \mathbb{N} \setminus \{0\}\) tali che \(MCD\{x,y\} = 1\), allora \(\varphi(xy) = \varphi(x) \cdot \varphi(y)\).\\
+
+\begin{dimostrazione}
+	dal Corollario precedente abbiamo che \(U(\mathbb{Z}_{xy}) \simeq U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)\)\\
+	come i gruppi, quindi:
+	\begin{center}
+		\(\varphi(xy) = |U(\mathbb{Z}_{xy})| = |U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)| = |U(\mathbb{Z}_x)| \cdot |U(\mathbb{Z}_y)| = \varphi(x) \cdot \varphi(y)\)
+	\end{center}
+\end{dimostrazione}
+
+\newpage
+
+\begin{example}
+	siano \(n_1 = 3, n_2 = 7 e n_3 = 10\). Allora \(n := n_1 n_2 n_3 = 210\)\\
+	e abbiamo l'isomorfismo di anelli \(\mathbb{Z}_{210} \simeq \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\).\\
+	sia \((2 mod 3, 5 mod 7, 4 mod 10) \in \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\), questa terna corrisponde ad un elemento\\
+	\(x mod 210 \in \mathbb{Z}_{210}\) che soddisfa il sistema
+	\[
+		\begin{cases}
+			x\mod 3 = 2\mod 3   \\
+			x\mod 7 = 5\mod 7   \\
+			x\mod 10 = 4\mod 10 \\
+		\end{cases}
+	\]
+\end{example}
+
+la dimostrazione del teorema cinese dei resti ci dice come trovare x.\\
+\(x = 2 v_1 + 5 v_2 + 4 v_3\) dove se \(3 a + 70 b = 1, 7 a + 30 b = 1\) e \(10 a + 21 b = 1\)\\
+sono identità di Bézout, allora \(v_1 = 70 b, v_2 = 30 b  = 30, v_3 = 21 b\)\\
+\begin{center}
+	\(3 a + 70 b = 1 \rightarrow a = -23, b = 1 \rightarrow v_1 = 70\)\\
+	\(7 a + 30 b = 1 \rightarrow 30 = 4 \cdot 7 + 2 , 7 = 3 \cdot 2 + 1\)\\
+	\(\rightarrow 1 = 7 - 3 \cdot 2 = 7 - 3(30 - 4 \cdot 7) = \)\\
+	\(13 \cdot 7 - 3 \cdot 30 = 91 - 90 = 1 \rightarrow a = 13, b = -3 \rightarrow v_2 = -3 \cdot 30\)\\
+	\(10 a + 21 b = 1 \rightarrow a = -2, b = 1 \rightarrow v_3 = 21\)\\
+\end{center}
+
+quindi \(x = 2 \cdot 70 - 5 \cdot 3 \cdot 30 + 4 \cdot 21 = 194\mod 210\)\\
+
+\textbf{Corollario:} Sia \(U(\mathbb{Z}_n)\) il gruppo degli elementi invertibili dell'anello \(\mathbb{Z}_n\).\\
+sia \(n := n_1 ... n_k\) dove \(MCD\{n_i, n_j\} = 1 \forall 1 \leq i,j \leq k, i \neq j\).\\
+e \(n_i \in \mathbb{N} \setminus \{0,1\} \forall 1 \leq i \leq k\).\\
+allora come i gruppi \(U(\mathbb{Z}_n) \simeq U(\mathbb{Z}_{n_1}) \times ... \times U(\mathbb{Z}_{n_k})\)
+
+\begin{dimostrazione}
+	l'isomorfismo \(\Psi\) del teo. cinese dei restti, ristretto a \(U(\mathbb{Z}_n)\) dà un isomorfismo di gruppi\\
+\end{dimostrazione}
+
+Poiché un elemento \(\overline{x} \in \mathbb{Z}_n\) è invertibile s.s.e. esiste un'identità di Bézout \(ax + bn = 1\)\\
+abbiamo che \(\overline{x}\) è invertibile s.s.e. \(MCD\{x,n\} = 1\).\\
+Quindi \(|U(\mathbb{Z}_n)| = \varphi(n)\), con \(\varphi\) funzione di Eulero.\\
+
+dal precedente Corollario e da questo segue un altro Corollario:
+
+\textbf{Corollario:} Sia \(\varphi : \mathbb{N} \setminus \{0\} \rightarrow \mathbb{N} \setminus \{0\}\) la funzione \(\varphi\) di Eulero.\\
+siano \(x,y \in \mathbb{N} \setminus \{0\}\) tali che \(MCD\{x,y\} = 1\), allora \(\varphi(xy) = \varphi(x) \cdot \varphi(y)\).\\
+
+\begin{dimostrazione}
+	dal Corollario precedente abbiamo che \(U(\mathbb{Z}_{xy}) \simeq U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)\)\\
+	come i gruppi, quindi:
+	\begin{center}
+		\(\varphi(xy) = |U(\mathbb{Z}_{xy})| = |U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)| = |U(\mathbb{Z}_x)| \cdot |U(\mathbb{Z}_y)| = \varphi(x) \cdot \varphi(y)\)
+	\end{center}
+\end{dimostrazione}
+\newpage
+
+Come conseguenza del corollario precedente otteniamo una formula per calcolare \\
+la funzione \(\varphi\) di Eulero.\\
+Se \(p\) è un numero primo, allora ci sono \(p^k\) numeri \(1 \leq n \leq p^k\).\\
+Di questi numeri \(p, 2p, ... , p^{k-1}p\) hanno fattori comuni con \(p^k\) e quindi
+\begin{center}
+	\(\varphi(p^k) = p^k - p^{k-1}\).\\
+\end{center}
+se \(n = p^{k_1}...p^{k_s}\) per il corollario precedente \((n>1)\):\\
+\(\varphi(n)= \varphi(p_1^{k_1}...\varphi(p_s^{k_s}) = (p_1^{k_1}-p_1^{k_1-1})...(p_s^{k_s}-p_s^{k_s-1}) = p_1^{k_1}...p_s^{k_s}\prod_{p|n, p primo}(1-\frac{1}{p}) = \)\\
+\(= n \prod_{p|n, p primo}(1-\frac{1}{p})\).\\
+
+\begin{teorema}[di Eulero]
+	Sia \(n \in \mathbb{N} \setminus \{0,\}\) ed \(a \in \mathbb{N} \setminus \{0\}\) tale che \(MCD\{a,n\} = 1\).\\
+	allora \(a^{\overline{\varphi(n)}} = \overline{1} \in \mathbb{Z}_n\). (diciamo che \(a^{\varphi(n)} \equiv 1 \mod n\))\\
+\end{teorema}
+
+\begin{dimostrazione}
+	sappiamo che la cardinalità del gruppo degli elementi invertibili \\
+	di \(\mathbb{Z}_n\) è \(\varphi(n)\).\\
+	Sia \(<\overline{a}> \subseteq U(\mathbb{Z}_n)\) il sottogruppo generato da \(\overline{a} in U(\mathbb{Z}_n)\). allora \(|<\overline{a}>|\) divide \(\varphi(n)\),\\
+	ossia \(\varphi(n) = k |<\overline{a}>|\), per qualche \(k \in \mathbb{N}\). Sia \(c := |<\overline{a}>|\);\\
+	abbiamo che \( = \overline{1} = \overline{a}^c = (\overline{a^c})^k  = \overline{a^{ck}} = \overline{a^{\varphi(n)}} \).\\
+\end{dimostrazione}
+
+\textbf{Corollario:}(piccolo teorema di Fermat) Sia \(p\) un numero primo e \(a \in \mathbb{N}\).\\
+allora in \(\mathbb{Z}_p\) abbiamo che \(\overline{a} = \overline{a^p} (a^p \equiv a \mod p)\).\\
+
+\begin{dimostrazione}
+	se \(p\) è primo si ha che \(\varphi(p) = p-1\). allora dal Teo. di Eulero segue che, se \(a \neq 0, p \nmid a\), \(a^{varphi(p) \equiv 1 \mod p}\implies a ^{p-1} \equiv 1 \mod p \implies a^p \equiv a \mod p\).\\
+	se \(a = 0 o p | a\) l' uguaglianza si riduce a \(\overline{0} = \overline{0}\).
+\end{dimostrazione}
+
+\newpage
+
+\subsection{Caratteristica di un anello}
+sia \(A\) un anello. il sottogruppo \(<1_A> \subseteq (A,+)\)è un gruppo ciclico.\\
+quindi esiste un \(n \in \mathbb{N}\) tale che \(<1_A> \simeq \mathbb{Z}_n\). \(n\) è detto la caratteristica dell'anello \(A\).\\
+
+\begin{example}
+	la caratteristica di \(\mathbb{Z}\) è 0, infatti \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\).\\
+	la caratteristica degli anelli \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è sempre 0 poiché \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\) in  \(\mathbb{Q},\mathbb{R},\mathbb{C}\)\\
+\end{example}
+
+\begin{example}
+	sia \(n \in \mathbb{N}\) allora la caratteristica dell'anello \(\mathbb{Z}_n\) è \(n\).\\
+	infatti \(<\overline{1}> = \mathbb{Z}_n\), rispetto all'operazione +\\
+\end{example}
+
+indichiamo con \(CHAR(A)\) la caratteristica di un anello \(A\).\\
+\begin{definition}
+	sia A un anello e sia \(<1_A>\) il sottogruppo di (A,+) generato da \(1_a\).
+	l'intersezione di tutti i sottoanelli di A contenenti \(<1_a>\)\\
+	si chiama \textbf{sottoanello fondamentale di A}.\\
+\end{definition}
+
+\begin{example}
+	il sottoanello fondamentale di \(\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Z}\)
+\end{example}
+
+\begin{definition}
+	sia K un campo\\
+	l'intersezione di tutti i sottocampi di K contenenti il gruppo \(<1_k> \subseteq (K,+)\) si chiama \\
+	\textbf{sottocampo fondamentale di K}.\\
+\end{definition}
+
+\begin{example}
+	il sottocampo fondamentale di \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Q}\).\\
+	se \(p \in \mathbb{N}\) è primo, il sottocampo fondamentale di \(\mathbb{F}_p\) è \(\mathbb{F}_p\) perché \(<\overline{1}> = \mathbb{F}_p\).\\
+\end{example}
+
+\newpage
+
+\subsection{Anello dei polinomi in una indeterminata a coefficienti in un campo}
+Sia \(K\) un campo. una funzione \(f: \mathbb{N} \rightarrow K\) si chiama \textbf{successione a valori in \(K\)}.\\
+ad una successione a valori in \(K\) corrisponde una serie formale nella variabile \(x\) su \(K\):\\
+\begin{center}
+	\(\sum_{n=0}^{\infty} f(n) x^n\)
+\end{center}
+se l'insieme \(\{ m \ in \mathbb{N} : f(n) \neq 0\}\) è finito diciamo che la serie formale\\
+è un polinomio in \(x\) di grado \(deg(P) := MAX \{ n \in \mathbb{N}: f(n) \neq 0\}\).\\
+il grado del poliniomio 0 non è definito.\\
+l'insieme dei polinomi in \(x\) a coefficienti in \(K\) si indica con \(K[x]\) ed è un anello commutativo con le operazioni:\\
+\begin{itemize}
+	\item somma: \((\sum_{n=0}^{\infty} a_n X^n) + (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (a_n + b_n) X^n\)
+	\item prodotto: \((\sum_{n=0}^{\infty} a_n X^n) \cdot (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (\sum_{k=0}^{n} a_k b_{n-k}) X^n\)
+\end{itemize}
+l'unità di \(K[x]\) è il polinomio \(1_k\).\\
+
+\begin{example}
+	in \(\mathbb{F}_2[x]\) siano \(P := 1 + X^2 + X^3\) e \(Q:= X + X^2\).\\
+	allora \(P+Q = 1 + X + X^2 + X^3\) e \(P \cdot Q = X + X^2 + X^3 + X^5\)
+\end{example}
+
+\begin{proposition}
+	siano \(P,Q \in K[x]\) polinomi non nulli. allora il grado del prodotto \(P \cdot Q\) è \(deg(P) + deg(Q)\).\\
+	in particolare \(K[x]\) è un dominio di integrità.\\
+\end{proposition}
+
+\begin{definition}
+	un polinomio si dice \textbf{monico} se il coefficiente del termine di grado massimo è 1.\\
+\end{definition}
+
+\begin{definition}
+	sia K un campo. un polinomio \(P \in K[x]\) si dice \textbf{irriducibile}\\
+	se i suoi unici divisori sono del tipo \(a, aP\) con \(a \in K \setminus \{0\}\).\\
+	altrimenti si dice \textbf{riducibile}.\\
+\end{definition}
+
+\begin{example}
+	in \(\mathbb{F}_2[X]\) il polinomio \(X^2 + 1\) è irriducibile, infatti:\\
+	\(X^2 + 1 = (X + 1)^2\), quindi \(X + 1\) divide \(X^2 + 1\) e \(X + 1 \notin K \setminus \{0\}\).
+\end{example}
+
+\begin{example}
+	in \(K[X]\) ogni polinomio di grado 1 è irriducibile, infatti:\\
+	se \(deg(P) = 1\) allora \(P = aX + b\) con \(a,b \in K, a \neq 0\).\\
+	i suoi divisori sono \(c\) e \(c^{-1} (aX + b), c \in K \setminus \{0\}\).
+\end{example}
+
+\begin{definition}
+	sia \(\alpha \in K\). l'elemento \(\alpha\) è detto \textbf{radice} del polinomio\\
+	\(P = \sum_{n=0}^{\infty} a_n X^n \in K[X]\) se \(P(\alpha) = \sum_{n=0}^{\infty} a_n \alpha^n = 0\).\\
+\end{definition}
+
+\newpage
+
+anche nell'anello \(K[X]\) come in \(\mathbb{Z}\) abiamo un algoritmo di divisione Euclidea.\\
+se \(f(X), g(X) \in K[X]\) sono polinomi non nulli allora esistono unici polinomi \(q(X), r(X) \in K[X]\) tali che:\\
+\(f(X) = q(X) \cdot g(X) + r(X)\) e \(r(X) = 0\) oppure \(deg(r) < deg(g)\).\\
+\(q(X)\) si chiama \textbf{quoziente} e \(r(X)\) si chiama \textbf{resto} della divisione.\\
+ne segue il seguente teorema, dimostrato come in \(\mathbb{Z}\):
+\begin{teorema}
+	l'anello \(K[X]\) è a ideali principali.\\
+	se \(I = <p(X)>\) allora esiste un unico generatore monico di \(I\).\\
+\end{teorema}
+
+\begin{definition}
+	definiamo il \textbf{massimo comune divisore} di due polinomi \(f(X), g(X) \in K[X]\) come l'unico massimo comune divisore monico.
+\end{definition}
+
+Come in \(\mathbb{Z}\) possiamo trovarlo con l'algoritmo delle divisioni successive\\
+che dà anche un \underline{identità di Bézout}.
+
+\begin{example}
+	\(f(X) = X^4 - X^3 -4X^2 + 4X + 1\) e \(g(X) = X^2 - 1\) in \(\mathbb{Q}[X]\), allora:
+	\begin{center}
+		\(f(X) = g(X)(X^2 - 3) + (X - 2)\)\\
+		\(g(X) = (X - 2)(X + 1) +1 \implies MCD(f,g) = 1\)
+	\end{center}
+	inoltre
+	\begin{center}
+		\(1 = g(X) - (X - 2)(X + 1) + 1 = g(X) - [f(X) - g(X)(X^2 - 3)](X + 1) =\)\\
+		\(= -(X - 1)f(X) + (X^3 + X^2 - 3X -2)g(X)\).\\
+	\end{center}
+\end{example}
+
+\textbf{proprietà:} sia K un campo e \(P(X) \in K[X]\) un poliniomio irriducibile.\\
+allora l'anello quoziente \( \sfrac{K[X]}{<P(X)>}\) è un campo.\\
+
+\begin{dimostrazione}
+	sia \([f] \ in \sfrac{K[X]}{<P(X)>}\) tale che \([p] \neq [0]\) ossia \(p(X)\) non divide \(f(X)\).\\
+	Dunque \(MCD\{f(X),p(X)\} = 1\) perchè \(p(X)\) è irriducibile.\\
+	quindi abbiamo un'identità di Bézout \(a(X)f(X) + b(X)p(X) = 1\).\\
+	ossia \([a(X)] = [f(X)]^{-1}\) in \(\sfrac{K[X]}{<P(X)>}\).
+\end{dimostrazione}
+
+\begin{example}
+	in \(\mathbb{F}_2[X]\) il polinomio \(P(X) = 1 + X + X^2\) è irriducibile.\\
+	infatti non ha radici in \(\mathbb{F}_2\).\\
+	quindi l'anello \(\sfrac{\mathbb{F}_2[X]}{<1 + X + X^2>}\) è un campo, che chiamiamo \(\mathbb{F}_4\).\\
+	un elemento di \(\mathbb{F}_4\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_2\).\\
+	la tavola moltiplicativa è la seguente:
+	\begin{center}
+		\begin{tabular}{c|cccc}
+			\(\cdot\) & 0 & 1     & X     & 1 + X \\
+			\hline
+			0         & 0 & 0     & 0     & 0     \\
+			1         & 0 & 1     & X     & 1 + X \\
+			X         & 0 & X     & 1 + X & 1     \\
+			1 + X     & 0 & 1 + X & 1     & X     \\
+		\end{tabular}
+	\end{center}
+	l'inverso di \(X\) è \(1 + X\).\\
+\end{example}
+
+\newpage
+
+\begin{example}
+	in \(\mathbb{F}_3[X]\) il polinomio \(P(X) = 1 + X^2\) è irriducibile.\\
+	indichiamo con \(\mathbb{F}_9\) il campo\(\sfrac{\mathbb{F}_3[X]}{<1 + X^2>}\).\\
+	un elemento di \(\mathbb{F}_9\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_3\) quindi sono 9.\\
+	la tavola moltiplicativa è la seguente:
+	\begin{center}
+		\begin{tabular}{c|ccccccccc}
+			\(\cdot\) & 0 & 1      & 2      & X      & 1 + X  & 2 + X  & 2X     & 1 + 2X & 2 + 2X \\
+			\hline
+			0         & 0 & 0      & 0      & 0      & 0      & 0      & 0      & 0      & 0      \\
+			1         & 0 & 1      & 2      & X      & 1 + X  & 2 + X  & 2X     & 1 + 2X & 2 + 2X \\
+			2         & 0 & 2      & 1      & 2X     & 2 + 2X & 1 + 2X & X      & 2 + X  & 1 + X  \\
+			X         & 0 & X      & 2X     & 2      & 2 + X  & 2 + 2X & 1      & 1 + X  & 1 + 2X \\
+			1 + X     & 0 & 1 + X  & 2 + 2X & 2 + X  & 2X     & 1      & 1 + 2X & 2      & X      \\
+			2 + X     & 0 & 2 + X  & 1 + 2X & 2 + 2X & 1      & X      & 1 + X  & 2X     & 2      \\
+			2X        & 0 & 2X     & X      & 1      & 1 + 2X & 1 + X  & 2      & 2 + 2X & 2 + X  \\
+			1 + 2X    & 0 & 1 + 2X & 2 + X  & 1 + X  & 2      & 2X     & 2 + 2X & X      & 1      \\
+			2 + 2X    & 0 & 2 + 2X & 1 + X  & 1 + 2X & X      & 2      & 2 + X  & 1      & 2X     \\
+		\end{tabular}
+	\end{center}
+	l'inverso di \(X\) è 2.\\
+\end{example}
+
+\begin{teorema}[di Ruffini]
+	sia \(f(X) \in K[X]\) un polinomio non nullo.\\
+	se \(\alpha \in K\), il resto della divisione di \(f(X)\) per \(X - \alpha\) è \(f(\alpha)\),\\
+	in particolare \(\alpha\) è una radice di \(f(X)\) s.s.e. \(X - \alpha\) divide \(f(X)\) in \(K[X]\).\\
+\end{teorema}
+
+\begin{dimostrazione}
+	\(f(X) = (X - \alpha) q(X) + r(X)\) con \(r(X) = 0\) oppure \(deg(r(X)) < 1\).\\
+	quindi \(r(X)\) è un polinomio costante, \(r(X) = x \in K\).\\
+	calcolando in \(\alpha\) otteniamo \(f(\alpha) = c\).\\
+\end{dimostrazione}
+
+\begin{example}
+	il polinomio \(X^2 + 1 \in \mathbb{R}[X]\) non ha radici in \(\mathbb{R}\)\\
+	quindi è irriducibile e \(\sfrac{\mathbb{R}[X]}{<X^2 + 1>}\) è un campo isomorfo a \(\mathbb{C}\),\\
+	dove l'isomorfismo è dato dall'assegnazione \(1 \rightarrow 1\) e \(x \rightarrow i\)\\
+\end{example}
+
+\newpage
+
+enunciamo il seguente importante risultato, senza fornire la dimostrazione.\\
+(vedi proposizione 4.3.5 di "Teoria delle equazioni e teoria di Galois" - S.Gabelli).\\
+
+\begin{proposition}
+	se K è un campo, ogni sottogruppo finito del gruppo moltiplicativo\\
+	\(K \setminus \{0\}\) è ciclico. in particolare, se K è un campo finito, \(K \setminus \{0\}\) è un gruppo ciclico.
+\end{proposition}
+
+\begin{example}
+	\begin{itemize}
+		\item in \(\mathbb{F}_4 = \sfrac{\mathbb{F}_2}{<1 + X + X^2>}\) si ha che \(\{ X, X^2, X^3\} = \{ X, 1 + X, 1\} = \mathbb{F}_4 \setminus \{0\}\)\\
+		      quindi \(X\) è un generatore del gruppo moltiplicativo \(\mathbb{F}_4 \setminus \{0\}\), l'altro è \(1 + X\)\\
+		\item in \(\mathbb{F}_9 = \sfrac{\mathbb{F}_3}{<1 + X^2>}\) abbiamo:\\
+		      \(<X> = \{X, X^2, X^3, X^4\} = \{X, 2, 2X,1\}\)\\
+		      \(<1 + X> = \{1 + X, (1 + X)^2, (1 + X)^3, (1 + X)^4, (1 + X)^5, (1 + X)^6, (1 + X)^7, (1 + X)^8\} =\)\\
+		      \(= \{1 + X, 2X, 1 + 2X, 2, 2 + 2X, X, 2 + X, 1 \}\)\\
+		      \(= \mathbb{F}_9 \setminus \{0\}\) quindi \(1 + X\) genera il gruppo moltiplicativo.
+	\end{itemize}
+\end{example}
+
+Sia \(p \in \mathbb{N}\) un numero prima e sia \(n \in \mathbb{N} \setminus \{0\}\).\\
+sia \(Q(X), \mathbb{F}_p[X]\) un qualsiasi polinomio irriducibile di grado n.\\
+definiamo il campo
+\begin{center}
+	\(\mathbb{F}_{p^n} = \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+
+vogliamo ora mostrare che se \(Q(X), Q'(X) e \mathbb{F}_p[X]\) sono polinomi irriducibili di grado n,\\
+allora 
+\begin{center}
+	\(\sfrac{\mathbb{F}_p[X]}{<Q(X)>} \simeq \sfrac{\mathbb{F}_p[X]}{<Q'(X)>}\), isomorfismo tra campi
+\end{center}
+
+quindi la definizione di \(\mathbb{F}_p\) è ben posta, a meno di isomorfismi.\\
+
+\begin{definition}
+	siano \(F \subseteq K\) due campi (ampliamento di campi).\\
+	un elemento \(\alpha \in K\) si dice \underline{algebrico} su F se è radice di qualche polinomio non nullo\\
+	su \(f(X) \in F(X)\), altrimenti si dice \underline{trascendente} su F.
+\end{definition}
+
+dato un ampliamento di campi \(F \subseteq K\) e  \(\alpha \in K\), si consideri il morfismo di anelli
+\begin{center}
+	\(v_\alpha : F[X] \rightarrow K\)\\
+	\(f(X) \rightarrow f(\alpha)\).
+\end{center}
+
+\(Ker(v_\alpha)\) è l'ideale di \(F[X]\) costituito dai polinomi che si annullano in \(\alpha\).\\
+quindi \(\alpha\) è algebrico su F s.s.e. \(Ker(v_\alpha)\) è un ideale non nullo di \(F[X]\).\\
+poiche \(F[X]\) è ad ideali principali, \(ker(v_\alpha) = <m(X)>\)\\
+dove \(m(X)\) è l'unico polinomio monico di grado minimo in \(Ker(v_\alpha)\).
+
+\begin{definition}
+	se \(\alpha \in K\) è algebrico su F, il polinomio \(m(X)\) definito sopra si chiama\\
+	\textbf{polinomio minimmo di \(\alpha\) su F}, se \(deg(m(X)) = n\), \(\alpha \) si dice algebrico di grado n
+\end{definition}
+
+\textbf{Nota:} sia \(\alpha \in K\) e \(P(X) \in F[X] \setminus \{0\})\) tale che \(p(\alpha) = 0\),\\
+allora \(p(X)\) è il polinomio minimo di \(\alpha\) su F s.s.e. \(p(X)\) è monico e irriducibile.\\
+
+\begin{example}
+	si consideri l'ampliamento \(\mathbb{R} \subseteq \mathbb{C}\). allora \(1 + X^2 \in \mathbb{R}[X]\)\\
+	è il polinomio minimo di \(i \in \mathbb{C}\) su \(\mathbb{R}\).
+\end{example}
+
+\newpage
+
+\textbf{Proprietà:} sia \(F \in K\) un ampliamento di campi e \(\alpha \in K\).\\
+si consideri il morfismo di anelli \(v_\alpha: F[X] \rightarrow K\).\\
+allora \(Im(v_\alpha)\) è il più piccolo sottoanello di K contenente sia F che \(\alpha\)
+
+\begin{dimostrazione}
+	si osservi che l'immagine di un morfismo di anelli è un sottoanello.\\
+	di conseguenza \(Im(v_\alpha)\) è un sottoanello di K.\\
+	sia \(c \in F\) e si consideri il polinomio costante \(c \in F[X]\). allora \(v_\alpha(c)=c\).\\
+	quindi \(F \subseteq Im(v_\alpha)\) e \(v_\alpha(X) = \alpha\ \implies \alpha \in Im(v_\alpha)\)\\
+	d'altra parte per chiusura aditiva e moltiplicativa,\\
+	ogni sottoanello di K contenete sia F che \(\alpha\) contiene anche \(Im(v_\alpha)\).
+\end{dimostrazione}
+
+\begin{proposition}
+	sia \(F \subseteq K\) un ampliamento di campi e sia \(\alpha \in K\).\\
+	il più piccolo sottocampo di K contenente sia F che \(\alpha\) si chiama\\
+	\textbf{ampliamento di F in K generato da \(\alpha\)} e si indica con \textbf{F(\(\alpha\))}
+	tale ampliamento si dice \textbf{semplice} (poichè generato da un solo elemento)
+\end{proposition}
+
+\vspace{\baselineskip}
+
+da questa proposizione segue questo Corollario:\\
+
+\textbf{Corollario:} sia \(F \subseteq K\) un ampliamento di campi e sia \(\alpha \in K\).\\
+allora \(F(\alpha) = \{f(\alpha)g(\alpha)^{-1} : f(X),g(X) \in F[X], g(\alpha) \neq 0\}\).
+
+\begin{dimostrazione}
+	per la proposizione precedente\\
+	il più piccolo sottoanello di K contenente sia F che \(\alpha\) è \(Im(v_\alpha = \{f(\alpha) : f(X) \in F[X]\})\).\\
+	prendendo gli inversi in K si ottiene la tesi.
+\end{dimostrazione}
+
+\vspace{\baselineskip}
+
+se \(\alpha \in K\) è algebrico su F si ha che \(Im(v_\alpha \simeq \sfrac{F[X]}{<m(X)>})\),\\
+dove \(m(X)\) è il polinomio minimo di \(\alpha\). quindi \(Im(v_\alpha)\) è un campo e \(F(\alpha) = Im(v_\alpha)\).\\
+se n è il grado di \(\alpha\) si ha quindi:
+\begin{center}
+	\(F(\alpha) = \{c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} : c_i \in F\}\)
+\end{center}
+
+\begin{example}
+	si consideri l'ampliamento \(\mathbb{Q} \subseteq \mathbb{R}\). l'elemento \(\sqrt{2}\in \mathbb{R} \setminus \mathbb{Q}\) è akgebrico su \(\mathbb{Q}\)\\
+	con polinomio minimo \(X^2 -2\). quindi \(\sqrt{2}\) ha grado 2 su \(\mathbb{Q}\) e
+	\begin{center}
+		\(\mathbb{Q}(\sqrt{2}) = \{ c_0 + c_1 \sqrt{2} : c_0,c_1 \in \mathbb{Q}\})\).
+	\end{center}
+\end{example}
+
+adesso mostriamo che il campo \(\mathbb{F}_{p^n}\) è un ampliamento semplice di \(\mathbb{F}_p\)
+\begin{proposition}
+	sia \(\alpha \in \mathbb{F}_{p^n}\) un generatore del campo moltiplicativo \(\mathbb{F}_{p^n} \setminus \{0\}\).\\
+	allora \(\mathbb{F}_{p^n} = \mathbb{F}_p(\alpha)\).
+\end{proposition}
+
+\begin{dimostrazione}
+	\(\mathbb{F}_p(\alpha)\) è il più piccolo sottocampo di \(\mathbb{F}_{p^n}\) contenente sia \(\mathbb{F}_p\) che \(\alpha\)\\
+	quindi \(\mathbb{F}_p(\alpha) \subseteq \mathbb{F}_{p^n}\). Poiché \(\alpha\) genera il gruppo moltiploicativo \(\mathbb{F}_{p^n} \setminus \{0\}\) anche \(\mathbb{F}_{p^n} \subseteq \mathbb{F}_p(\alpha)\)
+\end{dimostrazione}
+
+\newpage
+
+Ora, se \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono due polinomi irriducibili di grado n,\\
+vogliamo costruire un isomorfismo 
+\begin{center}
+	\(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+ci serve il seguente risultato:
+
+\begin{proposition}
+	siano \(F \subseteq K\) e \(F \subseteq K'\) due ampliamenti di campi.\\
+	se \(\alpha \in K\) è algebrico di grado n su F, con polinomio minimo \(m(x)\),\\
+	esiste un morfismo di campi \(\varphi : F(\alpha) \rightarrow K'\) che fissa F in K'.\\
+	in questo caso i morfismi \(\varphi\) sono tanti quante le radici distinte \(\beta_1, ... ,\beta_s\) di \(m(X)\) in K'.\\
+	sono tutti e soli quelli definiti da:
+	\begin{center}
+		\(c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} \rightarrow c_0 + c_1\beta_i + ... + c_{n-1}\beta_i^{n-1} \)
+	\end{center}
+\end{proposition}
+
+\begin{dimostrazione}
+	se \(\alpha\) è algebrico di grado n su F con polinomio minimo \(m(X)\)\\
+	e \(\varphi : F(\alpha) \rightarrow K'\) è isomorfismo, allora \(0 = \varphi(0) = \varphi(m(\alpha)) = m(\varphi(\alpha))\)\\
+	quindi \(\varphi(\alpha)\) deve essere radice di \(m(X)\) in K'.\\
+	viceversa, sia \(\beta\) una radice di \(m(X)\) in K' e consideriamo il morfismo di anelli\\
+	\begin{center}
+		\(v_\beta : F[X] \rightarrow K'\)\\
+		\(f(X) \rightarrow f(\beta)\)
+	\end{center}
+	poiché \(m(X) \in Ker(v_\beta)\), dal Teorema di isomorfismo per anelli\\
+	abbiamo che il seguente diagramma è commutativo:\\
+	\begin{center}
+		\begin{tikzcd}
+			F[X] \arrow{r}{v_\beta} \arrow{d}{\pi} & K'\\
+			F(\alpha) \simeq \sfrac{F[X]}{<m(X)>} \arrow{ur}{\varphi}
+		\end{tikzcd}
+	\end{center}
+	infatti \(Ker(v_\beta) = <m(X)>\), essedo \(m(X)\) irriducibile.\\
+	quindi abbiamo trovato un morfismo iniettivo \(\varphi : F(\alpha) \rightarrow K'\) che soddisfa le proprietà dell'enunciato.\\
+\end{dimostrazione}
+
+sia F un campo e \(f(X) \in F[X]\) un polinomio di grado \(n \geq 1\).\\
+un campo K, ampliamento di F, si dice \textbf{campo di spezzamento di f(X) su F} se:\\  
+\begin{itemize}
+	\item \(f(X)\) fattorizza in polinomi di grado 1 su \(K[X]\)
+	\item non ci sono campi intermedi \(F \subseteq L \subsetneq K\) con la stessa proprietà.
+\end{itemize}
+
+\begin{example}
+	\(\mathbb{Q}(\sqrt{2})\) è un campo di spezzamenro di \(X^2 - 2 \in \mathbb{Q}[X]\).\\
+	\(\mathbb{C}\) è un campo di spezzamenro di \(X^2 + 1 \in \mathbb{R}[X]\).\\
+\end{example}
+
+\newpage
+
+Ora vogliamo mostrare che un campo che ha cardinalità \(p^n\)\\
+è un campo di spezzamento del polinomio \(X^{p^n} - X \in \mathbb{F}_p[X]\).\\
+infatti se K è un campo e \(|K| = p^n\), allora il suo gruppo moltiplicativo \(K \setminus \{0\}\) ha cardinalità \(p^n - 1\)\\
+e quindi oer ogni \(\alpha \in K \setminus \{0\}\) si ha \(\alpha^{p^n - 1} = 1\).\\
+quindi ogni elemento di K è radice del polinomio \(X^{p^n} - X\).\\
+per il teorema di Ruffini, K è un campo di spezzamento di \(X^{p^n} - X\).\\
+Adesso mostriamo che ogni poliniomio di grado n irriducibile in \(\mathbb{F}_p[X]\)\\
+divide \(X^{p^n} - X\ \in \mathbb{F}_p[X]\).\\
+
+\begin{proposition}
+	tutti e soli i polinomi irriducibili su \(\mathbb{F}_p\) di grado n\\
+	dividono \(X^{p^n} - X \in \mathbb{F}_p[X]\).
+\end{proposition}
+
+\begin{dimostrazione}
+	sia \(P(X) \in \mathbb{F}_p[X]\) irriducibile di grado n e sia \(K := \sfrac{\mathbb{F}_p[Y]}{<P(Y)>}\).\\
+	allora K ha \(p^n\) elementi che sono le radici di \(X^{p^n} - X \in K[X]\).\\
+	poichè \(Y \in K\) è una radice \(P(X) \in K[X]\), \(P(X) e X^{p^n} - X\) hanno una radice in comune in K,\\
+	allora per il teorema di Ruffini hanno un fattore comune \(X - Y in K[X]\).\\
+	quindi, poiché \(\mathbb{F}_p \subseteq K\) e \(MCD\) in \(\mathbb{F}_p = MCD\) in \(K[X]\)\\
+	\(\implies P(X), X^{p^n} - X\) hanno \(MCD \neq 1\) in \(\mathbb{F}_p[X]\).\\
+	poiché \(P(X)\) è irriducibile in \(\mathbb{F}_p[X]\), \(P(X)\) divide \(X^{p^n} - X\).\\
+\end{dimostrazione}
+
+\vspace{\baselineskip}
+
+adesso vogliamo costruire un isomorfismo di campi
+\begin{center}
+	\(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+dove \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono monici irriducibili di grado n.\\
+basta costruire un isomorfismo di anelli.\\
+Infatti un morfismo di anelli che sono campi è iniettivo. Inoltre:
+\begin{center}
+	\(|\sfrac{\mathbb{F}_p[X]}{<P(X)>}| = |\sfrac{\mathbb{F}_p[X]}{<Q(X)>}| = p^n\)
+\end{center}
+
+quindi tale morfismo è biunivoco, ossia è isomorfismo.
+
+\vspace{\baselineskip}
+
+Si ha che, se \(y \in \sfrac{\mathbb{F}_p[Y]}{<P(Y)>}\) allora \(P(X) \in \mathbb{F}_p[X]\) è il polinomio minimo di \(y\) su \(\mathbb{F}_p\).\\
+quindi, se \(P(X)\) ha una radice in \(\sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\),\\
+possiamo usare la proposizione sull'estensione di morfismi di campi per definire\\
+il morfismo f, che sarà un isomorfismo. Infatti \(\mathbb{F}_p \subseteq \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\). \\
+Inoltre \(\sfrac{\mathbb{F}_p[X]}{<P(X)>} = \mathbb{F}_p([X])\), dove \([X]\) è la classe di \(X\) in \(\sfrac{\mathbb{F}_p[X]}{<P(X)>}\).\\
+poiché \(\sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\) è un campo di spezzamento di \(X^{p^n} - X\) e \(P(X)\) divide \(X^{p^n} - X\),\\
+allora \(P(X)\) si fattorizza in fattori di grado 1 in \(\sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\).
+
+\vspace{\baselineskip}
+
+sia \(\beta \in \sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\) tale che \(p(\beta)\) = 0.\\
+allora l'assegnazione
+\begin{center}
+	\(c_0 + c_1 x + ... + c_{n-1} x^{n-1} \rightarrow c_0 + c_1 \beta + ... + c_{n-1} \beta^{n-1}\)
+\end{center}
+definisce un morfismo di anelli
+\begin{center}
+	\(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+\end{center}
+
+\newpage
+
+\begin{example}
+	in \(\mathbb{F}_3[X]\) si considerino i polinomi irriducibili 
+	\begin{center}
+		\(1 + X^2\) e \(2 + X + X^2\).
+	\end{center}
+	il polinomio minimo di \(X\) in \(\sfrac{\mathbb{F}_3[X]}{<1 + X^2 >} := K\) su \(\mathbb{F}_3\) è \(1 + X^2\).\\
+	in \(K' := \sfrac{\mathbb{F}_3[Y]}{<1 + Y + Y^2>}\) si ha che 
+	\begin{center}
+		\(1 + X^2 = (X + Y + 2)(X + 2Y + 1)\)
+	\end{center}
+	quindi in \(K'[X], 1 + X^2\) ha due radici:
+	\begin{center}
+		\(-Y-2 = 2Y+1\) e \(-2Y - 1 = y + 2\).
+	\end{center}
+	abbiamo quindi due isomorfismi
+	\begin{center}
+		\(f: K \rightarrow K'\)\\
+		\(a_0 + a_1x \rightarrow a_0 + a_1(2Y + 1)\)\\
+		\(g: K \rightarrow K'\)\\
+		\(a_0 + a_1x \rightarrow a_0 + a_1(Y + 2)\)\\
+	\end{center}
+	\(f(0) = 0\)\\
+	\(f(1) = 1\)\\
+	\(f(2) = 2\)\\
+	\(f(X) = 2Y + 1\)\\
+	\(f(1 + X) = f(1) + f(X) = 2Y + 2\)\\
+	\(f(2 + X) = f(2) + f(X) = 2Y\)\\
+	\(f(2X) = f(2)f(X) = 2f(X) = y + 2\)\\
+	\(f(1 + 2X) = f(1) + f(2X) = Y\)\\
+	\(f(2 + 2X) = f(2) + f(2X) = y + 1\) \vspace{\baselineskip}\\
+	\(g(0) = 0\)\\
+	\(g(1) = 1\)\\
+	\(g(2) = 2\)\\
+	\(g(X) = Y + 2\)\\
+	\(g(1 + X) = g(1) + g(X) = Y\)\\
+	\(g(2 + X) = g(2) + g(X) = Y + 1\)\\
+	\(g(2X) = g(2)g(X) = 2g(X) = 2Y + 1\)\\
+	\(g(1 + 2X) = g(1) + g(2X) = 2Y + 2\)\\
+	\(g(2 + 2X) = g(2) + g(2X) = 2Y\)\\
+\end{example}
+
+\begin{osservazione}
+	\(X \in K\) non è un generatore di \(K \setminus \{0\}\).\\
+	infatti il sottogruppo del gruppo moltiplicativo \(K \setminus \{0\}\) generato da \(X\) è\\
+	\(<X> = \{X, 2, 2X, 1\} \subsetneq K \setminus \{0\}\)\\
+\end{osservazione}
+
+\newpage
+
+\textbf{Lemma:} se K è un anello commutativo di caratteristica prima p, allora
+\begin{center}
+	\((X + Y)^{p^h} = X^{p^h} + Y^{p^h}\)
+\end{center}
+per ogni \(x, y \in K, h \geq 1\).
+
+\begin{dimostrazione}
+	sia \(h = 1\). se \(p > k > 0\), p divide tutti i coefficienti binomiali\\
+	\(\binom{p}{k} := \frac{p!}{k!(p-k)!}\) perché non divide \(k!(p-k)!\).\\
+	allora \((X + Y)^p = \sum_{k=0}^{p} \binom{p}{k} X^k Y^{p-k} = X^p + Y^p\).\\
+	la tesi segue per induzione.\\
+\end{dimostrazione}
+
+\textbf{Automorfismo di Frobenius:}\\
+Dal lemma precedente segue che se K è un campo di caratteristica p, allora la funzione 
+\begin{center}
+	\(\Phi : K \rightarrow K\)\\
+	\(x \rightarrow x^p\)
+\end{center}
+è un morfismo di campi. infatti\\
+\(\Phi(x + y) = (x + y)^p = x^p + y^p = \Phi(x) + \Phi(y)\)\\
+\(\Phi(xy) = (xy)^p = x^p y^p = \Phi(x) \Phi(y)\)\\
+\(\forall x,y \in K\).\\
+se \(K = \mathbb{F}_{p^n}, \Phi\) è un automorfismo\\
+(essendo morfismo initettivo da un campo di cardinalità finita in se stesso)\\
+detto \textbf{automorfismo di Frobenius}.
+
+\begin{teorema}
+	il gruppo degli automorfismi di \(\mathbb{F}_{p^n}, AUT(\mathbb{F}_p^n)\) è ciclico di cardinalità n,\\
+	generato dall'automorfismo di Frobenius.
+\end{teorema}
+
+\begin{dimostrazione}
+	vedi teorema 4.3.17 del libro di Stefania Gabelli. 
+\end{dimostrazione}
+
+\textbf{Lemma:} sia F un campo. Il polinomio \(X^d - 1\) divide il polinomio \(X^n - 1\) s.s.e. d divide n.
+
+\begin{dimostrazione}
+	se \(n = qd + r, 0 \leq r \leq d\), in \(\mathbb{F}[X]\) si ha:
+	\begin{center}
+		\((x^n - 1) = (X^d - 1)(X^{n-d} + X^{n-2d} + ... + x^{n-(p-1)d} + X^r) + (X^r -1).\)\\
+	\end{center}
+	quindi \(X^d - 1\) divide \(X^n - 1\) s.s.e. \(X^r - 1\) è il polinomio nullo, cioè s.s.e. \(r = 0\)
 \end{dimostrazione}
 
 \newpage
@@ -2382,5 +3065,6 @@ Se n = 2 l'algoritmo di Strassen è ottimale (dal Teorema di Brockett- Dobkin).\
 Non è noto un algoritmo ottimale per la moltiplicazione matrici 3 x 3.\\
 Nel 2022 è stato pubblicato un algoritmo trovato da Alphatensor per matrici 4 x 4 su \(\mathbb{F}_2\)\\
 che richiede l'esecuzione di 47 moltiplicazioni, l'algoritmo di Strassen ne richiederebbe 49.\\
+
 
 \end{document}

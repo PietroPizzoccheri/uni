@@ -1,4 +1,5 @@
 # Principles of Programming Languages
+
 Politecnico di Milano
 
 AA 2019/2020
@@ -7,63 +8,71 @@ Teacher: **Matteo Pradella** [(website)](http://home.deib.polimi.it/pradella/PL.
 
 TA: **Michele Chiari** [(website)](https://michiari.github.io/)
 
-Contents
---------
+## Contents
 
 1. **2019/10/01 -- Scheme**
-    * Basic syntax
-    * Recursive functions
-    * Tail recursion
-    * Lists
+
+   - Basic syntax
+   - Recursive functions
+   - Tail recursion
+   - Lists
 
 1. **2019/10/08 -- Scheme**
-    * Structs
-    * Macros
+
+   - Structs
+   - Macros
 
 1. **2019/10/15 -- Scheme**
-    * Closures
-    * Continuations
-	* More Macros
+
+   - Closures
+   - Continuations
+   - More Macros
 
 1. **2019/10/29 -- Haskell**
-    * Basic syntax
-    * List comprehensions
-	* Infinite lists
-	* Defining new types -- sum types and product types
-	* Instantiating type classes
+
+   - Basic syntax
+   - List comprehensions
+   - Infinite lists
+   - Defining new types -- sum types and product types
+   - Instantiating type classes
 
 1. **2019/11/12 -- Haskell**
-    * More Higher Order Functions
-	* foldr/foldl
-	* Parametric Type Constructors
-	* Functor Type Class
-	* Foldable Type Class
+
+   - More Higher Order Functions
+   - foldr/foldl
+   - Parametric Type Constructors
+   - Functor Type Class
+   - Foldable Type Class
 
 1. **2019/11/19 -- Haskell**
-    * Applicative as generalized function application
-	* ZipList
-	* Applicative Binary Trees
-	* Data.Map
+
+   - Applicative as generalized function application
+   - ZipList
+   - Applicative Binary Trees
+   - Data.Map
 
 1. **2019/11/26 -- Haskell**
-    * Monads
-	* The Maybe Monad
-	* The Log Monad
-	* Tree computations with logging
+
+   - Monads
+   - The Maybe Monad
+   - The Log Monad
+   - Tree computations with logging
 
 1. **2019/12/03 -- Haskell**
-    * More Monads: LolStream
-	* Implementing a Stack using the State Monad
-	* Previous Exam Text: Bilist
+
+   - More Monads: LolStream
+   - Implementing a Stack using the State Monad
+   - Previous Exam Text: Bilist
 
 1. **2019/12/10 -- Erlang**
-   * Basic Syntax
-   * Spawning processes
-   * Sending/Receiving messages
-   * Parallel Merge Sort
-   * Concurrent application example: Publish/Subscribe (`2019-12-10-b.erl`)
+
+   - Basic Syntax
+   - Spawning processes
+   - Sending/Receiving messages
+   - Parallel Merge Sort
+   - Concurrent application example: Publish/Subscribe (`2019-12-10-b.erl`)
 
 1. **2019/12/13 -- Erlang**
-   * Ring topology
-   * Exam training: Binary Trees (2017-07-05)
-   * Exam training: Dynamic List (2017-07-20)
+   - Ring topology
+   - Exam training: Binary Trees (2017-07-05)
+   - Exam training: Dynamic List (2017-07-20)
