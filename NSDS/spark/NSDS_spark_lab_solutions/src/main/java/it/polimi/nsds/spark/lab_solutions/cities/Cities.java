@@ -18,7 +18,7 @@ import static org.apache.spark.sql.functions.col;
 public class Cities {
     public static void main(String[] args) throws TimeoutException {
         final String master = args.length > 0 ? args[0] : "local[4]";
-        final String filePath = args.length > 1 ? args[1] : "./";
+        final String filePath = args.length > 1 ? args[1] : "./NSDS/spark/NSDS_spark_lab_solutions/";
 
         final SparkSession spark = SparkSession
                 .builder()
@@ -108,7 +108,7 @@ public class Cities {
                         window(col("timestamp"), "30 seconds", "5 seconds"),
                         col("region")
                 )
-                .sum()
+                .count()
                 .writeStream()
                 .outputMode("update")
                 .format("console")

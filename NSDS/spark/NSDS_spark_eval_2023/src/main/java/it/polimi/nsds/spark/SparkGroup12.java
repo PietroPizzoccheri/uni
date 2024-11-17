@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
-import static org.apache.spark.sql.functions.col;
+import static org.apache.spark.sql.functions.*;
 
 /*
  * Group number: XX
@@ -27,7 +27,7 @@ public class SparkGroup12 {
 
     public static void main(String[] args) throws TimeoutException {
         final String master = args.length > 0 ? args[0] : "local[4]";
-        final String filePath = args.length > 1 ? args[1] : "./";
+        final String filePath = args.length > 1 ? args[1] : "./NSDS/spark/NSDS_spark_eval_2023/";
 
         final SparkSession spark = SparkSession
                 .builder()
@@ -86,15 +86,25 @@ public class SparkGroup12 {
                 .load()
                 .withColumn("value", col("value").mod(numCourses));
 
-        /**
-         * TODO: Enter your code below
-         */
+        final Dataset<Row> joinedDataset = profs
+                .join(courses, "course_name")
+                .join(videos, "course_name")
+                .distinct()
+                .select("prof_name", "course_name", "course_hours", "course_students", "video_id", "video_duration");
+
+        joinedDataset.cache();
+        joinedDataset.show();
+
 
         /*
          * Query Q1. Compute the total number of lecture hours per prof
          */
 
-        final Dataset<Row> q1 = null; // TODO
+        final Dataset<Row> q1 = joinedDataset
+                .groupBy("prof_name")
+                .agg(
+                        sum("course_hours")
+                );
 
         q1.show();
 
@@ -103,14 +113,40 @@ public class SparkGroup12 {
          * computed over a minute, updated every 10 seconds
          */
 
-        final StreamingQuery q2 = null; // TODO
+        final StreamingQuery q2 = joinedDataset.join(visualizations,
+                        joinedDataset.col("video_id").equalTo(visualizations.col("value")))
+                .groupBy(
+                        col("course_name"),
+                        window(col("timestamp"), "60 seconds", "10 seconds")
+                )
+                .agg(
+                        sum("video_duration")
+                )
+                .writeStream()
+                .outputMode("update")
+                .format("console")
+                .start();
 
         /*
          * Query Q3. For each video, compute the total number of visualizations of that video
          * with respect to the number of students in the course in which the video is used.
          */
 
-        final StreamingQuery q3 = null; // TODO
+        final StreamingQuery q3 = joinedDataset.join(visualizations,
+                        joinedDataset.col("video_id").equalTo(visualizations.col("value")))
+                .groupBy(
+                        "video_id"
+                )
+                .agg(
+                        count("value").as("tot_visualizations")
+                )
+                .join( joinedDataset,"video_id")
+                .withColumn("tot_visualizations", col("tot_visualizations").divide(col("course_students")))
+                .select("tot_visualizations" , "video_id")
+                .writeStream()
+                .outputMode("update")
+                .format("console")
+                .start();;
 
         try {
             q2.awaitTermination();
