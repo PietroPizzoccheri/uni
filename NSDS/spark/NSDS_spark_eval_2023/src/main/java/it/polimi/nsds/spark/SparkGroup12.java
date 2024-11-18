@@ -146,7 +146,7 @@ public class SparkGroup12 {
                 .writeStream()
                 .outputMode("update")
                 .format("console")
-                .start();;
+                .start();
 
         try {
             q2.awaitTermination();

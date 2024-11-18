@@ -413,3 +413,5 @@ Miniforge3-Linux-x86_64.sh
 *.bak0
 target/
 notes.txt
+package-lock.json
+package.json
