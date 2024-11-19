@@ -1,20 +1,23 @@
-package it.polimi.middleware.kafka.lab;
+package it.polimi.nsds.kafka.solutions;
+
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.Properties;
 
-import org.apache.kafka.clients.consumer.*;
-import org.apache.kafka.common.serialization.StringDeserializer;
-
-public class C1 {
+public class ConsoleConsumer {
     private static final String defaultGroupId = "groupA";
     private static final String defaultTopic = "topicA";
 
     private static final String serverAddr = "localhost:9092";
     private static final boolean autoCommit = true;
-    private static final int autoCommitIntervalMs = 15000;
+    private static final int autoCommitIntervalMs = 5000;
 
     // Default is "latest": try "earliest" instead
     private static final String offsetResetStrategy = "latest";
@@ -38,7 +41,6 @@ public class C1 {
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList(topic));
-
         while (true) {
             final ConsumerRecords<String, String> records = consumer.poll(Duration.of(5, ChronoUnit.MINUTES));
             for (final ConsumerRecord<String, String> record : records) {

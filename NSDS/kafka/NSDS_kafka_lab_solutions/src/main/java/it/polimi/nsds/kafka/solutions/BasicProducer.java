@@ -1,8 +1,4 @@
-package it.polimi.middleware.kafka.lab;
-
-import java.util.*;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+package it.polimi.nsds.kafka.solutions;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -10,12 +6,16 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-public class Producer {
+import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
+public class BasicProducer {
     private static final String defaultTopic = "topicA";
 
     private static final int numMessages = 100000;
     private static final int waitBetweenMsgs = 500;
-    private static final boolean waitAck = false;
+    private static final boolean waitAck = true;
 
     private static final String serverAddr = "localhost:9092";
 
@@ -26,13 +26,11 @@ public class Producer {
                 Collections.singletonList(defaultTopic) :
                 Arrays.asList(args);
 
-        //define some properties into props
         final Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, serverAddr);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
-        //create a kafka producer with the props properties
         final KafkaProducer<String, String> producer = new KafkaProducer<>(props);
         final Random r = new Random();
 
@@ -42,8 +40,8 @@ public class Producer {
             final String value = "Val" + i;
             System.out.println(
                     "Topic: " + topic +
-                            "\tKey: " + key +
-                            "\tValue: " + value
+                    "\tKey: " + key +
+                    "\tValue: " + value
             );
 
             final ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
