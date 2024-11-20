@@ -1,4 +1,6 @@
+const prompt = require('prompt-sync')();
+
 console.log("Hello, World!");
 
-let message;
-console.log(message);
+let name = prompt("Enter your name: ");
+console.log(name);
