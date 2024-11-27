@@ -1996,28 +1996,28 @@ detto \textbf{automorfismo di Frobenius}.
 \newpage
 
 \begin{example}
-    siano \(n_1 = 3, n_2 = 7 e n_3 = 10\). Allora \(n := n_1 n_2 n_3 = 210\)\\
-    e abbiamo l'isomorfismo di anelli \(\mathbb{Z}_{210} \simeq \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\).\\
-    sia \((2 mod 3, 5 mod 7, 4 mod 10) \in \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\), questa terna corrisponde ad un elemento\\
-    \(x mod 210 \in \mathbb{Z}_{210}\) che soddisfa il sistema
-    \[
-        \begin{cases}
-            x\mod 3 = 2\mod 3 \\
-            x\mod 7 = 5\mod 7 \\
-            x\mod 10 = 4\mod 10\\
-        \end{cases}
-        \]
+	siano \(n_1 = 3, n_2 = 7 e n_3 = 10\). Allora \(n := n_1 n_2 n_3 = 210\)\\
+	e abbiamo l'isomorfismo di anelli \(\mathbb{Z}_{210} \simeq \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\).\\
+	sia \((2 mod 3, 5 mod 7, 4 mod 10) \in \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}\), questa terna corrisponde ad un elemento\\
+	\(x mod 210 \in \mathbb{Z}_{210}\) che soddisfa il sistema
+	\[
+		\begin{cases}
+			x\mod 3 = 2\mod 3   \\
+			x\mod 7 = 5\mod 7   \\
+			x\mod 10 = 4\mod 10 \\
+		\end{cases}
+	\]
 \end{example}
 
 la dimostrazione del teorema cinese dei resti ci dice come trovare x.\\
 \(x = 2 v_1 + 5 v_2 + 4 v_3\) dove se \(3 a + 70 b = 1, 7 a + 30 b = 1\) e \(10 a + 21 b = 1\)\\
 sono identità di Bézout, allora \(v_1 = 70 b, v_2 = 30 b  = 30, v_3 = 21 b\)\\
 \begin{center}
-    \(3 a + 70 b = 1 \rightarrow a = -23, b = 1 \rightarrow v_1 = 70\)\\
-    \(7 a + 30 b = 1 \rightarrow 30 = 4 \cdot 7 + 2 , 7 = 3 \cdot 2 + 1\)\\
-    \(\rightarrow 1 = 7 - 3 \cdot 2 = 7 - 3(30 - 4 \cdot 7) = \)\\
-    \(13 \cdot 7 - 3 \cdot 30 = 91 - 90 = 1 \rightarrow a = 13, b = -3 \rightarrow v_2 = -3 \cdot 30\)\\
-    \(10 a + 21 b = 1 \rightarrow a = -2, b = 1 \rightarrow v_3 = 21\)\\
+	\(3 a + 70 b = 1 \rightarrow a = -23, b = 1 \rightarrow v_1 = 70\)\\
+	\(7 a + 30 b = 1 \rightarrow 30 = 4 \cdot 7 + 2 , 7 = 3 \cdot 2 + 1\)\\
+	\(\rightarrow 1 = 7 - 3 \cdot 2 = 7 - 3(30 - 4 \cdot 7) = \)\\
+	\(13 \cdot 7 - 3 \cdot 30 = 91 - 90 = 1 \rightarrow a = 13, b = -3 \rightarrow v_2 = -3 \cdot 30\)\\
+	\(10 a + 21 b = 1 \rightarrow a = -2, b = 1 \rightarrow v_3 = 21\)\\
 \end{center}
 
 quindi \(x = 2 \cdot 70 - 5 \cdot 3 \cdot 30 + 4 \cdot 21 = 194\mod 210\)\\
@@ -2028,7 +2028,7 @@ e \(n_i \in \mathbb{N} \setminus \{0,1\} \forall 1 \leq i \leq k\).\\
 allora come i gruppi \(U(\mathbb{Z}_n) \simeq U(\mathbb{Z}_{n_1}) \times ... \times U(\mathbb{Z}_{n_k})\)
 
 \begin{dimostrazione}
-    l'isomorfismo \(\Psi\) del teo. cinese dei restti, ristretto a \(U(\mathbb{Z}_n)\) dà un isomorfismo di gruppi\\
+	l'isomorfismo \(\Psi\) del teo. cinese dei restti, ristretto a \(U(\mathbb{Z}_n)\) dà un isomorfismo di gruppi\\
 \end{dimostrazione}
 
 Poiché un elemento \(\overline{x} \in \mathbb{Z}_n\) è invertibile s.s.e. esiste un'identità di Bézout \(ax + bn = 1\)\\
@@ -2041,11 +2041,11 @@ dal precedente Corollario e da questo segue un altro Corollario:
 siano \(x,y \in \mathbb{N} \setminus \{0\}\) tali che \(MCD\{x,y\} = 1\), allora \(\varphi(xy) = \varphi(x) \cdot \varphi(y)\).\\
 
 \begin{dimostrazione}
-    dal Corollario precedente abbiamo che \(U(\mathbb{Z}_{xy}) \simeq U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)\)\\
-    come i gruppi, quindi:
-    \begin{center}
-        \(\varphi(xy) = |U(\mathbb{Z}_{xy})| = |U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)| = |U(\mathbb{Z}_x)| \cdot |U(\mathbb{Z}_y)| = \varphi(x) \cdot \varphi(y)\)
-    \end{center}
+	dal Corollario precedente abbiamo che \(U(\mathbb{Z}_{xy}) \simeq U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)\)\\
+	come i gruppi, quindi:
+	\begin{center}
+		\(\varphi(xy) = |U(\mathbb{Z}_{xy})| = |U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)| = |U(\mathbb{Z}_x)| \cdot |U(\mathbb{Z}_y)| = \varphi(x) \cdot \varphi(y)\)
+	\end{center}
 \end{dimostrazione}
 \newpage
 
@@ -2054,31 +2054,31 @@ la funzione \(\varphi\) di Eulero.\\
 Se \(p\) è un numero primo, allora ci sono \(p^k\) numeri \(1 \leq n \leq p^k\).\\
 Di questi numeri \(p, 2p, ... , p^{k-1}p\) hanno fattori comuni con \(p^k\) e quindi
 \begin{center}
-    \(\varphi(p^k) = p^k - p^{k-1}\).\\
+	\(\varphi(p^k) = p^k - p^{k-1}\).\\
 \end{center}
 se \(n = p^{k_1}...p^{k_s}\) per il corollario precedente \((n>1)\):\\
 \(\varphi(n)= \varphi(p_1^{k_1}...\varphi(p_s^{k_s}) = (p_1^{k_1}-p_1^{k_1-1})...(p_s^{k_s}-p_s^{k_s-1}) = p_1^{k_1}...p_s^{k_s}\prod_{p|n, p primo}(1-\frac{1}{p}) = \)\\
 \(= n \prod_{p|n, p primo}(1-\frac{1}{p})\).\\
 
 \begin{teorema}[di Eulero]
-    Sia \(n \in \mathbb{N} \setminus \{0,\}\) ed \(a \in \mathbb{N} \setminus \{0\}\) tale che \(MCD\{a,n\} = 1\).\\
-    allora \(a^{\overline{\varphi(n)}} = \overline{1} \in \mathbb{Z}_n\). (diciamo che \(a^{\varphi(n)} \equiv 1 \mod n\))\\
+	Sia \(n \in \mathbb{N} \setminus \{0,\}\) ed \(a \in \mathbb{N} \setminus \{0\}\) tale che \(MCD\{a,n\} = 1\).\\
+	allora \(a^{\overline{\varphi(n)}} = \overline{1} \in \mathbb{Z}_n\). (diciamo che \(a^{\varphi(n)} \equiv 1 \mod n\))\\
 \end{teorema}
 
 \begin{dimostrazione}
-    sappiamo che la cardinalità del gruppo degli elementi invertibili \\
-    di \(\mathbb{Z}_n\) è \(\varphi(n)\).\\
-    Sia \(<\overline{a}> \subseteq U(\mathbb{Z}_n)\) il sottogruppo generato da \(\overline{a} in U(\mathbb{Z}_n)\). allora \(|<\overline{a}>|\) divide \(\varphi(n)\),\\
-    ossia \(\varphi(n) = k |<\overline{a}>|\), per qualche \(k \in \mathbb{N}\). Sia \(c := |<\overline{a}>|\);\\
-    abbiamo che \( = \overline{1} = \overline{a}^c = (\overline{a^c})^k  = \overline{a^{ck}} = \overline{a^{\varphi(n)}} \).\\
+	sappiamo che la cardinalità del gruppo degli elementi invertibili \\
+	di \(\mathbb{Z}_n\) è \(\varphi(n)\).\\
+	Sia \(<\overline{a}> \subseteq U(\mathbb{Z}_n)\) il sottogruppo generato da \(\overline{a} in U(\mathbb{Z}_n)\). allora \(|<\overline{a}>|\) divide \(\varphi(n)\),\\
+	ossia \(\varphi(n) = k |<\overline{a}>|\), per qualche \(k \in \mathbb{N}\). Sia \(c := |<\overline{a}>|\);\\
+	abbiamo che \( = \overline{1} = \overline{a}^c = (\overline{a^c})^k  = \overline{a^{ck}} = \overline{a^{\varphi(n)}} \).\\
 \end{dimostrazione}
 
 \textbf{Corollario:}(piccolo teorema di Fermat) Sia \(p\) un numero primo e \(a \in \mathbb{N}\).\\
 allora in \(\mathbb{Z}_p\) abbiamo che \(\overline{a} = \overline{a^p} (a^p \equiv a \mod p)\).\\
 
 \begin{dimostrazione}
-    se \(p\) è primo si ha che \(\varphi(p) = p-1\). allora dal Teo. di Eulero segue che, se \(a \neq 0, p \nmid a\), \(a^{varphi(p) \equiv 1 \mod p}\implies a ^{p-1} \equiv 1 \mod p \implies a^p \equiv a \mod p\).\\
-    se \(a = 0 o p | a\) l' uguaglianza si riduce a \(\overline{0} = \overline{0}\).
+	se \(p\) è primo si ha che \(\varphi(p) = p-1\). allora dal Teo. di Eulero segue che, se \(a \neq 0, p \nmid a\), \(a^{varphi(p) \equiv 1 \mod p}\implies a ^{p-1} \equiv 1 \mod p \implies a^p \equiv a \mod p\).\\
+	se \(a = 0 o p | a\) l' uguaglianza si riduce a \(\overline{0} = \overline{0}\).
 \end{dimostrazione}
 
 \newpage
@@ -2088,35 +2088,35 @@ sia \(A\) un anello. il sottogruppo \(<1_A> \subseteq (A,+)\)è un gruppo ciclic
 quindi esiste un \(n \in \mathbb{N}\) tale che \(<1_A> \simeq \mathbb{Z}_n\). \(n\) è detto la caratteristica dell'anello \(A\).\\
 
 \begin{example}
-    la caratteristica di \(\mathbb{Z}\) è 0, infatti \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\).\\
-    la caratteristica degli anelli \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è sempre 0 poiché \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\) in  \(\mathbb{Q},\mathbb{R},\mathbb{C}\)\\
+	la caratteristica di \(\mathbb{Z}\) è 0, infatti \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\).\\
+	la caratteristica degli anelli \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è sempre 0 poiché \(<1> = \mathbb{Z} \simeq \mathbb{Z}_0\) in  \(\mathbb{Q},\mathbb{R},\mathbb{C}\)\\
 \end{example}
 
 \begin{example}
-    sia \(n \in \mathbb{N}\) allora la caratteristica dell'anello \(\mathbb{Z}_n\) è \(n\).\\
-    infatti \(<\overline{1}> = \mathbb{Z}_n\), rispetto all'operazione +\\
+	sia \(n \in \mathbb{N}\) allora la caratteristica dell'anello \(\mathbb{Z}_n\) è \(n\).\\
+	infatti \(<\overline{1}> = \mathbb{Z}_n\), rispetto all'operazione +\\
 \end{example}
 
 indichiamo con \(CHAR(A)\) la caratteristica di un anello \(A\).\\
 \begin{definition}
-    sia A un anello e sia \(<1_A>\) il sottogruppo di (A,+) generato da \(1_a\).
-    l'intersezione di tutti i sottoanelli di A contenenti \(<1_a>\)\\
-    si chiama \textbf{sottoanello fondamentale di A}.\\
+	sia A un anello e sia \(<1_A>\) il sottogruppo di (A,+) generato da \(1_a\).
+	l'intersezione di tutti i sottoanelli di A contenenti \(<1_a>\)\\
+	si chiama \textbf{sottoanello fondamentale di A}.\\
 \end{definition}
 
 \begin{example}
-    il sottoanello fondamentale di \(\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Z}\)
+	il sottoanello fondamentale di \(\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Z}\)
 \end{example}
 
 \begin{definition}
-    sia K un campo\\
-    l'intersezione di tutti i sottocampi di K contenenti il gruppo \(<1_k> \subseteq (K,+)\) si chiama \\
-    \textbf{sottocampo fondamentale di K}.\\
+	sia K un campo\\
+	l'intersezione di tutti i sottocampi di K contenenti il gruppo \(<1_k> \subseteq (K,+)\) si chiama \\
+	\textbf{sottocampo fondamentale di K}.\\
 \end{definition}
 
 \begin{example}
-    il sottocampo fondamentale di \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Q}\).\\
-    se \(p \in \mathbb{N}\) è primo, il sottocampo fondamentale di \(\mathbb{F}_p\) è \(\mathbb{F}_p\) perché \(<\overline{1}> = \mathbb{F}_p\).\\
+	il sottocampo fondamentale di \(\mathbb{Q},\mathbb{R},\mathbb{C}\) è \(\mathbb{Q}\).\\
+	se \(p \in \mathbb{N}\) è primo, il sottocampo fondamentale di \(\mathbb{F}_p\) è \(\mathbb{F}_p\) perché \(<\overline{1}> = \mathbb{F}_p\).\\
 \end{example}
 
 \newpage
@@ -2125,52 +2125,52 @@ indichiamo con \(CHAR(A)\) la caratteristica di un anello \(A\).\\
 Sia \(K\) un campo. una funzione \(f: \mathbb{N} \rightarrow K\) si chiama \textbf{successione a valori in \(K\)}.\\
 ad una successione a valori in \(K\) corrisponde una serie formale nella variabile \(x\) su \(K\):\\
 \begin{center}
-    \(\sum_{n=0}^{\infty} f(n) x^n\)
+	\(\sum_{n=0}^{\infty} f(n) x^n\)
 \end{center}
 se l'insieme \(\{ m \ in \mathbb{N} : f(n) \neq 0\}\) è finito diciamo che la serie formale\\
 è un polinomio in \(x\) di grado \(deg(P) := MAX \{ n \in \mathbb{N}: f(n) \neq 0\}\).\\
 il grado del poliniomio 0 non è definito.\\
 l'insieme dei polinomi in \(x\) a coefficienti in \(K\) si indica con \(K[x]\) ed è un anello commutativo con le operazioni:\\
 \begin{itemize}
-    \item somma: \((\sum_{n=0}^{\infty} a_n X^n) + (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (a_n + b_n) X^n\)
-    \item prodotto: \((\sum_{n=0}^{\infty} a_n X^n) \cdot (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (\sum_{k=0}^{n} a_k b_{n-k}) X^n\)
+	\item somma: \((\sum_{n=0}^{\infty} a_n X^n) + (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (a_n + b_n) X^n\)
+	\item prodotto: \((\sum_{n=0}^{\infty} a_n X^n) \cdot (\sum_{n=0}^{\infty} b_n X^n) = \sum_{n=0}^{\infty} (\sum_{k=0}^{n} a_k b_{n-k}) X^n\)
 \end{itemize}
 l'unità di \(K[x]\) è il polinomio \(1_k\).\\
 
 \begin{example}
-    in \(\mathbb{F}_2[x]\) siano \(P := 1 + X^2 + X^3\) e \(Q:= X + X^2\).\\
-    allora \(P+Q = 1 + X + X^2 + X^3\) e \(P \cdot Q = X + X^2 + X^3 + X^5\)
+	in \(\mathbb{F}_2[x]\) siano \(P := 1 + X^2 + X^3\) e \(Q:= X + X^2\).\\
+	allora \(P+Q = 1 + X + X^2 + X^3\) e \(P \cdot Q = X + X^2 + X^3 + X^5\)
 \end{example}
 
 \begin{proposition}
-    siano \(P,Q \in K[x]\) polinomi non nulli. allora il grado del prodotto \(P \cdot Q\) è \(deg(P) + deg(Q)\).\\
-    in particolare \(K[x]\) è un dominio di integrità.\\
+	siano \(P,Q \in K[x]\) polinomi non nulli. allora il grado del prodotto \(P \cdot Q\) è \(deg(P) + deg(Q)\).\\
+	in particolare \(K[x]\) è un dominio di integrità.\\
 \end{proposition}
 
 \begin{definition}
-    un polinomio si dice \textbf{monico} se il coefficiente del termine di grado massimo è 1.\\
+	un polinomio si dice \textbf{monico} se il coefficiente del termine di grado massimo è 1.\\
 \end{definition}
 
 \begin{definition}
-    sia K un campo. un polinomio \(P \in K[x]\) si dice \textbf{irriducibile}\\
-    se i suoi unici divisori sono del tipo \(a, aP\) con \(a \in K \setminus \{0\}\).\\
-    altrimenti si dice \textbf{riducibile}.\\
+	sia K un campo. un polinomio \(P \in K[x]\) si dice \textbf{irriducibile}\\
+	se i suoi unici divisori sono del tipo \(a, aP\) con \(a \in K \setminus \{0\}\).\\
+	altrimenti si dice \textbf{riducibile}.\\
 \end{definition}
 
 \begin{example}
-    in \(\mathbb{F}_2[X]\) il polinomio \(X^2 + 1\) è irriducibile, infatti:\\
-    \(X^2 + 1 = (X + 1)^2\), quindi \(X + 1\) divide \(X^2 + 1\) e \(X + 1 \notin K \setminus \{0\}\).
+	in \(\mathbb{F}_2[X]\) il polinomio \(X^2 + 1\) è irriducibile, infatti:\\
+	\(X^2 + 1 = (X + 1)^2\), quindi \(X + 1\) divide \(X^2 + 1\) e \(X + 1 \notin K \setminus \{0\}\).
 \end{example}
 
 \begin{example}
-    in \(K[X]\) ogni polinomio di grado 1 è irriducibile, infatti:\\
-    se \(deg(P) = 1\) allora \(P = aX + b\) con \(a,b \in K, a \neq 0\).\\
-    i suoi divisori sono \(c\) e \(c^{-1} (aX + b), c \in K \setminus \{0\}\).
+	in \(K[X]\) ogni polinomio di grado 1 è irriducibile, infatti:\\
+	se \(deg(P) = 1\) allora \(P = aX + b\) con \(a,b \in K, a \neq 0\).\\
+	i suoi divisori sono \(c\) e \(c^{-1} (aX + b), c \in K \setminus \{0\}\).
 \end{example}
 
 \begin{definition}
-    sia \(\alpha \in K\). l'elemento \(\alpha\) è detto \textbf{radice} del polinomio\\
-    \(P = \sum_{n=0}^{\infty} a_n X^n \in K[X]\) se \(P(\alpha) = \sum_{n=0}^{\infty} a_n \alpha^n = 0\).\\
+	sia \(\alpha \in K\). l'elemento \(\alpha\) è detto \textbf{radice} del polinomio\\
+	\(P = \sum_{n=0}^{\infty} a_n X^n \in K[X]\) se \(P(\alpha) = \sum_{n=0}^{\infty} a_n \alpha^n = 0\).\\
 \end{definition}
 
 \newpage
@@ -2181,100 +2181,100 @@ se \(f(X), g(X) \in K[X]\) sono polinomi non nulli allora esistono unici polinom
 \(q(X)\) si chiama \textbf{quoziente} e \(r(X)\) si chiama \textbf{resto} della divisione.\\
 ne segue il seguente teorema, dimostrato come in \(\mathbb{Z}\):
 \begin{teorema}
-    l'anello \(K[X]\) è a ideali principali.\\
-    se \(I = <p(X)>\) allora esiste un unico generatore monico di \(I\).\\
+	l'anello \(K[X]\) è a ideali principali.\\
+	se \(I = <p(X)>\) allora esiste un unico generatore monico di \(I\).\\
 \end{teorema}
 
 \begin{definition}
-    definiamo il \textbf{massimo comune divisore} di due polinomi \(f(X), g(X) \in K[X]\) come l'unico massimo comune divisore monico.
+	definiamo il \textbf{massimo comune divisore} di due polinomi \(f(X), g(X) \in K[X]\) come l'unico massimo comune divisore monico.
 \end{definition}
 
 Come in \(\mathbb{Z}\) possiamo trovarlo con l'algoritmo delle divisioni successive\\
 che dà anche un \underline{identità di Bézout}.
 
 \begin{example}
-        \(f(X) = X^4 - X^3 -4X^2 + 4X + 1\) e \(g(X) = X^2 - 1\) in \(\mathbb{Q}[X]\), allora:
-        \begin{center}
-            \(f(X) = g(X)(X^2 - 3) + (X - 2)\)\\
-            \(g(X) = (X - 2)(X + 1) +1 \implies MCD(f,g) = 1\)
-        \end{center}
-        inoltre
-        \begin{center}
-             \(1 = g(X) - (X - 2)(X + 1) + 1 = g(X) - [f(X) - g(X)(X^2 - 3)](X + 1) =\)\\
-            \(= -(X - 1)f(X) + (X^3 + X^2 - 3X -2)g(X)\).\\
-        \end{center}
+	\(f(X) = X^4 - X^3 -4X^2 + 4X + 1\) e \(g(X) = X^2 - 1\) in \(\mathbb{Q}[X]\), allora:
+	\begin{center}
+		\(f(X) = g(X)(X^2 - 3) + (X - 2)\)\\
+		\(g(X) = (X - 2)(X + 1) +1 \implies MCD(f,g) = 1\)
+	\end{center}
+	inoltre
+	\begin{center}
+		\(1 = g(X) - (X - 2)(X + 1) + 1 = g(X) - [f(X) - g(X)(X^2 - 3)](X + 1) =\)\\
+		\(= -(X - 1)f(X) + (X^3 + X^2 - 3X -2)g(X)\).\\
+	\end{center}
 \end{example}
 
 \textbf{proprietà:} sia K un campo e \(P(X) \in K[X]\) un poliniomio irriducibile.\\
 allora l'anello quoziente \( \sfrac{K[X]}{<P(X)>}\) è un campo.\\
 
 \begin{dimostrazione}
-    sia \([f] \ in \sfrac{K[X]}{<P(X)>}\) tale che \([p] \neq [0]\) ossia \(p(X)\) non divide \(f(X)\).\\
-    Dunque \(MCD\{f(X),p(X)\} = 1\) perchè \(p(X)\) è irriducibile.\\
-    quindi abbiamo un'identità di Bézout \(a(X)f(X) + b(X)p(X) = 1\).\\
-    ossia \([a(X)] = [f(X)]^{-1}\) in \(\sfrac{K[X]}{<P(X)>}\).
+	sia \([f] \ in \sfrac{K[X]}{<P(X)>}\) tale che \([p] \neq [0]\) ossia \(p(X)\) non divide \(f(X)\).\\
+	Dunque \(MCD\{f(X),p(X)\} = 1\) perchè \(p(X)\) è irriducibile.\\
+	quindi abbiamo un'identità di Bézout \(a(X)f(X) + b(X)p(X) = 1\).\\
+	ossia \([a(X)] = [f(X)]^{-1}\) in \(\sfrac{K[X]}{<P(X)>}\).
 \end{dimostrazione}
 
 \begin{example}
-    in \(\mathbb{F}_2[X]\) il polinomio \(P(X) = 1 + X + X^2\) è irriducibile.\\
-    infatti non ha radici in \(\mathbb{F}_2\).\\
-    quindi l'anello \(\sfrac{\mathbb{F}_2[X]}{<1 + X + X^2>}\) è un campo, che chiamiamo \(\mathbb{F}_4\).\\
-    un elemento di \(\mathbb{F}_4\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_2\).\\
-    la tavola moltiplicativa è la seguente:
-    \begin{center}
-        \begin{tabular}{c|cccc}
-            \(\cdot\) & 0 & 1 & X & 1 + X \\
-            \hline
-            0 & 0 & 0 & 0 & 0 \\
-            1 & 0 & 1 & X & 1 + X \\
-            X & 0 & X & 1 + X & 1\\
-            1 + X & 0 & 1 + X & 1 & X\\
-        \end{tabular}
-    \end{center}
-    l'inverso di \(X\) è \(1 + X\).\\
+	in \(\mathbb{F}_2[X]\) il polinomio \(P(X) = 1 + X + X^2\) è irriducibile.\\
+	infatti non ha radici in \(\mathbb{F}_2\).\\
+	quindi l'anello \(\sfrac{\mathbb{F}_2[X]}{<1 + X + X^2>}\) è un campo, che chiamiamo \(\mathbb{F}_4\).\\
+	un elemento di \(\mathbb{F}_4\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_2\).\\
+	la tavola moltiplicativa è la seguente:
+	\begin{center}
+		\begin{tabular}{c|cccc}
+			\(\cdot\) & 0 & 1     & X     & 1 + X \\
+			\hline
+			0         & 0 & 0     & 0     & 0     \\
+			1         & 0 & 1     & X     & 1 + X \\
+			X         & 0 & X     & 1 + X & 1     \\
+			1 + X     & 0 & 1 + X & 1     & X     \\
+		\end{tabular}
+	\end{center}
+	l'inverso di \(X\) è \(1 + X\).\\
 \end{example}
 
 \newpage
 
 \begin{example}
-    in \(\mathbb{F}_3[X]\) il polinomio \(P(X) = 1 + X^2\) è irriducibile.\\
-    indichiamo con \(\mathbb{F}_9\) il campo\(\sfrac{\mathbb{F}_3[X]}{<1 + X^2>}\).\\
-    un elemento di \(\mathbb{F}_9\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_3\) quindi sono 9.\\
-    la tavola moltiplicativa è la seguente:
-    \begin{center}
-        \begin{tabular}{c|ccccccccc}
-            \(\cdot\) & 0 & 1 & 2 & X & 1 + X & 2 + X & 2X & 1 + 2X & 2 + 2X\\
-            \hline
-            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &0 & 0 \\
-            1 & 0 & 1 & 2 & X & 1 + X & 2 + X & 2X & 1 + 2X & 2 + 2X \\
-            2 & 0 & 2 & 1 & 2X & 2 + 2X & 1 + 2X & X & 2 + X & 1 + X \\
-            X & 0 & X & 2X & 2 & 2 + X & 2 + 2X & 1 & 1 + X & 1 + 2X \\
-            1 + X & 0 & 1 + X & 2 + 2X & 2 + X & 2X & 1 & 1 + 2X & 2 & X \\
-            2 + X & 0 & 2 + X & 1 + 2X & 2 + 2X & 1 & X & 1 + X & 2X & 2 \\
-            2X & 0 & 2X & X & 1 & 1 + 2X & 1 + X & 2 & 2 + 2X & 2 + X \\
-            1 + 2X & 0 & 1 + 2X & 2 + X & 1 + X & 2 & 2X & 2 + 2X & X & 1 \\
-            2 + 2X & 0 & 2 + 2X & 1 + X & 1 + 2X & X & 2 & 2 + X & 1 & 2X \\
-        \end{tabular}
-    \end{center}
-    l'inverso di \(X\) è 2.\\
+	in \(\mathbb{F}_3[X]\) il polinomio \(P(X) = 1 + X^2\) è irriducibile.\\
+	indichiamo con \(\mathbb{F}_9\) il campo\(\sfrac{\mathbb{F}_3[X]}{<1 + X^2>}\).\\
+	un elemento di \(\mathbb{F}_9\) è della forma \(a_0 + a_1X\) con \(a_0,a_1 \in \mathbb{F}_3\) quindi sono 9.\\
+	la tavola moltiplicativa è la seguente:
+	\begin{center}
+		\begin{tabular}{c|ccccccccc}
+			\(\cdot\) & 0 & 1      & 2      & X      & 1 + X  & 2 + X  & 2X     & 1 + 2X & 2 + 2X \\
+			\hline
+			0         & 0 & 0      & 0      & 0      & 0      & 0      & 0      & 0      & 0      \\
+			1         & 0 & 1      & 2      & X      & 1 + X  & 2 + X  & 2X     & 1 + 2X & 2 + 2X \\
+			2         & 0 & 2      & 1      & 2X     & 2 + 2X & 1 + 2X & X      & 2 + X  & 1 + X  \\
+			X         & 0 & X      & 2X     & 2      & 2 + X  & 2 + 2X & 1      & 1 + X  & 1 + 2X \\
+			1 + X     & 0 & 1 + X  & 2 + 2X & 2 + X  & 2X     & 1      & 1 + 2X & 2      & X      \\
+			2 + X     & 0 & 2 + X  & 1 + 2X & 2 + 2X & 1      & X      & 1 + X  & 2X     & 2      \\
+			2X        & 0 & 2X     & X      & 1      & 1 + 2X & 1 + X  & 2      & 2 + 2X & 2 + X  \\
+			1 + 2X    & 0 & 1 + 2X & 2 + X  & 1 + X  & 2      & 2X     & 2 + 2X & X      & 1      \\
+			2 + 2X    & 0 & 2 + 2X & 1 + X  & 1 + 2X & X      & 2      & 2 + X  & 1      & 2X     \\
+		\end{tabular}
+	\end{center}
+	l'inverso di \(X\) è 2.\\
 \end{example}
 
 \begin{teorema}[di Ruffini]
-    sia \(f(X) \in K[X]\) un polinomio non nullo.\\
-    se \(\alpha \in K\), il resto della divisione di \(f(X)\) per \(X - \alpha\) è \(f(\alpha)\),\\
-    in particolare \(\alpha\) è una radice di \(f(X)\) s.s.e. \(X - \alpha\) divide \(f(X)\) in \(K[X]\).\\
+	sia \(f(X) \in K[X]\) un polinomio non nullo.\\
+	se \(\alpha \in K\), il resto della divisione di \(f(X)\) per \(X - \alpha\) è \(f(\alpha)\),\\
+	in particolare \(\alpha\) è una radice di \(f(X)\) s.s.e. \(X - \alpha\) divide \(f(X)\) in \(K[X]\).\\
 \end{teorema}
 
 \begin{dimostrazione}
-    \(f(X) = (X - \alpha) q(X) + r(X)\) con \(r(X) = 0\) oppure \(deg(r(X)) < 1\).\\
-    quindi \(r(X)\) è un polinomio costante, \(r(X) = x \in K\).\\
-    calcolando in \(\alpha\) otteniamo \(f(\alpha) = c\).\\
+	\(f(X) = (X - \alpha) q(X) + r(X)\) con \(r(X) = 0\) oppure \(deg(r(X)) < 1\).\\
+	quindi \(r(X)\) è un polinomio costante, \(r(X) = x \in K\).\\
+	calcolando in \(\alpha\) otteniamo \(f(\alpha) = c\).\\
 \end{dimostrazione}
 
 \begin{example}
-    il polinomio \(X^2 + 1 \in \mathbb{R}[X]\) non ha radici in \(\mathbb{R}\)\\
-    quindi è irriducibile e \(\sfrac{\mathbb{R}[X]}{<X^2 + 1>}\) è un campo isomorfo a \(\mathbb{C}\),\\
-    dove l'isomorfismo è dato dall'assegnazione \(1 \rightarrow 1\) e \(x \rightarrow i\)\\
+	il polinomio \(X^2 + 1 \in \mathbb{R}[X]\) non ha radici in \(\mathbb{R}\)\\
+	quindi è irriducibile e \(\sfrac{\mathbb{R}[X]}{<X^2 + 1>}\) è un campo isomorfo a \(\mathbb{C}\),\\
+	dove l'isomorfismo è dato dall'assegnazione \(1 \rightarrow 1\) e \(x \rightarrow i\)\\
 \end{example}
 
 \newpage
@@ -2283,47 +2283,47 @@ enunciamo il seguente importante risultato, senza fornire la dimostrazione.\\
 (vedi proposizione 4.3.5 di "Teoria delle equazioni e teoria di Galois" - S.Gabelli).\\
 
 \begin{proposition}
-    se K è un campo, ogni sottogruppo finito del gruppo moltiplicativo\\
-    \(K \setminus \{0\}\) è ciclico. in particolare, se K è un campo finito, \(K \setminus \{0\}\) è un gruppo ciclico.
+	se K è un campo, ogni sottogruppo finito del gruppo moltiplicativo\\
+	\(K \setminus \{0\}\) è ciclico. in particolare, se K è un campo finito, \(K \setminus \{0\}\) è un gruppo ciclico.
 \end{proposition}
 
 \begin{example}
-    \begin{itemize}
-        \item in \(\mathbb{F}_4 = \sfrac{\mathbb{F}_2}{<1 + X + X^2>}\) si ha che \(\{ X, X^2, X^3\} = \{ X, 1 + X, 1\} = \mathbb{F}_4 \setminus \{0\}\)\\
-                quindi \(X\) è un generatore del gruppo moltiplicativo \(\mathbb{F}_4 \setminus \{0\}\), l'altro è \(1 + X\)\\
-        \item in \(\mathbb{F}_9 = \sfrac{\mathbb{F}_3}{<1 + X^2>}\) abbiamo:\\ 
-                \(<X> = \{X, X^2, X^3, X^4\} = \{X, 2, 2X,1\}\)\\
-                \(<1 + X> = \{1 + X, (1 + X)^2, (1 + X)^3, (1 + X)^4, (1 + X)^5, (1 + X)^6, (1 + X)^7, (1 + X)^8\} =\)\\
-                \(= \{1 + X, 2X, 1 + 2X, 2, 2 + 2X, X, 2 + X, 1 \}\)\\
-                \(= \mathbb{F}_9 \setminus \{0\}\) quindi \(1 + X\) genera il gruppo moltiplicativo.
-    \end{itemize}
+	\begin{itemize}
+		\item in \(\mathbb{F}_4 = \sfrac{\mathbb{F}_2}{<1 + X + X^2>}\) si ha che \(\{ X, X^2, X^3\} = \{ X, 1 + X, 1\} = \mathbb{F}_4 \setminus \{0\}\)\\
+		      quindi \(X\) è un generatore del gruppo moltiplicativo \(\mathbb{F}_4 \setminus \{0\}\), l'altro è \(1 + X\)\\
+		\item in \(\mathbb{F}_9 = \sfrac{\mathbb{F}_3}{<1 + X^2>}\) abbiamo:\\
+		      \(<X> = \{X, X^2, X^3, X^4\} = \{X, 2, 2X,1\}\)\\
+		      \(<1 + X> = \{1 + X, (1 + X)^2, (1 + X)^3, (1 + X)^4, (1 + X)^5, (1 + X)^6, (1 + X)^7, (1 + X)^8\} =\)\\
+		      \(= \{1 + X, 2X, 1 + 2X, 2, 2 + 2X, X, 2 + X, 1 \}\)\\
+		      \(= \mathbb{F}_9 \setminus \{0\}\) quindi \(1 + X\) genera il gruppo moltiplicativo.
+	\end{itemize}
 \end{example}
 
 Sia \(p \in \mathbb{N}\) un numero prima e sia \(n \in \mathbb{N} \setminus \{0\}\).\\
 sia \(Q(X), \mathbb{F}_p[X]\) un qualsiasi polinomio irriducibile di grado n.\\
 definiamo il campo
 \begin{center}
-    \(\mathbb{F}_{p^n} = \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+	\(\mathbb{F}_{p^n} = \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
 \end{center}
 
 vogliamo ora mostrare che se \(Q(X), Q'(X) e \mathbb{F}_p[X]\) sono polinomi irriducibili di grado n,\\
 allora 
 \begin{center}
-    \(\sfrac{\mathbb{F}_p[X]}{<Q(X)>} \simeq \sfrac{\mathbb{F}_p[X]}{<Q'(X)>}\), isomorfismo tra campi
+	\(\sfrac{\mathbb{F}_p[X]}{<Q(X)>} \simeq \sfrac{\mathbb{F}_p[X]}{<Q'(X)>}\), isomorfismo tra campi
 \end{center}
 
 quindi la definizione di \(\mathbb{F}_p\) è ben posta, a meno di isomorfismi.\\
 
 \begin{definition}
-    siano \(F \subseteq K\) due campi (ampliamento di campi).\\
-    un elemento \(\alpha \in K\) si dice \underline{algebrico} su F se è radice di qualche polinomio non nullo\\
-    su \(f(X) \in F(X)\), altrimenti si dice \underline{trascendente} su F.
+	siano \(F \subseteq K\) due campi (ampliamento di campi).\\
+	un elemento \(\alpha \in K\) si dice \underline{algebrico} su F se è radice di qualche polinomio non nullo\\
+	su \(f(X) \in F(X)\), altrimenti si dice \underline{trascendente} su F.
 \end{definition}
 
 dato un ampliamento di campi \(F \subseteq K\) e  \(\alpha \in K\), si consideri il morfismo di anelli
 \begin{center}
-    \(v_\alpha : F[X] \rightarrow K\)\\
-    \(f(X) \rightarrow f(\alpha)\).
+	\(v_\alpha : F[X] \rightarrow K\)\\
+	\(f(X) \rightarrow f(\alpha)\).
 \end{center}
 
 \(Ker(v_\alpha)\) è l'ideale di \(F[X]\) costituito dai polinomi che si annullano in \(\alpha\).\\
@@ -2332,16 +2332,16 @@ poiche \(F[X]\) è ad ideali principali, \(ker(v_\alpha) = <m(X)>\)\\
 dove \(m(X)\) è l'unico polinomio monico di grado minimo in \(Ker(v_\alpha)\).
 
 \begin{definition}
-    se \(\alpha \in K\) è algebrico su F, il polinomio \(m(X)\) definito sopra si chiama\\
-    \textbf{polinomio minimmo di \(\alpha\) su F}, se \(deg(m(X)) = n\), \(\alpha \) si dice algebrico di grado n
+	se \(\alpha \in K\) è algebrico su F, il polinomio \(m(X)\) definito sopra si chiama\\
+	\textbf{polinomio minimmo di \(\alpha\) su F}, se \(deg(m(X)) = n\), \(\alpha \) si dice algebrico di grado n
 \end{definition}
 
 \textbf{Nota:} sia \(\alpha \in K\) e \(P(X) \in F[X] \setminus \{0\})\) tale che \(p(\alpha) = 0\),\\
 allora \(p(X)\) è il polinomio minimo di \(\alpha\) su F s.s.e. \(p(X)\) è monico e irriducibile.\\
 
 \begin{example}
-    si consideri l'ampliamento \(\mathbb{R} \subseteq \mathbb{C}\). allora \(1 + X^2 \in \mathbb{R}[X]\)\\
-    è il polinomio minimo di \(i \in \mathbb{C}\) su \(\mathbb{R}\).
+	si consideri l'ampliamento \(\mathbb{R} \subseteq \mathbb{C}\). allora \(1 + X^2 \in \mathbb{R}[X]\)\\
+	è il polinomio minimo di \(i \in \mathbb{C}\) su \(\mathbb{R}\).
 \end{example}
 
 \newpage
@@ -2351,19 +2351,19 @@ si consideri il morfismo di anelli \(v_\alpha: F[X] \rightarrow K\).\\
 allora \(Im(v_\alpha)\) è il più piccolo sottoanello di K contenente sia F che \(\alpha\)
 
 \begin{dimostrazione}
-    si osservi che l'immagine di un morfismo di anelli è un sottoanello.\\
-    di conseguenza \(Im(v_\alpha)\) è un sottoanello di K.\\
-    sia \(c \in F\) e si consideri il polinomio costante \(c \in F[X]\). allora \(v_\alpha(c)=c\).\\
-    quindi \(F \subseteq Im(v_\alpha)\) e \(v_\alpha(X) = \alpha\ \implies \alpha \in Im(v_\alpha)\)\\
-    d'altra parte per chiusura aditiva e moltiplicativa,\\
-    ogni sottoanello di K contenete sia F che \(\alpha\) contiene anche \(Im(v_\alpha)\).
+	si osservi che l'immagine di un morfismo di anelli è un sottoanello.\\
+	di conseguenza \(Im(v_\alpha)\) è un sottoanello di K.\\
+	sia \(c \in F\) e si consideri il polinomio costante \(c \in F[X]\). allora \(v_\alpha(c)=c\).\\
+	quindi \(F \subseteq Im(v_\alpha)\) e \(v_\alpha(X) = \alpha\ \implies \alpha \in Im(v_\alpha)\)\\
+	d'altra parte per chiusura aditiva e moltiplicativa,\\
+	ogni sottoanello di K contenete sia F che \(\alpha\) contiene anche \(Im(v_\alpha)\).
 \end{dimostrazione}
 
 \begin{proposition}
-    sia \(F \subseteq K\) un ampliamento di campi e sia \(\alpha \in K\).\\
-    il più piccolo sottocampo di K contenente sia F che \(\alpha\) si chiama\\
-    \textbf{ampliamento di F in K generato da \(\alpha\)} e si indica con \textbf{F(\(\alpha\))}
-    tale ampliamento si dice \textbf{semplice} (poichè generato da un solo elemento)
+	sia \(F \subseteq K\) un ampliamento di campi e sia \(\alpha \in K\).\\
+	il più piccolo sottocampo di K contenente sia F che \(\alpha\) si chiama\\
+	\textbf{ampliamento di F in K generato da \(\alpha\)} e si indica con \textbf{F(\(\alpha\))}
+	tale ampliamento si dice \textbf{semplice} (poichè generato da un solo elemento)
 \end{proposition}
 
 \vspace{\baselineskip}
@@ -2374,9 +2374,9 @@ da questa proposizione segue questo Corollario:\\
 allora \(F(\alpha) = \{f(\alpha)g(\alpha)^{-1} : f(X),g(X) \in F[X], g(\alpha) \neq 0\}\).
 
 \begin{dimostrazione}
-    per la proposizione precedente\\
-    il più piccolo sottoanello di K contenente sia F che \(\alpha\) è \(Im(v_\alpha = \{f(\alpha) : f(X) \in F[X]\})\).\\
-    prendendo gli inversi in K si ottiene la tesi.
+	per la proposizione precedente\\
+	il più piccolo sottoanello di K contenente sia F che \(\alpha\) è \(Im(v_\alpha = \{f(\alpha) : f(X) \in F[X]\})\).\\
+	prendendo gli inversi in K si ottiene la tesi.
 \end{dimostrazione}
 
 \vspace{\baselineskip}
@@ -2385,26 +2385,26 @@ se \(\alpha \in K\) è algebrico su F si ha che \(Im(v_\alpha \simeq \sfrac{F[X]
 dove \(m(X)\) è il polinomio minimo di \(\alpha\). quindi \(Im(v_\alpha)\) è un campo e \(F(\alpha) = Im(v_\alpha)\).\\
 se n è il grado di \(\alpha\) si ha quindi:
 \begin{center}
-    \(F(\alpha) = \{c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} : c_i \in F\}\)
+	\(F(\alpha) = \{c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} : c_i \in F\}\)
 \end{center}
 
 \begin{example}
-    si consideri l'ampliamento \(\mathbb{Q} \subseteq \mathbb{R}\). l'elemento \(\sqrt{2}\in \mathbb{R} \setminus \mathbb{Q}\) è akgebrico su \(\mathbb{Q}\)\\
-    con polinomio minimo \(X^2 -2\). quindi \(\sqrt{2}\) ha grado 2 su \(\mathbb{Q}\) e
-    \begin{center}
-        \(\mathbb{Q}(\sqrt{2}) = \{ c_0 + c_1 \sqrt{2} : c_0,c_1 \in \mathbb{Q}\})\).
-    \end{center}
+	si consideri l'ampliamento \(\mathbb{Q} \subseteq \mathbb{R}\). l'elemento \(\sqrt{2}\in \mathbb{R} \setminus \mathbb{Q}\) è akgebrico su \(\mathbb{Q}\)\\
+	con polinomio minimo \(X^2 -2\). quindi \(\sqrt{2}\) ha grado 2 su \(\mathbb{Q}\) e
+	\begin{center}
+		\(\mathbb{Q}(\sqrt{2}) = \{ c_0 + c_1 \sqrt{2} : c_0,c_1 \in \mathbb{Q}\})\).
+	\end{center}
 \end{example}
 
 adesso mostriamo che il campo \(\mathbb{F}_{p^n}\) è un ampliamento semplice di \(\mathbb{F}_p\)
 \begin{proposition}
-    sia \(\alpha \in \mathbb{F}_{p^n}\) un generatore del campo moltiplicativo \(\mathbb{F}_{p^n} \setminus \{0\}\).\\
-    allora \(\mathbb{F}_{p^n} = \mathbb{F}_p(\alpha)\).
+	sia \(\alpha \in \mathbb{F}_{p^n}\) un generatore del campo moltiplicativo \(\mathbb{F}_{p^n} \setminus \{0\}\).\\
+	allora \(\mathbb{F}_{p^n} = \mathbb{F}_p(\alpha)\).
 \end{proposition}
 
 \begin{dimostrazione}
-    \(\mathbb{F}_p(\alpha)\) è il più piccolo sottocampo di \(\mathbb{F}_{p^n}\) contenente sia \(\mathbb{F}_p\) che \(\alpha\)\\
-    quindi \(\mathbb{F}_p(\alpha) \subseteq \mathbb{F}_{p^n}\). Poiché \(\alpha\) genera il gruppo moltiploicativo \(\mathbb{F}_{p^n} \setminus \{0\}\) anche \(\mathbb{F}_{p^n} \subseteq \mathbb{F}_p(\alpha)\)
+	\(\mathbb{F}_p(\alpha)\) è il più piccolo sottocampo di \(\mathbb{F}_{p^n}\) contenente sia \(\mathbb{F}_p\) che \(\alpha\)\\
+	quindi \(\mathbb{F}_p(\alpha) \subseteq \mathbb{F}_{p^n}\). Poiché \(\alpha\) genera il gruppo moltiploicativo \(\mathbb{F}_{p^n} \setminus \{0\}\) anche \(\mathbb{F}_{p^n} \subseteq \mathbb{F}_p(\alpha)\)
 \end{dimostrazione}
 
 \newpage
@@ -2412,52 +2412,52 @@ adesso mostriamo che il campo \(\mathbb{F}_{p^n}\) è un ampliamento semplice di
 Ora, se \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono due polinomi irriducibili di grado n,\\
 vogliamo costruire un isomorfismo 
 \begin{center}
-    \(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+	\(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
 \end{center}
 ci serve il seguente risultato:
 
 \begin{proposition}
-    siano \(F \subseteq K\) e \(F \subseteq K'\) due ampliamenti di campi.\\
-    se \(\alpha \in K\) è algebrico di grado n su F, con polinomio minimo \(m(x)\),\\
-    esiste un morfismo di campi \(\varphi : F(\alpha) \rightarrow K'\) che fissa F in K'.\\
-    in questo caso i morfismi \(\varphi\) sono tanti quante le radici distinte \(\beta_1, ... ,\beta_s\) di \(m(X)\) in K'.\\
-    sono tutti e soli quelli definiti da:
-    \begin{center}
-        \(c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} \rightarrow c_0 + c_1\beta_i + ... + c_{n-1}\beta_i^{n-1} \)
-    \end{center}
+	siano \(F \subseteq K\) e \(F \subseteq K'\) due ampliamenti di campi.\\
+	se \(\alpha \in K\) è algebrico di grado n su F, con polinomio minimo \(m(x)\),\\
+	esiste un morfismo di campi \(\varphi : F(\alpha) \rightarrow K'\) che fissa F in K'.\\
+	in questo caso i morfismi \(\varphi\) sono tanti quante le radici distinte \(\beta_1, ... ,\beta_s\) di \(m(X)\) in K'.\\
+	sono tutti e soli quelli definiti da:
+	\begin{center}
+		\(c_0 + c_1\alpha + ... + c_{n-1}\alpha^{n-1} \rightarrow c_0 + c_1\beta_i + ... + c_{n-1}\beta_i^{n-1} \)
+	\end{center}
 \end{proposition}
 
 \begin{dimostrazione}
-    se \(\alpha\) è algebrico di grado n su F con polinomio minimo \(m(X)\)\\
-    e \(\varphi : F(\alpha) \rightarrow K'\) è isomorfismo, allora \(0 = \varphi(0) = \varphi(m(\alpha)) = m(\varphi(\alpha))\)\\
-    quindi \(\varphi(\alpha)\) deve essere radice di \(m(X)\) in K'.\\
-    viceversa, sia \(\beta\) una radice di \(m(X)\) in K' e consideriamo il morfismo di anelli\\
-    \begin{center}
-        \(v_\beta : F[X] \rightarrow K'\)\\
-        \(f(X) \rightarrow f(\beta)\)
-    \end{center}
-    poiché \(m(X) \in Ker(v_\beta)\), dal Teorema di isomorfismo per anelli\\
-    abbiamo che il seguente diagramma è commutativo:\\
-    \begin{center}
-        \begin{tikzcd}
-            F[X] \arrow{r}{v_\beta} \arrow{d}{\pi} & K'\\
-            F(\alpha) \simeq \sfrac{F[X]}{<m(X)>} \arrow{ur}{\varphi}
-        \end{tikzcd}
-    \end{center}
-    infatti \(Ker(v_\beta) = <m(X)>\), essedo \(m(X)\) irriducibile.\\
-    quindi abbiamo trovato un morfismo iniettivo \(\varphi : F(\alpha) \rightarrow K'\) che soddisfa le proprietà dell'enunciato.\\
+	se \(\alpha\) è algebrico di grado n su F con polinomio minimo \(m(X)\)\\
+	e \(\varphi : F(\alpha) \rightarrow K'\) è isomorfismo, allora \(0 = \varphi(0) = \varphi(m(\alpha)) = m(\varphi(\alpha))\)\\
+	quindi \(\varphi(\alpha)\) deve essere radice di \(m(X)\) in K'.\\
+	viceversa, sia \(\beta\) una radice di \(m(X)\) in K' e consideriamo il morfismo di anelli\\
+	\begin{center}
+		\(v_\beta : F[X] \rightarrow K'\)\\
+		\(f(X) \rightarrow f(\beta)\)
+	\end{center}
+	poiché \(m(X) \in Ker(v_\beta)\), dal Teorema di isomorfismo per anelli\\
+	abbiamo che il seguente diagramma è commutativo:\\
+	\begin{center}
+		\begin{tikzcd}
+			F[X] \arrow{r}{v_\beta} \arrow{d}{\pi} & K'\\
+			F(\alpha) \simeq \sfrac{F[X]}{<m(X)>} \arrow{ur}{\varphi}
+		\end{tikzcd}
+	\end{center}
+	infatti \(Ker(v_\beta) = <m(X)>\), essedo \(m(X)\) irriducibile.\\
+	quindi abbiamo trovato un morfismo iniettivo \(\varphi : F(\alpha) \rightarrow K'\) che soddisfa le proprietà dell'enunciato.\\
 \end{dimostrazione}
 
 sia F un campo e \(f(X) \in F[X]\) un polinomio di grado \(n \geq 1\).\\
 un campo K, ampliamento di F, si dice \textbf{campo di spezzamento di f(X) su F} se:\\  
 \begin{itemize}
-    \item \(f(X)\) fattorizza in polinomi di grado 1 su \(K[X]\)
-    \item non ci sono campi intermedi \(F \subseteq L \subsetneq K\) con la stessa proprietà.
+	\item \(f(X)\) fattorizza in polinomi di grado 1 su \(K[X]\)
+	\item non ci sono campi intermedi \(F \subseteq L \subsetneq K\) con la stessa proprietà.
 \end{itemize}
 
 \begin{example}
-    \(\mathbb{Q}(\sqrt{2})\) è un campo di spezzamenro di \(X^2 - 2 \in \mathbb{Q}[X]\).\\
-    \(\mathbb{C}\) è un campo di spezzamenro di \(X^2 + 1 \in \mathbb{R}[X]\).\\
+	\(\mathbb{Q}(\sqrt{2})\) è un campo di spezzamenro di \(X^2 - 2 \in \mathbb{Q}[X]\).\\
+	\(\mathbb{C}\) è un campo di spezzamenro di \(X^2 + 1 \in \mathbb{R}[X]\).\\
 \end{example}
 
 \newpage
@@ -2472,31 +2472,31 @@ Adesso mostriamo che ogni poliniomio di grado n irriducibile in \(\mathbb{F}_p[X
 divide \(X^{p^n} - X\ \in \mathbb{F}_p[X]\).\\
 
 \begin{proposition}
-    tutti e soli i polinomi irriducibili su \(\mathbb{F}_p\) di grado n\\
-    dividono \(X^{p^n} - X \in \mathbb{F}_p[X]\).
+	tutti e soli i polinomi irriducibili su \(\mathbb{F}_p\) di grado n\\
+	dividono \(X^{p^n} - X \in \mathbb{F}_p[X]\).
 \end{proposition}
 
 \begin{dimostrazione}
-    sia \(P(X) \in \mathbb{F}_p[X]\) irriducibile di grado n e sia \(K := \sfrac{\mathbb{F}_p[Y]}{<P(Y)>}\).\\
-    allora K ha \(p^n\) elementi che sono le radici di \(X^{p^n} - X \in K[X]\).\\
-    poichè \(Y \in K\) è una radice \(P(X) \in K[X]\), \(P(X) e X^{p^n} - X\) hanno una radice in comune in K,\\
-    allora per il teorema di Ruffini hanno un fattore comune \(X - Y in K[X]\).\\
-    quindi, poiché \(\mathbb{F}_p \subseteq K\) e \(MCD\) in \(\mathbb{F}_p = MCD\) in \(K[X]\)\\
-    \(\implies P(X), X^{p^n} - X\) hanno \(MCD \neq 1\) in \(\mathbb{F}_p[X]\).\\
-    poiché \(P(X)\) è irriducibile in \(\mathbb{F}_p[X]\), \(P(X)\) divide \(X^{p^n} - X\).\\
+	sia \(P(X) \in \mathbb{F}_p[X]\) irriducibile di grado n e sia \(K := \sfrac{\mathbb{F}_p[Y]}{<P(Y)>}\).\\
+	allora K ha \(p^n\) elementi che sono le radici di \(X^{p^n} - X \in K[X]\).\\
+	poichè \(Y \in K\) è una radice \(P(X) \in K[X]\), \(P(X) e X^{p^n} - X\) hanno una radice in comune in K,\\
+	allora per il teorema di Ruffini hanno un fattore comune \(X - Y in K[X]\).\\
+	quindi, poiché \(\mathbb{F}_p \subseteq K\) e \(MCD\) in \(\mathbb{F}_p = MCD\) in \(K[X]\)\\
+	\(\implies P(X), X^{p^n} - X\) hanno \(MCD \neq 1\) in \(\mathbb{F}_p[X]\).\\
+	poiché \(P(X)\) è irriducibile in \(\mathbb{F}_p[X]\), \(P(X)\) divide \(X^{p^n} - X\).\\
 \end{dimostrazione}
 
 \vspace{\baselineskip}
 
 adesso vogliamo costruire un isomorfismo di campi
 \begin{center}
-    \(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+	\(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
 \end{center}
 dove \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono monici irriducibili di grado n.\\
 basta costruire un isomorfismo di anelli.\\
 Infatti un morfismo di anelli che sono campi è iniettivo. Inoltre:
 \begin{center}
-    \(|\sfrac{\mathbb{F}_p[X]}{<P(X)>}| = |\sfrac{\mathbb{F}_p[X]}{<Q(X)>}| = p^n\)
+	\(|\sfrac{\mathbb{F}_p[X]}{<P(X)>}| = |\sfrac{\mathbb{F}_p[X]}{<Q(X)>}| = p^n\)
 \end{center}
 
 quindi tale morfismo è biunivoco, ossia è isomorfismo.
@@ -2516,82 +2516,82 @@ allora \(P(X)\) si fattorizza in fattori di grado 1 in \(\sfrac{\mathbb{F}_p[Y]}
 sia \(\beta \in \sfrac{\mathbb{F}_p[Y]}{<Q(Y)>}\) tale che \(p(\beta)\) = 0.\\
 allora l'assegnazione
 \begin{center}
-    \(c_0 + c_1 x + ... + c_{n-1} x^{n-1} \rightarrow c_0 + c_1 \beta + ... + c_{n-1} \beta^{n-1}\)
+	\(c_0 + c_1 x + ... + c_{n-1} x^{n-1} \rightarrow c_0 + c_1 \beta + ... + c_{n-1} \beta^{n-1}\)
 \end{center}
 definisce un morfismo di anelli
 \begin{center}
-    \(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+	\(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
 \end{center}
 
 \newpage
 
 \begin{example}
-    in \(\mathbb{F}_3[X]\) si considerino i polinomi irriducibili 
-    \begin{center}
-        \(1 + X^2\) e \(2 + X + X^2\).
-    \end{center}
-    il polinomio minimo di \(X\) in \(\sfrac{\mathbb{F}_3[X]}{<1 + X^2 >} := K\) su \(\mathbb{F}_3\) è \(1 + X^2\).\\
-    in \(K' := \sfrac{\mathbb{F}_3[Y]}{<1 + Y + Y^2>}\) si ha che 
-    \begin{center}
-        \(1 + X^2 = (X + Y + 2)(X + 2Y + 1)\)
-    \end{center}
-    quindi in \(K'[X], 1 + X^2\) ha due radici:
-    \begin{center}
-        \(-Y-2 = 2Y+1\) e \(-2Y - 1 = y + 2\).
-    \end{center}
-    abbiamo quindi due isomorfismi
-    \begin{center}
-        \(f: K \rightarrow K'\)\\
-        \(a_0 + a_1x \rightarrow a_0 + a_1(2Y + 1)\)\\
-        \(g: K \rightarrow K'\)\\
-        \(a_0 + a_1x \rightarrow a_0 + a_1(Y + 2)\)\\
-    \end{center}
-    \(f(0) = 0\)\\
-    \(f(1) = 1\)\\
-    \(f(2) = 2\)\\
-    \(f(X) = 2Y + 1\)\\
-    \(f(1 + X) = f(1) + f(X) = 2Y + 2\)\\
-    \(f(2 + X) = f(2) + f(X) = 2Y\)\\
-    \(f(2X) = f(2)f(X) = 2f(X) = y + 2\)\\
-    \(f(1 + 2X) = f(1) + f(2X) = Y\)\\
-    \(f(2 + 2X) = f(2) + f(2X) = y + 1\) \vspace{\baselineskip}\\
-    \(g(0) = 0\)\\
-    \(g(1) = 1\)\\
-    \(g(2) = 2\)\\
-    \(g(X) = Y + 2\)\\
-    \(g(1 + X) = g(1) + g(X) = Y\)\\
-    \(g(2 + X) = g(2) + g(X) = Y + 1\)\\
-    \(g(2X) = g(2)g(X) = 2g(X) = 2Y + 1\)\\
-    \(g(1 + 2X) = g(1) + g(2X) = 2Y + 2\)\\
-    \(g(2 + 2X) = g(2) + g(2X) = 2Y\)\\
+	in \(\mathbb{F}_3[X]\) si considerino i polinomi irriducibili 
+	\begin{center}
+		\(1 + X^2\) e \(2 + X + X^2\).
+	\end{center}
+	il polinomio minimo di \(X\) in \(\sfrac{\mathbb{F}_3[X]}{<1 + X^2 >} := K\) su \(\mathbb{F}_3\) è \(1 + X^2\).\\
+	in \(K' := \sfrac{\mathbb{F}_3[Y]}{<1 + Y + Y^2>}\) si ha che 
+	\begin{center}
+		\(1 + X^2 = (X + Y + 2)(X + 2Y + 1)\)
+	\end{center}
+	quindi in \(K'[X], 1 + X^2\) ha due radici:
+	\begin{center}
+		\(-Y-2 = 2Y+1\) e \(-2Y - 1 = y + 2\).
+	\end{center}
+	abbiamo quindi due isomorfismi
+	\begin{center}
+		\(f: K \rightarrow K'\)\\
+		\(a_0 + a_1x \rightarrow a_0 + a_1(2Y + 1)\)\\
+		\(g: K \rightarrow K'\)\\
+		\(a_0 + a_1x \rightarrow a_0 + a_1(Y + 2)\)\\
+	\end{center}
+	\(f(0) = 0\)\\
+	\(f(1) = 1\)\\
+	\(f(2) = 2\)\\
+	\(f(X) = 2Y + 1\)\\
+	\(f(1 + X) = f(1) + f(X) = 2Y + 2\)\\
+	\(f(2 + X) = f(2) + f(X) = 2Y\)\\
+	\(f(2X) = f(2)f(X) = 2f(X) = y + 2\)\\
+	\(f(1 + 2X) = f(1) + f(2X) = Y\)\\
+	\(f(2 + 2X) = f(2) + f(2X) = y + 1\) \vspace{\baselineskip}\\
+	\(g(0) = 0\)\\
+	\(g(1) = 1\)\\
+	\(g(2) = 2\)\\
+	\(g(X) = Y + 2\)\\
+	\(g(1 + X) = g(1) + g(X) = Y\)\\
+	\(g(2 + X) = g(2) + g(X) = Y + 1\)\\
+	\(g(2X) = g(2)g(X) = 2g(X) = 2Y + 1\)\\
+	\(g(1 + 2X) = g(1) + g(2X) = 2Y + 2\)\\
+	\(g(2 + 2X) = g(2) + g(2X) = 2Y\)\\
 \end{example}
 
 \begin{osservazione}
-    \(X \in K\) non è un generatore di \(K \setminus \{0\}\).\\
-    infatti il sottogruppo del gruppo moltiplicativo \(K \setminus \{0\}\) generato da \(X\) è\\
-    \(<X> = \{X, 2, 2X, 1\} \subsetneq K \setminus \{0\}\)\\
+	\(X \in K\) non è un generatore di \(K \setminus \{0\}\).\\
+	infatti il sottogruppo del gruppo moltiplicativo \(K \setminus \{0\}\) generato da \(X\) è\\
+	\(<X> = \{X, 2, 2X, 1\} \subsetneq K \setminus \{0\}\)\\
 \end{osservazione}
 
 \newpage
 
 \textbf{Lemma:} se K è un anello commutativo di caratteristica prima p, allora
 \begin{center}
-    \((X + Y)^{p^h} = X^{p^h} + Y^{p^h}\)
+	\((X + Y)^{p^h} = X^{p^h} + Y^{p^h}\)
 \end{center}
 per ogni \(x, y \in K, h \geq 1\).
 
 \begin{dimostrazione}
-    sia \(h = 1\). se \(p > k > 0\), p divide tutti i coefficienti binomiali\\
-    \(\binom{p}{k} := \frac{p!}{k!(p-k)!}\) perché non divide \(k!(p-k)!\).\\
-    allora \((X + Y)^p = \sum_{k=0}^{p} \binom{p}{k} X^k Y^{p-k} = X^p + Y^p\).\\
-    la tesi segue per induzione.\\
+	sia \(h = 1\). se \(p > k > 0\), p divide tutti i coefficienti binomiali\\
+	\(\binom{p}{k} := \frac{p!}{k!(p-k)!}\) perché non divide \(k!(p-k)!\).\\
+	allora \((X + Y)^p = \sum_{k=0}^{p} \binom{p}{k} X^k Y^{p-k} = X^p + Y^p\).\\
+	la tesi segue per induzione.\\
 \end{dimostrazione}
 
 \textbf{Automorfismo di Frobenius:}\\
 Dal lemma precedente segue che se K è un campo di caratteristica p, allora la funzione 
 \begin{center}
-    \(\Phi : K \rightarrow K\)\\
-    \(x \rightarrow x^p\)
+	\(\Phi : K \rightarrow K\)\\
+	\(x \rightarrow x^p\)
 \end{center}
 è un morfismo di campi. infatti\\
 \(\Phi(x + y) = (x + y)^p = x^p + y^p = \Phi(x) + \Phi(y)\)\\
@@ -2602,22 +2602,22 @@ se \(K = \mathbb{F}_{p^n}, \Phi\) è un automorfismo\\
 detto \textbf{automorfismo di Frobenius}.
 
 \begin{teorema}
-    il gruppo degli automorfismi di \(\mathbb{F}_{p^n}, AUT(\mathbb{F}_p^n)\) è ciclico di cardinalità n,\\
-    generato dall'automorfismo di Frobenius.
+	il gruppo degli automorfismi di \(\mathbb{F}_{p^n}, AUT(\mathbb{F}_p^n)\) è ciclico di cardinalità n,\\
+	generato dall'automorfismo di Frobenius.
 \end{teorema}
 
 \begin{dimostrazione}
-    vedi teorema 4.3.17 del libro di Stefania Gabelli. 
+	vedi teorema 4.3.17 del libro di Stefania Gabelli. 
 \end{dimostrazione}
 
 \textbf{Lemma:} sia F un campo. Il polinomio \(X^d - 1\) divide il polinomio \(X^n - 1\) s.s.e. d divide n.
 
 \begin{dimostrazione}
-    se \(n = qd + r, 0 \leq r \leq d\), in \(\mathbb{F}[X]\) si ha:
-    \begin{center}
-        \((x^n - 1) = (X^d - 1)(X^{n-d} + X^{n-2d} + ... + x^{n-(p-1)d} + X^r) + (X^r -1).\)\\
-    \end{center}
-    quindi \(X^d - 1\) divide \(X^n - 1\) s.s.e. \(X^r - 1\) è il polinomio nullo, cioè s.s.e. \(r = 0\)
+	se \(n = qd + r, 0 \leq r \leq d\), in \(\mathbb{F}[X]\) si ha:
+	\begin{center}
+		\((x^n - 1) = (X^d - 1)(X^{n-d} + X^{n-2d} + ... + x^{n-(p-1)d} + X^r) + (X^r -1).\)\\
+	\end{center}
+	quindi \(X^d - 1\) divide \(X^n - 1\) s.s.e. \(X^r - 1\) è il polinomio nullo, cioè s.s.e. \(r = 0\)
 \end{dimostrazione}
 
 \vspace{\baselineskip}
@@ -2628,24 +2628,24 @@ se \(p^d - 1\) divide \(p^n - 1\) allora d divide n.\\
 \textbf{Corollario:} \(d\) divide \(n \iff (X^{p^d} - X)\) divide \((X^{p^n} - X)\) in \(\mathbb{F}_p[X]\).
 
 \begin{dimostrazione}
-    \(\implies\)\\
-    per il lemma precedente, \(X^d - 1\) divide \(X^n - 1\).\\
-    calcolando in p si ottiene che \(p^d - 1\) divide \(p^n - 1\).\\
-    quindi sempre per il lemma, \(X^{p^{d - 1}} - 1\) divide \(X^{p^n - 1} - 1\).\\
-    \(\impliedby\)\\
-    viceversa se \(X^{p^{d - 1}} - 1\) divide \(X^{p^n -1 } - 1\), allora \(p^d - 1\) divide \(p^n - 1 \implies d | n\).\\
+	\(\implies\)\\
+	per il lemma precedente, \(X^d - 1\) divide \(X^n - 1\).\\
+	calcolando in p si ottiene che \(p^d - 1\) divide \(p^n - 1\).\\
+	quindi sempre per il lemma, \(X^{p^{d - 1}} - 1\) divide \(X^{p^n - 1} - 1\).\\
+	\(\impliedby\)\\
+	viceversa se \(X^{p^{d - 1}} - 1\) divide \(X^{p^n -1 } - 1\), allora \(p^d - 1\) divide \(p^n - 1 \implies d | n\).\\
 \end{dimostrazione}
 
 \begin{proposition}
-    tutti e soli i sottocampi di \(\mathbb{F}_{p^n}\) sono i campi \(\mathbb{F}_{p^d}\) con \(d | n\).
+	tutti e soli i sottocampi di \(\mathbb{F}_{p^n}\) sono i campi \(\mathbb{F}_{p^d}\) con \(d | n\).
 \end{proposition}
 
 \begin{dimostrazione}
-    abbiamo che, se \(\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^n}\),\\
-    allora tutte le radici di \(X^{p^d} - X\) in \(\mathbb{F}_{p^d}\) sono radici di \(X^{p^n} - X\) in \(\mathbb{F}_{p^n}\),\\
-    ossia \(X^{p^d} - X\) divide \(X^{p^n} - X \implies d | n\).\\
-    se d divide n, \(X^{p^d} - X \) divide \(X^{p^n} - X\)\\
-    e l'insieme delle radici di \(X^{p^d} - X\) (è un campo) sta in \(\mathbb{F}_{p^n}\)\\
+	abbiamo che, se \(\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^n}\),\\
+	allora tutte le radici di \(X^{p^d} - X\) in \(\mathbb{F}_{p^d}\) sono radici di \(X^{p^n} - X\) in \(\mathbb{F}_{p^n}\),\\
+	ossia \(X^{p^d} - X\) divide \(X^{p^n} - X \implies d | n\).\\
+	se d divide n, \(X^{p^d} - X \) divide \(X^{p^n} - X\)\\
+	e l'insieme delle radici di \(X^{p^d} - X\) (è un campo) sta in \(\mathbb{F}_{p^n}\)\\
 \end{dimostrazione}
 
 \vspace{\baselineskip}
@@ -2653,37 +2653,37 @@ se \(p^d - 1\) divide \(p^n - 1\) allora d divide n.\\
 Finora, dato un numero primo \(p\) e un numero naturale \(n \neq 0\), abbiamo costruito il campo \(\mathbb{F}_{p^n}\)\\
 di cardinalità \(p^n\) prendendo un polinomio irriducibile \(Q \in \mathbb{F}_p\) e facendo il quoziente:
 \begin{center}
-    \(\mathbb{F}_{p^n} = \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
+	\(\mathbb{F}_{p^n} = \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
 \end{center}
 Abbiamo visto che due campi costruiti in questo modo sono isomorfi.\\
 Facciamo alcune osservazioni e un discorso più generale.\\
 
 \begin{enumerate}
-    \item sia \(K\) un campo finito. qual'è la caratteristica di \(K\)?\\
-        prendiamo il sottogruppo \(<1_K> \subseteq K\). poiché \(<1_K>\) è finito,\\
-        \(<1_K> \simeq \mathbb{Z}_n\) per qualche \(n > 1\).\\
-        dato che gli elementi di \(<1_K>\) sono di un campo, non sono divisori dello zero,\\
-        quindi \(n\) è primo, ossia \underline{un campo finito ha caratteristica prima \(p\)}\\
-        e il suo sottocampo fondamentale è \(\mathbb{F}_p\)\\
-    \item sia \(K\) un campo finito. Abbiamo detto nel punto 1. che \(\mathbb{F}_p \subseteq K\) per qualche primo p.\\
-        inoltre il gruppo moltiplicativo \(K \setminus \{0\}\) è ciclico e quindi,\\
-        come precedentemente dimostrato, \(se K \setminus \{0\} = \alpha, K = \mathbb{F}_p(\alpha)\).\\
-        Quindi, se il grado di \(\alpha\) su \(\mathbb{F}_p\) è n, abbiamo che:\\
-        \(|K| = p^n\), ossia \underline{ogni campo finito ha cardinalità \(p^n\)}, per qualche \(p\) primo e \(n \neq 0\).\\
-    \item siano \(K_1\) e \(K_2\) due campi finiti di cardinalità \(p^n\).\\
-        sia \(K_1 = \mathbb{F}_p(\alpha)\) dove \(\alpha\) è un generatore del gruppo \(K_1 \setminus \{0\}\) e ha grado \(n\) su \(K_1\).\\
-        sia \(Q \in \mathbb{F}_p[X]\) il suo polinomio minimo. Quindi \(deg(Q) = n\), e \(Q\) è irriducibile.\\
-        \begin{enumerate}
-            \item \(K_1\) e \(K_2\) sono campi di spezzamento di \(X^{p^n} - X \in \mathbb{F}_p[X]\).
-            \item ogni polinomio irriducibile di grado n in \(\mathbb{F}_p[X]\) è fattore di \(X^{p^n} - X\).
-            \item da (b) segue che \(Q\) ha una radice in \(K_2\), la chiamiamo \(\beta\).
-            \item l'assegnazione \(\alpha \rightarrow \beta\) definisce un mofismo di campi da \(K_1\) in \(K_2\).\\
-                poiché un morfismo tra campi è sempre iniettivo, ed essendo anche suriettivo,
-                perché \(K_1\) e \(K_2\) hanno la stessa cardinalità, è un isomorfismo:
-                \begin{center}
-                    \(K_1 \simeq K_2\)
-                \end{center}
-        \end{enumerate}
+	\item sia \(K\) un campo finito. qual'è la caratteristica di \(K\)?\\
+	      prendiamo il sottogruppo \(<1_K> \subseteq K\). poiché \(<1_K>\) è finito,\\
+	      \(<1_K> \simeq \mathbb{Z}_n\) per qualche \(n > 1\).\\
+	      dato che gli elementi di \(<1_K>\) sono di un campo, non sono divisori dello zero,\\
+	      quindi \(n\) è primo, ossia \underline{un campo finito ha caratteristica prima \(p\)}\\
+	      e il suo sottocampo fondamentale è \(\mathbb{F}_p\)\\
+	\item sia \(K\) un campo finito. Abbiamo detto nel punto 1. che \(\mathbb{F}_p \subseteq K\) per qualche primo p.\\
+	      inoltre il gruppo moltiplicativo \(K \setminus \{0\}\) è ciclico e quindi,\\
+	      come precedentemente dimostrato, \(se K \setminus \{0\} = \alpha, K = \mathbb{F}_p(\alpha)\).\\
+	      Quindi, se il grado di \(\alpha\) su \(\mathbb{F}_p\) è n, abbiamo che:\\
+	      \(|K| = p^n\), ossia \underline{ogni campo finito ha cardinalità \(p^n\)}, per qualche \(p\) primo e \(n \neq 0\).\\
+	\item siano \(K_1\) e \(K_2\) due campi finiti di cardinalità \(p^n\).\\
+	      sia \(K_1 = \mathbb{F}_p(\alpha)\) dove \(\alpha\) è un generatore del gruppo \(K_1 \setminus \{0\}\) e ha grado \(n\) su \(K_1\).\\
+	      sia \(Q \in \mathbb{F}_p[X]\) il suo polinomio minimo. Quindi \(deg(Q) = n\), e \(Q\) è irriducibile.\\
+	      \begin{enumerate}
+		      \item \(K_1\) e \(K_2\) sono campi di spezzamento di \(X^{p^n} - X \in \mathbb{F}_p[X]\).
+		      \item ogni polinomio irriducibile di grado n in \(\mathbb{F}_p[X]\) è fattore di \(X^{p^n} - X\).
+		      \item da (b) segue che \(Q\) ha una radice in \(K_2\), la chiamiamo \(\beta\).
+		      \item l'assegnazione \(\alpha \rightarrow \beta\) definisce un mofismo di campi da \(K_1\) in \(K_2\).\\
+		            poiché un morfismo tra campi è sempre iniettivo, ed essendo anche suriettivo,
+		            perché \(K_1\) e \(K_2\) hanno la stessa cardinalità, è un isomorfismo:
+		            \begin{center}
+			            \(K_1 \simeq K_2\)
+		            \end{center}
+	      \end{enumerate}
 \end{enumerate}
 
 \newpage
@@ -2691,111 +2691,111 @@ Facciamo alcune osservazioni e un discorso più generale.\\
 \subsection{Algoritmo di Berlekamp}
 
 \begin{teorema}
-    sia \(f(x) \in \mathbb{F}_p[x]\) di grado \(d > 1\), sia \(h(x) \in \mathbb{F}_p[x]\) di grado \(1 < deg(h) < d\)\\
-    tale che \(f(x)\) divide \(h(x)^p - h(x)\).\\
-    allora
-    \begin{center}
-        \(f(x) = MCD\{f(x), h(x)\} \cdot MCD\{f(x), h(x) - 1\} \cdot ... \cdot MCD\{f(x), h(x) - (p - 1)\}\)
-    \end{center}
-    è una fattorizzazione non banale di \(f(x)\) in \(\mathbb{F}_p[x]\).
+	sia \(f(x) \in \mathbb{F}_p[x]\) di grado \(d > 1\), sia \(h(x) \in \mathbb{F}_p[x]\) di grado \(1 < deg(h) < d\)\\
+	tale che \(f(x)\) divide \(h(x)^p - h(x)\).\\
+	allora
+	\begin{center}
+		\(f(x) = MCD\{f(x), h(x)\} \cdot MCD\{f(x), h(x) - 1\} \cdot ... \cdot MCD\{f(x), h(x) - (p - 1)\}\)
+	\end{center}
+	è una fattorizzazione non banale di \(f(x)\) in \(\mathbb{F}_p[x]\).
 \end{teorema}
 
 \begin{dimostrazione}
-    supponiamo che \(f(x)\) divida \(h(x)^p - h(x)\). il polinomio \(X^p - X \in \mathbb{F}_p[X]\) si fattorizza come:
-    \begin{center}
-        \(X^p - X = X(X - 1)(X - 2)...(X - (p - 1))\)
-    \end{center}
-    mettendo \(h(x)\) al posto di \(X\) si ha:
-    \begin{center}
-        \(h(x)^p - h(x) = h(x)(h(x) - 1)(h(x) - 2)...(h(x) - (p - 1))\)
-    \end{center}
-    abbiamo che \(MCD\{ h(x) - i, h(x) - j\} = 1 \forall i,j \in \mathbb{F}_p, i \neq j\).\\
-    infatti, se \(MCD\{ h(x) - i, h(x) - j\} = D(x)\) allora
-    \begin{center}
-        \[
-        \begin{cases}
-            h(x) - i = D(x) \cdot H_i(x)\\
-            h(x) - j = D(x) \cdot H_j(x)
-        \end{cases}
-        \]
-        \(\implies D(x)[H_i(x) - H_j(x)] = j - i \in \mathbb{F}_p\)\\
-        \(\implies deg(D) = 0, i \neq j\)
-    \end{center}
-    inoltre, se \( MCD\{ a, b\} = 1\) si ha che \(MCD\{ f, ab\} = MCD\{ f, a\} = MCD\{ f, b\} \).\\
-    per induzione si ha che 
-    \begin{center}
-        \(MCD\{ f, a_1 \cdot ... \cdot a_k\} = MCD\{ f, a_1\} \cdot ... \cdot MCD\{ f, a_k\}\)
-    \end{center}
-    dato che \(f(x)\) divide \(h(x)^p - h(x)\), abbiamo che
-    \begin{center}
-        \(f(x) = MCD\{ f(x), h(x)^p - h(x)\}\)
-    \end{center}
-    poiché, se \(i \neq j\), \(MCD\{ h(x) - i, h(x) - j\} = 1\), si ha\\
-    \begin{center}
-        \(f(x) = MCD\{ f(x), h(x)^p - h(x)\} = MCD\{ f(x), h(x)[h(x) - 1] \cdot ... \cdot [h(x) - p + 1]\} =\)\\
-        \(= MCD\{ f, h\} \cdot MCD\{ f, h - 1\} \cdot ... \cdot MCD\{ f, h - p + 1\}\).
-    \end{center}
-    poiché \(deg(h - i) < deg(f), MCD\{f, h - i\} \neq f(x), \forall i \in \mathbb{F}_p\).\\
-    quindi nella fattoriazzazione precedente appaiono solo polinomi di grado \(< d\),\\
-    perciò è non banale.
+	supponiamo che \(f(x)\) divida \(h(x)^p - h(x)\). il polinomio \(X^p - X \in \mathbb{F}_p[X]\) si fattorizza come:
+	\begin{center}
+		\(X^p - X = X(X - 1)(X - 2)...(X - (p - 1))\)
+	\end{center}
+	mettendo \(h(x)\) al posto di \(X\) si ha:
+	\begin{center}
+		\(h(x)^p - h(x) = h(x)(h(x) - 1)(h(x) - 2)...(h(x) - (p - 1))\)
+	\end{center}
+	abbiamo che \(MCD\{ h(x) - i, h(x) - j\} = 1 \forall i,j \in \mathbb{F}_p, i \neq j\).\\
+	infatti, se \(MCD\{ h(x) - i, h(x) - j\} = D(x)\) allora
+	\begin{center}
+		\[
+			\begin{cases}
+				h(x) - i = D(x) \cdot H_i(x) \\
+				h(x) - j = D(x) \cdot H_j(x)
+			\end{cases}
+		\]
+		\(\implies D(x)[H_i(x) - H_j(x)] = j - i \in \mathbb{F}_p\)\\
+		\(\implies deg(D) = 0, i \neq j\)
+	\end{center}
+	inoltre, se \( MCD\{ a, b\} = 1\) si ha che \(MCD\{ f, ab\} = MCD\{ f, a\} = MCD\{ f, b\} \).\\
+	per induzione si ha che 
+	\begin{center}
+		\(MCD\{ f, a_1 \cdot ... \cdot a_k\} = MCD\{ f, a_1\} \cdot ... \cdot MCD\{ f, a_k\}\)
+	\end{center}
+	dato che \(f(x)\) divide \(h(x)^p - h(x)\), abbiamo che
+	\begin{center}
+		\(f(x) = MCD\{ f(x), h(x)^p - h(x)\}\)
+	\end{center}
+	poiché, se \(i \neq j\), \(MCD\{ h(x) - i, h(x) - j\} = 1\), si ha\\
+	\begin{center}
+		\(f(x) = MCD\{ f(x), h(x)^p - h(x)\} = MCD\{ f(x), h(x)[h(x) - 1] \cdot ... \cdot [h(x) - p + 1]\} =\)\\
+		\(= MCD\{ f, h\} \cdot MCD\{ f, h - 1\} \cdot ... \cdot MCD\{ f, h - p + 1\}\).
+	\end{center}
+	poiché \(deg(h - i) < deg(f), MCD\{f, h - i\} \neq f(x), \forall i \in \mathbb{F}_p\).\\
+	quindi nella fattoriazzazione precedente appaiono solo polinomi di grado \(< d\),\\
+	perciò è non banale.
 \end{dimostrazione}
 
 \newpage
 
 \textbf{Proposizione:} Un polinomio \(h(x) \in \mathbb{F}_p[x]\) che soddisfa le condizioni del teorema esiste sempre.\\
 \begin{dimostrazione}
-    Sia
-    \begin{center}
-        \(h(x) = b_0 + b_1 x + ... + b_{d - 1} x^{d - 1} \in \mathbb{F}_p[X]\)
-    \end{center}
-    allora
-    \begin{center}
-        \(h(x)^p = b_0^p + b_1^p x + ... + b_{d - 1}^p x^{p(d - 1)}\)\\
-        (avendo dimostrato che \((X + Y)^p = x^p + Y^p\) e induttivamente che \((\sum_{i=1}^{k} x_i)^p = \sum_{i=1}^{k} x_i^p\))
-    \end{center}
-    ma
-    \begin{center}
-        \(b_i^p = b_i \forall 0 \leq i \leq d - 1\) quindi \(h(x)^p = b_0 + b_1 x^p + ... + b_{d - 1} x^{p(d - 1)}\)
-    \end{center}
-    si ha che
-    \begin{center}
-        \(h(x)^p \mod f(x) = b_0 (\mod f) + b_1 (x^p \mod f) + ... + b_{d - 1} (x^{p(d - 1)} \mod f)\)
-    \end{center}
-    sia \(x^{ip} = f(x) q_i(x) + r_i(x)\) con \(deg(r_i) < d, 0 \leq i \leq d - 1\).\\
-    abbiamo che
-    \begin{center}
-        \([h(x)^p - h(x)] \mod f = 0 \mod f \iff h(x)^p \mod f = h(x) \mod f\)\\
-        \(\iff b_0 r_0(x) + b_1 r_1(x) + ... + b_{d - 1} r_{d - 1}(x) = b_0 + b_1 x + ... + b_{d - 1} x^{d - 1}\).
-    \end{center}
-    otteniamo così un sistema lineare di \(d\) equazioni nelle incognite \(b_i\).\\
-    dobbiamo mostrare che esistono soluzioni non nulle.\\
-    sia \(f(x) = p_1(x) ... p_k(x)\) una fattoriazzazione di \(f(x) \in \mathbb{F}_p[x]\) in fattori irriducibili.\\
-    supponiamo che \(f\) non habbia fattori multipli (verificabile con Teorema seguente).\\
+	Sia
+	\begin{center}
+		\(h(x) = b_0 + b_1 x + ... + b_{d - 1} x^{d - 1} \in \mathbb{F}_p[X]\)
+	\end{center}
+	allora
+	\begin{center}
+		\(h(x)^p = b_0^p + b_1^p x + ... + b_{d - 1}^p x^{p(d - 1)}\)\\
+		(avendo dimostrato che \((X + Y)^p = x^p + Y^p\) e induttivamente che \((\sum_{i=1}^{k} x_i)^p = \sum_{i=1}^{k} x_i^p\))
+	\end{center}
+	ma
+	\begin{center}
+		\(b_i^p = b_i \forall 0 \leq i \leq d - 1\) quindi \(h(x)^p = b_0 + b_1 x^p + ... + b_{d - 1} x^{p(d - 1)}\)
+	\end{center}
+	si ha che
+	\begin{center}
+		\(h(x)^p \mod f(x) = b_0 (\mod f) + b_1 (x^p \mod f) + ... + b_{d - 1} (x^{p(d - 1)} \mod f)\)
+	\end{center}
+	sia \(x^{ip} = f(x) q_i(x) + r_i(x)\) con \(deg(r_i) < d, 0 \leq i \leq d - 1\).\\
+	abbiamo che
+	\begin{center}
+		\([h(x)^p - h(x)] \mod f = 0 \mod f \iff h(x)^p \mod f = h(x) \mod f\)\\
+		\(\iff b_0 r_0(x) + b_1 r_1(x) + ... + b_{d - 1} r_{d - 1}(x) = b_0 + b_1 x + ... + b_{d - 1} x^{d - 1}\).
+	\end{center}
+	otteniamo così un sistema lineare di \(d\) equazioni nelle incognite \(b_i\).\\
+	dobbiamo mostrare che esistono soluzioni non nulle.\\
+	sia \(f(x) = p_1(x) ... p_k(x)\) una fattoriazzazione di \(f(x) \in \mathbb{F}_p[x]\) in fattori irriducibili.\\
+	supponiamo che \(f\) non habbia fattori multipli (verificabile con Teorema seguente).\\
 \end{dimostrazione}
 
 \begin{teorema}
-    sia K un campo.
-    \begin{enumerate}
-        \item se \(f(x) \in K[x]\) è ha un fattore multiplo, allora \(MCD\{f, f'\} \neq 1\)\\
-            dove \(f'\) è la derivata di \(f\) rispetto a \(x\).
-        \item se K ha caratteristica 0 o \(p\), e \(MCD\{f, f'\} \neq 1\), allora \(f(x)\) ha un fattore multiplo.
-    \end{enumerate}
+	sia K un campo.
+	\begin{enumerate}
+		\item se \(f(x) \in K[x]\) è ha un fattore multiplo, allora \(MCD\{f, f'\} \neq 1\)\\
+		      dove \(f'\) è la derivata di \(f\) rispetto a \(x\).
+		\item se K ha caratteristica 0 o \(p\), e \(MCD\{f, f'\} \neq 1\), allora \(f(x)\) ha un fattore multiplo.
+	\end{enumerate}
 \end{teorema}
 
 abbiamo una versione in \(\mathbb{F}_p[x]\) del teorema cinese dei resti.\\
 \begin{center}
-    \( MCD\{ p_i(x), p_j(x)\} = 1, \forall \ \leq i \leq k, 1 \leq j \leq k, i \neq j\)\\
-    \(\sfrac{\mathbb{F}_p[x]}{<f>} \simeq \sfrac{\mathbb{F}_p[x]}{<p_1(x)} \times ... \times \sfrac{\mathbb{F}_p[x]}{<p_k(x)>}\)
+	\( MCD\{ p_i(x), p_j(x)\} = 1, \forall \ \leq i \leq k, 1 \leq j \leq k, i \neq j\)\\
+	\(\sfrac{\mathbb{F}_p[x]}{<f>} \simeq \sfrac{\mathbb{F}_p[x]}{<p_1(x)} \times ... \times \sfrac{\mathbb{F}_p[x]}{<p_k(x)>}\)
 \end{center}
 dato \((s_1, ..., s_k) \in \mathbb{F}_p^k\), esisite un unica classe \([h(x)] \in \sfrac{\mathbb{F}_p[x]}{f}\) tale che
 \begin{center}
-    \[
-    \begin{cases}
-        [h(x)] = s_1 in  \sfrac{\mathbb{F}_p[x]}{<p_1(x)>}\\
-        ...\\
-        [h(x)] = s_k in \sfrac{\mathbb{F}_p[x]}{<p_k(x)>}
-    \end{cases}
-    \]
+	\[
+		\begin{cases}
+			[h(x)] = s_1 in  \sfrac{\mathbb{F}_p[x]}{<p_1(x)>} \\
+			...                                                \\
+			[h(x)] = s_k in \sfrac{\mathbb{F}_p[x]}{<p_k(x)>}
+		\end{cases}
+	\]
 \end{center}
 ossia \(h(x) - s_i\) è divisibile per \(p_i(x), \forall 1 \leq i \leq k\)\\
 quindi \(p_i(x)\) divide \(h(x)[h(x) - 1] ... [h(x) - (p - 1)] = h(x)^p - h(x), \forall 1 \leq i \leq k\)\\
@@ -2803,41 +2803,41 @@ quindi \(p_i(x)\) divide \(h(x)[h(x) - 1] ... [h(x) - (p - 1)] = h(x)^p - h(x), 
 \newpage
 
 \begin{example}
-    fattorizziamo \(f = x^5 + x^2 + 2x + 1 \in \mathbb{F}_3[x]\).\\
-    ferifichiamo che \(MCD\{f, f'\} = MCD\{ x^5 + x^2 + 2x + 1, 2x^4 + 2x + 2\} = 1\)\\
-    poi calcoliamo i resti:
-    \begin{center}
-        \(x^{3(5-1)} = x^{12} \equiv (x^2 + 2) \mod f\)
-        \(x^{3\cdot3} = x^9 \equiv (2x^4 + x^3 + x^2 + 2x + 2) \mod f\)
-        \(x^{3 \cdot 2} = x^6 \equiv (2x^3 + x^2 + 2x) \mod f\)
-        \(x^3 \equiv x^3 \mod f\)
-        \(1 \equiv 1 \mod f\)
-        \(\implies b_0 + b_1 x^3 + b_2(2x^3 + x^2 + 2x) + b_3 (2x^4 + x^3 + x^2 + 2x + 2) + b_4(x^2 + 2) = \)\\
-        \(= b_0 + b_1 x + b_2x^2 + b_3 x^3 + b_4 x^4\)\\
-        \(\iff\) \[
-        \begin{cases}
-            2 b_3 + 2 b_4 = 0\\
-            2 b_2 + 2 b_3 - b_1 = 0\\
-            b_2 + b_3 + b_4 - b_2 = 0\\
-            b_1 + 2 b_2 = 0\\
-            2 b_3 - b_4 = 0
-        \end{cases}
-        \iff
-        \begin{cases}
-            b_3 = 2 b_4\\
-            b_1 + b_2 + b_3 = 0\\
-            b_1 = b2
-        \end{cases}
-        \iff
-        b_1 = b_2 = b_3 = 2 b_4
-        \]
-    \end{center}
-    una soluzione è dunque \((0, 1, 1, 1, 2)\), ossia \(h(x) =x + x^2 + x^3 +2 x^4\).\\
-    quindi
-    \begin{center}
-        \(f(x) = MCD\{f, x + x^2 + x^3 +2 x^4\} \cdot MCD\{f, 1 + x^2 + x^3 +2 x^4\} \cdot MCD\{f, 2 + x^2 + x^3 + 2x^4\} = \)\\
-        \(= (1 + x^2)(x^3 + 2x + 1)\)
-    \end{center}
+	fattorizziamo \(f = x^5 + x^2 + 2x + 1 \in \mathbb{F}_3[x]\).\\
+	ferifichiamo che \(MCD\{f, f'\} = MCD\{ x^5 + x^2 + 2x + 1, 2x^4 + 2x + 2\} = 1\)\\
+	poi calcoliamo i resti:
+	\begin{center}
+		\(x^{3(5-1)} = x^{12} \equiv (x^2 + 2) \mod f\)
+		\(x^{3\cdot3} = x^9 \equiv (2x^4 + x^3 + x^2 + 2x + 2) \mod f\)
+		\(x^{3 \cdot 2} = x^6 \equiv (2x^3 + x^2 + 2x) \mod f\)
+		\(x^3 \equiv x^3 \mod f\)
+		\(1 \equiv 1 \mod f\)
+		\(\implies b_0 + b_1 x^3 + b_2(2x^3 + x^2 + 2x) + b_3 (2x^4 + x^3 + x^2 + 2x + 2) + b_4(x^2 + 2) = \)\\
+		\(= b_0 + b_1 x + b_2x^2 + b_3 x^3 + b_4 x^4\)\\
+		\(\iff\) \[
+			\begin{cases}
+				2 b_3 + 2 b_4 = 0         \\
+				2 b_2 + 2 b_3 - b_1 = 0   \\
+				b_2 + b_3 + b_4 - b_2 = 0 \\
+				b_1 + 2 b_2 = 0           \\
+				2 b_3 - b_4 = 0
+			\end{cases}
+			\iff
+			\begin{cases}
+				b_3 = 2 b_4         \\
+				b_1 + b_2 + b_3 = 0 \\
+				b_1 = b2
+			\end{cases}
+			\iff
+			b_1 = b_2 = b_3 = 2 b_4
+		\]
+	\end{center}
+	una soluzione è dunque \((0, 1, 1, 1, 2)\), ossia \(h(x) =x + x^2 + x^3 +2 x^4\).\\
+	quindi
+	\begin{center}
+		\(f(x) = MCD\{f, x + x^2 + x^3 +2 x^4\} \cdot MCD\{f, 1 + x^2 + x^3 +2 x^4\} \cdot MCD\{f, 2 + x^2 + x^3 + 2x^4\} = \)\\
+		\(= (1 + x^2)(x^3 + 2x + 1)\)
+	\end{center}
 \end{example}
 
 Sia \(f(x) \mathbb{F}_p[x], deg(f) = d\).\\
@@ -2845,75 +2845,75 @@ sia \(f(x) = p_1(x)\cdot ... \cdot p_k(x)\) una fattoriazzazione di \(f(x)\) in 
 non banali e aventi molteplicità 1.\\
 siano 
 \begin{center}
-    \(r_0 = 1 \mod f(x)\)\\
-    \(r_1 = x^p \mod f(x)\)\\
-    ...\\
-    \(r_{d - 1} = x^{p(d - 1)} \mod f(x)\)
+	\(r_0 = 1 \mod f(x)\)\\
+	\(r_1 = x^p \mod f(x)\)\\
+	...\\
+	\(r_{d - 1} = x^{p(d - 1)} \mod f(x)\)
 \end{center}
 con \(deg(r_i) < d \forall 0 \leq i \leq d - 1\)\\
 definiamo la matrice \(A \in Mat_{d \times d}(\mathbb{F}_p)\) nel segueente modo:\\
 \(A_{ij} = \) coefficiente del termine di grado i del polinomio \(r_j(x)\)\\
 \begin{example}
-    considerando l'esempio precedente, si ha:\\
-    \(A \in Mat_{5 \times 5}(\mathbb{F}_3) = 
-    \begin{bmatrix}
-    1 & 0 & 0 & 2 & 2 \\
-    0 & 0 & 2 & 2 & 0 \\
-    0 & 0 & 1 & 1 & 1 \\
-    0 & 1 & 2 & 1 & 0 \\
-    0 & 0 & 0 & 2 & 0
-    \end{bmatrix}\)\\
-    la matrice \(A - I\) è la matrice del sistema che abbiamo risolto, ossia \((A - I)\overline{b} = \overline{0}\)
-\end{example} 
+	considerando l'esempio precedente, si ha:\\
+	\(A \in Mat_{5 \times 5}(\mathbb{F}_3) = 
+	\begin{bmatrix}
+		1 & 0 & 0 & 2 & 2  \\
+		0 & 0 & 2 & 2 & 0  \\
+		0 & 0 & 1 & 1 & 1  \\
+		0 & 1 & 2 & 1 & 0  \\
+		0 & 0 & 0 & 2 & 0
+	\end{bmatrix}\)\\
+	la matrice \(A - I\) è la matrice del sistema che abbiamo risolto, ossia \((A - I)\overline{b} = \overline{0}\)
+\end{example}
 
 \newpage
 
 \begin{teorema}
-    Il numero di fattori irriducibili k nella fattorizzazione di f \\
-    è uguale alla dimensione del nucleo di A - I.\\
-    ossia \(k = d - rk(A - I)\), rango calcolato sul campo \(\mathbb{F}_p\).
+	Il numero di fattori irriducibili k nella fattorizzazione di f \\
+	è uguale alla dimensione del nucleo di A - I.\\
+	ossia \(k = d - rk(A - I)\), rango calcolato sul campo \(\mathbb{F}_p\).
 \end{teorema}
 
 \begin{dimostrazione}
-    osserviamo innanzitutto che \(dim(ker(A - I)) \geq 1\).\\
-    infatti la d-tupla \((b_0, 0 , ..., 0)\) è sempre soluzione del sistema \(\forall b_0 \in \mathbb{F}_p\).\\
-    abbiamo visto che l'Insieme
-    \begin{center}
-        \(H = \{ h \in \mathbb{F}_p[x] : deg (h) < d, f | h^p - h\}\)
-    \end{center}
-    è uno spazio vettoriale su \(\mathbb{F}_p\) isomorfo a \(ker(A - I)\).\\
-    sia k il numero di fattori irriducibili non banali di \(f\), aventi tutti molteplicità 1.\\
-    dimostriamo che \(\mathbb{F}_p^k\) è isomorfo a H.\\
-    abbiamo già dimostrato che per ogni \((s_1, ... s_k) \in \mathbb{F}_p^k\) troviamo un unico elemento di H,\\
-    usando il Teorema cinese dei resti per l'anello \(\mathbb{F}_p[X]\).\\
-    quindi abbiamo definito una funzione \(\varphi : \mathbb{F}_p^k \rightarrow H\)
-    \begin{enumerate}
-        \item \(\varphi\) è un morfismo si spazi vettoriali.
-        \item \(\varphi\) è iniettiva:\\
-                \(ker(\varphi) = \{(s_1, ... s_k) \in \mathbb{F}_p^k : s_i \mod p_i = 0, \forall 1 \leq i \leq k\}\)\\
-                \(=\{(0, ... , 0)\}\)
-        \item \(\varphi\) è suriettiva:\\
-                se \(h \in H\), abbiamo visto che \(h^p - h = h (h - 1)(h - 2)...(h - (p - 1))\).\\
-                questi fattori sono coprimi a coppie, quindi se \(f | h^p - h\), allora \(p_i(x) | (h - s_i)\)\\
-                per un unico \(s_i \in \mathbb{F}_p, \forall 1 \leq i \leq k\).\\
-                quindi \(h\) è soluzione del sistema
-                \[
-                \begin{cases}
-                    h \equiv s_1 \mod p_1\\
-                    ...\\
-                    h \equiv s_k \mod p_k
-                \end{cases}
-                \]
-    \end{enumerate}
-    abbiamo dimostrato che \(\varphi : \mathbb{F}_p^k \rightarrow H \) è un isomorfismo do spazi vettoriali, quindi
-    \begin{center}
-        \(\mathbb{F}_p^k \simeq H \simeq ker(A - I)\)
-    \end{center}
-    ossia \(dim(ker(A - I)) = k = d - rk(A - I)\).
+	osserviamo innanzitutto che \(dim(ker(A - I)) \geq 1\).\\
+	infatti la d-tupla \((b_0, 0 , ..., 0)\) è sempre soluzione del sistema \(\forall b_0 \in \mathbb{F}_p\).\\
+	abbiamo visto che l'Insieme
+	\begin{center}
+		\(H = \{ h \in \mathbb{F}_p[x] : deg (h) < d, f | h^p - h\}\)
+	\end{center}
+	è uno spazio vettoriale su \(\mathbb{F}_p\) isomorfo a \(ker(A - I)\).\\
+	sia k il numero di fattori irriducibili non banali di \(f\), aventi tutti molteplicità 1.\\
+	dimostriamo che \(\mathbb{F}_p^k\) è isomorfo a H.\\
+	abbiamo già dimostrato che per ogni \((s_1, ... s_k) \in \mathbb{F}_p^k\) troviamo un unico elemento di H,\\
+	usando il Teorema cinese dei resti per l'anello \(\mathbb{F}_p[X]\).\\
+	quindi abbiamo definito una funzione \(\varphi : \mathbb{F}_p^k \rightarrow H\)
+	\begin{enumerate}
+		\item \(\varphi\) è un morfismo si spazi vettoriali.
+		\item \(\varphi\) è iniettiva:\\
+		      \(ker(\varphi) = \{(s_1, ... s_k) \in \mathbb{F}_p^k : s_i \mod p_i = 0, \forall 1 \leq i \leq k\}\)\\
+		      \(=\{(0, ... , 0)\}\)
+		\item \(\varphi\) è suriettiva:\\
+		      se \(h \in H\), abbiamo visto che \(h^p - h = h (h - 1)(h - 2)...(h - (p - 1))\).\\
+		      questi fattori sono coprimi a coppie, quindi se \(f | h^p - h\), allora \(p_i(x) | (h - s_i)\)\\
+		      per un unico \(s_i \in \mathbb{F}_p, \forall 1 \leq i \leq k\).\\
+		      quindi \(h\) è soluzione del sistema
+		      \[
+			      \begin{cases}
+				      h \equiv s_1 \mod p_1 \\
+				      ...                   \\
+				      h \equiv s_k \mod p_k
+			      \end{cases}
+		      \]
+	\end{enumerate}
+	abbiamo dimostrato che \(\varphi : \mathbb{F}_p^k \rightarrow H \) è un isomorfismo do spazi vettoriali, quindi
+	\begin{center}
+		\(\mathbb{F}_p^k \simeq H \simeq ker(A - I)\)
+	\end{center}
+	ossia \(dim(ker(A - I)) = k = d - rk(A - I)\).
 \end{dimostrazione}
 
 \begin{example}
-    sempre considerando l'esempio precedente, si ha che \(2 = 5 - rk(A - I)\)\\
+	sempre considerando l'esempio precedente, si ha che \(2 = 5 - rk(A - I)\)\\
 \end{example}
 
 \newpage
@@ -2923,29 +2923,29 @@ abbiamo che \(D = MCD\{f, f'\} \neq 1\).\\
 osserviamo che il polinomio \(\frac{f}{D}\) ha fattori irriducibili tutti di molteplicità 1.\\
 infatti se \(p_1, ... , p_k\) sono tutti distinti,\\
 \begin{center}
-    \(f' = (p_1^{e_1}(x) ... p_k^{e_k}(x))' =\)\\
-    \(e_1 p_1 ^ {e_1 - 1} p_1'p_2^{e_2} ... p_k^{e_k} + ... + e_k p_1^{e_1}p_2^{e_2} ... p_k^{e_k - 1}p_k'\)\\
+	\(f' = (p_1^{e_1}(x) ... p_k^{e_k}(x))' =\)\\
+	\(e_1 p_1 ^ {e_1 - 1} p_1'p_2^{e_2} ... p_k^{e_k} + ... + e_k p_1^{e_1}p_2^{e_2} ... p_k^{e_k - 1}p_k'\)\\
 \end{center}
 e \(D = p_1^{e_1 - 1} ... p_k^{e_k - 1}\) quindi \(\frac{f}{D} = p_1 ... p_k\)\\
 allora fattorizziamo \(\frac{f}{D}\) poi fattorizziamo \(D\), eventualmente ripetendo con \(D, D'\).\\
 fincé non otteniamo \(MCD\{ D_i, D_i'\} = 1\).
 
 \begin{example}
-    in \(\mathbb{F}_3[x]\) consideriamo il polinomio \(f = 1 + 2x + 2x^2 + x^5 + x^6 + x^7\).\\
-    si ha che 
-    \begin{center}
-        \(f' = 2 + 4x + 5x^4 + 7x^6 = 2 + x + 2x^4 + x^6\).\\
-    \end{center}
-    e
-    \begin{center}
-        \(MCD\{f, f'\} = 1 + 2x + x^3 =: D\).\\
-        \(\frac{f}{D} = 1 + 2x^2 + x^3 + x^4\), fattorizzando otteniamo \((x + 1)(1 + 2x+x^3)\).\\
-    \end{center}
-    dato che \(D\) non ha radici in \(\mathbb{F}_3\), \(D\) è irriducibile.\\
-    allora
-    \begin{center}
-        \(f = \frac{f}{D} \cdot D = (x + 1)(1 + 2x + x^3)^2\)
-    \end{center}
+	in \(\mathbb{F}_3[x]\) consideriamo il polinomio \(f = 1 + 2x + 2x^2 + x^5 + x^6 + x^7\).\\
+	si ha che 
+	\begin{center}
+		\(f' = 2 + 4x + 5x^4 + 7x^6 = 2 + x + 2x^4 + x^6\).\\
+	\end{center}
+	e
+	\begin{center}
+		\(MCD\{f, f'\} = 1 + 2x + x^3 =: D\).\\
+		\(\frac{f}{D} = 1 + 2x^2 + x^3 + x^4\), fattorizzando otteniamo \((x + 1)(1 + 2x+x^3)\).\\
+	\end{center}
+	dato che \(D\) non ha radici in \(\mathbb{F}_3\), \(D\) è irriducibile.\\
+	allora
+	\begin{center}
+		\(f = \frac{f}{D} \cdot D = (x + 1)(1 + 2x + x^3)^2\)
+	\end{center}
 \end{example}
 
 \newpage
@@ -2953,16 +2953,16 @@ fincé non otteniamo \(MCD\{ D_i, D_i'\} = 1\).
 \section{Tensori}
 \subsection{Prodotto tra matrici}
 \begin{definition}
-    prodotto righe per colonne di matrici 2 x 2\\
-    sia \(Mat_{2 \times 2}(K) = \{\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} : x_i \in K \}\) l'insieme delle matrici 2 x 2 a coefficienti in un campo K.\\
+	prodotto righe per colonne di matrici 2 x 2\\
+	sia \(Mat_{2 \times 2}(K) = \{\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} : x_i \in K \}\) l'insieme delle matrici 2 x 2 a coefficienti in un campo K.\\
 \end{definition}
 diamo all'insieme una struttura di anello:\\
 \begin{itemize}
-    \item somma: \(\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} + \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 + y_1 & x_2 + y_2 \\ x_3 + y_3 & x_4 + y_4 \end{pmatrix}\)
-    \item prodotto: \(\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} \cdot \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 y_1 + x_2 y_3 & x_1 y_2 + x_2 y_4 \\ x_3 y_1 + x_4 y_3 & x_3 y_2 + x_4 y_4 \end{pmatrix}\)
+	\item somma: \(\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} + \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 + y_1 & x_2 + y_2 \\ x_3 + y_3 & x_4 + y_4 \end{pmatrix}\)
+	\item prodotto: \(\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} \cdot \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 y_1 + x_2 y_3 & x_1 y_2 + x_2 y_4 \\ x_3 y_1 + x_4 y_3 & x_3 y_2 + x_4 y_4 \end{pmatrix}\)
 \end{itemize}
 con queste operazioni \(Mat_{2 \times 2}(K)\) è un anello con unità 
-\(\begin{pmatrix} 1_k & 0\\ 0 & 1_k 
+\(\begin{pmatrix} 1_k & 0 \\ 0 & 1_k
 \end{pmatrix}\).\\
 
 il prodotto così definito richiede di eseguire 8 moltiplicazioni.\\
@@ -2970,77 +2970,77 @@ abalogamente possiamo dotare \(Mat_{n \times n}(K)\) di una struttura di anello.
 la moltiplicazione righe per colonne richiede l'esecuzione di \(n^3\) moltiplicazioni.\\
 
 \begin{example}
-    in \(Mat_{3 \times 3}(\mathbb{F}_2)\) abbiamo
-    \begin{center}
-        \(\begin{pmatrix}
-            1 & 1 & 1\\
-            0 & 1 & 1\\
-            1 & 0 & 1
-        \end{pmatrix} 
-        \cdot
-        \begin{pmatrix}
-            1 & 0 & 0\\
-            1 & 1 & 0\\
-            1 & 1 & 1
-        \end{pmatrix}
-        = 
-        \begin{pmatrix}
-            1 & 0 & 1\\
-            0 & 0 & 1\\
-            1 & 1 & 1
-        \end{pmatrix}\)
-    \end{center}
+	in \(Mat_{3 \times 3}(\mathbb{F}_2)\) abbiamo
+	\begin{center}
+		\(\begin{pmatrix}
+			1 & 1 & 1  \\
+			0 & 1 & 1  \\
+			1 & 0 & 1
+		\end{pmatrix}
+		\cdot
+		\begin{pmatrix}
+			1 & 0 & 0  \\
+			1 & 1 & 0  \\
+			1 & 1 & 1
+		\end{pmatrix}
+		= 
+		\begin{pmatrix}
+			1 & 0 & 1  \\
+			0 & 0 & 1  \\
+			1 & 1 & 1
+		\end{pmatrix}\)
+	\end{center}
 \end{example}
 
 \begin{definition}
-    Algorimo di Strassen per il prodotto di matrici 2 x 2:\\
-    sia \(A = \begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix}\) e \(B = \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix}\)\\
-    e \(AB = \begin{pmatrix} z_1 & z_2 \\ z_3 & z_4 \end{pmatrix}\)\\
-    definiamo
-    \begin{enumerate}
-        \item \((x_1 + x_4)(y_1 + y_4)\)
-        \item \((x_3 + x_4)y_1\)
-        \item \(x_1(y_2 + y_4)\)
-        \item \(x_4(-y_1 + y_3)\)
-        \item \((x_1 + x_2)y_4\)
-        \item \((-x_1 + x_3)(y_1 + y_2)\)
-        \item \((x_2 - x_4)(y_3 + y_4)\)
-    \end{enumerate}
-    allora \(z_1 = 1 + 4 - 5 + 7, z_2 = 3 + 5, z_3 = 2 + 4, z_4 = 1 + 3 - 2 + 6\)\\
+	Algorimo di Strassen per il prodotto di matrici 2 x 2:\\
+	sia \(A = \begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix}\) e \(B = \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix}\)\\
+	e \(AB = \begin{pmatrix} z_1 & z_2 \\ z_3 & z_4 \end{pmatrix}\)\\
+	definiamo
+	\begin{enumerate}
+		\item \((x_1 + x_4)(y_1 + y_4)\)
+		\item \((x_3 + x_4)y_1\)
+		\item \(x_1(y_2 + y_4)\)
+		\item \(x_4(-y_1 + y_3)\)
+		\item \((x_1 + x_2)y_4\)
+		\item \((-x_1 + x_3)(y_1 + y_2)\)
+		\item \((x_2 - x_4)(y_3 + y_4)\)
+	\end{enumerate}
+	allora \(z_1 = 1 + 4 - 5 + 7, z_2 = 3 + 5, z_3 = 2 + 4, z_4 = 1 + 3 - 2 + 6\)\\
 \end{definition}
 
 \begin{example}
-    in \(Mat_{2 \times 2}(\mathbb{F}_2)\) siano
-    \begin{center}
-        \(A = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}\) e \(B = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\)\\
-    \end{center}
-        allora \(.1 = 0, .2 = 0, .3 = 1, .4 = 0, .5 = 0, .6 = 0, .7 = 0 \)\\
-        quindi \(AB = \begin{pmatrix} .1 + .4 - .5 + .7 & .3 + .5 \\ .2 + .5 & .1 + .3 - .2 + .6 \end{pmatrix} = 
-        \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}\)
+	in \(Mat_{2 \times 2}(\mathbb{F}_2)\) siano
+	\begin{center}
+		\(A = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}\) e \(B = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\)\\
+	\end{center}
+	allora \(.1 = 0, .2 = 0, .3 = 1, .4 = 0, .5 = 0, .6 = 0, .7 = 0 \)\\
+	quindi \(AB = \begin{pmatrix} .1 + .4 - .5 + .7 & .3 + .5 \\ .2 + .5 & .1 + .3 - .2 + .6 \end{pmatrix} = 
+	\begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}\)
 \end{example}
 
 Nell'algoritmo di Strassen per matrici 2 x 2 si eseguono 7 moltiplicazioni.\\
 L'algoritmo può anche essere usato ricorsivamente per motiplicare matici più grandi.\\
 ad esempio, se \(M, N \in Mat_{4 \times 4}(K)\), possiamo scrivere:
 \begin{center}
-    \(M = \begin{pmatrix} A & B \\ C & D \end{pmatrix}\) e \(N = \begin{pmatrix} A' & B' \\ C' & D' \end{pmatrix}\)\\
-    dove \(A, B, C, D, A', B', C', D' \in Mat_{2 \times 2}(K)\)\\
-    poiche \(MN = \begin{pmatrix} AA' + BC' & AB' + BD' \\ CA' + DC' & CB' + DD' \end{pmatrix}\)\\
+	\(M = \begin{pmatrix} A & B \\ C & D \end{pmatrix}\) e \(N = \begin{pmatrix} A' & B' \\ C' & D' \end{pmatrix}\)\\
+	dove \(A, B, C, D, A', B', C', D' \in Mat_{2 \times 2}(K)\)\\
+	poiche \(MN = \begin{pmatrix} AA' + BC' & AB' + BD' \\ CA' + DC' & CB' + DD' \end{pmatrix}\)\\
 \end{center}
 possiamo usare l'algoritmo in due passi.\\
 primo passo:
 \begin{enumerate}
-    \item \((A + D)(A' + D')\)
-    \item \((C + D) A'\)
-    \item \(A(B' + D')\)
-    \item \(D(-A' + C')\)
-    \item \((A + B)D'\)
-    \item \((-A + C)(A' + B')\)
-    \item \((B - D)(C' + D')\)
+	\item \((A + D)(A' + D')\)
+	\item \((C + D) A'\)
+	\item \(A(B' + D')\)
+	\item \(D(-A' + C')\)
+	\item \((A + B)D'\)
+	\item \((-A + C)(A' + B')\)
+	\item \((B - D)(C' + D')\)
 \end{enumerate}
 e quindi \(MN = \begin{pmatrix}
-    .1 + .4 - .5 + .7 & .2 + .5\\
-    .3 + .4 & .1 + .3 - .2 + .6
+	.1 + .4 - .5 + .7 & .2 + .5            \\
+	.3 + .4           & .1 + .3 - .2 + .6
 \end{pmatrix}\)\\
 \vspace{\baselineskip}secondo passo: calcoliamo il prodotto in (.1, .2, 3, ... , .7) con l'algoritmo di Strassen. 
 Quindi l'algoritmo di Strassen per il prodotto tra due matrici 4 x 4 richiede\\
@@ -3052,12 +3052,12 @@ In generale la moltiplicazione di due matrici n x n usando l'algoritmo di Strass
 \(7^k\) moltiplicazioni se \(n = 2^k\)\\
 abbiamo che
 \begin{center}
-    \(7^k = 2^{\log_2 7^k}=2^{k \log_2 7} \approx 2^{2.81}\)
+	\(7^k = 2^{\log_2 7^k}=2^{k \log_2 7} \approx 2^{2.81}\)
 \end{center}
 
 \begin{definition}
-    \textbf{L'esponente w} della moltiplicazione di matrici è\\
-    \(w := INF\{ h \in \mathbb{R} : Mat_{n \times n}(K)\) può essere moltiplicato con \(O(n^h)\) operazioni aritmrtiche \(\}\)\\
+	\textbf{L'esponente w} della moltiplicazione di matrici è\\
+	\(w := INF\{ h \in \mathbb{R} : Mat_{n \times n}(K)\) può essere moltiplicato con \(O(n^h)\) operazioni aritmrtiche \(\}\)\\
 \end{definition}
 
 \vspace{\baselineskip}L'algoritmo di Strassen mostra che \(w \leq 2.81\).\\
@@ -3086,13 +3086,13 @@ che richiede l'esecuzione di 47 moltiplicazioni, l'algoritmo di Strassen ne rich
 	L'insieme \(Mat_{n \times n}(K)\) è un anello, con unità la matrice identità
 	\begin{center}
 		\(Id_n = \begin{pmatrix}
-			1 & 0 & ... & 0\\
-			0 & 1 & ... & 0\\
-			... & ... & ... & ...\\
-			0 & 0 & ... & 1
+			1   & 0   & ... & 0   \\
+			0   & 1   & ... & 0   \\
+			... & ... & ... & ... \\
+			0   & 0   & ... & 1
 		\end{pmatrix}\)
 	\end{center}
-\end{definition} 
+\end{definition}
 
 Ad un endomorfismo \(f \in End(V)\), se \(dim(V) = n\), possiamo associare una matrice nel seuente modo:\\
 Sia\(\{e_1, ... e_n\}\) una base di V.\\
@@ -3100,9 +3100,9 @@ Sia \(f(e_1) = a_{1i} e_1 + a_{2i} e_2 + ... + a{ni} e_n, a_{1i},...,a_{ni} \in 
 allora la matrice M(f) associata a \(f\) è:
 \begin{center}
 	\(\begin{pmatrix}
-	a_{1i}\\
-	...\\
-	a_{ni}
+		a_{1i} \\
+		...    \\
+		a_{ni}
 	\end{pmatrix}\)
 \end{center}
 
@@ -3128,22 +3128,22 @@ allora la matrice M(f) associata a \(f\) è:
 	è rappresentato dalla matrice
 	\begin{center}
 		\(M(\Phi) = \begin{pmatrix}
-			1 & 1\\
+			1 & 1  \\
 			0 & 1
 		\end{pmatrix}\)
 	\end{center}
 	infatti \(\Phi(1) = 1, \Phi(x) = x^2 = 1 + x\).\\
 	dato che \([(\Phi)]^2 = \begin{pmatrix}
-		1 & 0\\
+		1 & 0  \\
 		0 & 1
 	\end{pmatrix}\) una rappresentazione matriciale di \(Aut(\mathbb{F}_4)\) è\\
 	\begin{center}
 		\(\{\begin{pmatrix}
-			1 & 0\\
+			1 & 0  \\
 			0 & 1
 		\end{pmatrix},
 		\begin{pmatrix}
-			1 & 1\\
+			1 & 1  \\
 			0 & 1
 		\end{pmatrix}\}\)
 	\end{center}
@@ -3152,7 +3152,7 @@ allora la matrice M(f) associata a \(f\) è:
 	\begin{center}
 		\(Mat_{2 \times 2}(\mathbb{F}_2) = \{
 		\begin{pmatrix}
-			x_1 & x_2\\
+			x_1 & x_2  \\
 			x_3 & x_4
 		\end{pmatrix} : 
 		x_i \in \mathbb{F}_2\}\)	
@@ -3161,7 +3161,7 @@ allora la matrice M(f) associata a \(f\) è:
 
 \begin{example}[automorfismi di \(\mathbb{F}_4\) come s.v. su \(\mathbb{F}_2\) ]
 	sia \(A = \begin{pmatrix}
-		a & b\\
+		a & b  \\
 		c & d
 	\end{pmatrix}\) una matrice invertibile a coefficienti in \(\mathbb{F}_2\).\\
 	A rappresenta un automorfismo di \(\mathbb{F}_4\) come spazio vettoriale.\\
@@ -3176,27 +3176,27 @@ allora la matrice M(f) associata a \(f\) è:
 	\begin{center}
 		\(Aut(\mathbb{F}_4) = \{ 
 		\begin{pmatrix}
-			1 & 0\\
+			1 & 0  \\
 			0 & 1
 		\end{pmatrix}, 
 		\begin{pmatrix}
-			1 & 0\\
+			1 & 0  \\
 			1 & 1
 		\end{pmatrix},
 		\begin{pmatrix}
-			0 & 1\\
+			0 & 1  \\
 			1 & 0
 		\end{pmatrix},
 		\begin{pmatrix}
-			0 & 1\\
+			0 & 1  \\
 			1 & 1
 		\end{pmatrix},
 		\begin{pmatrix}
-			1 & 1\\
+			1 & 1  \\
 			0 & 1
 		\end{pmatrix},
 		\begin{pmatrix}
-			1 & 1\\
+			1 & 1  \\
 			1 & 0
 		\end{pmatrix}
 		\}\)
@@ -3204,14 +3204,14 @@ allora la matrice M(f) associata a \(f\) è:
 	invece come campo avevamo che
 	\begin{center}
 		\(Aut(\mathbb{F}_4) = \{
-			\begin{pmatrix}
-				1 & 0\\
-				0 & 1
-			\end{pmatrix},
-			\begin{pmatrix}
-				1 & 1\\
-				0 & 1
-			\end{pmatrix}\} = \{Id, \Phi\}\)
+		\begin{pmatrix}
+			1 & 0  \\
+			0 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+			1 & 1  \\
+			0 & 1
+		\end{pmatrix}\} = \{Id, \Phi\}\)
 	\end{center}
 \end{example}
 
@@ -3228,9 +3228,9 @@ allora la matrice M(f) associata a \(f\) è:
 	sia 
 	\begin{center}
 		\(e^*_i(e_j)= \begin{cases}
-			1 \text{ se } i = j\\
+			1 \text{ se } i = j \\
 			0 \text{ se } i \neq j
-			\end{cases} \forall 1 \leq i \leq n\)
+		\end{cases} \forall 1 \leq i \leq n\)
 	\end{center}
 	L'insieme \(\{e^*_1, ..., e^*_n\}\) è una base di \(V^*\). in paricolare \(dim(V^*) = dim(V) = n\).\\
 \end{definition}
@@ -3239,29 +3239,29 @@ allora la matrice M(f) associata a \(f\) è:
 	Sia \(V = (\mathbb{F}_2)^4\) e sia \(f \in V^*\) definita da
 	\begin{center}
 		\(f(x) = <\begin{pmatrix}
-			1\\
-			1\\
-			1\\
+			1 \\
+			1 \\
+			1 \\
 			1
 		\end{pmatrix}, x >\) 
 	\end{center}
 	dove <,> è il prodotto scalare standard.\\
 	Dunque, se \(x = \begin{pmatrix}
-		x_1\\
-		x_2\\
-		x_3\\
+		x_1 \\
+		x_2 \\
+		x_3 \\
 		x_4
 	\end{pmatrix}, f(x) = x_1 + x_2 + x_3 + x_4\) e \(f = e^*_1 + e^*_2 + e^*_3 + e^*_4\).\\
 	ad esempio \(f(\begin{pmatrix}
-		1\\
-		1\\
-		1\\
+		1 \\
+		1 \\
+		1 \\
 		1
 	\end{pmatrix}) = 1 + 1 + 1 + 1 = 0\),
 	\(f(\begin{pmatrix}
-		0\\
-		1\\
-		1\\
+		0 \\
+		1 \\
+		1 \\
 		1
 	\end{pmatrix}) = 0 + 1 + 1 + 1 = 1 \)
 \end{example}
@@ -3276,7 +3276,7 @@ allora la matrice M(f) associata a \(f\) è:
 	\begin{itemize}
 		\item \(f(a v_1, v_2) = f(v_1, a v_2) = a f(v_1,v_2), \forall a \in K, v_1, v_2 \in V\)
 		\item \(f(v_1 + v_2, w) = f(v_1, w) + f(v_2, w)\)\\
-				\(f(w, v_1 + v_2) = f(w, v_1) + f(w, v_2), \forall v_1, v_2, w \in V\)
+		      \(f(w, v_1 + v_2) = f(w, v_1) + f(w, v_2), \forall v_1, v_2, w \in V\)
 	\end{itemize}
 \end{definition}
 
@@ -3298,11 +3298,11 @@ allora la matrice M(f) associata a \(f\) è:
 Siano \(1 \leq i,j \leq n\), indichiamo con \(e_i^* \otimes e_j^* : V \times V \rightarrow K\) la forma bilineare su V tale che:
 \begin{center}
 	\((e_i^* \otimes e_j^*)(e_h, e_k) = \delta_{ih} \delta_{jk} = \begin{cases}
-		1_k \text{ se } i = h, j = k\\
+		1_k \text{ se } i = h, j = k \\
 		0 \text{ altrimenti}
 	\end{cases}\)\\
 	dove \(\delta_{ih} = \begin{cases}
-		1 \text{ se } i = h\\
+		1 \text{ se } i = h \\
 		0 \text{ altrimenti}
 	\end{cases}\) è la delta di Kronecker.
 \end{center}
@@ -3337,25 +3337,25 @@ cioè \(M(f)_{ij} =\) coordinata di \(f\) nella base \(\{e_i^* \otimes e_j^*\}\)
 	\begin{itemize}
 		\item la matrice del prodotto scalare canonico è la matrice identità.
 		\item alla forma bilineare
-				\begin{center}
-					\(e_1^* \otimes e_2^* - e_2^* \otimes e_1^* \in (K^2)^* \otimes (K^2)^*\)
-				\end{center}
-				corrisponde la matrice 
-				\(\begin{pmatrix}
-					0 & 1\\
-					-1 & 0
-				\end{pmatrix}\) si nota che è una forma bilineare antisimmetrica.
+		      \begin{center}
+			      \(e_1^* \otimes e_2^* - e_2^* \otimes e_1^* \in (K^2)^* \otimes (K^2)^*\)
+		      \end{center}
+		      corrisponde la matrice 
+		      \(\begin{pmatrix}
+			      0  & 1  \\
+			      -1 & 0
+		      \end{pmatrix}\) si nota che è una forma bilineare antisimmetrica.
 		\item La forma bilineare antisimmetrica
-				\begin{center}
-					\(e_1^* \otimes e_3^* - e_3^* \otimes e_1^* + e_2^* \otimes e_4^* - e_4^* \otimes e_2^* \in (K^4)^* \otimes (K^4)^*\)
-				\end{center}
-				è detta forma simplettica, e la sua matrice associata è
-				\(\begin{pmatrix}
-					0 & 0 & 1 & 0\\
-					0 & 0 & 0 & 1\\
-					-1 & 0 & 0 & 0\\
-					0 & -1 & 0 & 0
-				\end{pmatrix}\)
+		      \begin{center}
+			      \(e_1^* \otimes e_3^* - e_3^* \otimes e_1^* + e_2^* \otimes e_4^* - e_4^* \otimes e_2^* \in (K^4)^* \otimes (K^4)^*\)
+		      \end{center}
+		      è detta forma simplettica, e la sua matrice associata è
+		      \(\begin{pmatrix}
+			      0  & 0  & 1 & 0  \\
+			      0  & 0  & 0 & 1  \\
+			      -1 & 0  & 0 & 0  \\
+			      0  & -1 & 0 & 0
+		      \end{pmatrix}\)
 	\end{itemize}
 \end{example}
 
@@ -3367,8 +3367,8 @@ Abbiamo quindi definito un isomorfismo di spazi vettoriali
 Quindi se
 \begin{center}
 	\(A = \begin{pmatrix}
-		a_{11} & ... & a_{1n}\\
-		... & ... & ...\\
+		a_{11} & ... & a_{1n} \\
+		...    & ... & ...    \\
 		a_{n1} & ... & a_{nn}
 	\end{pmatrix} \in Mat_{n \times n}(K)\)
 \end{center}
@@ -3378,7 +3378,7 @@ La forma bilineare \(f \in V^* \otimes V^*\) associata a A è
 \end{center}
 \begin{example}
 	\(A = \begin{pmatrix}
-		1 & 2\\
+		1 & 2  \\
 		2 & 1
 	\end{pmatrix} \in Mat_{2 \times 2}(\mathbb{F}_3)\)\\
 	\(f = (e_1^* + 2e_2^*) \otimes e_1^* + (2e_1^* + e_2^*) \otimes e_2^* = e_1^* \otimes e_1^* + 2 e_2^* \otimes e_1^* + 2e_1^* \otimes e_2^* + e_2^* \otimes e_2^*\)
@@ -3410,9 +3410,9 @@ si ha che:
 	\begin{enumerate}
 		\item \(f(av_1, ... ,v_k) = f(v_1, a v_2, ..., v_k) = ... = f(v_1, ..., a v_k) = a f(v_1, ... v_k) \forall a \in \mathbb{F}, v_i \in V_i\)
 		\item \(f(v_1 + w_1, v_2, ... ,v_k) = f(v_1, ..., v_k) + f(w_1, ..., v_k)\)\\
-				\(...\)\\
-				\(f(v_1, v_2, ... ,v_k + w_k) = f(v_1, ..., v_k) + f(v_1, ..., w_k)\)\\
-				\(\forall v_i, w_i \in V_i\)
+		      \(...\)\\
+		      \(f(v_1, v_2, ... ,v_k + w_k) = f(v_1, ..., v_k) + f(v_1, ..., w_k)\)\\
+		      \(\forall v_i, w_i \in V_i\)
 	\end{enumerate}
 \end{definition}
 
@@ -3452,37 +3452,37 @@ sia \(X = \{A \in Mat_{h \times k}(\mathbb{F}) : rk(A) = 1\}\), allora si ha che
 	la matrice
 	\begin{center}
 		\(A = \begin{pmatrix}
-			1 & -1 & 3\\
-			2 & 4 & -6\\
-			3 & 0 & 3
+			1 & -1 & 3  \\
+			2 & 4  & -6 \\
+			3 & 0  & 3
 		\end{pmatrix}\)
 	\end{center}
 	ha rango 2, e si ha che:
 	\begin{center}
 		\(A = \begin{pmatrix}
-			1 & 0 & 0\\
-			2 & 0 & 0\\
+			1 & 0 & 0  \\
+			2 & 0 & 0  \\
 			3 & 0 & 0
 		\end{pmatrix} + \begin{pmatrix}
-			0 & -1 & 0\\
-			0 & 4 & 0\\
-			0 & 0 & 0
+			0 & -1 & 0  \\
+			0 & 4  & 0  \\
+			0 & 0  & 0
 		\end{pmatrix} + \begin{pmatrix}
-			0 & 0 & 3\\
-			0 & 0 & -6\\
+			0 & 0 & 3  \\
+			0 & 0 & -6 \\
 			0 & 0 & 3
 		\end{pmatrix}\)
 	\end{center}
 	che è una combinazione lineare di matrici di rango 1, un altra è:
 	\begin{center}
 		\(A = \begin{pmatrix}
-			1 & 0 & 1\\
-			2 & 0 & 2\\
+			1 & 0 & 1  \\
+			2 & 0 & 2  \\
 			3 & 0 & 3
 		\end{pmatrix} + \begin{pmatrix}
-			0 & -1 & 2\\
-			0 & 4 & -8\\
-			0 & 0 & 0
+			0 & -1 & 2  \\
+			0 & 4  & -8 \\
+			0 & 0  & 0
 		\end{pmatrix}\)
 	\end{center}
 	ovviamente è la minima perchè \(rk(A) = 2\)\\
@@ -3498,8 +3498,8 @@ Quindi, se \(A \in Mat_{a \times b}(K)\) e \(rk(A) = 1\), esistono \(a_1, ..., a
 		a_1 & a_2 & ... & a_b
 	\end{pmatrix} = \overrightarrow{v}\overrightarrow{a}^T\)\\
 	dove \(\overrightarrow{a} = \begin{pmatrix}
-		a_1\\
-		...\\
+		a_1 \\
+		... \\
 		a_b
 	\end{pmatrix} \in K^b \setminus \{\overrightarrow{0}\}\)\\
 \end{center}
@@ -3528,11 +3528,11 @@ allora \(V_1 \otimes V_2 \otimes ... \otimes V_h\) è uno spazio vettoriale con 
 che soddisfa le seguenti Relazioni:
 \begin{enumerate}
 	\item \(a(v_{j_1}^1 \otimes v_{j_2}^2 \otimes ... \otimes v_{j_h}^h) = (a v_{j_1}^1) \otimes v_{j_2}^2 \otimes ... \otimes v_{j_h}^h = ... = v_{j_1}^1 \otimes v_{j_2}^2 \otimes ... \otimes (a v_{j_h}^h),\\
-			\forall a \in K,  1 \leq j_1 \leq i_1, ... , 1 \leq j_h \leq i_h\)
+	      \forall a \in K,  1 \leq j_1 \leq i_1, ... , 1 \leq j_h \leq i_h\)
 	\item \((v_1 + w_1) \otimes v_2 \otimes ... \otimes v_h = v_1 \otimes v_2 \otimes ... \otimes v_h + w_1 \otimes v_2 \otimes ... \otimes v_h\)\\
-			\(...\)\\
-			\(v_1 \otimes v_2 \otimes ... \otimes (v_h + w_h) = v_1 \otimes v_2 \otimes ... \otimes v_h + v_1 \otimes v_2 \otimes ... \otimes w_h\)\\
-			\(\forall v_i, w_i \in V_i, 1 \leq i \leq h\)
+	      \(...\)\\
+	      \(v_1 \otimes v_2 \otimes ... \otimes (v_h + w_h) = v_1 \otimes v_2 \otimes ... \otimes v_h + v_1 \otimes v_2 \otimes ... \otimes w_h\)\\
+	      \(\forall v_i, w_i \in V_i, 1 \leq i \leq h\)
 \end{enumerate}
 L'insieme \(\{v_1 \otimes v_2 \otimes ... \otimes v_h : v_i \in V_i \forall 1 \leq i \leq h\}\)\\
 è \textbf{L'insieme dei tensori di rango 1 di \(V_1 \otimes V_2 \otimes ... \otimes V_h\)}\\
@@ -3555,10 +3555,10 @@ infatti la base \(\{v_{j_1}^1 \otimes v_{j_2}^2 \otimes ... \otimes v_{j_h}^h\}\
 	sia \(U\) con base \(\{u_1, u_2\}\), \(V\) con base \(\{v_1, v_2\}\) e \(W\) con base \(\{w_1, w_2\}\).
 	\begin{itemize}
 		\item \(T: u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2  \in U \otimes V  \otimes W\)\\
-				ha rango 1. infatti \(T = u_1 \otimes v_1 \otimes (v_1 + v_2 )\otimes w_1\).
+		      ha rango 1. infatti \(T = u_1 \otimes v_1 \otimes (v_1 + v_2 )\otimes w_1\).
 		\item \(T: u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2 + u_1 \otimes v_2 \otimes w_1 + u_2 \otimes v_1 \otimes w_2 \in U \otimes V \otimes W\)\\
-				ha rango 2. infatti l'unica fattorizzazione possibile è\\
-				\(T = (u_1 \otimes v_1  + u_2 \otimes v_2 \otimes v_2) \otimes w_1\) che non è un tensore di rango 1.
+		      ha rango 2. infatti l'unica fattorizzazione possibile è\\
+		      \(T = (u_1 \otimes v_1  + u_2 \otimes v_2 \otimes v_2) \otimes w_1\) che non è un tensore di rango 1.
 		\item \(T = u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2 \in U \otimes V \otimes W \) ha rango 2.
 	\end{itemize}
 \end{example}
@@ -3576,13 +3576,13 @@ La prima colonna sia \(a_1v\), la seconda \(a_2v\), ... , \(a_nv, a_i \in K\)\\
 Quindi tale matrice di rango 1 si scrive come 
 \begin{center}
 	\(A = \begin{pmatrix}
-		v_1\\
-		v_2\\
-		...\\
+		v_1 \\
+		v_2 \\
+		... \\
 		v_m
 	\end{pmatrix}
 	\begin{pmatrix}
-	a_1 & a_2 & ... & a_n
+		a_1 & a_2 & ... & a_n
 	\end{pmatrix} = \overrightarrow{v} \overrightarrow{a}^T\)\\
 \end{center}
 Come forma bilineare è il seguente elemento di \((K^m)^* \otimes (K^n)^*\):
@@ -3600,17 +3600,17 @@ Dunque una matrice \(A \in Mat_{m \times n} (K)\) tale che \(rk(A) = 1\) corrisp
 	La matrice
 	\begin{center}
 		\(A = \begin{pmatrix}
-			1 & 0 & 2\\
+			1 & 0 & 2  \\
 			2 & 0 & 1
 		\end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_3)\)
 	\end{center}
 	Ha rango 1 perchè 
 	\(\begin{pmatrix}
-		2\\
+		2 \\
 		1
 	\end{pmatrix} = 2
 	\begin{pmatrix}
-		1\\
+		1 \\
 		2
 	\end{pmatrix}\) in \((\mathbb{F}_3)^2\)\\
 	ad A corrisponde la forma bilineare \(T_A: (\mathbb{F}_3)^2 \times (\mathbb{F}_3)^3 \rightarrow \mathbb{F}_3\) definita da
@@ -3625,10 +3625,10 @@ Dunque una matrice \(A \in Mat_{m \times n} (K)\) tale che \(rk(A) = 1\) corrisp
 		\((e_1^* + 2 e_2^*) \otimes (e_1^* + e_3^*)\)
 	\end{center}
 	D'altra parte avevamo che \(A = \begin{pmatrix}
-		1 & 0 & 2\\
+		1 & 0 & 2  \\
 		2 & 0 & 1
 	\end{pmatrix} = \begin{pmatrix}
-		1\\
+		1 \\
 		2
 	\end{pmatrix} \begin{pmatrix}
 		1 & 0 & 2
@@ -3644,12 +3644,12 @@ dove \(v_i\) sono i vettori colonna delle coordinate nella base duale.
 	La matrice corrispondente è
 	\begin{center}
 		\(\begin{pmatrix}
-			2\\
+			2 \\
 			3
 		\end{pmatrix} \begin{pmatrix}
-			0 & 1 & 4\\
+			0 & 1 & 4 \\
 		\end{pmatrix} = \begin{pmatrix}
-			0 & 2 & 3\\
+			0 & 2 & 3  \\
 			0 & 3 & 2
 		\end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_5)\)
 	\end{center}
@@ -3674,15 +3674,15 @@ definiamo il morfismo di spazi vettoriali
 \begin{center}
 	\(e_i^* \otimes e_j : V \rightarrow V\)\\
 	ponendo \((e_i^* \otimes e_j)(v) = \begin{cases}
-		e_j^  \text{ se } h = i\\
+		e_j^  \text{ se } h = i \\
 		0 \text{ altrimenti}
 	\end{cases}\), ossia \((e_i^* \otimes e_j)(e_h) = e_i^* (e_h) e_i \forall 1 \leq i,j,h \leq n\).
 \end{center}
 se \(f \in END(V)\) è rappresentato dalla matrice
 \begin{center}
 	\(A = \begin{pmatrix}
-		a_{11} & ... & a_{1n}\\
-		... & ... & ...\\
+		a_{11} & ... & a_{1n} \\
+		...    & ... & ...    \\
 		a_{n1} & ... & a_{nn}
 	\end{pmatrix}\)
 \end{center}
@@ -3706,28 +3706,28 @@ e tale corrispondenza biunivoca è un isomorfismo di spazi vettoriali
 	una base di \(V\) è \(\{E_{ij} : 1 \leq i,j \leq 2\}\), dove
 	\begin{center}
 		\(E_{11} = \begin{pmatrix}
-			1 & 0\\
+			1 & 0  \\
 			0 & 0
 		\end{pmatrix}, 
 		E_{12} = \begin{pmatrix}
-			0 & 1\\
+			0 & 1  \\
 			0 & 0
 		\end{pmatrix}\)\\
 		\(E_{21} = \begin{pmatrix}
-			0 & 0\\
+			0 & 0  \\
 			1 & 0
 		\end{pmatrix}, 
 		E_{22} = \begin{pmatrix}
-			0 & 0\\
+			0 & 0  \\
 			0 & 1
 		\end{pmatrix}\)
 	\end{center}
 	la matrice di \(f\) in questa base è
 	\begin{center}
 		\(M(f) = \begin{pmatrix}
-			1 & 0 & 0 & 0\\
-			0 & 0 & 1 & 0\\
-			0 & 1 & 0 & 0\\
+			1 & 0 & 0 & 0  \\
+			0 & 0 & 1 & 0  \\
+			0 & 1 & 0 & 0  \\
 			0 & 0 & 0 & 1
 		\end{pmatrix}, rk(M(f) = 4)\)
 	\end{center}
@@ -3774,36 +3774,36 @@ E' una forma bilineare perchè
 \begin{enumerate}
 	\item \(x(AB) = (xA)B = A(xB), \forall x \in K, A,B \in Mat_{2 \times 2} (K)\)
 	\item \(A(B_1 + B_2) = AB_1 + AB_2\)\\
-			\((A_1 + A_2)B = A_1B + A_2B, \forall A_1, A_2, B_1, B_2, A, B, \in Mat_{2 \times 2} (K)\)
+	      \((A_1 + A_2)B = A_1B + A_2B, \forall A_1, A_2, B_1, B_2, A, B, \in Mat_{2 \times 2} (K)\)
 \end{enumerate}
 quindi \(M_{2,2,2} \in (Mat_{2 \times 2} (K))^* \otimes (Mat_{2 \times 2} (K))^* \otimes Mat_{2 \times 2} (K)\)\\
 vediamo come scrivere \(M_{2,2,2}\) nella base 
 \begin{center}
 	\(\{E_{ij}^* \otimes E_{h,k}^* \otimes E_{uv}\}\), dove\\
 	\(E_{11} = \begin{pmatrix}
-		1 & 0\\
+		1 & 0  \\
 		0 & 0
 	\end{pmatrix}, 
 	E_{12} = \begin{pmatrix}
-		0 & 1\\
+		0 & 1  \\
 		0 & 0
 	\end{pmatrix},
 	E_{21} = \begin{pmatrix}
-		0 & 0\\
+		0 & 0  \\
 		1 & 0
 	\end{pmatrix},
 	E_{22} = \begin{pmatrix}
-		0 & 0\\
+		0 & 0  \\
 		0 & 1
 	\end{pmatrix}\)
 \end{center}
 abbiamo che \(E_{11}E_{11} = E_{11}, E_{12}E_{12} = \begin{pmatrix}
-	0 & 0\\
+	0 & 0  \\
 	0 & 0
 \end{pmatrix}, ..., E_{22}E_{22} = e_{22}\), ossia
 \begin{center}
 	\(E_{ij} E_{hk} = \begin{cases}
-		E_{ik} \text{ se } j = h\\
+		E_{ik} \text{ se } j = h \\
 		0 \text{ altrimenti}
 	\end{cases}\)
 \end{center}
@@ -3821,7 +3821,7 @@ abbiamo anche che
 	\(+ (E_{11}^* + E_{12}^*) \otimes E_{22}^* \otimes (-E_{11} + E_{12}) + \)\\
 	\(+ (-E_{11}^* + E_{21}^*) \otimes (E_{11}^* + E_{12}^*) \otimes E_{22} + \)\\
 	\(+ (E_{12}^* - E_{22}^*) \otimes (E_{21}^* + E_{22}^*) \otimes E_{11}\)\\
-
+	
 \end{center}
 da questa fattorizzazione si ha che \(rk(M_{2,2,2}) \leq 7\).\\
 Questa fattorizzasione è l'algoritmo di Strassen per la moltiplicazione di matrici \(2 \times 2\).\\
