@@ -3066,5 +3066,802 @@ Non è noto un algoritmo ottimale per la moltiplicazione matrici 3 x 3.\\
 Nel 2022 è stato pubblicato un algoritmo trovato da Alphatensor per matrici 4 x 4 su \(\mathbb{F}_2\)\\
 che richiede l'esecuzione di 47 moltiplicazioni, l'algoritmo di Strassen ne richiederebbe 49.\\
 
+\subsubsection{Anello degli endomorfismi}
+\begin{definition}
+	Siano V, W spazi vettoriale su un campo K.\\
+	una funzione \(f : V \rightarrow W\) è un endomorfismo di spazi vettoriali se:
+	\begin{center}
+		\item \(f(a v_1 + b v_2) = a f(v_1) + b f(v_2) \forall a,b \in K, v_1, v_2 \in K\)
+	\end{center}
+	Un morfismo \(f: V \rightarrow V\) di spazi vettoriali è detto endomorfismo di V.\\
+	L'insieme \(End(V) = \{ f : V \rightarrow V : f\) è un endomorfismo di V \(\}\)\\
+	E' un anello con le operazioni di somma e composizione di funzioni.\\
+	con unità la funzione identità \(Id_v : V \rightarrow V\).\\
+	se \(dim(V) > 1\) l'anello non è commutativo.\\
+\end{definition}
 
+\begin{definition}
+	sia \(Mat_{n \times n}(K)\) l'insieme delle matrici n x n a coefficienti in K.\\
+	con le operazioni di somma e prodotto righe per colonne,\\
+	L'insieme \(Mat_{n \times n}(K)\) è un anello, con unità la matrice identità
+	\begin{center}
+		\(Id_n = \begin{pmatrix}
+			1 & 0 & ... & 0\\
+			0 & 1 & ... & 0\\
+			... & ... & ... & ...\\
+			0 & 0 & ... & 1
+		\end{pmatrix}\)
+	\end{center}
+\end{definition} 
+
+Ad un endomorfismo \(f \in End(V)\), se \(dim(V) = n\), possiamo associare una matrice nel seuente modo:\\
+Sia\(\{e_1, ... e_n\}\) una base di V.\\
+Sia \(f(e_1) = a_{1i} e_1 + a_{2i} e_2 + ... + a{ni} e_n, a_{1i},...,a_{ni} \in K \forall 1 \leq i \leq n\).\\
+allora la matrice M(f) associata a \(f\) è:
+\begin{center}
+	\(\begin{pmatrix}
+	a_{1i}\\
+	...\\
+	a_{ni}
+	\end{pmatrix}\)
+\end{center}
+
+\begin{teorema}
+	sia V uno spazio vettoriale di dimensione n su un campo K. allora la funzione 
+	\begin{center}
+		\(M: End(V) \rightarrow Mat_{n \times n}(K)\)\\
+		\(f \rightarrow M(f)\)
+	\end{center}
+	è un isomorfismo di anelli. (non lo dimostriamo perchè semplice)
+\end{teorema}
+
+\newpage
+\begin{example}
+	si consideri il campo \(\mathbb{F}_4 := \sfrac{\mathbb{F}_2[x]}{1 + x + x^2}\).\\
+	\(\mathbb{F}_4\) è uno spazio vettoriale di dimensione 2 sul campo \(\mathbb{F}_2\).\\
+	nella base \(\{1, x\} di \mathbb{F}_4\) l'automorfismo di Frobenius 
+	\begin{center}
+		\(\Phi : \mathbb{F}_4 \rightarrow \mathbb{F}_4\)\\
+		\(v \rightarrow v^2\)
+	\end{center}
+	che è un morfismo di spazi vettoriali (\(\Phi(y) = y \forall y \in \mathbb{F}_2\)),\\
+	è rappresentato dalla matrice
+	\begin{center}
+		\(M(\Phi) = \begin{pmatrix}
+			1 & 1\\
+			0 & 1
+		\end{pmatrix}\)
+	\end{center}
+	infatti \(\Phi(1) = 1, \Phi(x) = x^2 = 1 + x\).\\
+	dato che \([(\Phi)]^2 = \begin{pmatrix}
+		1 & 0\\
+		0 & 1
+	\end{pmatrix}\) una rappresentazione matriciale di \(Aut(\mathbb{F}_4)\) è\\
+	\begin{center}
+		\(\{\begin{pmatrix}
+			1 & 0\\
+			0 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+			1 & 1\\
+			0 & 1
+		\end{pmatrix}\}\)
+	\end{center}
+	in rappresentazione matriciale gli endomorfismi di \(\mathbb{F}_4\), come spazio vettoriale,\\
+	sono l'insieme di 16 matrici
+	\begin{center}
+		\(Mat_{2 \times 2}(\mathbb{F}_2) = \{
+		\begin{pmatrix}
+			x_1 & x_2\\
+			x_3 & x_4
+		\end{pmatrix} : 
+		x_i \in \mathbb{F}_2\}\)	
+	\end{center}
+\end{example}
+
+\begin{example}[automorfismi di \(\mathbb{F}_4\) come s.v. su \(\mathbb{F}_2\) ]
+	sia \(A = \begin{pmatrix}
+		a & b\\
+		c & d
+	\end{pmatrix}\) una matrice invertibile a coefficienti in \(\mathbb{F}_2\).\\
+	A rappresenta un automorfismo di \(\mathbb{F}_4\) come spazio vettoriale.\\
+	A è invertibile se e solo se il determinante di A è diverso da 0 (quindi deve essere 1).\\
+	\begin{itemize}
+		\item \(a = 0 \implies bc = 1 \implies b = c = 1\)
+		\item \(b = 0 \implies ad = 1 \implies a = d = 1\)
+		\item \(c = 0 \implies ad = 1 \implies a = d = 1\)
+		\item \(d = 0 \implies bc = 1 \implies b = c = 1\)
+	\end{itemize}
+	quindi, come spazio vettoriale, 
+	\begin{center}
+		\(Aut(\mathbb{F}_4) = \{ 
+		\begin{pmatrix}
+			1 & 0\\
+			0 & 1
+		\end{pmatrix}, 
+		\begin{pmatrix}
+			1 & 0\\
+			1 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+			0 & 1\\
+			1 & 0
+		\end{pmatrix},
+		\begin{pmatrix}
+			0 & 1\\
+			1 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+			1 & 1\\
+			0 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+			1 & 1\\
+			1 & 0
+		\end{pmatrix}
+		\}\)
+	\end{center}
+	invece come campo avevamo che
+	\begin{center}
+		\(Aut(\mathbb{F}_4) = \{
+			\begin{pmatrix}
+				1 & 0\\
+				0 & 1
+			\end{pmatrix},
+			\begin{pmatrix}
+				1 & 1\\
+				0 & 1
+			\end{pmatrix}\} = \{Id, \Phi\}\)
+	\end{center}
+\end{example}
+
+\newpage
+\subsection{Spazio duale di uno spazio vettoriale}
+\begin{definition}
+	Sia V unio spazio vettoriale di dimenzione n su un campo K.\\
+	Sia \(\{e_1, ..., e_n\}\) una base di V.\\
+	L'insieme 
+	\begin{center}
+		\(V^* = \{f : V \rightarrow K : f\) è un morfismo di spazi vettoriali \(\}\)\\
+	\end{center}
+	è detto \textbf{spazio duale di V}.\\
+	sia 
+	\begin{center}
+		\(e^*_i(e_j)= \begin{cases}
+			1 \text{ se } i = j\\
+			0 \text{ se } i \neq j
+			\end{cases} \forall 1 \leq i \leq n\)
+	\end{center}
+	L'insieme \(\{e^*_1, ..., e^*_n\}\) è una base di \(V^*\). in paricolare \(dim(V^*) = dim(V) = n\).\\
+\end{definition}
+
+\begin{example}
+	Sia \(V = (\mathbb{F}_2)^4\) e sia \(f \in V^*\) definita da
+	\begin{center}
+		\(f(x) = <\begin{pmatrix}
+			1\\
+			1\\
+			1\\
+			1
+		\end{pmatrix}, x >\) 
+	\end{center}
+	dove <,> è il prodotto scalare standard.\\
+	Dunque, se \(x = \begin{pmatrix}
+		x_1\\
+		x_2\\
+		x_3\\
+		x_4
+	\end{pmatrix}, f(x) = x_1 + x_2 + x_3 + x_4\) e \(f = e^*_1 + e^*_2 + e^*_3 + e^*_4\).\\
+	ad esempio \(f(\begin{pmatrix}
+		1\\
+		1\\
+		1\\
+		1
+	\end{pmatrix}) = 1 + 1 + 1 + 1 = 0\),
+	\(f(\begin{pmatrix}
+		0\\
+		1\\
+		1\\
+		1
+	\end{pmatrix}) = 0 + 1 + 1 + 1 = 1 \)
+\end{example}
+
+\newpage
+
+\subsection{Forme bilineari e prodotto tensoriale}
+\begin{definition}
+	Sia V uno spazio vettoriale  di dimensione n su un campo K.\\
+	Indichiamo con \(\{e_1, ... , e_n\}\) una base di V.\\
+	Una funzione \(f : V \times V \rightarrow K\) è detta \textbf{forma bilineare} su V se:
+	\begin{itemize}
+		\item \(f(a v_1, v_2) = f(v_1, a v_2) = a f(v_1,v_2), \forall a \in K, v_1, v_2 \in V\)
+		\item \(f(v_1 + v_2, w) = f(v_1, w) + f(v_2, w)\)\\
+				\(f(w, v_1 + v_2) = f(w, v_1) + f(w, v_2), \forall v_1, v_2, w \in V\)
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	Siano \(f, f_1, f_2 : V \times V \rightarrow K\) forme bilineari.\\
+	Se definiamo
+	\begin{itemize}
+		\item \(f_1 + f_2 : V \times V \rightarrow K\) come \((f_1 + f_2)(v, w) = f_1(v, w) + f_2(v, w), \forall v,w \in V\)
+		\item\(a f : V \times V \rightarrow K\) con \((a f)(v, w) = a f(v, w), \forall v,w \in V e a \in K\)
+	\end{itemize}
+	allora \(f_1 + f_2\) e \(a f\) sono forme bilineari.\\
+	Quindi l'insieme delle forme bilineari su V è uno spazio vettoriale che denotiamo con
+	\begin{center}
+		\(V^* \otimes V^*\)
+	\end{center}
+	\textbf{Prodotto tensoriale di \(V^*\) con \(V^*\)}
+\end{definition}
+
+Siano \(1 \leq i,j \leq n\), indichiamo con \(e_i^* \otimes e_j^* : V \times V \rightarrow K\) la forma bilineare su V tale che:
+\begin{center}
+	\((e_i^* \otimes e_j^*)(e_h, e_k) = \delta_{ih} \delta_{jk} = \begin{cases}
+		1_k \text{ se } i = h, j = k\\
+		0 \text{ altrimenti}
+	\end{cases}\)\\
+	dove \(\delta_{ih} = \begin{cases}
+		1 \text{ se } i = h\\
+		0 \text{ altrimenti}
+	\end{cases}\) è la delta di Kronecker.
+\end{center}
+L'insieme \(\{e_i^* \otimes e_j^* : 1 \leq i,j \leq n\}\) è una base di \(V^* \otimes V^*\).\\
+Abbiamo che 
+\begin{center}
+	\(\{e_i^* \otimes e_j^* (e_h, e_k) = e_i^*(e_h)e_j^*(e_k)\).\\
+\end{center}
+Se \(u, v \in V^*\) allora \(u \otimes v (x, y) = u(x) v(y), \forall x,y \in V \).\\
+Se \(u = u_1e_1^* + ... + u_n e_n^*\) e \(v = v_1 e_1^* + ... + v_n e_n^*\)\\
+allora \(u \otimes v = \sum_{j = 1}^{n} \sum_{i = 1}^{n} u_i v_j e_i^* \otimes e_j^*(x,y)\).\\
+Quindi \((u_1e_1^* + ... + u_n e_n^*) \otimes (v = v_1 e_1^* + ... + v_n e_n^*) = \sum_{j = 1}^{n} \sum_{i = 1}^{n} u_i v_j e_i^* \otimes e_j^*\).\\
+
+\begin{example}
+	sia \(<\cdot, \cdot>\) il prodotto scalare canonico su \(\mathbb{K}^n\), ossia\\
+	se \(v = v_1 e_1 + ... + v_n e_n\) e \(w = w_1 e_1 + ... + w_n e_n\) allora\\
+	\(< v, w >= v_1 w_1 + ... + v_n w_n\).\\
+	il prodotto scalare canonico è una forma bilineare simmetrica su V.\\
+	come elemento di \((K^n)^* \otimes (K^n)^*\) si scrive
+	\begin{center}
+		\(e_1^* \otimes e_1^* + e_2^* \otimes e_2^* + ... + e_n^* \otimes e_n^*\)
+	\end{center}
+\end{example}
+
+Ad una forma bilineare \(f\) su V possimao associare una matrice \(M(f)\) in \(Mat_{n \times n}(K)\) nel seuente modo:\\
+La componente \(M(f)_{ij}\) di coordinate \(i, j\) è l'elemento \(f(e_i, e_j) \in K\),\\
+In tal modo \(f(u, v) = <u, M(f)v> \forall u, v \in V\).\\
+cioè \(M(f)_{ij} =\) coordinata di \(f\) nella base \(\{e_i^* \otimes e_j^*\}\) di \(V^* \otimes V^*\)
+\newpage
+\begin{example}
+	alcune matrici associate:
+	\begin{itemize}
+		\item la matrice del prodotto scalare canonico è la matrice identità.
+		\item alla forma bilineare
+				\begin{center}
+					\(e_1^* \otimes e_2^* - e_2^* \otimes e_1^* \in (K^2)^* \otimes (K^2)^*\)
+				\end{center}
+				corrisponde la matrice 
+				\(\begin{pmatrix}
+					0 & 1\\
+					-1 & 0
+				\end{pmatrix}\) si nota che è una forma bilineare antisimmetrica.
+		\item La forma bilineare antisimmetrica
+				\begin{center}
+					\(e_1^* \otimes e_3^* - e_3^* \otimes e_1^* + e_2^* \otimes e_4^* - e_4^* \otimes e_2^* \in (K^4)^* \otimes (K^4)^*\)
+				\end{center}
+				è detta forma simplettica, e la sua matrice associata è
+				\(\begin{pmatrix}
+					0 & 0 & 1 & 0\\
+					0 & 0 & 0 & 1\\
+					-1 & 0 & 0 & 0\\
+					0 & -1 & 0 & 0
+				\end{pmatrix}\)
+	\end{itemize}
+\end{example}
+
+Abbiamo quindi definito un isomorfismo di spazi vettoriali
+\begin{center}
+	\(M: V^* \otimes V^* \rightarrow Mat_{n \times n}(K)\)\\
+	\(f \rightarrow M(f)\)
+\end{center}
+Quindi se
+\begin{center}
+	\(A = \begin{pmatrix}
+		a_{11} & ... & a_{1n}\\
+		... & ... & ...\\
+		a_{n1} & ... & a_{nn}
+	\end{pmatrix} \in Mat_{n \times n}(K)\)
+\end{center}
+La forma bilineare \(f \in V^* \otimes V^*\) associata a A è
+\begin{center}
+	\(f = (a_{11} e_1^* + ... + a_{n1}e_n^*) \otimes e_1^* + ... + (a_{1n} e_1^* + ... + a_{nn}e_n^*) \otimes e_n^*\)
+\end{center}
+\begin{example}
+	\(A = \begin{pmatrix}
+		1 & 2\\
+		2 & 1
+	\end{pmatrix} \in Mat_{2 \times 2}(\mathbb{F}_3)\)\\
+	\(f = (e_1^* + 2e_2^*) \otimes e_1^* + (2e_1^* + e_2^*) \otimes e_2^* = e_1^* \otimes e_1^* + 2 e_2^* \otimes e_1^* + 2e_1^* \otimes e_2^* + e_2^* \otimes e_2^*\)
+\end{example}
+
+\textbf{Nota:} essend \(v^* \otimes V^*\) lo spazzio vettoriale delle forme bilineare su V,\\
+si ha che:
+\begin{enumerate}
+	\item \(a(e_i^* \otimes e_j^*) = (a e_i^*) \otimes e_j^* = e_i^* \otimes (ae_j^*)\)
+	\item \(e_i^* \otimes (e_j^* + e_k^*) = e_i^* \otimes e_j^* + e_i^* \otimes e_k^*\)
+\end{enumerate}
+
+\begin{example}
+	siano \(v_1 = 3e_1^* + 2e_2^* + e_3 \in (\mathbb{R}^3)^*\) e \(v_2 = e_2^* - \sqrt{3} e_3^* \in (\mathbb{R}^3)^*\)\\
+	Allora \(v_1 \otimes v_2 = (3e_1^* + 2e_2^* + e_3^*) \otimes (e_2^* - \sqrt{3} e_3^*) =\\
+	3e_1^* \otimes e_2^* - 3\sqrt{3} e_1^* \otimes e_3^* + 2e_2^* \otimes e_2^* - 2\sqrt{3} e_2^* \otimes e_3^* + e_3^* \otimes e_2^* - \sqrt{3} e_3^* \otimes e_3^*\)
+\end{example}
+
+\newpage
+
+\begin{definition}
+	Siano \(V_1, V_2, ..., V_k\) spazi vettoriali su un campo \(\mathbb{F}\).\\
+	una funzione
+	\begin{center}
+		\(f : V_1 \times V_2 \times ... \times V_k \rightarrow \mathbb{F}\)
+	\end{center}
+	è detta \underline{forma multilineare} se è lineare rispetto ad ogni variabile.\\
+	cioè se:
+	\begin{enumerate}
+		\item \(f(av_1, ... ,v_k) = f(v_1, a v_2, ..., v_k) = ... = f(v_1, ..., a v_k) = a f(v_1, ... v_k) \forall a \in \mathbb{F}, v_i \in V_i\)
+		\item \(f(v_1 + w_1, v_2, ... ,v_k) = f(v_1, ..., v_k) + f(w_1, ..., v_k)\)\\
+				\(...\)\\
+				\(f(v_1, v_2, ... ,v_k + w_k) = f(v_1, ..., v_k) + f(v_1, ..., w_k)\)\\
+				\(\forall v_i, w_i \in V_i\)
+	\end{enumerate}
+\end{definition}
+
+\subsubsection{Prodotto tensoriale di spazi vettoriali}
+\begin{definition}
+	Siano \(V_1, V_2, ..., V_k\) spazi vettoriali su un campo \(\mathbb{F}\).\\
+	Definiamo \(V_1 \otimes V_2 \otimes ... \otimes V_k\)  lo spazio vettoriale delle forme multilineari\\
+	\begin{center}
+		\(f : V_1 \times V_2 \times ... \times V_k \rightarrow \mathbb{F}\)
+	\end{center}
+	Una base di \(V_1 \otimes V_2 \otimes ... \otimes V_k\) è l'insieme 
+	\begin{center}
+		\(\{e_{i_1}^{1^*} \otimes e_{i_2}^{2^*} \otimes ... \otimes e_{i_k}^{k^*} : 1 \leq i_1 \leq dim(V_1), ... , 1 \leq i:k \leq dim(V_k)\}\)
+	\end{center}
+	dove \(\{e_{i_1}^{1^*}\}\) è una base di \(V_1^*\), ecc.\\
+\end{definition}
+
+\newpage
+
+\subsection{Rango di una matrice}
+\begin{definition}
+	Sia \(A \in Mat_{h \times k}(\mathbb{F})\) una matrice \(h \times k\).\\
+	Il rango di A è definito come:
+	\begin{center}
+		\(rk(A):=\) n° massumo di colonne linearmente indipendenti\\
+		= n° massimo di righe linearmente indipendenti
+	\end{center}
+\end{definition}
+si verifica facilmente che ogni matrice si può scrivere come\\
+combinazione lineare di matrici di rango 1.\\
+sia \(X = \{A \in Mat_{h \times k}(\mathbb{F}) : rk(A) = 1\}\), allora si ha che 
+\begin{center}
+	\(rk(A) = min\{k \in \mathbb{N} : A = \sum_{i = 1}^{k} M_i , M_i \in X, \forall 1 \leq i \leq k\}\)
+\end{center}
+
+\begin{example}
+	la matrice
+	\begin{center}
+		\(A = \begin{pmatrix}
+			1 & -1 & 3\\
+			2 & 4 & -6\\
+			3 & 0 & 3
+		\end{pmatrix}\)
+	\end{center}
+	ha rango 2, e si ha che:
+	\begin{center}
+		\(A = \begin{pmatrix}
+			1 & 0 & 0\\
+			2 & 0 & 0\\
+			3 & 0 & 0
+		\end{pmatrix} + \begin{pmatrix}
+			0 & -1 & 0\\
+			0 & 4 & 0\\
+			0 & 0 & 0
+		\end{pmatrix} + \begin{pmatrix}
+			0 & 0 & 3\\
+			0 & 0 & -6\\
+			0 & 0 & 3
+		\end{pmatrix}\)
+	\end{center}
+	che è una combinazione lineare di matrici di rango 1, un altra è:
+	\begin{center}
+		\(A = \begin{pmatrix}
+			1 & 0 & 1\\
+			2 & 0 & 2\\
+			3 & 0 & 3
+		\end{pmatrix} + \begin{pmatrix}
+			0 & -1 & 2\\
+			0 & 4 & -8\\
+			0 & 0 & 0
+		\end{pmatrix}\)
+	\end{center}
+	ovviamente è la minima perchè \(rk(A) = 2\)\\
+\end{example}
+Come è fatta una matrice di rango 1 in \(Mat_{a \times b}(K)\)?\\
+tutte le sue colonne sono proporzionali ad un vettore colonna \(\overrightarrow{v} \in K^a \setminus \{\overrightarrow{0}\}\).\\
+Quindi, se \(A \in Mat_{a \times b}(K)\) e \(rk(A) = 1\), esistono \(a_1, ..., a_b \in K\) tali che:
+\begin{center}
+	\(A = \begin{pmatrix}
+		a_1 \overrightarrow{v} & a_2 \overrightarrow{v} & ... & a_b \overrightarrow{v}
+	\end{pmatrix}\)\\
+	quindi \(A = \overrightarrow{v} \begin{pmatrix}
+		a_1 & a_2 & ... & a_b
+	\end{pmatrix} = \overrightarrow{v}\overrightarrow{a}^T\)\\
+	dove \(\overrightarrow{a} = \begin{pmatrix}
+		a_1\\
+		...\\
+		a_b
+	\end{pmatrix} \in K^b \setminus \{\overrightarrow{0}\}\)\\
+\end{center}
+
+Come è fatta una matrice \(A \in Mat_{a \times b}(K)\) di rango k?\\
+siano \(\overrightarrow{v_1}, ..., \overrightarrow{v_k} \in K^a \setminus \{\overrightarrow{0}\}\) colonne linearmente indipendenti.\\
+le altre colonne sono combinazione lineare di queste e quindi esistono \(\overrightarrow{a_1}, ..., \overrightarrow{a_k} \in K^b \setminus \{\overrightarrow{0}\}\)\\
+tali che:
+\begin{center}
+	\(A = \overrightarrow{v_1}\overrightarrow{a_1}^T + ... + \overrightarrow{v_k}\overrightarrow{a_k}^T\)
+\end{center}
+cioè \(A\) si scrive come somma di \(k\) matrici di rango 1.\\
+se si potesse scrivere con meno addendi avrebbe rango \(< k\).\\
+quindi \(rk(A) = min \{ k \in N : A = \sum_{i=1}^{k} M_i, rk(M_i) = 1 \forall 1 \leq i \leq k\}\)\\
+
+\newpage
+
+D'ora in poi se \(V_1, ..., V_h\) sono spazi vettoriali su un campo \(K\) con basi
+\begin{center}
+	\(\{v_1^1, ... v_{i_1}^1\}, \{v_1^2, ... v_{i_2}^2\}, ..., \{v_1^h, ... v_{i_h}^h\}\)
+\end{center}
+allora \(V_1 \otimes V_2 \otimes ... \otimes V_h\) è uno spazio vettoriale con base
+\begin{center}
+	\(\{v_{j_1}^1 \otimes v_{j_2}^2 \otimes ... \otimes v_{j_h}^h : 1 \leq j_1 \leq i_1, ... , 1 \leq j_h \leq i_h\}\)
+\end{center}
+che soddisfa le seguenti Relazioni:
+\begin{enumerate}
+	\item \(a(v_{j_1}^1 \otimes v_{j_2}^2 \otimes ... \otimes v_{j_h}^h) = (a v_{j_1}^1) \otimes v_{j_2}^2 \otimes ... \otimes v_{j_h}^h = ... = v_{j_1}^1 \otimes v_{j_2}^2 \otimes ... \otimes (a v_{j_h}^h),\\
+			\forall a \in K,  1 \leq j_1 \leq i_1, ... , 1 \leq j_h \leq i_h\)
+	\item \((v_1 + w_1) \otimes v_2 \otimes ... \otimes v_h = v_1 \otimes v_2 \otimes ... \otimes v_h + w_1 \otimes v_2 \otimes ... \otimes v_h\)\\
+			\(...\)\\
+			\(v_1 \otimes v_2 \otimes ... \otimes (v_h + w_h) = v_1 \otimes v_2 \otimes ... \otimes v_h + v_1 \otimes v_2 \otimes ... \otimes w_h\)\\
+			\(\forall v_i, w_i \in V_i, 1 \leq i \leq h\)
+\end{enumerate}
+L'insieme \(\{v_1 \otimes v_2 \otimes ... \otimes v_h : v_i \in V_i \forall 1 \leq i \leq h\}\)\\
+è \textbf{L'insieme dei tensori di rango 1 di \(V_1 \otimes V_2 \otimes ... \otimes V_h\)}\\
+
+\subsubsection{Rango di un tensore}
+
+Ogni elemento di \(V_1 \otimes V_2 \otimes ... \otimes V_h\) si scrive come combinazione lineare di tensori di rango 1.\\
+infatti la base \(\{v_{j_1}^1 \otimes v_{j_2}^2 \otimes ... \otimes v_{j_h}^h\}\) è costituita da tensori di rango 1.\\
+
+\begin{definition}
+	Sia \(T \in V_1 \otimes V_2 \otimes ... \otimes V_k\).\\
+	definiamo \textbf{rango di T} e lo indichiamo \textbf{rk(T)} il minimo \(r \in \mathbb{N}\) tale che:
+	\begin{center}
+		\(T = \sum_{i=1}^{r}T_i\)
+	\end{center}
+	dove \(T_i \in V_1 \otimes V_2 \otimes ... \otimes V_k\) sono di rango 1, \(\forall 1 \leq i \leq r\).
+\end{definition}
+
+\begin{example}
+	sia \(U\) con base \(\{u_1, u_2\}\), \(V\) con base \(\{v_1, v_2\}\) e \(W\) con base \(\{w_1, w_2\}\).
+	\begin{itemize}
+		\item \(T: u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2  \in U \otimes V  \otimes W\)\\
+				ha rango 1. infatti \(T = u_1 \otimes v_1 \otimes (v_1 + v_2 )\otimes w_1\).
+		\item \(T: u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2 + u_1 \otimes v_2 \otimes w_1 + u_2 \otimes v_1 \otimes w_2 \in U \otimes V \otimes W\)\\
+				ha rango 2. infatti l'unica fattorizzazione possibile è\\
+				\(T = (u_1 \otimes v_1  + u_2 \otimes v_2 \otimes v_2) \otimes w_1\) che non è un tensore di rango 1.
+		\item \(T = u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2 \in U \otimes V \otimes W \) ha rango 2.
+	\end{itemize}
+\end{example}
+
+Poiché \(dim(\otimes_{i=1}^{h} V_i) = \prod_{i=1}^{h} dim(V_i)\), abbiamo che, se \(T \in \otimes_{i=1}^{h} V_i\)\\
+allora \(rk(T) \leq \prod_{i=1}^{h} dim(V_i)\), poiche \(\otimes_{i=1}^{h} V_i\) ha una base fatta di tensori di rango 1.\\
+
+\newpage
+
+Ora verifichiamo che la nozione di rango di un Tensore è coerente con quella di rango di una matrice,\\
+interpretando una matrice come forma bilineare, e quindi come un tensore.\\
+Vediamo subito che una matrice di rango 1 corrisponde ad un tensore di rango 1.\\
+Una matrice \(m \times n\) di rango 1 h come colonne multipli di un vettore \(v \in K^m \setminus \{0\}\).\\
+La prima colonna sia \(a_1v\), la seconda \(a_2v\), ... , \(a_nv, a_i \in K\)\\
+Quindi tale matrice di rango 1 si scrive come 
+\begin{center}
+	\(A = \begin{pmatrix}
+		v_1\\
+		v_2\\
+		...\\
+		v_m
+	\end{pmatrix}
+	\begin{pmatrix}
+	a_1 & a_2 & ... & a_n
+	\end{pmatrix} = \overrightarrow{v} \overrightarrow{a}^T\)\\
+\end{center}
+Come forma bilineare è il seguente elemento di \((K^m)^* \otimes (K^n)^*\):
+\begin{center}
+	\(v_1 a_1 e_1^* \otimes e_1^* + v_2 a_1 e_2^* \otimes e_1^* + ... + v_1 a_2 e_1^* \otimes e_2^* + v_2 a_2 e_2^* \otimes e_2^* + ... + v_1 a_n e_1^* \otimes e_n^* + ... + v_m a_n e_m^* \otimes e_n^* =\)\\
+	\(= (v_1 e_1^* + ... + v_m e_m^*) \otimes a_1 e_1^* + (v_1 e_1^* + v_m e_m^*) \otimes a_2 e_2^* + ... + (v_1 e_1^* + ... + v_m e_m^*) \otimes a_n e_n^* = \)\\
+	\((v_1 e_1^* + ... + v_m e_m^*) \otimes (a_1 e_1^* + ... + a_n e_n^*)\)
+\end{center}
+Dunque una matrice \(A \in Mat_{m \times n} (K)\) tale che \(rk(A) = 1\) corrisponde ad un tensore
+\begin{center}
+	\(T_A \in (K^m)^* \otimes (K^n)^*\) tale che \(rk(T_A) = 1\).
+\end{center}
+
+\begin{example}
+	La matrice
+	\begin{center}
+		\(A = \begin{pmatrix}
+			1 & 0 & 2\\
+			2 & 0 & 1
+		\end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_3)\)
+	\end{center}
+	Ha rango 1 perchè 
+	\(\begin{pmatrix}
+		2\\
+		1
+	\end{pmatrix} = 2
+	\begin{pmatrix}
+		1\\
+		2
+	\end{pmatrix}\) in \((\mathbb{F}_3)^2\)\\
+	ad A corrisponde la forma bilineare \(T_A: (\mathbb{F}_3)^2 \times (\mathbb{F}_3)^3 \rightarrow \mathbb{F}_3\) definita da
+	\begin{center}
+		\(T_A(u, v) = u^T A v, \forall u \in (\mathbb{F}_3)^2, v \in (\mathbb{F}_3)^3\)\\
+		(\(u^T\) è il trasposto del vettore colonna \(u\))
+	\end{center}
+	come elemento di \((\mathbb{F}_3^2)^* \otimes (\mathbb{F}_3^3)^*\) si scrive
+	\begin{center}
+		\(T_A = e_1^* \otimes e_1^* + 2 e_2^* \otimes e_1^* + 2 e_1^+ \otimes e_3^* + e_2^* \otimes e_3^* = \)\\
+		\((e_1^* + 2 e_2^*) \otimes e_1^* + (2 e_1^* + e_2^*) \otimes e_3^* = \)\\
+		\((e_1^* + 2 e_2^*) \otimes (e_1^* + e_3^*)\)
+	\end{center}
+	D'altra parte avevamo che \(A = \begin{pmatrix}
+		1 & 0 & 2\\
+		2 & 0 & 1
+	\end{pmatrix} = \begin{pmatrix}
+		1\\
+		2
+	\end{pmatrix} \begin{pmatrix}
+		1 & 0 & 2
+	\end{pmatrix}\) sul campo \(\mathbb{F}_3\)
+\end{example}
+
+Ovviamente ad un Tnsore di rango 1 \(v_1 \otimes v_2 \in (K^m)^* \otimes (K^n)^*\)\\
+corrisponde una matrice di rango 1 \(v_1 v_2^T \in Mat_{m \times n}(K)\)\\
+dove \(v_i\) sono i vettori colonna delle coordinate nella base duale.
+
+\begin{example}
+	sia \((2 e_1^* + 3 e_2^*) \otimes (e_2^* + 4 e_3^*) \in (\mathbb{F}_5^2)^* \otimes (\mathbb{F}_5^3)^*\)\\
+	La matrice corrispondente è
+	\begin{center}
+		\(\begin{pmatrix}
+			2\\
+			3
+		\end{pmatrix} \begin{pmatrix}
+			0 & 1 & 4\\
+		\end{pmatrix} = \begin{pmatrix}
+			0 & 2 & 3\\
+			0 & 3 & 2
+		\end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_5)\)
+	\end{center}
+\end{example}
+
+\newpage
+
+Quindi abbiamo dato una corrispondenza biunivoca\\
+tra matrici di rango 1 \(\in Mat_{m \times n}(K)\) e tensori di rango 1 \(\in (K^m)^* \otimes (K^n)^*\).\\
+Dalla caratterizzazione del rango di una matrice in termini di combinazioni lineari di matrici di rango 1,\\
+e dalla definizione di rango di un tensore, segie che le matrici di rango \(r\) in \(Mat_{m \times n}(K)\)\\
+stanno in corrispondenza con i tensori di rango \(r\) in \((K^m)^* \otimes (K^n)^*\).\\
+
+\newpage
+
+\subsection{endomorfismi di V come elementi di \(V^* \otimes V\)}
+
+Sia \(V\) uno spazio vettoriale su un campo \(K\) con base \(\{e_1,..., e_n\}\).\\
+Gli elementi di \(V^* \otimes V = span\{e_i^* \otimes e_j\}\)\\
+possono essere interpretati come endomorfismi di \(V\) nel segueente modo:\\
+definiamo il morfismo di spazi vettoriali
+\begin{center}
+	\(e_i^* \otimes e_j : V \rightarrow V\)\\
+	ponendo \((e_i^* \otimes e_j)(v) = \begin{cases}
+		e_j^  \text{ se } h = i\\
+		0 \text{ altrimenti}
+	\end{cases}\), ossia \((e_i^* \otimes e_j)(e_h) = e_i^* (e_h) e_i \forall 1 \leq i,j,h \leq n\).
+\end{center}
+se \(f \in END(V)\) è rappresentato dalla matrice
+\begin{center}
+	\(A = \begin{pmatrix}
+		a_{11} & ... & a_{1n}\\
+		... & ... & ...\\
+		a_{n1} & ... & a_{nn}
+	\end{pmatrix}\)
+\end{center}
+allora come elemento di \(V^* \otimes V\) si scrive
+\begin{center}
+	\(f = e_1^* \otimes (a_{11}e_1 + a_{21}e_2 + ... + a_{n1}e_n) + ... + e_n^* \otimes (a_{1n}e_1 + ... + a_{nn}e_n)\).
+\end{center}
+viceversa, ogni elemento di \(V^* \otimes V\) può essere interpretato come un endomorfismo di \(V\)\\
+e tale corrispondenza biunivoca è un isomorfismo di spazi vettoriali
+\begin{center}
+	\(END(V) \rightarrow V^* \otimes V\)
+\end{center}
+
+\begin{example}
+	sia \(V \in Mat_{2 \times 2}(\mathbb{R})\) lo spazio vettoriale delle matrici \(2 \times 2\) a coefficienti reali.\\
+	La funzione\begin{center}
+		\(f: Mat_{2 \times 2}(\mathbb{R} \rightarrow Mat_{2 \times 2}(\mathbb{R})\)\\
+		\(A \rightarrow A^T\)
+	\end{center}
+	è un morfismo di spazi vettoriali.\\
+	una base di \(V\) è \(\{E_{ij} : 1 \leq i,j \leq 2\}\), dove
+	\begin{center}
+		\(E_{11} = \begin{pmatrix}
+			1 & 0\\
+			0 & 0
+		\end{pmatrix}, 
+		E_{12} = \begin{pmatrix}
+			0 & 1\\
+			0 & 0
+		\end{pmatrix}\)\\
+		\(E_{21} = \begin{pmatrix}
+			0 & 0\\
+			1 & 0
+		\end{pmatrix}, 
+		E_{22} = \begin{pmatrix}
+			0 & 0\\
+			0 & 1
+		\end{pmatrix}\)
+	\end{center}
+	la matrice di \(f\) in questa base è
+	\begin{center}
+		\(M(f) = \begin{pmatrix}
+			1 & 0 & 0 & 0\\
+			0 & 0 & 1 & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 0 & 0 & 1
+		\end{pmatrix}, rk(M(f) = 4)\)
+	\end{center}
+	come elemento di \(V^* \otimes V\) la trasposizione si scrive
+	\begin{center}
+		\(f = E_{11}^* \otimes E_{11} + E_{12}^* \otimes E_{21} + E_{21}^* \otimes E_{12} + E_{22}^* \otimes E_{22}, rk(f) = 4\)
+	\end{center}
+	\newpage
+	Invece l'elemento \(g \in V^* \otimes V\) definito da
+	\begin{center}
+		\(g =  2E_{11}^* \otimes E_{11} + E_{12}^* \otimes (E_{12} + E_{21}) + E_{21}^* \otimes (E_{12} + E_{21}) + 2E_{22}^* \otimes E_{22} = \)\\
+		\(2E_{11}^* \otimes E_{11} + (E_{12}^* + E_{21}^*) \otimes (E_{12} + E_{21}) + 2E_{22}^* \otimes E_{22}, rk(g) = 3\)
+	\end{center}
+	corrisponde all'endomorfismo 
+	\begin{center}
+		\(g: Mat_{2 \times 2}(\mathbb{R}) \rightarrow Mat_{2 \times 2}(\mathbb{R})\)\\
+		\(A \rightarrow A + A^T\)
+	\end{center}
+\end{example}
+
+In generale i morfismi di spazi verroeiali \(f: V \rightarrow W\) sono in corrispondenza biunivoca\\
+con \(V^* \otimes W\) e tale corrispondenza è un isomorfismo di spazi vettoriali
+\begin{center}
+	\(Hom(V, W) \rightarrow V^* \otimes W\)\\
+	spazio vettoriale dei morfismi \(f: V \rightarrow W\)
+\end{center}
+il rango di un morfismo \(f: V \rightarrow W\) (come dimensione della sua immagine \\
+o come rango della sua matrice associata) corrisponde al rango del tensore \(f \in V^* \otimes W\).\vspace{\baselineskip}\\
+Ancora più in genrale, ogni forma multilineare \(f: V_1 \times ... \times V_h \rightarrow W\)\\
+è un elemento di \(V_1^* \otimes ... \otimes V_h^* \otimes W\).\\
+posto
+\begin{center}
+	\(e_{i_1}^{1^*} \otimes e_{i_2}^{2^*} \otimes ... \otimes e_{i_h}^{h^*} \otimes w (v_1, v_2, ... v_h) = \)\\
+	\(e_{i_1}^{1^*}(v_1)e_{i_2}^{2^*}(v_2) ... e_{i_h}^{h^*}(v_h)w \in W\)\\
+	\(\forall 1 \leq i_1 \leq V_1, ..., 1 \leq i_h \leq dim V_h, v_i \in V_i, w \in W\)\vspace{\baselineskip}
+\end{center}
+Adesso andiamo a considerare la moltiplicazione di matrici \(2 \times 2\).\\
+Questa è una forma bilineare 
+\begin{center}
+	\(M_{2,2,2} : Mat_{2 \times 2} (K) \times Mat_{2 \times 2} (K) \rightarrow Mat_{2 \times 2} (K)\)
+\end{center}
+definita da \(M_{2,2,2}(A,B)= AB\) (prodotto righe per colonne).\\
+E' una forma bilineare perchè
+\begin{enumerate}
+	\item \(x(AB) = (xA)B = A(xB), \forall x \in K, A,B \in Mat_{2 \times 2} (K)\)
+	\item \(A(B_1 + B_2) = AB_1 + AB_2\)\\
+			\((A_1 + A_2)B = A_1B + A_2B, \forall A_1, A_2, B_1, B_2, A, B, \in Mat_{2 \times 2} (K)\)
+\end{enumerate}
+quindi \(M_{2,2,2} \in (Mat_{2 \times 2} (K))^* \otimes (Mat_{2 \times 2} (K))^* \otimes Mat_{2 \times 2} (K)\)\\
+vediamo come scrivere \(M_{2,2,2}\) nella base 
+\begin{center}
+	\(\{E_{ij}^* \otimes E_{h,k}^* \otimes E_{uv}\}\), dove\\
+	\(E_{11} = \begin{pmatrix}
+		1 & 0\\
+		0 & 0
+	\end{pmatrix}, 
+	E_{12} = \begin{pmatrix}
+		0 & 1\\
+		0 & 0
+	\end{pmatrix},
+	E_{21} = \begin{pmatrix}
+		0 & 0\\
+		1 & 0
+	\end{pmatrix},
+	E_{22} = \begin{pmatrix}
+		0 & 0\\
+		0 & 1
+	\end{pmatrix}\)
+\end{center}
+abbiamo che \(E_{11}E_{11} = E_{11}, E_{12}E_{12} = \begin{pmatrix}
+	0 & 0\\
+	0 & 0
+\end{pmatrix}, ..., E_{22}E_{22} = e_{22}\), ossia
+\begin{center}
+	\(E_{ij} E_{hk} = \begin{cases}
+		E_{ik} \text{ se } j = h\\
+		0 \text{ altrimenti}
+	\end{cases}\)
+\end{center}
+quindi 
+\begin{center}
+	\(M_{2,2,2} = E_{11}^* \otimes E_{11}^* \otimes E_{11} + E_{12}^* \otimes E_{21}^* \otimes E_{11} + E_{11}^* \otimes E_{12}^* \otimes E_{12} + E_{12}^* \otimes E_{22}^* \otimes E_{12} + E_{21}^* \otimes E_{11}^* \otimes E_{21} + E_{21}^* \otimes E_{12}^* \otimes E_{12} + E_{22}^* \otimes E_{22}^* \otimes E_{22} + E_{22}^* \otimes E_{21}^* \otimes E_{21}\)\\
+\end{center}
+\(rk(M_{2,2,2} \leq 8)\).\\
+abbiamo anche che
+\begin{center}
+	\(M_{2,2,2} = (E_{11}^* + E_{22}^*) \otimes (E_{11}^* + E_{22}^*) \otimes (E_{11} + E_{22}) + \)\\
+	\(+ (E_{21}^* + E_{22}^*) \otimes E_{11}^* \otimes (E_{21} - E_{22}) + \)\\
+	\(+ E_{11}^* \otimes (E_{12}^* - E_{22}^*) \otimes (E_{12} + E_{22}) + \)\\
+	\(+ E_{22}^* \otimes (-E_{11}^* + E_{21}^*) \otimes (E_{12} + E_{22}) + \)\\
+	\(+ (E_{11}^* + E_{12}^*) \otimes E_{22}^* \otimes (-E_{11} + E_{12}) + \)\\
+	\(+ (-E_{11}^* + E_{21}^*) \otimes (E_{11}^* + E_{12}^*) \otimes E_{22} + \)\\
+	\(+ (E_{12}^* - E_{22}^*) \otimes (E_{21}^* + E_{22}^*) \otimes E_{11}\)\\
+
+\end{center}
+da questa fattorizzazione si ha che \(rk(M_{2,2,2}) \leq 7\).\\
+Questa fattorizzasione è l'algoritmo di Strassen per la moltiplicazione di matrici \(2 \times 2\).\\
+Notiamo che, se \(A,B \in Mat_{2,2}(K)\),
+\begin{center}
+	\(E_{ij}^* \otimes E_{hk}^* \otimes E_{uv}^* (A,B) = E_{ij}(A)E_{hk}(B)E_{uv}\)
+\end{center}
+Quindi ogni addendo in una fattorizzazione del tensore \(M_{2,2,2}\) corrisponde ad una moltiplicazione di elementi del campo K.\\
+Allora il rango del tensore \(M_{2,2,2}\) è il numero massimo di moltiplicazioni necessarie per calcolare il prodotto di due matrici \(2 \times 2\).\\
+
+\newpage
+Alcuni risultati generali\\
+\begin{teorema}[di Brockett-Dobkin (1978)]
+	consideriamo il campo \(K = \mathbb{C}\)\\
+	\(rk(M_{n,n,n} \geq 2n^2 -1)\)\\
+	(\(M_{n,n,n}\) è il tensore della moltiplicazione di due matrici \(n \times n\) sul cmapo \(\mathbb{C}\))
+\end{teorema}
+
+\textbf{Corollario:} \(rk(M_{2,2,2} = 7)\)\\
+infatti dall'algoritmo di Strassen segue che \(rk(M_{2,2,2}) \leq 7\),\\
+e dal teorema di Brockett-Dobkin segue che \(rk(M_{2,2,2}) \geq 7\).\\
+
+\begin{teorema}[di Bläser (1999)]
+	\(rk(M_{n,n,n}) \geq \frac{5}{2}n^2 - 3n\)
+\end{teorema}
+
+\begin{teorema}[di Laderman (1976)]
+	\(rk(M_{n,n,n}) \leq 23\)
+\end{teorema}
+
+\begin{teorema}[Deepmind (2022)]
+	sul campo \(\mathbb{F}_2\)\\
+	\(rk(M_{4,4,4}) \leq 47\)\\
+	\(rk(M_{5,5,5}) \leq 96\)
+\end{teorema}
+
+\begin{teorema}[di Kauers e Moosbauer (2022)]
+	sul campo \(\mathbb{F}_2\)\\
+	\(rk(M_{5,5,5}) \leq 95\)\\
+\end{teorema}
+vedi anche la tabella a pagina 4 dell'articolo\\
+"discovering faser matrix multiplication algorithms with reinforcement learning"\\
 \end{document}
