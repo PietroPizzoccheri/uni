@@ -1,0 +1,233 @@
+[
+    {
+        "id": "f1b353ea654d6de5",
+        "type": "tab",
+        "label": "EvalLab24_Group12",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9b94439b8733b88c",
+        "type": "mqtt in",
+        "z": "f1b353ea654d6de5",
+        "name": "subscribe to neslabpolimi/smartcity/milan",
+        "topic": "neslabpolimi/smartcity/milan",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "3bbcd965a703a047",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 200,
+        "wires": [
+            [
+                "3f2298655fad44fe"
+            ]
+        ]
+    },
+    {
+        "id": "d43e4380c960df3d",
+        "type": "function",
+        "z": "f1b353ea654d6de5",
+        "name": "filter message",
+        "func": "const WINDOW_SIZE = context.get('WINDOW_SIZE')\n\nconst window = context.get('window')\n\nconst currentSize = window.length\n\nconst getAvg = arr => arr.reduce((a, b) => a + b) / arr.length;\n\nconst { temperature, k_value, openweather } = msg.payload\nif (!temperature) {\n    return null\n}\n\nif (currentSize === WINDOW_SIZE) {\n    window.shift()\n}\n\nwindow.push(temperature)\nconst avg = getAvg(window)\n\n// UNCOMMENT FOR DEBUG ;)\nnode.warn(window);\nnode.warn(avg.toString() + \" \" + openweather.toString() + \" \" + k_value.toString());\nif (Math.abs(avg - openweather) > k_value) {\n    msg.payload = \"Temperature data is not coherent!\"\n    return msg\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set('WINDOW_SIZE', 3)\ncontext.set('window', [])\ncontext.set('avg', null)",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "5dfe97ac5bb9e7ef",
+                "62fd3e2ec9e94e54"
+            ]
+        ]
+    },
+    {
+        "id": "5dfe97ac5bb9e7ef",
+        "type": "mqtt out",
+        "z": "f1b353ea654d6de5",
+        "name": "publish to neslabpolimi/nsds/eval24/alarm",
+        "topic": "neslabpolimi/nsds/eval24/alarm",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3bbcd965a703a047",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "7854fbb6d7711139",
+        "type": "mqtt in",
+        "z": "f1b353ea654d6de5",
+        "name": "subscribe to neslabpolimi/nsds/eval24/k",
+        "topic": "neslabpolimi/nsds/eval24/k",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "3bbcd965a703a047",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "3f2298655fad44fe"
+            ]
+        ]
+    },
+    {
+        "id": "3f2298655fad44fe",
+        "type": "function",
+        "z": "f1b353ea654d6de5",
+        "name": "parse msg",
+        "func": "context.k_value = context.k_value || null\ncontext.temperature = context.temperature || null\ncontext.openweather = context.openweather || null\n\nif (msg.topic === \"neslabpolimi/nsds/eval24/k\") {\n    context.k_value = msg.payload\n    return null\n} else if (msg.topic === \"neslabpolimi/smartcity/milan\") {\n    const { temperature } = msg.payload.fields\n    context.temperature = temperature\n\n    msg.payload.openweather = context.openweather\n    msg.payload.temperature = temperature\n    msg.payload.k_value = context.k_value\n    return msg\n} else if (msg.topic == \"openweather\") {\n    context.openweather = msg.payload.tempk\n    return null\n}\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 260,
+        "wires": [
+            [
+                "d43e4380c960df3d"
+            ]
+        ]
+    },
+    {
+        "id": "15f6ad38dbf75363",
+        "type": "openweathermap",
+        "z": "f1b353ea654d6de5",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "milan",
+        "country": "IT",
+        "language": "en",
+        "x": 250,
+        "y": 480,
+        "wires": [
+            [
+                "99f35d1c7979c284"
+            ]
+        ]
+    },
+    {
+        "id": "f44e0c0a46fdf966",
+        "type": "inject",
+        "z": "f1b353ea654d6de5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 420,
+        "wires": [
+            [
+                "15f6ad38dbf75363"
+            ]
+        ]
+    },
+    {
+        "id": "99f35d1c7979c284",
+        "type": "change",
+        "z": "f1b353ea654d6de5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "openweather",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "3f2298655fad44fe"
+            ]
+        ]
+    },
+    {
+        "id": "62fd3e2ec9e94e54",
+        "type": "debug",
+        "z": "f1b353ea654d6de5",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3bbcd965a703a047",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.neslab.it",
+        "port": "3200",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
