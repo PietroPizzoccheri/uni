@@ -1,4 +1,4 @@
-package com.lab.evaluation23;
+package com.evaluation23;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import com.evaluation23.*;
+import com.evaluation23.messages.*;
 
 public class SensorDataProcessor {
 
@@ -25,8 +27,10 @@ public class SensorDataProcessor {
 			sensors.add(sys.actorOf(TemperatureSensorActor.props(), "t" + i));
 		}
 
+		final ActorRef processor1 = sys.actorOf(SensorProcessorActor.props(), "p1");
+		final ActorRef processor2 = sys.actorOf(SensorProcessorActor.props(), "p2");
 		// Create dispatcher
-		// final ActorRef dispatcher = ....
+		final ActorRef dispatcher = sys.actorOf(DispatcherActor.props(processor1,processor2), "dispatcher");
 
 		// Waiting until system is ready
 		try {

@@ -34,14 +34,19 @@ public class BrokerActor extends AbstractActorWithStash {
         return receiveBuilder()
                 .match(SubscribeMsg.class, this::onSubscribe)
                 .match(PublishMsg.class, this::onPublish)
-                .match(BatchMsg.class, this::onBatching).build();
+                .match(BatchMsg.class, this::onBatching)
+                .build();
     }
 
     private final Receive batchedOn() {
         return receiveBuilder() // TODO change
-                .match(SubscribeMsg.class, this::onSubscribe)
-                .match(PublishMsg.class, this::onPubBatch)
-                .match(BatchMsg.class, this::onBatching).build();
+                .matchAny(this::onPubBatch)
+                .build();
+    }
+
+    private void onPubBatch(Object o) {
+        System.out.println("BROKER: publish message stashed");
+        stash();
     }
 
     public BrokerActor() {
