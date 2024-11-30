@@ -1,4 +1,4 @@
-package com.lab.evaluation23;
+package com.evaluation23.messages;
 
 import akka.actor.ActorRef;
 

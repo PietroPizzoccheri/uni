@@ -3,17 +3,35 @@ package com.evaluation22;
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
+import com.evaluation22.messages.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class WorkerActor extends AbstractActor {
 
+    // Assume at most one subscriber exists for a given topic
+    private Map<String, ActorRef> subscriptions = new HashMap<>();
+
     @Override
     public Receive createReceive() {
-        return null;
+        return receiveBuilder()
+                .match(SubscribeMsg.class, this::onSubscribe)
+                .match(PublishMsg.class, this::onPublish).build();
     }
 
-    public static Props props() {
-        return Props.create(WorkerActor.class, WorkerActor::new);
+    private void onSubscribe(SubscribeMsg msg) {
+        subscriptions.put(msg.getTopic(), msg.getSender());
     }
 
+    private void onPublish(PublishMsg msg) throws Exception {
+        // If the topic doesn't exist on this worker's map
+        if (!subscriptions.containsKey(msg.getTopic()))
+            throw new Exception("Topic not registered " + getContext().getSelf().toString());
 
+        subscriptions.get(msg.getTopic()).tell(new NotifyMsg(msg.getValue()), self());
+    }
+
+    static Props props() {
+        return Props.create(WorkerActor.class);
+    }
 }
