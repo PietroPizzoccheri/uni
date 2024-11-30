@@ -1,4 +1,5 @@
-package com.lab.evaluation22;
+package com.evaluation22.messages;
+
 
 public class BatchMsg {
 	

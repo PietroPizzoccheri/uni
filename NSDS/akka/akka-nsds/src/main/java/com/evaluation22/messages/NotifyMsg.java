@@ -1,4 +1,4 @@
-package com.lab.evaluation22.solution;
+package com.evaluation22.messages;
 
 public class NotifyMsg {
 

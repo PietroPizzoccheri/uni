@@ -1,10 +1,14 @@
-package com.lab.evaluation22.solution;
+package com.evaluation22;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import com.evaluation22.messages.BatchMsg;
+import com.evaluation22.messages.PublishMsg;
+import com.evaluation22.messages.SubscribeMsg;
+import com.sleepWakeup.ServerActor;
 
 public class PubSub {
 
@@ -14,18 +18,14 @@ public class PubSub {
 	public static void main(String[] args) {
 
 		final ActorSystem sys = ActorSystem.create("System");
-		final ActorRef broker = sys.actorOf(BrokerActor.props(), "broker");
-		final ActorRef subscriber = sys.actorOf(SubscriberActor.props(), "subscriber");
-		final ActorRef publisher = sys.actorOf(PublisherActor.props(), "publisher");
-
-		// Tell the actors who the broker is
-		subscriber.tell(new ConfigMsg(broker), ActorRef.noSender());
-		publisher.tell(new ConfigMsg(broker), ActorRef.noSender());
+		final ActorRef broker = sys.actorOf(BrokerActor.props(), "BrokerActor");
+		final ActorRef subscriber = sys.actorOf(SubscriberActor.props(), "SubscriberActor");
+		final ActorRef publisher = sys.actorOf(PublisherActor.props(), "PublisherActor");
 
 		// Some example subscriptions
 		subscriber.tell(new SubscribeMsg(TOPIC0, subscriber), ActorRef.noSender());
 		subscriber.tell(new SubscribeMsg(TOPIC1, subscriber), ActorRef.noSender());
-				
+		
 		// Waiting for subscriptions to propagate
 		try {
 			TimeUnit.SECONDS.sleep(1);
@@ -78,6 +78,7 @@ public class PubSub {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		sys.terminate();
 	}
 
