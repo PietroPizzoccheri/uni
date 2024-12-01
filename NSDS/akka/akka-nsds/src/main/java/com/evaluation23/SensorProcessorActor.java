@@ -21,8 +21,13 @@ public class SensorProcessorActor extends AbstractActor {
 
 		System.out.println("SENSOR PROCESSOR " + self() + ": Got data from " + msg.getSender());
 
+		if(msg.getTemperature() < 0) {
+			throw new Exception("------- Temperature below 0 detected! -------");
+		}
+
 		if(count == 0) {
 			tot = msg.getTemperature();
+			currentAverage = tot;
 		} else {
 			tot += msg.getTemperature();
 			currentAverage = tot / (count + 1);

@@ -1,93 +1,99 @@
 package com.evaluation22;
 
-
 import akka.actor.*;
 import akka.japi.pf.DeciderBuilder;
-import com.evaluation22.messages.*;
+import com.evaluation22.messages.BatchMsg;
+import com.evaluation22.messages.PublishMsg;
+import com.evaluation22.messages.SubscribeMsg;
 
+import java.util.HashMap;
+import java.util.Map;
 
-import java.time.Duration;
+import static akka.actor.SupervisorStrategy.resume;
+
 
 public class BrokerActor extends AbstractActorWithStash {
 
-    private ActorRef workerEven;
-    private ActorRef workerOdd;
+    private final ActorRef workerEven;
+    private final ActorRef workerOdd;
 
-    private static SupervisorStrategy strategy =
+    @Override
+    public Receive createReceive() {
+        return batchedOff();
+    }
+
+    public Receive batchedOn() {
+        return receiveBuilder()
+                .match(SubscribeMsg.class, this::onSubscribeMessage)
+                .match(PublishMsg.class, this::onPublishBatched)
+                .match(BatchMsg.class, this::onBatchedMessage)
+                .build();
+    }
+
+
+    public Receive batchedOff() {
+        return receiveBuilder()
+                .match(SubscribeMsg.class, this::onSubscribeMessage)
+                .match(PublishMsg.class, this::onPublishMessage)
+                .match(BatchMsg.class, this::onBatchedMessage)
+                .build();
+    }
+
+    private void onBatchedMessage(BatchMsg batchMsg) {
+        if(batchMsg.isOn()) {
+            System.out.println("WorkerActor: Batching is on!");
+            getContext().become(batchedOn());
+        } else {
+            System.out.println("WorkerActor: Batching is off!");
+            getContext().become(batchedOff());
+            unstashAll();
+        }
+    }
+
+    private void onPublishBatched(PublishMsg publishMsg) {
+        //System.out.println("WorkerActor: batching publish command!");
+        stash();
+    }
+
+
+    public BrokerActor() {
+        workerEven = getContext().actorOf(WorkerActor.props(), "worker1");
+        workerOdd = getContext().actorOf(WorkerActor.props(), "worker2");
+    }
+
+    private static final SupervisorStrategy strategy =
             new OneForOneStrategy(
-                    1,
-                    Duration.ofMinutes(1),
-                    DeciderBuilder.match(Exception.class, e -> SupervisorStrategy.resume()).build()
-            );
+                    10,
+                    java.time.Duration.ofMinutes(1),
+                    DeciderBuilder
+                            .matchAny(o -> {
+                                System.out.println("BrokerActor: Restarting on unknown exception");
+                                return resume();
+                            })
+                            .build());
 
     @Override
     public SupervisorStrategy supervisorStrategy() {
         return strategy;
     }
 
-    @Override
-    public AbstractActor.Receive createReceive() {
-        return batchedOff();
+
+    private void onPublishMessage(PublishMsg publishMsg) {
+        //System.out.println("Sending publish message to workers" + publishMsg);
+        workerEven.tell(publishMsg, getSender());
+        workerOdd.tell(publishMsg, getSender());
     }
 
-    private final Receive batchedOff() {
-        return receiveBuilder()
-                .match(SubscribeMsg.class, this::onSubscribe)
-                .match(PublishMsg.class, this::onPublish)
-                .match(BatchMsg.class, this::onBatching)
-                .build();
-    }
-
-    private final Receive batchedOn() {
-        return receiveBuilder() // TODO change
-                .matchAny(this::onPubBatch)
-                .build();
-    }
-
-    private void onPubBatch(Object o) {
-        System.out.println("BROKER: publish message stashed");
-        stash();
-    }
-
-    public BrokerActor() {
-        workerEven = getContext().actorOf(WorkerActor.props());
-        workerOdd = getContext().actorOf(WorkerActor.props());
-    }
-
-    private void onSubscribe(SubscribeMsg msg) {
-        if (msg.getKey() % 2 == 1) {
-            System.out.println("BROKER: Subscribed to odd worker");
-            workerOdd.tell(msg, self());
+    private void onSubscribeMessage(SubscribeMsg subscribeMsg) {
+        //System.out.println("Sending subscribe message to workers" + subscribeMsg);
+        if (subscribeMsg.getKey() % 2 == 0) {
+            workerEven.tell(subscribeMsg, getSender());
         } else {
-            System.out.println("BROKER: Subscribed to even worker");
-            workerEven.tell(msg, self());
+            workerOdd.tell(subscribeMsg, getSender());
         }
     }
 
-
-    private void onPublish(PublishMsg msg) {
-        workerOdd.tell(msg, self());
-        workerEven.tell(msg, self());
-    }
-
-    private void onBatching(BatchMsg msg) {
-        if (msg.isOn()) {
-            System.out.println("BROKER: batching turned on");
-            getContext().become(batchedOn());
-        } else {
-            System.out.println("BROKER: batching turned off");
-            getContext().become(batchedOff());
-            unstashAll();
-        }
-    }
-
-    private void onPubBatch(PublishMsg msg) {
-        System.out.println("BROKER: publish message stashed");
-        stash();
-    }
-
-    static Props props() {
-        return Props.create(BrokerActor.class);
+    public static Props props() {
+        return Props.create(BrokerActor.class, BrokerActor::new);
     }
 }
-

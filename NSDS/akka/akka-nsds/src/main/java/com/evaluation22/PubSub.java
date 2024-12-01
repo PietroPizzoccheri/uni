@@ -8,7 +8,7 @@ import akka.actor.ActorSystem;
 import com.evaluation22.messages.BatchMsg;
 import com.evaluation22.messages.PublishMsg;
 import com.evaluation22.messages.SubscribeMsg;
-import com.sleepWakeup.ServerActor;
+import com.evaluation22.messages.ConfigMsg;
 
 public class PubSub {
 
@@ -18,9 +18,20 @@ public class PubSub {
 	public static void main(String[] args) {
 
 		final ActorSystem sys = ActorSystem.create("System");
-		final ActorRef broker = sys.actorOf(BrokerActor.props(), "BrokerActor");
-		final ActorRef subscriber = sys.actorOf(SubscriberActor.props(), "SubscriberActor");
-		final ActorRef publisher = sys.actorOf(PublisherActor.props(), "PublisherActor");
+		final ActorRef broker = sys.actorOf(BrokerActor.props(), "broker");
+		final ActorRef subscriber = sys.actorOf(SubscriberActor.props(), "subscriber");
+		final ActorRef publisher = sys.actorOf(PublisherActor.props(), "publisher");
+
+		subscriber.tell(new ConfigMsg(broker), ActorRef.noSender());
+		publisher.tell(new ConfigMsg(broker), ActorRef.noSender());
+
+		// Waiting for configuration to propagate
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		// Some example subscriptions
 		subscriber.tell(new SubscribeMsg(TOPIC0, subscriber), ActorRef.noSender());
@@ -31,7 +42,6 @@ public class PubSub {
 			TimeUnit.SECONDS.sleep(1);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
-
 			e1.printStackTrace();
 		}
 		
@@ -55,7 +65,6 @@ public class PubSub {
 			TimeUnit.SECONDS.sleep(1);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
-
 			e1.printStackTrace();
 		}
 

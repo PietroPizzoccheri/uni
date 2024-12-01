@@ -1,6 +1,5 @@
 package com.evaluation22.messages;
 
-
 public class BatchMsg {
 	
 	private boolean isOn;

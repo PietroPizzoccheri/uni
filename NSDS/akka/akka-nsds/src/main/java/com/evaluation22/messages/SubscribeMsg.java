@@ -7,6 +7,8 @@ public class SubscribeMsg {
 	private int key;
 	private String topic;
 	private ActorRef sender;
+
+
 	
 	public SubscribeMsg (String topic, ActorRef sender) {
 		this.key = this.hashCode();

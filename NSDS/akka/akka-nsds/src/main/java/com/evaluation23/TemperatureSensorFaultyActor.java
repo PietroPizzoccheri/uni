@@ -13,13 +13,19 @@ public class TemperatureSensorFaultyActor extends TemperatureSensorActor {
 
 	@Override
 	public AbstractActor.Receive createReceive() {
-		return receiveBuilder().match(GenerateMsg.class, this::onGenerate)
+		return receiveBuilder()
+				.match(GenerateMsg.class, this::onGenerate)
+				.match(ConfigMsg.class, this::onConfig)
 				.build();
 	}
 
 	private void onGenerate(GenerateMsg msg) {
-		System.out.println("TEMPERATURE SENSOR "+self()+": Sensing temperature!");
+		System.out.println("TEMPERATURE SENSOR "+self()+": Sensing temperature! (FAULTY)");
 		dispatcher.tell(new TemperatureMsg(FAULT_TEMP,self()), self());
+	}
+
+	private void onConfig(ConfigMsg msg) {
+		dispatcher = msg.getDispatcher();
 	}
 
 	static Props props() {

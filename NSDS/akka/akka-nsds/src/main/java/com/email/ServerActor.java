@@ -38,7 +38,6 @@ public class ServerActor extends AbstractActor {
     public void postRestart(Throwable reason) throws Exception {
         super.postRestart(reason);
         System.out.println("ServerActor restarted with map: " + (contactList.isEmpty() ? "empty map" : contactList));
-
     }
 
     void onMessage(PutMsg msg) throws Exception {

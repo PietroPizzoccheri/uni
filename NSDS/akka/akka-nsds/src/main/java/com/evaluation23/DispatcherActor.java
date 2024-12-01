@@ -1,31 +1,50 @@
 package com.evaluation23;
-import akka.actor.ActorRef;
-import com.evaluation23.*;
+import akka.actor.*;
+import akka.japi.pf.DeciderBuilder;
 import com.evaluation23.messages.*;
 
-import akka.actor.AbstractActor;
-import akka.actor.AbstractActorWithStash;
-import akka.actor.Props;
-
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
-public class DispatcherActor extends AbstractActorWithStash {
+import static akka.actor.SupervisorStrategy.resume;
+
+public class DispatcherActor extends AbstractActor {
 
 	private final static int NO_PROCESSORS = 2;
-	private final ActorRef processor1;
-	private final ActorRef processor2;
+	private final List<ActorRef> processorList = new LinkedList<ActorRef>();
 
 	private boolean useRoundRobin = false;
 	private boolean roundRobinSwitch = false;
 
 	private boolean loadBalancerSwitch = false;
 
-	private Map<ActorRef , ActorRef> processorMap;
+	private final Map<ActorRef , ActorRef> processorMap = new HashMap<>();
 
-	public DispatcherActor(ActorRef processor1, ActorRef processor2) {
-		this.processor1 = processor1;
-		this.processor2 = processor2;
+	public DispatcherActor() {
+		for (int i = 0; i < NO_PROCESSORS; i++) {
+			processorList.add(getContext().actorOf(SensorProcessorActor.props(), "p" + i));
+		}
 	}
+
+	private static final SupervisorStrategy strategy =
+			new OneForOneStrategy(
+					10,
+					java.time.Duration.ofMinutes(1),
+					DeciderBuilder
+							.matchAny(o -> {
+								System.out.println("SupervisorActor: Restarting on unknown exception");
+								return resume();
+							})
+							.build());
+
+	@Override
+	public SupervisorStrategy supervisorStrategy() {
+		return strategy;
+	}
+
+
 
 
 	@Override
@@ -39,6 +58,7 @@ public class DispatcherActor extends AbstractActorWithStash {
 
 	private void onDispatchLogic(DispatchLogicMsg msg) {
 		if(msg.getLogic() == 0) {
+			System.out.println("DispatcherActor: Using Round Robin");
 			useRoundRobin = true;
 		} else {
 			useRoundRobin = false;
@@ -57,26 +77,21 @@ public class DispatcherActor extends AbstractActorWithStash {
 		if(processorMap.containsKey(msg.getSender())){
 			ActorRef sender = msg.getSender();
 			ActorRef toSend = processorMap.get(sender);
-			toSend.tell(msg, ActorRef.noSender());
+			toSend.tell(msg, self());
 		}else {
-			if(loadBalancerSwitch){
-				processorMap.put(msg.getSender(), processor1);
-			} else {
-				processorMap.put(msg.getSender(), processor2);
-			}
+
+			loadBalancerSwitch = !loadBalancerSwitch;
 		}
 	}
 
 	private void dispatchDataRoundRobin(TemperatureMsg msg) {
 		if(roundRobinSwitch) {
-			processor1.tell(msg, ActorRef.noSender());
-		} else {
-			processor2.tell(msg, ActorRef.noSender());
+
 		}
 		roundRobinSwitch = !roundRobinSwitch;
 	}
 
-	static Props props(ActorRef processor1, ActorRef processor2) {
-		return Props.create(DispatcherActor.class , () -> new DispatcherActor(processor1, processor2));
+	static Props props() {
+		return Props.create(DispatcherActor.class , DispatcherActor::new);
 	}
 }

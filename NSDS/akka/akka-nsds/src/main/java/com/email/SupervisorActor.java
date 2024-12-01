@@ -20,11 +20,11 @@ public class SupervisorActor extends AbstractActor {
                     java.time.Duration.ofMinutes(1),
                     DeciderBuilder
                             .match(RuntimeException.class, e -> {
-                                System.out.println("SupervisorActor: Resuming on RuntimeException");
+                                System.out.println("SupervisorActor: Resuming on AAAAA RuntimeException");
                                 return resume();
                             })
                             .matchAny(o -> {
-                                System.out.println("SupervisorActor: Restarting on unknown exception");
+                                System.out.println("SupervisorActor: Restarting BBBBB on unknown exception");
                                 return restart();
                             })
                             .build());

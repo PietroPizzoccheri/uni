@@ -27,11 +27,14 @@ public class SensorDataProcessor {
 			sensors.add(sys.actorOf(TemperatureSensorActor.props(), "t" + i));
 		}
 
-		final ActorRef processor1 = sys.actorOf(SensorProcessorActor.props(), "p1");
-		final ActorRef processor2 = sys.actorOf(SensorProcessorActor.props(), "p2");
 		// Create dispatcher
-		final ActorRef dispatcher = sys.actorOf(DispatcherActor.props(processor1,processor2), "dispatcher");
+		final ActorRef dispatcher = sys.actorOf(DispatcherActor.props(), "dispatcher");
 
+		for(ActorRef t : sensors) {
+			t.tell(new ConfigMsg(dispatcher), ActorRef.noSender());
+		}
+
+		// ...
 		// Waiting until system is ready
 		try {
 			TimeUnit.SECONDS.sleep(1);
@@ -57,6 +60,7 @@ public class SensorDataProcessor {
 
 		// Re-configure dispatcher to use Round Robin
 		// ...
+		dispatcher.tell(new DispatchLogicMsg(0), ActorRef.noSender());
 		
 		// Waiting for dispatcher reconfiguration
 		try {
@@ -76,6 +80,7 @@ public class SensorDataProcessor {
 		// A new (faulty) sensor joins the system
 		ActorRef faultySensor = sys.actorOf(TemperatureSensorFaultyActor.props(), "tFaulty");
 		sensors.add(0, faultySensor);
+		faultySensor.tell(new ConfigMsg(dispatcher), ActorRef.noSender());
 		
 		// ...
 		

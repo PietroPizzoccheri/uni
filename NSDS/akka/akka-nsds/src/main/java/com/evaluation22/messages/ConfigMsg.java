@@ -4,13 +4,13 @@ import akka.actor.ActorRef;
 
 public class ConfigMsg {
 
-    private ActorRef broker;
+    private final ActorRef brokerRef;
 
-    public ConfigMsg (ActorRef broker) {
-        this.broker = broker;
+    public ConfigMsg(ActorRef brokerRef) {
+        this.brokerRef = brokerRef;
     }
 
     public ActorRef getBrokerRef() {
-        return broker;
+        return brokerRef;
     }
 }

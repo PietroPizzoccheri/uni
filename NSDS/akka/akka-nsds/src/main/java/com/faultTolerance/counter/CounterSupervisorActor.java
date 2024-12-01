@@ -29,8 +29,7 @@ public class CounterSupervisorActor extends AbstractActor {
 	public Receive createReceive() {
 		// Creates the child actor within the supervisor actor context
 		return receiveBuilder()
-		          .match(
-		              Props.class,
+		          .match(Props.class,
 		              props -> {
 		                getSender().tell(getContext().actorOf(props), getSelf());
 		              })

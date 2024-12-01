@@ -4,10 +4,10 @@ import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import com.evaluation22.messages.ConfigMsg;
+import com.evaluation22.messages.NotifyMsg;
 import com.evaluation22.messages.PublishMsg;
 
 public class PublisherActor extends AbstractActor {
-
     private ActorRef broker;
 
     @Override
@@ -19,17 +19,17 @@ public class PublisherActor extends AbstractActor {
     }
 
     private void configure(ConfigMsg msg) {
-        System.out.println("PUBLISHER: Received configuration message!");
+        //System.out.println("PUBLISHER: Received configuration message!");
         broker = msg.getBrokerRef();
     }
 
     private void onPublish(PublishMsg msg) {
-        System.out.println("PUBLISHER: Received publish command!");
+        //System.out.println("PUBLISHER: Received publish command!");
         broker.tell(msg, self());
     }
+
 
     static Props props() {
         return Props.create(PublisherActor.class);
     }
-
 }
