@@ -1,7 +1,12 @@
 #include <mpi.h>
 #include <stdio.h>
 
-int main(int argc, char** argv) {
+/*
+mpicc hello_world.c -o hello
+mpirun hello
+*/
+
+int main(int argc, char *argv[]) {
   // Init the MPI environment
   MPI_Init(NULL, NULL);
 
@@ -12,6 +17,7 @@ int main(int argc, char** argv) {
   // Get the rank of the process
   int world_rank;
   MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+
 
   // Get the name of the processor
   char processor_name[MPI_MAX_PROCESSOR_NAME];

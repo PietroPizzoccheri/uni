@@ -417,3 +417,6 @@ package-lock.json
 package.json
 
 .DS_Store
+
+NSDS/MPI/NSDS_MPI_tutorial/src/*
+!NSDS/MPI/NSDS_MPI_tutorial/src/*.c

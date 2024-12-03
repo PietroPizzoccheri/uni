@@ -24,6 +24,16 @@ int main(int argc, char** argv) {
   // Receiver
   else {
     // TODO: check the message size and receive
+    MPI_Status status;
+    MPI_Probe(other_rank, 0, MPI_COMM_WORLD, &status);
+    int num_msgs;
+    MPI_Get_count(&status, MPI_INT, &num_msgs);
+    int *msgs = (int *) malloc(sizeof(int) * num_msgs);
+    MPI_Recv(msgs, num_msgs, MPI_INT, other_rank, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    for (int i=0; i<num_msgs; i++) {
+      printf("Received message: %d\n", msgs[i]);
+    }
+    free(msgs);
   }
   
   MPI_Finalize();
