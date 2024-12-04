@@ -420,3 +420,6 @@ package.json
 
 NSDS/MPI/NSDS_MPI_tutorial/src/*
 !NSDS/MPI/NSDS_MPI_tutorial/src/*.c
+
+NSDS/MPI/NSDS_MPI_lab/*
+!NSDS/MPI/NSDS_MPI_lab/*.c
