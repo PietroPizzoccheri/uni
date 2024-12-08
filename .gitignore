@@ -423,3 +423,6 @@ NSDS/MPI/NSDS_MPI_tutorial/src/*
 
 NSDS/MPI/NSDS_MPI_lab/*
 !NSDS/MPI/NSDS_MPI_lab/*.c
+
+NSDS/MPI/NSDS_MPI_eval_23/*
+!NSDS/MPI/NSDS_MPI_eval_23/*.c
