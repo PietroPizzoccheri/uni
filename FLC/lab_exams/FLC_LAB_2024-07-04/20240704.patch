@@ -1,0 +1,61 @@
+diff --git a/acse/parser.y b/acse/parser.y
+index 6e9c139..334ad47 100644
+--- a/acse/parser.y
++++ b/acse/parser.y
+@@ -70,6 +70,7 @@ void yyerror(const char *msg)
+ %token TYPE
+ %token RETURN
+ %token READ WRITE ELSE
++%token TRI
+ 
+ // These are the tokens with a semantic value.
+ %token <ifStmt> IF
+@@ -438,6 +439,23 @@ exp
+     $$ = getNewRegister(program);
+     genOR(program, $$, rNormalizedOp1, rNormalizedOp2);
+   }
++  | TRI LPAR exp RPAR
++  {
++    // Reserve a register for the result, and generate an instruction to
++    // initialize it to zero.
++    $$ = getNewRegister(program);
++    genLI(program, $$, 0);
++    // Generate a branch that skips the computation if the expression is
++    // negative or zero
++    t_label *lNegative = createLabel(program);
++    genBLE(program, $3, REG_0, lNegative);
++    // Generate the computation of the triangular number
++    genADDI(program, $$, $3, 1);  // $$ = n + 1
++    genMUL(program, $$, $$, $3);  // $$ = n * (n + 1)
++    genDIVI(program, $$, $$, 2);  // $$ = n * (n + 1) / 2
++    // Assign the label to the end of the code
++    assignLabel(program, lNegative);
++  }
+ ;
+ 
+ var_id
+diff --git a/acse/scanner.l b/acse/scanner.l
+index 3d35cd5..2d1b11d 100644
+--- a/acse/scanner.l
++++ b/acse/scanner.l
+@@ -81,6 +81,7 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+ "return"                  { return RETURN; }
+ "read"                    { return READ; }
+ "write"                   { return WRITE; }
++"tri"                     { return TRI; }
+ 
+ {ID}                      {
+                             yylval.string = strdup(yytext);
+diff --git a/tests/tri/tri.src b/tests/tri/tri.src
+new file mode 100644
+index 0000000..1d0af52
+--- /dev/null
++++ b/tests/tri/tri.src
+@@ -0,0 +1,7 @@
++int i;
++
++i = 0;
++while (i < 15) {
++  write(tri(i - 5));
++  i = i + 1;
++}

@@ -1,0 +1,102 @@
+diff --git a/acse/parser.h b/acse/parser.h
+--- a/acse/parser.h
++++ b/acse/parser.h
+@@ -26,6 +26,12 @@ typedef struct {
+   t_label *lExit; ///< Label to the first instruction after the loop.
+ } t_whileStmt;
+ 
++/** Utility structure used to store information about a if-repeat statement. */
++typedef struct {
++  t_label *lLoop; ///< Label to the beginning of the loop.
++  t_label *lExit; ///< Label to the first instruction after the loop.
++} t_ifRepeatStmt;
++
+ /**
+  * @}
+  */
+diff --git a/acse/parser.y b/acse/parser.y
+--- a/acse/parser.y
++++ b/acse/parser.y
+@@ -50,6 +50,7 @@ void yyerror(const char *msg)
+   t_label *label;
+   t_ifStmt ifStmt;
+   t_whileStmt whileStmt;
++  t_ifRepeatStmt ifRepeatStmt;
+ }
+ 
+ /*
+@@ -70,6 +71,7 @@ void yyerror(const char *msg)
+ %token TYPE
+ %token RETURN
+ %token READ WRITE ELSE
++%token UNTIL
+ 
+ // These are the tokens with a semantic value.
+ %token <ifStmt> IF
+@@ -77,6 +79,7 @@ void yyerror(const char *msg)
+ %token <label> DO
+ %token <string> IDENTIFIER
+ %token <integer> NUMBER
++%token <ifRepeatStmt> IF_REPEAT
+ 
+ /*
+  * Non-terminal symbol semantic value type declarations
+@@ -182,6 +185,7 @@ statement
+   | return_statement SEMI
+   | read_statement SEMI
+   | write_statement SEMI
++  | if_repeat_statement SEMI
+   | SEMI
+ ;
+ 
+@@ -305,6 +309,27 @@ write_statement
+     genPrintCharSyscall(program, rTmp);
+   }
+ ;
++if_repeat_statement
++  : IF_REPEAT LPAR exp RPAR
++  {
++    // Allocate the object for the label used to jump out of the statement
++    $1.lExit = createLabel(program);
++    // Generate code to skip the entire statement body if the expression is
++    // equal to zero
++    genBEQ(program, $3, REG_0, $1.lExit);
++    // Create and assign the label for the back-edge to the
++    // beginning of the loop
++    $1.lLoop = createLabel(program);
++    assignLabel(program, $1.lLoop);
++  }
++  code_block UNTIL LPAR exp RPAR
++  {
++    // Generate code to jump back to the loop body if the condition is not true
++    genBEQ(program, $9, REG_0, $1.lLoop);
++    // Assign the label used to exit from the statement
++    assignLabel(program, $1.lExit);
++  }
++;
+ 
+ /* The exp rule represents the syntax of expressions. The semantic value of
+  * the rule is the register ID that will contain the value of the expression
+diff --git a/acse/scanner.l b/acse/scanner.l
+--- a/acse/scanner.l
++++ b/acse/scanner.l
+@@ -81,6 +81,8 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+ "return"                  { return RETURN; }
+ "read"                    { return READ; }
+ "write"                   { return WRITE; }
++"if_repeat"               { return IF_REPEAT; }
++"until"                   { return UNTIL; }
+ 
+ {ID}                      {
+                             yylval.string = strdup(yytext);
+diff --git a/tests/if_repeat/if_repeat.src b/tests/if_repeat/if_repeat.src
+--- /dev/null
++++ b/tests/if_repeat/if_repeat.src
+@@ -0,0 +1,7 @@
++int i;
++read(i);
++if_repeat (i > 0) {
++  write(i);
++  i = i - 1;
++} until (i == 0);
++write(0);

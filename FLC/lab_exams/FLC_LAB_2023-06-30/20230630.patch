@@ -1,0 +1,99 @@
+diff --git a/acse/parser.y b/acse/parser.y
+--- a/acse/parser.y
++++ b/acse/parser.y
+@@ -70,6 +70,7 @@ void yyerror(const char *msg)
+ %token TYPE
+ %token RETURN
+ %token READ WRITE ELSE
++%token SW_DIV
+ 
+ // These are the tokens with a semantic value.
+ %token <ifStmt> IF
+@@ -105,7 +106,7 @@ void yyerror(const char *msg)
+ %left LT GT LTEQ GTEQ
+ %left SHL_OP SHR_OP
+ %left PLUS MINUS
+-%left MUL_OP DIV_OP MOD_OP
++%left MUL_OP DIV_OP MOD_OP SW_DIV
+ %right NOT_OP
+ 
+ /*
+@@ -438,6 +439,38 @@ exp
+     $$ = getNewRegister(program);
+     genOR(program, $$, rNormalizedOp1, rNormalizedOp2);
+   }
++  | exp SW_DIV exp
++  {
++    // Reserve the register that will hold the result (quotient).
++    $$ = getNewRegister(program);    
++
++    // Generate code that checks if the divisor is not zero, and in that case
++    // jumps to the actual computation
++    t_label *lNotZero = createLabel(program);
++    genBNE(program, REG_0, $3, lNotZero);
++    // Otherwise set the result to INT_MAX and we are done
++    genLI(program, $$, INT_MAX);
++    t_label *lExit = createLabel(program);
++    genJ(program, lExit);
++    assignLabel(program, lNotZero);
++
++    // Generate the loop code.
++    // First generate the initialization of the result to zero
++    genLI(program, $$, 0);
++    // Generate the label for the back-edge
++    t_label *lLoop = createLabel(program);
++    assignLabel(program, lLoop);
++    // Generate code to exit the loop if what remains of the dividend < divisor
++    genBLT(program, $1, $3, lExit);
++    // Generate code to subtract divisor from dividend and count one subtraction
++    genSUB(program, $1, $1, $3);
++    genADDI(program, $$, $$, 1);
++    // Generate a jump back to the beginning of the loop
++    genJ(program, lLoop);
++
++    // Assign the label used to skip the loop altogether
++    assignLabel(program, lExit);
++  }
+ ;
+ 
+ var_id
+diff --git a/acse/scanner.l b/acse/scanner.l
+--- a/acse/scanner.l
++++ b/acse/scanner.l
+@@ -72,6 +72,7 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+ "&&"                      { return ANDAND; }
+ "||"                      { return OROR; }
+ ","                       { return COMMA; }
++"[/]"                     { return SW_DIV; }
+ 
+ "do"                      { return DO; }
+ "else"                    { return ELSE; }
+diff --git a/tests/sw_div/sw_div.src b/tests/sw_div/sw_div.src
+--- /dev/null
++++ b/tests/sw_div/sw_div.src
+@@ -0,0 +1,25 @@
++int a, b;
++a = 1234;
++b = 33;
++
++write(1234 / 33);
++write(1234 [/] 33);
++
++write(1234 / b);
++write(1234 [/] b);
++
++write(a / 33);
++write(a [/] 33);
++
++write(a / b);
++write(a [/] b);
++
++b = 0;
++write(a [/] 0);
++write(1234 [/] 0);
++write(a [/] b);
++
++read(a);
++read(b);
++write(a / b);
++write(a [/] b);

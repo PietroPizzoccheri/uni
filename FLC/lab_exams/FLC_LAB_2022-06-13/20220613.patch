@@ -1,0 +1,132 @@
+diff --git a/acse/parser.y b/acse/parser.y
+--- a/acse/parser.y
++++ b/acse/parser.y
+@@ -70,6 +70,7 @@ void yyerror(const char *msg)
+ %token TYPE
+ %token RETURN
+ %token READ WRITE ELSE
++%token ZIP
+ 
+ // These are the tokens with a semantic value.
+ %token <ifStmt> IF
+@@ -182,6 +183,7 @@ statement
+   | return_statement SEMI
+   | read_statement SEMI
+   | write_statement SEMI
++  | zip_statement SEMI
+   | SEMI
+ ;
+ 
+@@ -306,6 +308,65 @@ write_statement
+   }
+ ;
+ 
++zip_statement
++  : var_id ASSIGN ZIP LPAR var_id COMMA var_id RPAR
++  {
++    // Check if all three input/output arguments are in fact arrays
++    if (!isArray($1) || !isArray($5) || !isArray($7)) {
++      yyerror("at least one source/destination to zip is not an array!");
++      YYERROR;
++    }
++
++    // Compute the number of pairs of values to copy to the destination array
++    // and load it into a register for later
++    int nPairs = $5->arraySize;
++    if (nPairs > $7->arraySize)
++      nPairs = $7->arraySize;
++    t_regID rNPairs = getNewRegister(program);
++    genLI(program, rNPairs, nPairs);
++    // Load the destination array size in a register for later
++    t_regID rDstSz = getNewRegister(program);
++    genLI(program, rDstSz, $1->arraySize);
++    
++    // Reserve two registers used for keeping track of the current index
++    // in the source and destination arrays. Generate code for initializing
++    // both registers to zero.
++    t_regID rSrcI = getNewRegister(program);
++    t_regID rDstI = getNewRegister(program);
++    genLI(program, rSrcI, 0);
++    genLI(program, rDstI, 0);
++
++    // Generate a label at the beginning of the loop which copies the values
++    // at runtime.
++    t_label *lLoop = createLabel(program);
++    assignLabel(program, lLoop);
++    // Reserve a label for exiting the loop
++    t_label *lExit = createLabel(program);
++
++    // Now we need to generate the code of the body of the loop.
++    // First we generate a copy from the first source array to the destination
++    t_regID rTemp = genLoadArrayElement(program, $5, rSrcI);
++    genStoreRegisterToArrayElement(program, $1, rDstI, rTemp);
++    genADDI(program, rDstI, rDstI, 1);
++    // Generate a branch out of the loop if we are at the end of the dest. array
++    genBGE(program, rDstI, rDstSz, lExit);
++    // Now generate a copy from the second source array to the destination
++    rTemp = genLoadArrayElement(program, $7, rSrcI);
++    genStoreRegisterToArrayElement(program, $1, rDstI, rTemp);
++    genADDI(program, rDstI, rDstI, 1);
++    // Generate a branch out of the loop if we are at the end of the dest. array
++    genBGE(program, rDstI, rDstSz, lExit);
++
++    // Generate code to increment the index in the source arrays and continue
++    // the loop if we are not at the end
++    genADDI(program, rSrcI, rSrcI, 1);
++    genBLT(program, rSrcI, rNPairs, lLoop);
++
++    // Assign the label for exiting the loop
++    assignLabel(program, lExit);
++  }
++;
++
+ /* The exp rule represents the syntax of expressions. The semantic value of
+  * the rule is the register ID that will contain the value of the expression
+  * at runtime.
+diff --git a/acse/scanner.l b/acse/scanner.l
+--- a/acse/scanner.l
++++ b/acse/scanner.l
+@@ -81,6 +81,7 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+ "return"                  { return RETURN; }
+ "read"                    { return READ; }
+ "write"                   { return WRITE; }
++"zip"                     { return ZIP; }
+ 
+ {ID}                      {
+                             yylval.string = strdup(yytext);
+diff --git a/tests/zip/zip.src b/tests/zip/zip.src
+--- /dev/null
++++ b/tests/zip/zip.src
+@@ -0,0 +1,32 @@
++int a[5], b[6], c[12];
++int i;
++
++i = 0;
++while (i < 5) {
++  a[i] = i + 1;
++  i = i + 1;
++}
++i = 0;
++while (i < 6) {
++  b[i] = (i + 1) * 10;
++  i = i + 1;
++}
++i = 0;
++while (i < 12) {
++  c[i] = 0;
++  i = i + 1;
++}
++
++c = zip(a, b);
++i = 0;
++while (i < 12) {
++  write(c[i]);
++  i = i + 1;
++}
++
++a = zip(b, c);
++i = 0;
++while (i < 5) {
++  write(a[i]);
++  i = i + 1;
++}

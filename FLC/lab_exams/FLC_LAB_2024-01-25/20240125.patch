@@ -1,0 +1,119 @@
+diff --git a/acse/parser.h b/acse/parser.h
+--- a/acse/parser.h
++++ b/acse/parser.h
+@@ -26,6 +26,16 @@ typedef struct {
+   t_label *lExit; ///< Label to the first instruction after the loop.
+ } t_whileStmt;
+ 
++// Note that instead of defining a new semantic type in the union declaration,
++// we could have used global variables as the repeat_exp statement structurally
++// cannot be nested (being a statement, it cannot appear inside one of the
++// expressions!)
++typedef struct {
++  t_regID rIdx;
++  t_label *lLoop;
++  t_label *lExit;
++} t_repeatExpStmt;
++
+ /**
+  * @}
+  */
+diff --git a/acse/parser.y b/acse/parser.y
+--- a/acse/parser.y
++++ b/acse/parser.y
+@@ -50,6 +50,7 @@ void yyerror(const char *msg)
+   t_label *label;
+   t_ifStmt ifStmt;
+   t_whileStmt whileStmt;
++  t_repeatExpStmt repeatExpStmt;
+ }
+ 
+ /*
+@@ -77,6 +78,7 @@ void yyerror(const char *msg)
+ %token <label> DO
+ %token <string> IDENTIFIER
+ %token <integer> NUMBER
++%token <repeatExpStmt> REPEAT_EXP
+ 
+ /*
+  * Non-terminal symbol semantic value type declarations
+@@ -182,9 +184,48 @@ statement
+   | return_statement SEMI
+   | read_statement SEMI
+   | write_statement SEMI
++  | repeat_exp_statement SEMI
+   | SEMI
+ ;
+ 
++repeat_exp_statement
++  : REPEAT_EXP LPAR var_id ASSIGN exp COMMA exp COMMA 
++  {
++    // Generate the assignment of <exp. 1> to the variable.
++    genStoreRegisterToVariable(program, $3, $5);
++
++    // Reserve a new register which will be used as a loop counter, and
++    // generate the code which initializes the loop counter with
++    // the value of <exp. 2>.
++    // The loop counter will be decremented at every iteration.
++    $1.rIdx = getNewRegister(program);
++    genADDI(program, $1.rIdx, $7, 0);
++
++    // Generate the label for the back-edge of the loop
++    $1.lLoop = createLabel(program);
++    assignLabel(program, $1.lLoop);
++    // Generate the code for testing if the loop counter is <= 0 and exit the
++    // loop in that case
++    $1.lExit = createLabel(program);
++    genBLE(program, $1.rIdx, REG_0, $1.lExit);
++    // At this point the rule for `exp` will generate some code which computes
++    // the value of <exp. 3>.
++  }
++  exp RPAR
++  {
++    // Generate code which will assign the value of <exp. 3> of the variable
++    // at each loop iteration.
++    genStoreRegisterToVariable(program, $3, $10);
++
++    // Generate code to decrement the loop counter and jump back to the head
++    // of the loop
++    genSUBI(program, $1.rIdx, $1.rIdx, 1);
++    genJ(program, $1.lLoop);
++    // Generate the label which points just after the loop for exiting it.
++    assignLabel(program, $1.lExit);
++  }
++;
++
+ /* An assignment statement stores the value of an expression in the memory
+  * location of a given scalar variable or array element. */
+ assign_statement
+diff --git a/acse/scanner.l b/acse/scanner.l
+--- a/acse/scanner.l
++++ b/acse/scanner.l
+@@ -81,6 +81,7 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+ "return"                  { return RETURN; }
+ "read"                    { return READ; }
+ "write"                   { return WRITE; }
++"repeat_exp"              { return REPEAT_EXP; }
+ 
+ {ID}                      {
+                             yylval.string = strdup(yytext);
+diff --git a/tests/exp_loop/exp_loop.src b/tests/exp_loop/exp_loop.src
+--- /dev/null
++++ b/tests/exp_loop/exp_loop.src
+@@ -0,0 +1,16 @@
++int a, b;
++
++repeat_exp(a=0, 10, a+1);
++write(a); // 10
++
++repeat_exp(b=a*3, a+5, b-1);
++write(b); // 15
++
++repeat_exp(a=b/3, 0, 123456);
++write(a); // 5
++
++repeat_exp(a=10000, 3, (a+200000000/a)/2);
++write(a); // 14142
++
++repeat_exp(a=1000, 3, (a+4096576/a)/2);
++write(a); // 2024

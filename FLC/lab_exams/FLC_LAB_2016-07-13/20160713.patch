@@ -1,0 +1,75 @@
+diff --git a/acse/parser.y b/acse/parser.y
+--- a/acse/parser.y
++++ b/acse/parser.y
+@@ -77,6 +77,7 @@ void yyerror(const char *msg)
+ %token <label> DO
+ %token <string> IDENTIFIER
+ %token <integer> NUMBER
++%token <ifStmt> IIF
+ 
+ /*
+  * Non-terminal symbol semantic value type declarations
+@@ -177,6 +178,7 @@ statements
+ statement
+   : assign_statement SEMI
+   | if_statement
++  | iif_statement
+   | while_statement
+   | do_while_statement SEMI
+   | return_statement SEMI
+@@ -223,6 +225,32 @@ if_statement
+   }
+ ;
+ 
++/* An iif statements first assign than computes the expression, then jumps to
++ * the `else' part if the expression is equal to zero.
++ * Otherwise the `then' part is executed.
++ * After the `then' part the `else' part needs to be jumped over. */
++iif_statement
++  : IIF LPAR assign_statement SEMI exp RPAR
++  {
++    // Generate a jump to the else part if the expression is equal to zero.
++    $1.lElse = createLabel(program);
++    genBEQ(program, $5, REG_0, $1.lElse);
++  }
++  code_block
++  {
++    // After the `then' part, generate a jump to the end of the statement.
++    $1.lExit = createLabel(program);
++    genJ(program, $1.lExit);
++    // Assign the label which points to the first instruction of the else part.
++    assignLabel(program, $1.lElse);
++  }
++  else_part
++  {
++    // Assign the label to the end of the statement.
++    assignLabel(program, $1.lExit);
++  }
++;
++
+ /* The `else' part may be missing, in that case no code is generated. */
+ else_part
+   : ELSE code_block
+diff --git a/acse/scanner.l b/acse/scanner.l
+--- a/acse/scanner.l
++++ b/acse/scanner.l
+@@ -81,6 +81,7 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+ "return"                  { return RETURN; }
+ "read"                    { return READ; }
+ "write"                   { return WRITE; }
++"iif"                     { return IIF; }
+ 
+ {ID}                      {
+                             yylval.string = strdup(yytext);
+diff --git a/tests/iif/iif.src b/tests/iif/iif.src
+--- /dev/null
++++ b/tests/iif/iif.src
+@@ -0,0 +1,8 @@
++int i,j;
++i=5;
++j=20;
++iif (i=i+2; (j*5)>i) {
++  j = i;
++}
++write(i);
++write(j);

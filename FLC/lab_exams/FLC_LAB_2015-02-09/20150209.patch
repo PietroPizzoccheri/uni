@@ -1,0 +1,93 @@
+diff --git a/acse/parser.y b/acse/parser.y
+--- a/acse/parser.y
++++ b/acse/parser.y
+@@ -438,6 +438,62 @@ exp
+     $$ = getNewRegister(program);
+     genOR(program, $$, rNormalizedOp1, rNormalizedOp2);
+   }
++  | exp NOT_OP
++  {
++    // Factorial implemented as repeated multiplication from 1 to $1
++    //   int factorial = 1;
++    //   for (int i = 1; i <= $1; i++){
++    //     factorial *= i;
++    //   }
++    //   return factorial;
++    // Generate a new register that will contains the factorial
++    t_regID rFactorial = getNewRegister(program);
++    // Assign the factorial register to the result of exp
++    $$ = rFactorial;
++    // Generate initialization of the factorial to 1
++    genADDI(program, rFactorial, REG_0, 1);
++    // Generate a new iterator register and initialize it to 1
++    t_regID rIterator = getNewRegister(program);
++    genADDI(program, rIterator, REG_0, 1);
++    // Create a label for the beginning of the loop
++    t_label* lStartLoop = createLabel(program);
++    // Create a label for the end of the loop  
++    t_label* lEndLoop = createLabel(program);
++    // Assign start of the loop
++    assignLabel(program, lStartLoop);
++    // Generate: if iterator > $1 jump to the end of the loop
++    genBGT(program, rIterator, $1, lEndLoop);
++    // Generate: factorial *= iterator
++    genMUL(program, rFactorial, rFactorial, rIterator);
++    // Generate: iterator += 1
++    genADDI(program, rIterator, rIterator, 1);
++    // Generate a jump back to the start of the loop
++    genJ(program, lStartLoop);
++    // Assign end of the loop
++    assignLabel(program, lEndLoop);
++  }
++  | OR_OP exp OR_OP %prec NOT_OP // precedence specified to be higher than OR_OP otherwise it will be interpreted as multiple or 
++  {
++    // Absolute value implemented as:
++    //   if($1 < 0){
++    //     return 0 - $1;
++    //   }
++    //   return $1;
++    // Generate a new register to contains the absolute value
++    t_regID rAbsValue = getNewRegister(program);
++    // Assign the absolute value register to the result of exp
++    $$ = rAbsValue;
++    // Generate initialization of the absolute value with the argument $2
++    genADD(program, rAbsValue, REG_0, $2);
++    // Create a label for the end of the if
++    t_label* lEndIf = createLabel(program);
++    // Generate: if absolute value >= 0 jump to end of the if 
++    genBGE(program, rAbsValue, REG_0, lEndIf);
++    // Generate: absolute_value = 0 - absolute_value
++    genSUB(program, rAbsValue, REG_0, rAbsValue);
++    // Assign end of the if
++    assignLabel(program, lEndIf);
++  }
+ ;
+ 
+ var_id
+diff --git a/tests/abs_fact/abs_1.src b/tests/abs_fact/abs_1.src
+--- /dev/null
++++ b/tests/abs_fact/abs_1.src
+@@ -0,0 +1,10 @@
++int v;
++int y;
++
++read(v);
++
++write(|v|);
++
++write(|v|-5);
++
++write(| |v|-5|);
+diff --git a/tests/abs_fact/fact_1.src b/tests/abs_fact/fact_1.src
+--- /dev/null
++++ b/tests/abs_fact/fact_1.src
+@@ -0,0 +1,9 @@
++int v;
++int y;
++
++read(v);
++
++write(v!);
++write(v!!);
++write(!v);
++write(!v!);
