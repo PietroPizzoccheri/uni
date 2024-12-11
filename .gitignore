@@ -430,7 +430,7 @@ NSDS/MPI/NSDS_MPI_eval_23/*
 FLC/acse
 =======
 Logica/appunti/Logica2.pdf
-.gitignore
+
 FLC/bison/01-rpn-calc/lex.yy.c
 FLC/bison/01-rpn-calc/rpn-calc
 FLC/bison/01-rpn-calc/rpn-calc.tab.c
