@@ -417,6 +417,7 @@ package-lock.json
 package.json
 
 .DS_Store
+<<<<<<< HEAD
 
 NSDS/MPI/NSDS_MPI_tutorial/src/*
 !NSDS/MPI/NSDS_MPI_tutorial/src/*.c
@@ -427,3 +428,28 @@ NSDS/MPI/NSDS_MPI_lab/*
 NSDS/MPI/NSDS_MPI_eval_23/*
 !NSDS/MPI/NSDS_MPI_eval_23/*.c
 FLC/acse
+=======
+Logica/appunti/Logica2.pdf
+
+FLC/bison/01-rpn-calc/lex.yy.c
+FLC/bison/01-rpn-calc/rpn-calc
+FLC/bison/01-rpn-calc/rpn-calc.tab.c
+FLC/bison/01-rpn-calc/rpn-calc.tab.h
+FLC/bison/02-rpn-compiler/lex.yy.c
+FLC/bison/02-rpn-compiler/output
+FLC/bison/02-rpn-compiler/output.c
+FLC/bison/02-rpn-compiler/rpn-compiler
+FLC/bison/02-rpn-compiler/rpn-compiler.tab.c
+FLC/bison/02-rpn-compiler/rpn-compiler.tab.h
+FLC/bison/03-infix-calc/infix-calc
+FLC/bison/03-infix-calc/infix-calc.tab.c
+FLC/bison/03-infix-calc/infix-calc.tab.h
+FLC/bison/03-infix-calc/lex.yy.c
+FLC/bison/04-infix-compiler/infix-compiler.tab.c
+FLC/bison/04-infix-compiler/infix-compiler.tab.h
+FLC/bison/04-infix-compiler/lex.yy.c
+FLC/bison/04-infix-compiler/output
+FLC/bison/04-infix-compiler/output.c
+Logica/appunti/Logica2.pdf
+Logica/appunti/Logica2.pdf
+>>>>>>> 1c5cce7 (editet gitignore)
