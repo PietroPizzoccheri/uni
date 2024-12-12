@@ -468,30 +468,30 @@ Quindi \(F: M \rightarrow Im(F)\) è un isomorfismo di monoidi.
 	(1,0),(1,1)\}\).\newline
 	\newline\((0,0) \mapsto
 	\begin{bmatrix}
-		1 & 1 & 1 & 1  \\
-		0 & 0 & 0 & 0  \\
-		0 & 0 & 0 & 0  \\
+		1 & 1 & 1 & 1 \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 \\
 		0 & 0 & 0 & 0
 	\end{bmatrix}\),
 	\((0,1) \mapsto \begin{bmatrix}
-		1 & 0 & 1 & 0  \\
-		0 & 1 & 0 & 1  \\
-		0 & 0 & 0 & 0  \\
+		1 & 0 & 1 & 0 \\
+		0 & 1 & 0 & 1 \\
+		0 & 0 & 0 & 0 \\
 		0 & 0 & 0 & 0
 	\end{bmatrix} \),
 	\((1,0) \mapsto \begin{bmatrix}
-		1 & 1 & 0 & 0  \\
-		0 & 0 & 0 & 0  \\
-		0 & 0 & 1 & 1  \\
+		1 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & 1 & 1 \\
 		0 & 0 & 0 & 0
 	\end{bmatrix} \),
 	\((1,1) \mapsto \begin{bmatrix}
-		1 & 0 & 0 & 0  \\
-		0 & 1 & 0 & 0  \\
-		0 & 0 & 1 & 0  \\
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
 		0 & 0 & 0 & 1
 	\end{bmatrix} \).\newline
-	
+
 	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|c|c|c|c|c|}
@@ -541,12 +541,12 @@ Gli elementi di \(S_n\) in notazione a una linea sono indicati nel modo seguente
 	\begin{itemize}
 		\item \(S_2 = \{12,21\}\)\newline
 		      \(S_3 = \{123,132,213,231,312,321\}\)\newline
-		      
+
 		\item vediamo il gruppo \((\mathbb{Z}_2,+)\) come gruppo di matrici e come gruppo di permutazioni. \((\mathbb{Z}_2, +) \simeq \{\begin{bmatrix}
-			      1 & 0  \\
+			      1 & 0 \\
 			      0 & 1
 		      \end{bmatrix}, \begin{bmatrix}
-			      0 & 1  \\
+			      0 & 1 \\
 			      1 & 0
 		      \end{bmatrix}\} \simeq \{12,21\} = S_2\) (\(\simeq\) : isomorfismo di gruppi)
 	\end{itemize}
@@ -615,7 +615,7 @@ che si legge "\(x\) è equivalente a \(y\)".
 			            , \forall g_1,g_2,g_3 \in G\)
 		      \end{itemize}
 		      In questo caso l'insieme quoziente lo indichiamo con \sfrac{G}{H}.
-		      
+
 	\end{itemize}
 \end{example}
 
@@ -664,7 +664,7 @@ Quindi \(-[g] = [-g], \forall [g] \in \sfrac{G}{H}\), ossia \((\sfrac{G}{H},+)\)
 			            \text{ il resto della divisione di \(x\) per \(n\) è uguale
 				            al resto  della divisione di \(y\) per \(n\)}\).
 		      \end{itemize}
-		      
+
 		      I possibili resti della divisione
 		      per \(n\) sono \(0,1,\cdots,n-1\).\\
 		      Quindi \(\mathbb{Z}_n = \{[0],[1],\cdots,[n-1]\} = \{\overline{0}, \overline{1},\cdots,\overline{n - 1}\}\).
@@ -768,10 +768,10 @@ In particolare, \(\langle \overline{m} \rangle = \mathbb{Z}_n \Leftrightarrow z=
 
 \begin{definition}
 	La funzione definita da \(\varphi : \mathbb{N} \backslash \{0\} \rightarrow \mathbb{N} \backslash \{0\}\) ,
-	
+
 	\(\varphi(n) := |\{m \in \mathbb{N} \backslash \{0\} : m < n \text{ e } MCD \{m,n\} = 1\}|\)
 	è detta \textbf{funzione di Eulero}.
-	
+
 	Quindi ci sono \(\varphi(n)\) elementi \(\overline{m}\) tali che \(\langle \overline{m} \rangle = \mathbb{Z}_n\).
 \end{definition}
 
@@ -884,7 +884,7 @@ In particolare, \(\langle \overline{m} \rangle = \mathbb{Z}_n \Leftrightarrow z=
 	I sottogruppi di \(\mathbb{Z}_{899}\) sono quattro, perché \(899 = 31 \cdot 29\), quindi c'è un sottogruppo di
 	cardinalità 1 (il sottogruppo banale), uno di cardinalità 31, uno di cardinalità 29 e \(\mathbb{Z}_{899}\).\\
 	Sono: \(\{\{0\} , \langle \overline{29} \rangle , \langle \overline{31} \rangle , \mathbb{Z}_{899}\}\).
-	
+
 \end{example}
 
 \subsection{Anelli}
@@ -921,7 +921,7 @@ Indichiamo con \("0"\) l'identità del gruppo \((X, +)\).
 		      con unità la matrice identità.\\
 		      In generale, se \(A\) è un anello commutativo con unità, l'insieme \(Mat_{n \times n}(A)\) delle matrici a valori
 		      in \(\mathbb{R} \) con le operazioni di somma e prodotto righe per colonne, è un anello non commutativo con unità.
-		\item\(\{X\}\) è un anello, detto \textbf{anello nullo}. Le due operazioni sono la stessa e \(0 = 1_{\{X\}} = x\).
+		      \item\(\{X\}\) è un anello, detto \textbf{anello nullo}. Le due operazioni sono la stessa e \(0 = 1_{\{X\}} = x\).
 	\end{itemize}
 \end{example}
 
@@ -1038,9 +1038,9 @@ Allora : \
 		      Vicerversa, se \(\langle 0 \rangle\) e \(A\) sono gli unici ideali di \(A\),
 		      e se \(x \in A  \backslash \{0\}\), allora \(\langle X \rangle = \langle 1_A \rangle\),
 		      ossia \(ax = 1_A\) per qualche \(a \in A\). Quindi \(x\) è invertibile.
-		      
+
 	\end{itemize}
-	
+
 \end{dimostrazione}
 
 \subsection{Anelli quoziente}
@@ -1069,7 +1069,7 @@ Inoltre \([1_A] [x] = [1_A x] = [x] \), per ogni \([x] \in \sfrac{A}{I}\), quind
 		\item \(\mathbb{Z}_2 \simeq \{\overline{0}, \overline{1}\}\) \begin{table}[htbp]
 			      \centering
 			      \begin{tabular}{ c | c | c}
-				      
+
 				      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) \\ \hline
 				      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
 				      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) \\
@@ -1080,7 +1080,7 @@ Inoltre \([1_A] [x] = [1_A x] = [x] \), per ogni \([x] \in \sfrac{A}{I}\), quind
 		      anche \(\overline{2}\) è invertibile. \begin{table}[htbp]
 			      \centering
 			      \begin{tabular}{ c | c | c | c}
-				      
+
 				      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
 				      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
 				      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) \\ \hline
@@ -1093,7 +1093,7 @@ Inoltre \([1_A] [x] = [1_A x] = [x] \), per ogni \([x] \in \sfrac{A}{I}\), quind
 		      \begin{table}[htbp]
 			      \centering
 			      \begin{tabular}{ c | c | c | c | c}
-				      
+
 				      \(\cdot\)        & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
 				      \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) & \(\overline{0}\) \\ \hline
 				      \(\overline{1}\) & \(\overline{0}\) & \(\overline{1}\) & \(\overline{2}\) & \(\overline{3}\) \\ \hline
@@ -1284,10 +1284,10 @@ sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
 		      \(= (a mod n_1 + b mod n_1, ... , a mod n_k + b mod n_k)\)\\
 		      \(= (a mod n_1, ... , a mod n_k) + (b mod n_1, ... , b mod n_k)\)\\
 		      \(= f(a) + f(b), \forall a,b \in \mathbb{Z}\)
-		      
+
 		\item \(f(1) = (1 mod n_1, ... , 1 mod n_k)\) e \((1 mod n_1, ... , 1 mod n_k)\) è l'unità\\
 		      del prodotto diretto di anelli \(\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times ... \times \mathbb{Z}_{n_k}\)
-		      
+
 		\item \(f(a \cdot b) = ((a \cdot b) mod n_1, ... , (a \cdot b) mod n_k)\)\\
 		      \(= (a mod n_1 \cdot b mod n_1, ... , a mod n_k \cdot b mod n_k)\)\\
 		      \(= (a mod n_1, ... , a mod n_k) \cdot (b mod n_1, ... , b mod n_k)\)\\
@@ -1309,7 +1309,7 @@ sono equazioni del tipo \(ax + by = c\), con \(a,b,c \in \mathbb{Z} \).\\
 	\(= <mcm\{n_1 ,..., n_k\}> = <n_1 n_2 ... n_k>\) dato che \(n_i\) e \(n_j\) sono coprimi \(\forall i \neq j\).\\
 	quindi \(\sfrac{\mathbb{Z}}{Ker(f)} = \sfrac{\mathbb{Z}}{<n>} = \mathbb{Z}_n \) e l'isomorfismo \(\Psi: \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times ... \times \mathbb{Z}_{n_k}\)\\
 	è quello dell'enunciato del teorema.
-	
+
 \end{dimostrazione}
 
 \newpage
@@ -1681,7 +1681,7 @@ definiamo il campo
 \end{center}
 
 vogliamo ora mostrare che se \(Q(X), Q'(X) e \mathbb{F}_p[X]\) sono polinomi irriducibili di grado n,\\
-allora 
+allora
 \begin{center}
 	\(\sfrac{\mathbb{F}_p[X]}{<Q(X)>} \simeq \sfrac{\mathbb{F}_p[X]}{<Q'(X)>}\), isomorfismo tra campi
 \end{center}
@@ -1784,7 +1784,7 @@ adesso mostriamo che il campo \(\mathbb{F}_{p^n}\) è un ampliamento semplice di
 \newpage
 
 Ora, se \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono due polinomi irriducibili di grado n,\\
-vogliamo costruire un isomorfismo 
+vogliamo costruire un isomorfismo
 \begin{center}
 	\(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
 \end{center}
@@ -1823,7 +1823,7 @@ ci serve il seguente risultato:
 \end{dimostrazione}
 
 sia F un campo e \(f(X) \in F[X]\) un polinomio di grado \(n \geq 1\).\\
-un campo K, ampliamento di F, si dice \textbf{campo di spezzamento di f(X) su F} se:\\  
+un campo K, ampliamento di F, si dice \textbf{campo di spezzamento di f(X) su F} se:\\
 \begin{itemize}
 	\item \(f(X)\) fattorizza in polinomi di grado 1 su \(K[X]\)
 	\item non ci sono campi intermedi \(F \subseteq L \subsetneq K\) con la stessa proprietà.
@@ -1900,12 +1900,12 @@ definisce un morfismo di anelli
 \newpage
 
 \begin{example}
-	in \(\mathbb{F}_3[X]\) si considerino i polinomi irriducibili 
+	in \(\mathbb{F}_3[X]\) si considerino i polinomi irriducibili
 	\begin{center}
 		\(1 + X^2\) e \(2 + X + X^2\).
 	\end{center}
 	il polinomio minimo di \(X\) in \(\sfrac{\mathbb{F}_3[X]}{<1 + X^2 >} := K\) su \(\mathbb{F}_3\) è \(1 + X^2\).\\
-	in \(K' := \sfrac{\mathbb{F}_3[Y]}{<1 + Y + Y^2>}\) si ha che 
+	in \(K' := \sfrac{\mathbb{F}_3[Y]}{<1 + Y + Y^2>}\) si ha che
 	\begin{center}
 		\(1 + X^2 = (X + Y + 2)(X + 2Y + 1)\)
 	\end{center}
@@ -1962,7 +1962,7 @@ per ogni \(x, y \in K, h \geq 1\).
 \end{dimostrazione}
 
 \textbf{Automorfismo di Frobenius:}\\
-Dal lemma precedente segue che se K è un campo di caratteristica p, allora la funzione 
+Dal lemma precedente segue che se K è un campo di caratteristica p, allora la funzione
 \begin{center}
 	\(\Phi : K \rightarrow K\)\\
 	\(x \rightarrow x^p\)
@@ -1981,7 +1981,7 @@ detto \textbf{automorfismo di Frobenius}.
 \end{teorema}
 
 \begin{dimostrazione}
-	vedi teorema 4.3.17 del libro di Stefania Gabelli. 
+	vedi teorema 4.3.17 del libro di Stefania Gabelli.
 \end{dimostrazione}
 
 \textbf{Lemma:} sia F un campo. Il polinomio \(X^d - 1\) divide il polinomio \(X^n - 1\) s.s.e. d divide n.
@@ -2308,7 +2308,7 @@ definiamo il campo
 \end{center}
 
 vogliamo ora mostrare che se \(Q(X), Q'(X) e \mathbb{F}_p[X]\) sono polinomi irriducibili di grado n,\\
-allora 
+allora
 \begin{center}
 	\(\sfrac{\mathbb{F}_p[X]}{<Q(X)>} \simeq \sfrac{\mathbb{F}_p[X]}{<Q'(X)>}\), isomorfismo tra campi
 \end{center}
@@ -2411,7 +2411,7 @@ adesso mostriamo che il campo \(\mathbb{F}_{p^n}\) è un ampliamento semplice di
 \newpage
 
 Ora, se \(P(X), Q(X) \in \mathbb{F}_p[X]\) sono due polinomi irriducibili di grado n,\\
-vogliamo costruire un isomorfismo 
+vogliamo costruire un isomorfismo
 \begin{center}
 	\(f: \sfrac{\mathbb{F}_p[X]}{<P(X)>} \rightarrow \sfrac{\mathbb{F}_p[X]}{<Q(X)>}\)
 \end{center}
@@ -2450,7 +2450,7 @@ ci serve il seguente risultato:
 \end{dimostrazione}
 
 sia F un campo e \(f(X) \in F[X]\) un polinomio di grado \(n \geq 1\).\\
-un campo K, ampliamento di F, si dice \textbf{campo di spezzamento di f(X) su F} se:\\  
+un campo K, ampliamento di F, si dice \textbf{campo di spezzamento di f(X) su F} se:\\
 \begin{itemize}
 	\item \(f(X)\) fattorizza in polinomi di grado 1 su \(K[X]\)
 	\item non ci sono campi intermedi \(F \subseteq L \subsetneq K\) con la stessa proprietà.
@@ -2527,12 +2527,12 @@ definisce un morfismo di anelli
 \newpage
 
 \begin{example}
-	in \(\mathbb{F}_3[X]\) si considerino i polinomi irriducibili 
+	in \(\mathbb{F}_3[X]\) si considerino i polinomi irriducibili
 	\begin{center}
 		\(1 + X^2\) e \(2 + X + X^2\).
 	\end{center}
 	il polinomio minimo di \(X\) in \(\sfrac{\mathbb{F}_3[X]}{<1 + X^2 >} := K\) su \(\mathbb{F}_3\) è \(1 + X^2\).\\
-	in \(K' := \sfrac{\mathbb{F}_3[Y]}{<1 + Y + Y^2>}\) si ha che 
+	in \(K' := \sfrac{\mathbb{F}_3[Y]}{<1 + Y + Y^2>}\) si ha che
 	\begin{center}
 		\(1 + X^2 = (X + Y + 2)(X + 2Y + 1)\)
 	\end{center}
@@ -2589,7 +2589,7 @@ per ogni \(x, y \in K, h \geq 1\).
 \end{dimostrazione}
 
 \textbf{Automorfismo di Frobenius:}\\
-Dal lemma precedente segue che se K è un campo di caratteristica p, allora la funzione 
+Dal lemma precedente segue che se K è un campo di caratteristica p, allora la funzione
 \begin{center}
 	\(\Phi : K \rightarrow K\)\\
 	\(x \rightarrow x^p\)
@@ -2608,7 +2608,7 @@ detto \textbf{automorfismo di Frobenius}.
 \end{teorema}
 
 \begin{dimostrazione}
-	vedi teorema 4.3.17 del libro di Stefania Gabelli. 
+	vedi teorema 4.3.17 del libro di Stefania Gabelli.
 \end{dimostrazione}
 
 \textbf{Lemma:} sia F un campo. Il polinomio \(X^d - 1\) divide il polinomio \(X^n - 1\) s.s.e. d divide n.
@@ -2723,7 +2723,7 @@ Facciamo alcune osservazioni e un discorso più generale.\\
 		\(\implies deg(D) = 0, i \neq j\)
 	\end{center}
 	inoltre, se \( MCD\{ a, b\} = 1\) si ha che \(MCD\{ f, ab\} = MCD\{ f, a\} = MCD\{ f, b\} \).\\
-	per induzione si ha che 
+	per induzione si ha che
 	\begin{center}
 		\(MCD\{ f, a_1 \cdot ... \cdot a_k\} = MCD\{ f, a_1\} \cdot ... \cdot MCD\{ f, a_k\}\)
 	\end{center}
@@ -2844,7 +2844,7 @@ quindi \(p_i(x)\) divide \(h(x)[h(x) - 1] ... [h(x) - (p - 1)] = h(x)^p - h(x), 
 Sia \(f(x) \mathbb{F}_p[x], deg(f) = d\).\\
 sia \(f(x) = p_1(x)\cdot ... \cdot p_k(x)\) una fattoriazzazione di \(f(x)\) in fattori irriducibili,\\
 non banali e aventi molteplicità 1.\\
-siano 
+siano
 \begin{center}
 	\(r_0 = 1 \mod f(x)\)\\
 	\(r_1 = x^p \mod f(x)\)\\
@@ -2856,12 +2856,12 @@ definiamo la matrice \(A \in Mat_{d \times d}(\mathbb{F}_p)\) nel segueente modo
 \(A_{ij} = \) coefficiente del termine di grado i del polinomio \(r_j(x)\)\\
 \begin{example}
 	considerando l'esempio precedente, si ha:\\
-	\(A \in Mat_{5 \times 5}(\mathbb{F}_3) = 
+	\(A \in Mat_{5 \times 5}(\mathbb{F}_3) =
 	\begin{bmatrix}
-		1 & 0 & 0 & 2 & 2  \\
-		0 & 0 & 2 & 2 & 0  \\
-		0 & 0 & 1 & 1 & 1  \\
-		0 & 1 & 2 & 1 & 0  \\
+		1 & 0 & 0 & 2 & 2 \\
+		0 & 0 & 2 & 2 & 0 \\
+		0 & 0 & 1 & 1 & 1 \\
+		0 & 1 & 2 & 1 & 0 \\
 		0 & 0 & 0 & 2 & 0
 	\end{bmatrix}\)\\
 	la matrice \(A - I\) è la matrice del sistema che abbiamo risolto, ossia \((A - I)\overline{b} = \overline{0}\)
@@ -2933,7 +2933,7 @@ fincé non otteniamo \(MCD\{ D_i, D_i'\} = 1\).
 
 \begin{example}
 	in \(\mathbb{F}_3[x]\) consideriamo il polinomio \(f = 1 + 2x + 2x^2 + x^5 + x^6 + x^7\).\\
-	si ha che 
+	si ha che
 	\begin{center}
 		\(f' = 2 + 4x + 5x^4 + 7x^6 = 2 + x + 2x^4 + x^6\).\\
 	\end{center}
@@ -2962,7 +2962,7 @@ diamo all'insieme una struttura di anello:\\
 	\item somma: \(\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} + \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 + y_1 & x_2 + y_2 \\ x_3 + y_3 & x_4 + y_4 \end{pmatrix}\)
 	\item prodotto: \(\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} \cdot \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 y_1 + x_2 y_3 & x_1 y_2 + x_2 y_4 \\ x_3 y_1 + x_4 y_3 & x_3 y_2 + x_4 y_4 \end{pmatrix}\)
 \end{itemize}
-con queste operazioni \(Mat_{2 \times 2}(K)\) è un anello con unità 
+con queste operazioni \(Mat_{2 \times 2}(K)\) è un anello con unità
 \(\begin{pmatrix} 1_k & 0 \\ 0 & 1_k
 \end{pmatrix}\).\\
 
@@ -2974,20 +2974,20 @@ la moltiplicazione righe per colonne richiede l'esecuzione di \(n^3\) moltiplica
 	in \(Mat_{3 \times 3}(\mathbb{F}_2)\) abbiamo
 	\begin{center}
 		\(\begin{pmatrix}
-			1 & 1 & 1  \\
-			0 & 1 & 1  \\
+			1 & 1 & 1 \\
+			0 & 1 & 1 \\
 			1 & 0 & 1
 		\end{pmatrix}
 		\cdot
 		\begin{pmatrix}
-			1 & 0 & 0  \\
-			1 & 1 & 0  \\
+			1 & 0 & 0 \\
+			1 & 1 & 0 \\
 			1 & 1 & 1
 		\end{pmatrix}
-		= 
+		=
 		\begin{pmatrix}
-			1 & 0 & 1  \\
-			0 & 0 & 1  \\
+			1 & 0 & 1 \\
+			0 & 0 & 1 \\
 			1 & 1 & 1
 		\end{pmatrix}\)
 	\end{center}
@@ -3016,7 +3016,7 @@ la moltiplicazione righe per colonne richiede l'esecuzione di \(n^3\) moltiplica
 		\(A = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}\) e \(B = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\)\\
 	\end{center}
 	allora \(.1 = 0, .2 = 0, .3 = 1, .4 = 0, .5 = 0, .6 = 0, .7 = 0 \)\\
-	quindi \(AB = \begin{pmatrix} .1 + .4 - .5 + .7 & .3 + .5 \\ .2 + .5 & .1 + .3 - .2 + .6 \end{pmatrix} = 
+	quindi \(AB = \begin{pmatrix} .1 + .4 - .5 + .7 & .3 + .5 \\ .2 + .5 & .1 + .3 - .2 + .6 \end{pmatrix} =
 	\begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}\)
 \end{example}
 
@@ -3040,10 +3040,10 @@ primo passo:
 	\item \((B - D)(C' + D')\)
 \end{enumerate}
 e quindi \(MN = \begin{pmatrix}
-	.1 + .4 - .5 + .7 & .2 + .5            \\
+	.1 + .4 - .5 + .7 & .2 + .5           \\
 	.3 + .4           & .1 + .3 - .2 + .6
 \end{pmatrix}\)\\
-\vspace{\baselineskip}secondo passo: calcoliamo il prodotto in (.1, .2, 3, ... , .7) con l'algoritmo di Strassen. 
+\vspace{\baselineskip}secondo passo: calcoliamo il prodotto in (.1, .2, 3, ... , .7) con l'algoritmo di Strassen.
 Quindi l'algoritmo di Strassen per il prodotto tra due matrici 4 x 4 richiede\\
 \(7^2\) moltiplicazioni.\\
 se vogliamo moltiplicare matrici 3 x 3\\
@@ -3108,7 +3108,7 @@ allora la matrice M(f) associata a \(f\) è:
 \end{center}
 
 \begin{teorema}
-	sia V uno spazio vettoriale di dimensione n su un campo K. allora la funzione 
+	sia V uno spazio vettoriale di dimensione n su un campo K. allora la funzione
 	\begin{center}
 		\(M: End(V) \rightarrow Mat_{n \times n}(K)\)\\
 		\(f \rightarrow M(f)\)
@@ -3120,7 +3120,7 @@ allora la matrice M(f) associata a \(f\) è:
 \begin{example}
 	si consideri il campo \(\mathbb{F}_4 := \sfrac{\mathbb{F}_2[x]}{1 + x + x^2}\).\\
 	\(\mathbb{F}_4\) è uno spazio vettoriale di dimensione 2 sul campo \(\mathbb{F}_2\).\\
-	nella base \(\{1, x\} di \mathbb{F}_4\) l'automorfismo di Frobenius 
+	nella base \(\{1, x\} di \mathbb{F}_4\) l'automorfismo di Frobenius
 	\begin{center}
 		\(\Phi : \mathbb{F}_4 \rightarrow \mathbb{F}_4\)\\
 		\(v \rightarrow v^2\)
@@ -3129,22 +3129,22 @@ allora la matrice M(f) associata a \(f\) è:
 	è rappresentato dalla matrice
 	\begin{center}
 		\(M(\Phi) = \begin{pmatrix}
-			1 & 1  \\
+			1 & 1 \\
 			0 & 1
 		\end{pmatrix}\)
 	\end{center}
 	infatti \(\Phi(1) = 1, \Phi(x) = x^2 = 1 + x\).\\
 	dato che \([(\Phi)]^2 = \begin{pmatrix}
-		1 & 0  \\
+		1 & 0 \\
 		0 & 1
 	\end{pmatrix}\) una rappresentazione matriciale di \(Aut(\mathbb{F}_4)\) è\\
 	\begin{center}
 		\(\{\begin{pmatrix}
-			1 & 0  \\
+			1 & 0 \\
 			0 & 1
 		\end{pmatrix},
 		\begin{pmatrix}
-			1 & 1  \\
+			1 & 1 \\
 			0 & 1
 		\end{pmatrix}\}\)
 	\end{center}
@@ -3153,16 +3153,16 @@ allora la matrice M(f) associata a \(f\) è:
 	\begin{center}
 		\(Mat_{2 \times 2}(\mathbb{F}_2) = \{
 		\begin{pmatrix}
-			x_1 & x_2  \\
+			x_1 & x_2 \\
 			x_3 & x_4
-		\end{pmatrix} : 
-		x_i \in \mathbb{F}_2\}\)	
+		\end{pmatrix} :
+		x_i \in \mathbb{F}_2\}\)
 	\end{center}
 \end{example}
 
 \begin{example}[automorfismi di \(\mathbb{F}_4\) come s.v. su \(\mathbb{F}_2\) ]
 	sia \(A = \begin{pmatrix}
-		a & b  \\
+		a & b \\
 		c & d
 	\end{pmatrix}\) una matrice invertibile a coefficienti in \(\mathbb{F}_2\).\\
 	A rappresenta un automorfismo di \(\mathbb{F}_4\) come spazio vettoriale.\\
@@ -3173,31 +3173,31 @@ allora la matrice M(f) associata a \(f\) è:
 		\item \(c = 0 \implies ad = 1 \implies a = d = 1\)
 		\item \(d = 0 \implies bc = 1 \implies b = c = 1\)
 	\end{itemize}
-	quindi, come spazio vettoriale, 
+	quindi, come spazio vettoriale,
 	\begin{center}
-		\(Aut(\mathbb{F}_4) = \{ 
+		\(Aut(\mathbb{F}_4) = \{
 		\begin{pmatrix}
-			1 & 0  \\
+			1 & 0 \\
 			0 & 1
-		\end{pmatrix}, 
+		\end{pmatrix},
 		\begin{pmatrix}
-			1 & 0  \\
+			1 & 0 \\
 			1 & 1
 		\end{pmatrix},
 		\begin{pmatrix}
-			0 & 1  \\
+			0 & 1 \\
 			1 & 0
 		\end{pmatrix},
 		\begin{pmatrix}
-			0 & 1  \\
+			0 & 1 \\
 			1 & 1
 		\end{pmatrix},
 		\begin{pmatrix}
-			1 & 1  \\
+			1 & 1 \\
 			0 & 1
 		\end{pmatrix},
 		\begin{pmatrix}
-			1 & 1  \\
+			1 & 1 \\
 			1 & 0
 		\end{pmatrix}
 		\}\)
@@ -3206,11 +3206,11 @@ allora la matrice M(f) associata a \(f\) è:
 	\begin{center}
 		\(Aut(\mathbb{F}_4) = \{
 		\begin{pmatrix}
-			1 & 0  \\
+			1 & 0 \\
 			0 & 1
 		\end{pmatrix},
 		\begin{pmatrix}
-			1 & 1  \\
+			1 & 1 \\
 			0 & 1
 		\end{pmatrix}\} = \{Id, \Phi\}\)
 	\end{center}
@@ -3221,12 +3221,12 @@ allora la matrice M(f) associata a \(f\) è:
 \begin{definition}
 	Sia V unio spazio vettoriale di dimenzione n su un campo K.\\
 	Sia \(\{e_1, ..., e_n\}\) una base di V.\\
-	L'insieme 
+	L'insieme
 	\begin{center}
 		\(V^* = \{f : V \rightarrow K : f\) è un morfismo di spazi vettoriali \(\}\)\\
 	\end{center}
 	è detto \textbf{spazio duale di V}.\\
-	sia 
+	sia
 	\begin{center}
 		\(e^*_i(e_j)= \begin{cases}
 			1 \text{ se } i = j \\
@@ -3244,7 +3244,7 @@ allora la matrice M(f) associata a \(f\) è:
 			1 \\
 			1 \\
 			1
-		\end{pmatrix}, x >\) 
+		\end{pmatrix}, x >\)
 	\end{center}
 	dove <,> è il prodotto scalare standard.\\
 	Dunque, se \(x = \begin{pmatrix}
@@ -3286,7 +3286,7 @@ allora la matrice M(f) associata a \(f\) è:
 	Se definiamo
 	\begin{itemize}
 		\item \(f_1 + f_2 : V \times V \rightarrow K\) come \((f_1 + f_2)(v, w) = f_1(v, w) + f_2(v, w), \forall v,w \in V\)
-		\item\(a f : V \times V \rightarrow K\) con \((a f)(v, w) = a f(v, w), \forall v,w \in V e a \in K\)
+		      \item\(a f : V \times V \rightarrow K\) con \((a f)(v, w) = a f(v, w), \forall v,w \in V e a \in K\)
 	\end{itemize}
 	allora \(f_1 + f_2\) e \(a f\) sono forme bilineari.\\
 	Quindi l'insieme delle forme bilineari su V è uno spazio vettoriale che denotiamo con
@@ -3308,7 +3308,7 @@ Siano \(1 \leq i,j \leq n\), indichiamo con \(e_i^* \otimes e_j^* : V \times V \
 	\end{cases}\) è la delta di Kronecker.
 \end{center}
 L'insieme \(\{e_i^* \otimes e_j^* : 1 \leq i,j \leq n\}\) è una base di \(V^* \otimes V^*\).\\
-Abbiamo che 
+Abbiamo che
 \begin{center}
 	\(\{e_i^* \otimes e_j^* (e_h, e_k) = e_i^*(e_h)e_j^*(e_k)\).\\
 \end{center}
@@ -3341,9 +3341,9 @@ cioè \(M(f)_{ij} =\) coordinata di \(f\) nella base \(\{e_i^* \otimes e_j^*\}\)
 		      \begin{center}
 			      \(e_1^* \otimes e_2^* - e_2^* \otimes e_1^* \in (K^2)^* \otimes (K^2)^*\)
 		      \end{center}
-		      corrisponde la matrice 
+		      corrisponde la matrice
 		      \(\begin{pmatrix}
-			      0  & 1  \\
+			      0  & 1 \\
 			      -1 & 0
 		      \end{pmatrix}\) si nota che è una forma bilineare antisimmetrica.
 		\item La forma bilineare antisimmetrica
@@ -3352,9 +3352,9 @@ cioè \(M(f)_{ij} =\) coordinata di \(f\) nella base \(\{e_i^* \otimes e_j^*\}\)
 		      \end{center}
 		      è detta forma simplettica, e la sua matrice associata è
 		      \(\begin{pmatrix}
-			      0  & 0  & 1 & 0  \\
-			      0  & 0  & 0 & 1  \\
-			      -1 & 0  & 0 & 0  \\
+			      0  & 0  & 1 & 0 \\
+			      0  & 0  & 0 & 1 \\
+			      -1 & 0  & 0 & 0 \\
 			      0  & -1 & 0 & 0
 		      \end{pmatrix}\)
 	\end{itemize}
@@ -3379,7 +3379,7 @@ La forma bilineare \(f \in V^* \otimes V^*\) associata a A è
 \end{center}
 \begin{example}
 	\(A = \begin{pmatrix}
-		1 & 2  \\
+		1 & 2 \\
 		2 & 1
 	\end{pmatrix} \in Mat_{2 \times 2}(\mathbb{F}_3)\)\\
 	\(f = (e_1^* + 2e_2^*) \otimes e_1^* + (2e_1^* + e_2^*) \otimes e_2^* = e_1^* \otimes e_1^* + 2 e_2^* \otimes e_1^* + 2e_1^* \otimes e_2^* + e_2^* \otimes e_2^*\)
@@ -3424,7 +3424,7 @@ si ha che:
 	\begin{center}
 		\(f : V_1 \times V_2 \times ... \times V_k \rightarrow \mathbb{F}\)
 	\end{center}
-	Una base di \(V_1 \otimes V_2 \otimes ... \otimes V_k\) è l'insieme 
+	Una base di \(V_1 \otimes V_2 \otimes ... \otimes V_k\) è l'insieme
 	\begin{center}
 		\(\{e_{i_1}^{1^*} \otimes e_{i_2}^{2^*} \otimes ... \otimes e_{i_k}^{k^*} : 1 \leq i_1 \leq dim(V_1), ... , 1 \leq i:k \leq dim(V_k)\}\)
 	\end{center}
@@ -3444,7 +3444,7 @@ si ha che:
 \end{definition}
 si verifica facilmente che ogni matrice si può scrivere come\\
 combinazione lineare di matrici di rango 1.\\
-sia \(X = \{A \in Mat_{h \times k}(\mathbb{F}) : rk(A) = 1\}\), allora si ha che 
+sia \(X = \{A \in Mat_{h \times k}(\mathbb{F}) : rk(A) = 1\}\), allora si ha che
 \begin{center}
 	\(rk(A) = min\{k \in \mathbb{N} : A = \sum_{i = 1}^{k} M_i , M_i \in X, \forall 1 \leq i \leq k\}\)
 \end{center}
@@ -3461,12 +3461,12 @@ sia \(X = \{A \in Mat_{h \times k}(\mathbb{F}) : rk(A) = 1\}\), allora si ha che
 	ha rango 2, e si ha che:
 	\begin{center}
 		\(A = \begin{pmatrix}
-			1 & 0 & 0  \\
-			2 & 0 & 0  \\
+			1 & 0 & 0 \\
+			2 & 0 & 0 \\
 			3 & 0 & 0
 		\end{pmatrix} + \begin{pmatrix}
-			0 & -1 & 0  \\
-			0 & 4  & 0  \\
+			0 & -1 & 0 \\
+			0 & 4  & 0 \\
 			0 & 0  & 0
 		\end{pmatrix} + \begin{pmatrix}
 			0 & 0 & 3  \\
@@ -3477,8 +3477,8 @@ sia \(X = \{A \in Mat_{h \times k}(\mathbb{F}) : rk(A) = 1\}\), allora si ha che
 	che è una combinazione lineare di matrici di rango 1, un altra è:
 	\begin{center}
 		\(A = \begin{pmatrix}
-			1 & 0 & 1  \\
-			2 & 0 & 2  \\
+			1 & 0 & 1 \\
+			2 & 0 & 2 \\
 			3 & 0 & 3
 		\end{pmatrix} + \begin{pmatrix}
 			0 & -1 & 2  \\
@@ -3574,7 +3574,7 @@ interpretando una matrice come forma bilineare, e quindi come un tensore.\\
 Vediamo subito che una matrice di rango 1 corrisponde ad un tensore di rango 1.\\
 Una matrice \(m \times n\) di rango 1 h come colonne multipli di un vettore \(v \in K^m \setminus \{0\}\).\\
 La prima colonna sia \(a_1v\), la seconda \(a_2v\), ... , \(a_nv, a_i \in K\)\\
-Quindi tale matrice di rango 1 si scrive come 
+Quindi tale matrice di rango 1 si scrive come
 \begin{center}
 	\(A = \begin{pmatrix}
 		v_1 \\
@@ -3601,11 +3601,11 @@ Dunque una matrice \(A \in Mat_{m \times n} (K)\) tale che \(rk(A) = 1\) corrisp
 	La matrice
 	\begin{center}
 		\(A = \begin{pmatrix}
-			1 & 0 & 2  \\
+			1 & 0 & 2 \\
 			2 & 0 & 1
 		\end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_3)\)
 	\end{center}
-	Ha rango 1 perchè 
+	Ha rango 1 perchè
 	\(\begin{pmatrix}
 		2 \\
 		1
@@ -3626,7 +3626,7 @@ Dunque una matrice \(A \in Mat_{m \times n} (K)\) tale che \(rk(A) = 1\) corrisp
 		\((e_1^* + 2 e_2^*) \otimes (e_1^* + e_3^*)\)
 	\end{center}
 	D'altra parte avevamo che \(A = \begin{pmatrix}
-		1 & 0 & 2  \\
+		1 & 0 & 2 \\
 		2 & 0 & 1
 	\end{pmatrix} = \begin{pmatrix}
 		1 \\
@@ -3650,7 +3650,7 @@ dove \(v_i\) sono i vettori colonna delle coordinate nella base duale.
 		\end{pmatrix} \begin{pmatrix}
 			0 & 1 & 4 \\
 		\end{pmatrix} = \begin{pmatrix}
-			0 & 2 & 3  \\
+			0 & 2 & 3 \\
 			0 & 3 & 2
 		\end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_5)\)
 	\end{center}
@@ -3707,28 +3707,28 @@ e tale corrispondenza biunivoca è un isomorfismo di spazi vettoriali
 	una base di \(V\) è \(\{E_{ij} : 1 \leq i,j \leq 2\}\), dove
 	\begin{center}
 		\(E_{11} = \begin{pmatrix}
-			1 & 0  \\
+			1 & 0 \\
 			0 & 0
-		\end{pmatrix}, 
+		\end{pmatrix},
 		E_{12} = \begin{pmatrix}
-			0 & 1  \\
+			0 & 1 \\
 			0 & 0
 		\end{pmatrix}\)\\
 		\(E_{21} = \begin{pmatrix}
-			0 & 0  \\
+			0 & 0 \\
 			1 & 0
-		\end{pmatrix}, 
+		\end{pmatrix},
 		E_{22} = \begin{pmatrix}
-			0 & 0  \\
+			0 & 0 \\
 			0 & 1
 		\end{pmatrix}\)
 	\end{center}
 	la matrice di \(f\) in questa base è
 	\begin{center}
 		\(M(f) = \begin{pmatrix}
-			1 & 0 & 0 & 0  \\
-			0 & 0 & 1 & 0  \\
-			0 & 1 & 0 & 0  \\
+			1 & 0 & 0 & 0 \\
+			0 & 0 & 1 & 0 \\
+			0 & 1 & 0 & 0 \\
 			0 & 0 & 0 & 1
 		\end{pmatrix}, rk(M(f) = 4)\)
 	\end{center}
@@ -3742,7 +3742,7 @@ e tale corrispondenza biunivoca è un isomorfismo di spazi vettoriali
 		\(g =  2E_{11}^* \otimes E_{11} + E_{12}^* \otimes (E_{12} + E_{21}) + E_{21}^* \otimes (E_{12} + E_{21}) + 2E_{22}^* \otimes E_{22} = \)\\
 		\(2E_{11}^* \otimes E_{11} + (E_{12}^* + E_{21}^*) \otimes (E_{12} + E_{21}) + 2E_{22}^* \otimes E_{22}, rk(g) = 3\)
 	\end{center}
-	corrisponde all'endomorfismo 
+	corrisponde all'endomorfismo
 	\begin{center}
 		\(g: Mat_{2 \times 2}(\mathbb{R}) \rightarrow Mat_{2 \times 2}(\mathbb{R})\)\\
 		\(A \rightarrow A + A^T\)
@@ -3766,7 +3766,7 @@ posto
 	\(\forall 1 \leq i_1 \leq V_1, ..., 1 \leq i_h \leq dim V_h, v_i \in V_i, w \in W\)\vspace{\baselineskip}
 \end{center}
 Adesso andiamo a considerare la moltiplicazione di matrici \(2 \times 2\).\\
-Questa è una forma bilineare 
+Questa è una forma bilineare
 \begin{center}
 	\(M_{2,2,2} : Mat_{2 \times 2} (K) \times Mat_{2 \times 2} (K) \rightarrow Mat_{2 \times 2} (K)\)
 \end{center}
@@ -3778,28 +3778,28 @@ E' una forma bilineare perchè
 	      \((A_1 + A_2)B = A_1B + A_2B, \forall A_1, A_2, B_1, B_2, A, B, \in Mat_{2 \times 2} (K)\)
 \end{enumerate}
 quindi \(M_{2,2,2} \in (Mat_{2 \times 2} (K))^* \otimes (Mat_{2 \times 2} (K))^* \otimes Mat_{2 \times 2} (K)\)\\
-vediamo come scrivere \(M_{2,2,2}\) nella base 
+vediamo come scrivere \(M_{2,2,2}\) nella base
 \begin{center}
 	\(\{E_{ij}^* \otimes E_{h,k}^* \otimes E_{uv}\}\), dove\\
 	\(E_{11} = \begin{pmatrix}
-		1 & 0  \\
+		1 & 0 \\
 		0 & 0
-	\end{pmatrix}, 
+	\end{pmatrix},
 	E_{12} = \begin{pmatrix}
-		0 & 1  \\
+		0 & 1 \\
 		0 & 0
 	\end{pmatrix},
 	E_{21} = \begin{pmatrix}
-		0 & 0  \\
+		0 & 0 \\
 		1 & 0
 	\end{pmatrix},
 	E_{22} = \begin{pmatrix}
-		0 & 0  \\
+		0 & 0 \\
 		0 & 1
 	\end{pmatrix}\)
 \end{center}
 abbiamo che \(E_{11}E_{11} = E_{11}, E_{12}E_{12} = \begin{pmatrix}
-	0 & 0  \\
+	0 & 0 \\
 	0 & 0
 \end{pmatrix}, ..., E_{22}E_{22} = e_{22}\), ossia
 \begin{center}
@@ -3808,7 +3808,7 @@ abbiamo che \(E_{11}E_{11} = E_{11}, E_{12}E_{12} = \begin{pmatrix}
 		0 \text{ altrimenti}
 	\end{cases}\)
 \end{center}
-quindi 
+quindi
 \begin{center}
 	\(M_{2,2,2} = E_{11}^* \otimes E_{11}^* \otimes E_{11} + E_{12}^* \otimes E_{21}^* \otimes E_{11} + E_{11}^* \otimes E_{12}^* \otimes E_{12} + E_{12}^* \otimes E_{22}^* \otimes E_{12} + E_{21}^* \otimes E_{11}^* \otimes E_{21} + E_{21}^* \otimes E_{12}^* \otimes E_{12} + E_{22}^* \otimes E_{22}^* \otimes E_{22} + E_{22}^* \otimes E_{21}^* \otimes E_{21}\)\\
 \end{center}
@@ -3822,7 +3822,7 @@ abbiamo anche che
 	\(+ (E_{11}^* + E_{12}^*) \otimes E_{22}^* \otimes (-E_{11} + E_{12}) + \)\\
 	\(+ (-E_{11}^* + E_{21}^*) \otimes (E_{11}^* + E_{12}^*) \otimes E_{22} + \)\\
 	\(+ (E_{12}^* - E_{22}^*) \otimes (E_{21}^* + E_{22}^*) \otimes E_{11}\)\\
-	
+
 \end{center}
 da questa fattorizzazione si ha che \(rk(M_{2,2,2}) \leq 7\).\\
 Questa fattorizzasione è l'algoritmo di Strassen per la moltiplicazione di matrici \(2 \times 2\).\\
@@ -3881,10 +3881,10 @@ le parole del linguaggio possono essere:
 	\item \textbf{una clausola}: disgiunzione finita di letterali \(l_1 \lor ... \lor l_n\)
 	\item \textbf{formula CNF (forma normale congiuntiva)}: congiunzione finita di clausole \(C_1 \land ... \land C_n\)
 \end{enumerate}
-Per ogni letterale \(L\) definiamo 
+Per ogni letterale \(L\) definiamo
 \begin{center}
 	\(\overline{L} = \begin{cases}
-		\neg x \text{ se } L \text{ è } x\\
+		\neg x \text{ se } L \text{ è } x \\
 		x \text{ se } L \text{ è } \neg x
 	\end{cases}\)
 \end{center}
@@ -3962,12 +3962,12 @@ La formula \(x \lor \neg x\) è una tautologia, la formula dell' esempio precede
 		\(x \implies y := \neg x \lor y\)\\
 		\begin{tabular}{c|c|c}
 			\hline
-                \(x\) & \(y\) & \(x \implies y\) \\
-                \hline
-                0 & 0 & 1 \\
-                0 & 1 & 1 \\
-                1 & 0 & 0 \\
-                1 & 1 & 1 \\
+			\(x\) & \(y\) & \(x \implies y\) \\
+			\hline
+			0     & 0     & 1                \\
+			0     & 1     & 1                \\
+			1     & 0     & 0                \\
+			1     & 1     & 1                \\
 		\end{tabular}
 	\end{center}
 \end{definition}
@@ -4035,8 +4035,8 @@ L'alfabeto è quello della logica proposizionale a cui si aggiungono i connettiv
 	\item i connettivi logici \(\neg, \land, \lor, \implies, \iff\)
 	\item i simboli ausiliari \((,)\)
 	\item i connettivi modali:\\
-			\(\Box\) (\textbf{Scatola o Box})\\
-			\(\Diamond\) (\textbf{Diamante o Diamond})
+	      \(\Box\) (\textbf{Scatola o Box})\\
+	      \(\Diamond\) (\textbf{Diamante o Diamond})
 \end{enumerate}
 Le parole del lingiaggio sono le formule ben formate (FBF) definite in modo ricorsivo:\\
 \begin{enumerate}
@@ -4047,9 +4047,9 @@ Le parole del lingiaggio sono le formule ben formate (FBF) definite in modo rico
 \textbf{Alcune letture dei simboli \(\Box\) e \(\Diamond\)}:\\
 \begin{itemize}
 	\item La lettura piu comune è: \(\Box A\):"è necessario che A", \(\Diamond A\): "è possibile che A"\\
-			Secondo questa lettura i connettivi modali possono essere definiti uno in termini dell'altro:\\
-			\(\Box A := \neg \Diamond \neg A\)\\
-			\(\Diamond A := \neg \Box \neg A\)
+	      Secondo questa lettura i connettivi modali possono essere definiti uno in termini dell'altro:\\
+	      \(\Box A := \neg \Diamond \neg A\)\\
+	      \(\Diamond A := \neg \Box \neg A\)
 	\item Logiche modali epistemiche: \(\Box A\): "si sa che A"
 	\item Logiche modali deonetiche: \(\Box A\): "è obbligatorio che A"
 	\item Logiche modali doxastiche: \(\Box A\): "si crede che A"
@@ -4093,7 +4093,7 @@ e ho una freccia da \(x\) a \(y\) se \((x,y) \in R\).
 	Il frame \((\mathbb{N},R)\), dove \(R = \{(n,n+1) : n \in \mathbb{N}\} \subseteq \mathbb{N} \times \mathbb{N}\)\\
 	è rappresentato dal seguente grafo diretto:
 	\begin{center}
-        \begin{tikzpicture}[->]
+		\begin{tikzpicture}[->]
 			\node (0) {0};
 			\node (1) [right of=0] {1};
 			\node (2) [right of=1] {2};
@@ -4105,7 +4105,7 @@ e ho una freccia da \(x\) a \(y\) se \((x,y) \in R\).
 			(1) edge node {} (2)
 			(2) edge node {} (3)
 			(3) edge node {} (4);
-		\end{tikzpicture}	
+		\end{tikzpicture}
 	\end{center}
 \end{example}
 \begin{example}
@@ -4118,7 +4118,7 @@ e ho una freccia da \(x\) a \(y\) se \((x,y) \in R\).
 			\node (4) [right of=3] {4};
 			\node (5) [right of=4] {5};
 			\node (6) [right of=5] {6};
-  
+
 			\path
 			(2) edge[loop] node {} (2)
 			(2) edge[bend right] node {} (4)
@@ -4136,13 +4136,13 @@ e ho una freccia da \(x\) a \(y\) se \((x,y) \in R\).
 \begin{example}
 	Il frame \((\{1,2,3\}, R)\) dove \(R = \{(x,y) \in \{1,2,3\} \times \{1,2,3\} : y=f(x)\}\)\\
 	essedo \(f : \{1,2,3\} \rightarrow \{1,2,3\}\) la funzione definita da \(f(1) = 2, f(2) = 3, f(3) = 1\)\\
-	è 
+	è
 	\begin{center}
 		\begin{tikzpicture}[->]
 			\node (1) {1};
 			\node (2) [right of=1] {2};
 			\node (3) [right of=2] {3};
-  
+
 			\path
 			(1) edge[bend left] node {} (2)
 			(2) edge[bend left] node {} (3)
@@ -4165,10 +4165,10 @@ e ho una freccia da \(x\) a \(y\) se \((x,y) \in R\).
 		\item \underline{F è del tipo \(G_1 \land G_2\)}: \(M \vdash_x F\) significa che \(M \vdash_x G_1\) e \(M \vDash_x G_2\)
 		\item \underline{F è del tipo \(G_1 \lor G_2\)}: \(M \vdash_x F\) significa che \(M \vdash_x G_1\) o \(M \vDash_x G_2\)
 		\item \underline{F è del tipo \(\Box G\)}: \(M \vDash_x F\) significa che \(M \vDash_y G\), per ogni \(y \in S : (x,y) \in R\),\\
-				ossia per ogni mondo y raggiungibile da x.
+		      ossia per ogni mondo y raggiungibile da x.
 		\item \underline{F è del tipo \(\diamond G\)}: \(M \vDash_x F\) significa che \(M \vDash_y G\) per qualche \(y \in S : (x,y) \in R\),\\
-				ossia per almeno un mondo raggiungibile da x.
-	\end{enumerate} 
+		      ossia per almeno un mondo raggiungibile da x.
+	\end{enumerate}
 \end{definition}
 \begin{definition}
 	una foruma F è \textbf{soddisfacibile} se esiste un modello\\
@@ -4230,7 +4230,7 @@ allora se è vera \(\Box A\), è vera \(\Box B\)).\\
 \(M \vDash_w \Box (A \implies B)\) significa che \(M \vDash_v A \implies B, \forall v \in S t.c. (w,v) \in R\).\\
 \(M \vDash_w \Box A\) significa che \(M \vDash_v A, \forall v \in S t.c. (w,v) \in R\).\\
 Dunque \(M \vDash_v B, \forall v \in S t.c. (w,v) \in R\), ossia \(M \vDash_w \Box B\).\\
-Abbiamo dimostrato che 
+Abbiamo dimostrato che
 \begin{center}
 	\(\vDash \Box (A \implies B) \implies (\Box A \implies \Box B)\)
 \end{center}
@@ -4245,21 +4245,21 @@ Mostriamo che i seguenti schemi sono validi:
 \newpage
 \begin{enumerate}
 	\item \(M \vDash_w \Box (A \land B)\) se e solo se \(M \vDash_v A \land B, \forall v \in S t.c. (w,v) \in R\),\\
-				se e solo se \(M \vDash_v A \text{ e } M \vDash_v B \forall v \in S t.c. (w,v) \in R\),\\
-				se e solo se \(M \vDash_w \Box A\) e \(M \vDash_w \Box B\),\\
-				se e solo se \(M \vDash_w (\Box A \land \Box B)\), dove M è un modello su un frame \((S,R)\) e \(w \in S\)
+	      se e solo se \(M \vDash_v A \text{ e } M \vDash_v B \forall v \in S t.c. (w,v) \in R\),\\
+	      se e solo se \(M \vDash_w \Box A\) e \(M \vDash_w \Box B\),\\
+	      se e solo se \(M \vDash_w (\Box A \land \Box B)\), dove M è un modello su un frame \((S,R)\) e \(w \in S\)
 	\item \(M \vDash_w \Diamond (A \lor B)\) se e solo se \(M \vDash_v A \lor B, \exists v \in S t.c. (w,v) \in R\),\\
-				se e solo se \(M \vDash_v A \text{ o } M \vDash_v B \exists v \in S t.c. (w,v) \in R\),\\
-				se e solo se \(M \vDash_w \Diamond A \text{ o } M \vDash_w \Diamond B\),\\
-				se e solo se \(M \vDash_w (\Diamond A \lor \Diamond B)\), dove M è un modello su un frame \((S,R)\) e \(w \in S\)
+	      se e solo se \(M \vDash_v A \text{ o } M \vDash_v B \exists v \in S t.c. (w,v) \in R\),\\
+	      se e solo se \(M \vDash_w \Diamond A \text{ o } M \vDash_w \Diamond B\),\\
+	      se e solo se \(M \vDash_w (\Diamond A \lor \Diamond B)\), dove M è un modello su un frame \((S,R)\) e \(w \in S\)
 	\item \(M \vDash_w \Box (A \implies B)\) e \(M \vDash_w \Diamond A\) implicano che \(M \vDash_v (A \implies B), \forall v \in S t.c. (w,v) \in R\),\\
-				e \(M \vDash_v A, \exists v \in S t.c. (w,v) \in R\).\\
-				Quindi \(M \vDash_v B, \exists  v \in S t.c. (w,v) \in R\),\\
-				ossia \(M \vDash_w \Diamond B\), dove M è un modello su un frame \((S,R)\) e \(w \in S\)
+	      e \(M \vDash_v A, \exists v \in S t.c. (w,v) \in R\).\\
+	      Quindi \(M \vDash_v B, \exists  v \in S t.c. (w,v) \in R\),\\
+	      ossia \(M \vDash_w \Diamond B\), dove M è un modello su un frame \((S,R)\) e \(w \in S\)
 	\item \(M \vDash_w \Diamond (A \implies B)\) e \(M \vDash_w \Box A\) implicano che \(M \vDash_v (A \implies B), \exists v \in S t.c. (w,v) \in R\),\\
-				e \(M \vDash_v A, \forall v \in S t.c. (w,v) \in R\).\\
-				Quindi \(M \vDash_v B, \exists v \in S t.c. (w,v) \in R\),\\
-				ossia \(M \vDash_w \Diamond B\), dove M è un modello su un frame \((S,R)\) e \(w \in S\)\\
+	      e \(M \vDash_v A, \forall v \in S t.c. (w,v) \in R\).\\
+	      Quindi \(M \vDash_v B, \exists v \in S t.c. (w,v) \in R\),\\
+	      ossia \(M \vDash_w \Diamond B\), dove M è un modello su un frame \((S,R)\) e \(w \in S\)\\
 \end{enumerate}
 Abbiamo già mostrato che se M è un modello su un frame \((S,R)\) con \(R\) non riflessiva,\\
 allora \(\Box x \implies x\) non è vera nel modello M. Quindi la formula \(\Box x \implies x\) non è valida.
@@ -4279,73 +4279,73 @@ Mostiamo che i seguenti schemi di fromule non sono validi:
 \newpage
 \begin{enumerate}
 	\item \begin{tikzpicture}[->]
-				\node (1) {1};
-				\node (2) [right of=1] {2};
-				\path
-				(1) edge[loop] node {} (1)
-				(1) edge node {} (2);
-			\end{tikzpicture} \(M = (\{1,2\},\{(1,2),(1,1),\}, V)\)\\
-			\(V(x) = 2 \) (ossia la formiula x è vera solo nel mondo 2)\\
-			Quindi \(M \vDash_! \Diamond x\) e \(M \nvDash_1 \Box x\), \\
-			ossia \(M \nvDash_1 (\Diamond x \implies \Box x)\)
+		      \node (1) {1};
+		      \node (2) [right of=1] {2};
+		      \path
+		      (1) edge[loop] node {} (1)
+		      (1) edge node {} (2);
+	      \end{tikzpicture} \(M = (\{1,2\},\{(1,2),(1,1),\}, V)\)\\
+	      \(V(x) = 2 \) (ossia la formiula x è vera solo nel mondo 2)\\
+	      Quindi \(M \vDash_! \Diamond x\) e \(M \nvDash_1 \Box x\), \\
+	      ossia \(M \nvDash_1 (\Diamond x \implies \Box x)\)
 	\item già gvisto.
 	\item \begin{tikzpicture}[->]
-				\node (1) {1};
-				\node (2) [right of=1] {2};
-				\node (3) [right of=2] {3};
-				\path
-				(1) edge node {} (2)
-				(2) edge node {} (3);
-			\end{tikzpicture} \(M = (\{1,2,3\},\{(1,2),(2,3)\}, V)\)\\
-			\(V(x) = \{2\}\)\\
-			Quindi \(M \vDash_1 \Box x\). Abbiamo che \(M \vDash_1 \Box \Box x\) se e solo se \(M \vDash_2 \Box x\),\\
-			se e solo se \(M \vDash_3 x\), ma \(M \nvDash_3 x\), quindi \(M \nvDash_1 \Box \Box x\)
+		      \node (1) {1};
+		      \node (2) [right of=1] {2};
+		      \node (3) [right of=2] {3};
+		      \path
+		      (1) edge node {} (2)
+		      (2) edge node {} (3);
+	      \end{tikzpicture} \(M = (\{1,2,3\},\{(1,2),(2,3)\}, V)\)\\
+	      \(V(x) = \{2\}\)\\
+	      Quindi \(M \vDash_1 \Box x\). Abbiamo che \(M \vDash_1 \Box \Box x\) se e solo se \(M \vDash_2 \Box x\),\\
+	      se e solo se \(M \vDash_3 x\), ma \(M \nvDash_3 x\), quindi \(M \nvDash_1 \Box \Box x\)
 	\item \begin{tikzpicture}[->]
-				\node (1) {1};
-				\node (2) [right of=1] {2};
-				\path
-				(1) edge node {} (2);
-			\end{tikzpicture} \(M = (\{1,2\}, V)\)\\
-			\(V(x) = \{1\}\)\\
-			\(M \vDash_2 \Box (A \implies B)\), \(M \vDash_2 \Box A\),\\
-			ma \(M \nvDash_2 \Diamond B\), perchè non esiste \(v \in \{1,2\} t.c M \vDash_v , (2,v) \in R\)
+		      \node (1) {1};
+		      \node (2) [right of=1] {2};
+		      \path
+		      (1) edge node {} (2);
+	      \end{tikzpicture} \(M = (\{1,2\}, V)\)\\
+	      \(V(x) = \{1\}\)\\
+	      \(M \vDash_2 \Box (A \implies B)\), \(M \vDash_2 \Box A\),\\
+	      ma \(M \nvDash_2 \Diamond B\), perchè non esiste \(v \in \{1,2\} t.c M \vDash_v , (2,v) \in R\)
 	\item prendiamo \(A = B = x\) nel frame \begin{tikzpicture}[->]
-				\node (1) {1};
-				\node (2) [right of=1] {2};
-				\node (3) [right of=2] {3};
-				\path
-				(1) edge node {} (2)
-				(2) edge node {} (3);
-			\end{tikzpicture} \(M = (\{1,2,3\},\{(1,2),(2,3)\}, V)\)\\
-			\(V(x) = \{3\}\), si ha\\
-			\(M \vDash_1 \Box (\Box x \implies x)\) se e solo se \(M \vDash_2 \Box x \implies x\),\\
-			se e solo se \(M \vDash_3 x\) e \(M \nvDash_2 x\), ma \(M \nvDash_2 \Box x\),\\
-			quindi \(M \nvDash_1 \Box (\Box x \implies x)\)
+		      \node (1) {1};
+		      \node (2) [right of=1] {2};
+		      \node (3) [right of=2] {3};
+		      \path
+		      (1) edge node {} (2)
+		      (2) edge node {} (3);
+	      \end{tikzpicture} \(M = (\{1,2,3\},\{(1,2),(2,3)\}, V)\)\\
+	      \(V(x) = \{3\}\), si ha\\
+	      \(M \vDash_1 \Box (\Box x \implies x)\) se e solo se \(M \vDash_2 \Box x \implies x\),\\
+	      se e solo se \(M \vDash_3 x\) e \(M \nvDash_2 x\), ma \(M \nvDash_2 \Box x\),\\
+	      quindi \(M \nvDash_1 \Box (\Box x \implies x)\)
 	\item \begin{tikzpicture}[->]
-			\node (1) {1};
-			\node (2) [right of=1] {2};
-			\path
-			(1) edge[loop] node {} (1)
-			(1) edge node {} (2);
-		\end{tikzpicture} \(M = (\{1,2\},\{(1,2),(1,1),\}, V)\)\\
-		\(V(x) = \{1\}, V(y) = \{2\}\)\\
-		\(M \vDash_1 \Box (x \lor y)\) se e solo se \(M \nvDash_1 (x \lor y)\) e \(M \nvDash_2 (x \lor y)\).\\
-		Quindi abbiamo che \(M \nvDash_1 \Box (x \lor y)\).\\
-		invece \(M \vDash_1 (\Box x \lor \Box y)\) se e solo se \(M \vDash_1 x\) e \(M \vDash_2 x\) o \(M \vDash_1 y\) e \(M \vDash_2 y\),\\
-		Dunque \(M \nvDash_1 (\Box x \lor \Box y)\)
+		      \node (1) {1};
+		      \node (2) [right of=1] {2};
+		      \path
+		      (1) edge[loop] node {} (1)
+		      (1) edge node {} (2);
+	      \end{tikzpicture} \(M = (\{1,2\},\{(1,2),(1,1),\}, V)\)\\
+	      \(V(x) = \{1\}, V(y) = \{2\}\)\\
+	      \(M \vDash_1 \Box (x \lor y)\) se e solo se \(M \nvDash_1 (x \lor y)\) e \(M \nvDash_2 (x \lor y)\).\\
+	      Quindi abbiamo che \(M \nvDash_1 \Box (x \lor y)\).\\
+	      invece \(M \vDash_1 (\Box x \lor \Box y)\) se e solo se \(M \vDash_1 x\) e \(M \vDash_2 x\) o \(M \vDash_1 y\) e \(M \vDash_2 y\),\\
+	      Dunque \(M \nvDash_1 (\Box x \lor \Box y)\)
 	\item \begin{tikzpicture}[->]
-				\node (1) {1};
-				\node (2) [right of=1] {2};
-				\node (3) [right of=2] {3};
-				\path
-				(1) edge[loop] node {} (1)
-				(1) edge node {} (2)
-				(2) edge node {} (3);
-			\end{tikzpicture} \(M = (\{1,2,3\},\{(1,2),(2,3)\}, V)\)\\
-			\(V(x) = \{2,3\}\)\\
-			\(M \vDash_1 \Box (\Box x \implies x)\) se e solo se \(M \vDash_1 (\Box x \implies x)\) e \(M \vDash_2 (\Box x \implies x)\),\\
-			che sono entrambe vere, quindi \(M \vDash_1 \Box (\Box x \implies x)\)\\
-			invece \(M \nvDash_1 \Box x\) perchè \(M \nvDash_1 x\).
+		      \node (1) {1};
+		      \node (2) [right of=1] {2};
+		      \node (3) [right of=2] {3};
+		      \path
+		      (1) edge[loop] node {} (1)
+		      (1) edge node {} (2)
+		      (2) edge node {} (3);
+	      \end{tikzpicture} \(M = (\{1,2,3\},\{(1,2),(2,3)\}, V)\)\\
+	      \(V(x) = \{2,3\}\)\\
+	      \(M \vDash_1 \Box (\Box x \implies x)\) se e solo se \(M \vDash_1 (\Box x \implies x)\) e \(M \vDash_2 (\Box x \implies x)\),\\
+	      che sono entrambe vere, quindi \(M \vDash_1 \Box (\Box x \implies x)\)\\
+	      invece \(M \nvDash_1 \Box x\) perchè \(M \nvDash_1 x\).
 \end{enumerate}
 \newpage
 \subsection{corrispondenza e non esprimibilità}
@@ -4376,7 +4376,7 @@ Mostiamo che i seguenti schemi di fromule non sono validi:
 \end{dimostrazione}
 \begin{teorema}
 	Lo schema \(\Box A \implies \Box \Box A\) è valido in un frame (S,R)\\
-	 se e solo se R è transitiva.
+	se e solo se R è transitiva.
 \end{teorema}
 \begin{dimostrazione}
 	Sia R transitiva, ossia \((x,y) \in R, (y,z) \in R \implies (x,z) \in R\).\\
@@ -4433,15 +4433,15 @@ Adesso vediamo che ci sono anche proprietà dei frame non esprimibili in termini
 	\begin{enumerate}
 		\item \(x \leq y \implies (x \mod 2, y \mod 2) \in \{0,1\} \times \{0,1\}\)
 		\item \(w \in V_1(x) \iff w \in \{2n: n \in \mathbb{N}\}\); allora\\
-				\(w \in V_1(x) \implies f(w) = 0\).\\
-				\(f(w) \in V_2(x) \iff f(w) = 0 \); allora \(f(w) \in V_2(x) \implies w \in V_1(x)\)
+		      \(w \in V_1(x) \implies f(w) = 0\).\\
+		      \(f(w) \in V_2(x) \iff f(w) = 0 \); allora \(f(w) \in V_2(x) \implies w \in V_1(x)\)
 		\item \((f(w),y) \in R_2 = \{0,1\} \times \{0,1\}\):
-				\begin{enumerate}
-					\item \(f(w) = 0\): se \(y=0\) allora \(w \leq w\) e \(f(w) = 0 = y\).\\
-							Se \(y=1\) allora \(w \leq w+1\) e \(f(w+1) = 1 = y\).
-					\item \(f(w) = 1\): se \(y=0\) allora \(w \leq w + 1\) e \(f(w + 1) = 0 = y\).\\
-							Se \(y=1\) allora \(w \leq w\) e \(f(w) = 1 = y\).\\
-				\end{enumerate}
+		      \begin{enumerate}
+			      \item \(f(w) = 0\): se \(y=0\) allora \(w \leq w\) e \(f(w) = 0 = y\).\\
+			            Se \(y=1\) allora \(w \leq w+1\) e \(f(w+1) = 1 = y\).
+			      \item \(f(w) = 1\): se \(y=0\) allora \(w \leq w + 1\) e \(f(w + 1) = 0 = y\).\\
+			            Se \(y=1\) allora \(w \leq w\) e \(f(w) = 1 = y\).\\
+		      \end{enumerate}
 	\end{enumerate}
 \end{example}
 \newpage
@@ -4565,11 +4565,11 @@ Adesso viediamo che lo schema di formule
 		\item \(\Gamma\) contiene tutte le istanze dello schema \(K: \Box (A \implies B) \implies (\Box A \implies \Box B)\)
 		\item \(\Gamma\) contiene tutte le istanze dello schema \(def_\Diamond : \Diamond A \iff \neg \Box \neg A\)
 		\item \(\Gamma\) è chiuso sotto \textbf{modus ponens}:\\
-				se \(A \in \Gamma\) e \((A \implies B) \in \Gamma\), allora \(B \in \Gamma\)
+		      se \(A \in \Gamma\) e \((A \implies B) \in \Gamma\), allora \(B \in \Gamma\)
 		\item \(\Gamma\) è chiuso sotto \textbf{necessitazione}:\\
-				se \(A \in \Gamma\), allora \(\Box A \in \Gamma\)
+		      se \(A \in \Gamma\), allora \(\Box A \in \Gamma\)
 		\item \(\Gamma\) è chiuso sotto \textbf{sostituzione uniforme}:\\
-				se \(A \in \Gamma\), allora \(A[B/x] \in \Gamma\)
+		      se \(A \in \Gamma\), allora \(A[B/x] \in \Gamma\)
 	\end{enumerate}
 \end{definition}
 \begin{example}
@@ -4588,17 +4588,17 @@ per verificare queste affermzioni vedere sezione 1.4 del libro\\
 	La \underline{logica modale K} è definita dai seguenti schemi di assioni e regole:
 	\begin{enumerate}
 		\item schemi di assiomi:
-				\begin{enumerate}
-					\item tutte le tautologie della logica proposizionale
-					\item \(K: \Box (A \implies B) \implies (\Box A \implies \Box B)\)
-					\item \(def_\Diamond : \Diamond A \iff \neg \Box \neg A\)
-				\end{enumerate}
+		      \begin{enumerate}
+			      \item tutte le tautologie della logica proposizionale
+			      \item \(K: \Box (A \implies B) \implies (\Box A \implies \Box B)\)
+			      \item \(def_\Diamond : \Diamond A \iff \neg \Box \neg A\)
+		      \end{enumerate}
 		\item regole di inferenza:
-				\begin{enumerate}
-					\item modus ponens
-					\item necessitazione
-					\item sostituzione uniforme
-				\end{enumerate}
+		      \begin{enumerate}
+			      \item modus ponens
+			      \item necessitazione
+			      \item sostituzione uniforme
+		      \end{enumerate}
 	\end{enumerate}
 \end{definition}
 \begin{definition}
@@ -4635,16 +4635,16 @@ che, come abbiamo visto, non vogliamo come assioma in una logica Deontica\\
 (se \(F\) è obbligatorio non è detto che \(F\) valga).
 \begin{list}{-}{}
 	\item La logica K a cui aggiungiamo l'assioma \(\Box F \implies F\) si chiama \underline{logica T}.\\
-			dato lo schema di formule \(\Box F \implies F\),\\
-			i teoremi della logica T sono validi su frame riflessivi.
+	      dato lo schema di formule \(\Box F \implies F\),\\
+	      i teoremi della logica T sono validi su frame riflessivi.
 	\item se accettiamo il \textbf{principio di introspezione epistemica positiva}, ossia se assumiamo che\\
-			Ogni volta che si sa qualcosa si sa di saperla, aggiungiamo l'assioma \(\Box F \implies \Box \Box F\).\\
-			Avremmo così definito la logica \underline{S4}.\\
-			I teoremi della logica S4 sono validi su frame riflessivi e transitivi, perchè lo schema di formule \(\Box F \implies \Box \Box F\) esprtime la transitività.
+	      Ogni volta che si sa qualcosa si sa di saperla, aggiungiamo l'assioma \(\Box F \implies \Box \Box F\).\\
+	      Avremmo così definito la logica \underline{S4}.\\
+	      I teoremi della logica S4 sono validi su frame riflessivi e transitivi, perchè lo schema di formule \(\Box F \implies \Box \Box F\) esprtime la transitività.
 	\item se accettiamo anche il \textbf{principio di introspezione epistemica negativa}, ossia se ogni volta che\\
-			non si sa qualcosa si sa di non saperla, aggiungiamo l'assioma \(\neg \Box F \implies \Box \neg \Box F\).\\
-			Avremmo così definito la logica \underline{S5}.\\
-			I teoremi della logica S5 sono validi su frame riflessivi, transitivi e simmetrici ossia sulle relazioni di equivalenza.
+	      non si sa qualcosa si sa di non saperla, aggiungiamo l'assioma \(\neg \Box F \implies \Box \neg \Box F\).\\
+	      Avremmo così definito la logica \underline{S5}.\\
+	      I teoremi della logica S5 sono validi su frame riflessivi, transitivi e simmetrici ossia sulle relazioni di equivalenza.
 \end{list}
 Dobbiamo solo far vedere la validità suiframe simmetrici.\\
 deriviamo lo schema di formule \(F \implies \Box \Diamond F\) da S5:
@@ -4690,7 +4690,7 @@ si supporta su frame che sono relazioni di equivalenza.\\
 	\begin{enumerate}
 		\item \(\vdash_K B_j\), per induzione \(\vDash B_j\) e allora \(\vDash \Box B_j\), quindi \(B_i = \Box B_j\) è valida.
 		\item \(\vdash_K B_j, \vdash_K B_h\) dove \(B_h \equiv B_i \implies B_i\). Allora per induzione \(\vDash B_j, \vDash B_j \implies B_i\)\\
-				e quindi \(\vDash B_i\)
+		      e quindi \(\vDash B_i\)
 	\end{enumerate}
 \end{dimostrazione}
 \begin{definition}
@@ -4772,20 +4772,20 @@ in \(R^*\) abbiamo
 	\item X è da considerare come \(\Box\) sul frame \((S,R)\)
 	\item G è da considerare come \(\Box\) sul frame \((S,R^*)\)
 	\item F è da considerare come \(\Diamond\) sul frame \((S,R^*)\),\\
-			quindi \(F \varphi = \neg G \neg \varphi\) per ogni formula \(\varphi\)
+	      quindi \(F \varphi = \neg G \neg \varphi\) per ogni formula \(\varphi\)
 	\item U è un connettivo modale 2-ario. è definito da
-			\(M \vDash_x U(\varphi, \psi)\) se e solo Se
-			\begin{enumerate}
-				\item \(\exists z \in S t.c. (x,z) \in R^*\) e \(M \vDash_z \psi\)
-				\item \(M \vDash_y \varphi \forall y \in S t.c. (x,y) \in R^*, (y,z) \in R^*, y \neq z\)
-			\end{enumerate}
+	      \(M \vDash_x U(\varphi, \psi)\) se e solo Se
+	      \begin{enumerate}
+		      \item \(\exists z \in S t.c. (x,z) \in R^*\) e \(M \vDash_z \psi\)
+		      \item \(M \vDash_y \varphi \forall y \in S t.c. (x,y) \in R^*, (y,z) \in R^*, y \neq z\)
+	      \end{enumerate}
 	\item \(W(\varphi, \psi)\) se e solo se \(U(\varphi, \psi)\) oppure \(G \varphi\)
 	\item \(R(\varphi, \psi)\) se e solo se \(\neg U(\neg \varphi, \neg \psi)\)
 \end{enumerate}
 Quindi gli unici connettivi modali per definire questa logica solo \(X, G\) e \(U\).\\
 Gli altri sono esprimibili in termini di questi.
 \begin{example}
-consideriamo la relazione:
+	consideriamo la relazione:
 	\begin{center}
 		\((S,R)\) :
 		\begin{tikzpicture}[->]
@@ -4824,9 +4824,9 @@ consideriamo la relazione:
 \end{example}
 \newpage
 \begin{example}
-consideriamo la relazione:
+	consideriamo la relazione:
 	\begin{center}
-		\((S,R)\) : 
+		\((S,R)\) :
 		\begin{tikzpicture}[->]
 			\node (1) {\((x) \psi\)};
 			\node (2) [above of=1] {\(\psi\)};
@@ -4836,22 +4836,22 @@ consideriamo la relazione:
 			(2) edge node {} (3);
 		\end{tikzpicture}
 		\((S,R^*)\):
-	\begin{tikzpicture}[->]
-		\node (1) {\((x) \psi\)};
-		\node (2) [above of=1] {\(\psi\)};
-		\node (3) [above of=2] {\((y) \varphi \land \psi\)};
-		\path
-		(1) edge node {} (2)
-		(1) edge [bend left] node {} (3)
-		(2) edge node {} (3)
-		(1) edge [loop right] node {} (1)
-		(2) edge [loop right] node {} (2)
-		(3) edge [loop above] node {} (3);
-	\end{tikzpicture}\\
-	\(M \vDash_x X \psi\), \(M \vDash_x G \psi\), \(M \vDash_y G \psi\)\\
-	\(M \nvDash_x X \varphi\), \(M \nvDash_x G \varphi\), \(M \vDash_y G \varphi\)\\
-	\(M \vDash_x F \varphi\), \(M \vDash_x U(\psi, \varphi)\)\\
-	\(M \vDash_x W(\psi, \varphi)\), \(M \vDash_x R(\varphi, \psi)\)
+		\begin{tikzpicture}[->]
+			\node (1) {\((x) \psi\)};
+			\node (2) [above of=1] {\(\psi\)};
+			\node (3) [above of=2] {\((y) \varphi \land \psi\)};
+			\path
+			(1) edge node {} (2)
+			(1) edge [bend left] node {} (3)
+			(2) edge node {} (3)
+			(1) edge [loop right] node {} (1)
+			(2) edge [loop right] node {} (2)
+			(3) edge [loop above] node {} (3);
+		\end{tikzpicture}\\
+		\(M \vDash_x X \psi\), \(M \vDash_x G \psi\), \(M \vDash_y G \psi\)\\
+		\(M \nvDash_x X \varphi\), \(M \nvDash_x G \varphi\), \(M \vDash_y G \varphi\)\\
+		\(M \vDash_x F \varphi\), \(M \vDash_x U(\psi, \varphi)\)\\
+		\(M \vDash_x W(\psi, \varphi)\), \(M \vDash_x R(\varphi, \psi)\)
 	\end{center}
 	\(\varphi R \psi : \neg U(\neg \varphi, \neg \psi)\).\\
 	\(M vDash_x \neg U(\neg \varphi, \neg \psi) \iff \)\\
@@ -4874,37 +4874,37 @@ E sta per "along at least one path (there Exists)"\\
 \textbf{Semantica:}
 \begin{enumerate}
 	\item \(M \vDash_w AX \psi \) se e solo se \(\forall v \in S | (w,s) \in R \text{(c'è un arco)} , M \vDash_s \psi\),\\
-	 		ossia si comporta come \(\Box\) su \((S,R)\)
+	      ossia si comporta come \(\Box\) su \((S,R)\)
 	\item \(M \vDash_w EX \psi \) se e solo se \(\exists s \in S | (w,s) \in R \text{(c'è un arco)} , M \vDash_s \psi\),\\
-	 		ossia si comporta come \(\Diamond\) su \((S,R)\)
+	      ossia si comporta come \(\Diamond\) su \((S,R)\)
 	\item \(AG\) si comporta come \(\Box\) su \((S,R^*)\)
 	\item \(M \vDash_w EG \varphi\) se e solo se esiste un cammino in \((S,R)\) tale che \(M \vDash_{s_i} \varphi\)\\
-			(lungo il cammino)
+	      (lungo il cammino)
 	\item \(M \vDash_w EU (\varphi, \psi)\) se e solo se esiste un cammino in \((S,R)\) tale che \(M \vDash_{s_i} U(\varphi, \psi)\)\\
-			(lungo il cammino, possiamo intenderlo come sotto-frame)
+	      (lungo il cammino, possiamo intenderlo come sotto-frame)
 \end{enumerate}
 Analogamente si definiscono gli altri connettivi modali.
 \begin{example}
 	nei grafi:
 	\begin{center}
-        \begin{tikzpicture}[->]
-          \node (1) {\((S_0)\circ\)};
-          \node (2) [below of=1] {\(\circ\)};
-          \node (3) [right of =2] {\(\circ\)};
-          \node (4) [below of=2] {\(\circ\)};
-          \node (5) [right of = 4] {\(\varphi\)};
-          \node (6) [right of = 5] {\(\varphi\)};
-		  \node (7) [right of = 6] {\(\varphi\)};
-		  \node (8) [below of=4]{\(\varphi\)};
-          \node (9) [right of = 8] {\(\circ\)};
-          \node (10) [right of = 9] {\(\circ\)};
-          \node (11) [right of = 10] {\(\circ\)};
-          \node (12) [right of = 11] {\(\circ\)};
-          \node (13) [below of=8] {\(\circ\)};
-		  \node (14) [below of=9] {\(\varphi\)};
-		  \node (15) [below of=14] {\(\circ\)};
+		\begin{tikzpicture}[->]
+			\node (1) {\((S_0)\circ\)};
+			\node (2) [below of=1] {\(\circ\)};
+			\node (3) [right of =2] {\(\circ\)};
+			\node (4) [below of=2] {\(\circ\)};
+			\node (5) [right of = 4] {\(\varphi\)};
+			\node (6) [right of = 5] {\(\varphi\)};
+			\node (7) [right of = 6] {\(\varphi\)};
+			\node (8) [below of=4]{\(\varphi\)};
+			\node (9) [right of = 8] {\(\circ\)};
+			\node (10) [right of = 9] {\(\circ\)};
+			\node (11) [right of = 10] {\(\circ\)};
+			\node (12) [right of = 11] {\(\circ\)};
+			\node (13) [below of=8] {\(\circ\)};
+			\node (14) [below of=9] {\(\varphi\)};
+			\node (15) [below of=14] {\(\circ\)};
 
-		  \path
+			\path
 			(1) edge node {} (2)
 			(1) edge node {} (3)
 			(2) edge node {} (4)
@@ -4920,26 +4920,26 @@ Analogamente si definiscono gli altri connettivi modali.
 			(9) edge node {} (14)
 			(14) edge node {} (15);
 
-        \end{tikzpicture}
+		\end{tikzpicture}
 		\(M \vDash_{S_0} AF \varphi\)
-        \begin{tikzpicture}[->]
-          \node (1) {\((S_0)\circ\)};
-          \node (2) [below of=1] {\(\circ\)};
-          \node (3) [right of =2] {\(\circ\)};
-          \node (4) [below of=2] {\(\circ\)};
-          \node (5) [right of = 4] {\(\circ\)};
-          \node (6) [right of = 5] {\(\circ\)};
-		  \node (7) [right of = 6] {\(\circ\)};
-		  \node (8) [below of=4]{\(\circ\)};
-          \node (9) [right of = 8] {\(\varphi\)};
-          \node (10) [right of = 9] {\(\circ\)};
-          \node (11) [right of = 10] {\(\circ\)};
-          \node (12) [right of = 11] {\(\circ\)};
-          \node (13) [below of=8] {\(\circ\)};
-		  \node (14) [below of=9] {\(\circ\)};
-		  \node (15) [below of=14] {\(\circ\)};
+		\begin{tikzpicture}[->]
+			\node (1) {\((S_0)\circ\)};
+			\node (2) [below of=1] {\(\circ\)};
+			\node (3) [right of =2] {\(\circ\)};
+			\node (4) [below of=2] {\(\circ\)};
+			\node (5) [right of = 4] {\(\circ\)};
+			\node (6) [right of = 5] {\(\circ\)};
+			\node (7) [right of = 6] {\(\circ\)};
+			\node (8) [below of=4]{\(\circ\)};
+			\node (9) [right of = 8] {\(\varphi\)};
+			\node (10) [right of = 9] {\(\circ\)};
+			\node (11) [right of = 10] {\(\circ\)};
+			\node (12) [right of = 11] {\(\circ\)};
+			\node (13) [below of=8] {\(\circ\)};
+			\node (14) [below of=9] {\(\circ\)};
+			\node (15) [below of=14] {\(\circ\)};
 
-		  \path
+			\path
 			(1) edge node {} (2)
 			(1) edge node {} (3)
 			(2) edge node {} (4)
@@ -4955,7 +4955,7 @@ Analogamente si definiscono gli altri connettivi modali.
 			(9) edge node {} (14)
 			(14) edge node {} (15);
 
-        \end{tikzpicture}
+		\end{tikzpicture}
 		\(M \vDash_{S_0} EF \varphi\)\\
 		\begin{tikzpicture}[->]
 			\node (1) {\((S_0)\varphi\)};
@@ -4973,26 +4973,26 @@ Analogamente si definiscono gli altri connettivi modali.
 			\node (13) [below of=8] {\(\varphi\)};
 			\node (14) [below of=9] {\(\varphi\)};
 			\node (15) [below of=14] {\(\varphi\)};
-  
+
 			\path
-			  (1) edge node {} (2)
-			  (1) edge node {} (3)
-			  (2) edge node {} (4)
-			  (3) edge node {} (5)
-			  (3) edge node {} (6)
-			  (3) edge node {} (7)
-			  (4) edge node {} (8)
-			  (4) edge node {} (9)
-			  (5) edge node {} (10)
-			  (6) edge node {} (11)
-			  (7) edge node {} (12)
-			  (8) edge node {} (13)
-			  (9) edge node {} (14)
-			  (14) edge node {} (15);
-  
-		  \end{tikzpicture}
-		  \(M \vDash_{S_0} AG \varphi\)\\
-    \end{center}
+			(1) edge node {} (2)
+			(1) edge node {} (3)
+			(2) edge node {} (4)
+			(3) edge node {} (5)
+			(3) edge node {} (6)
+			(3) edge node {} (7)
+			(4) edge node {} (8)
+			(4) edge node {} (9)
+			(5) edge node {} (10)
+			(6) edge node {} (11)
+			(7) edge node {} (12)
+			(8) edge node {} (13)
+			(9) edge node {} (14)
+			(14) edge node {} (15);
+
+		\end{tikzpicture}
+		\(M \vDash_{S_0} AG \varphi\)\\
+	\end{center}
 \end{example}
 \newpage
 \subsubsection{logiche CTL*}
@@ -5012,7 +5012,7 @@ ovviamente tale affermazione non è esprimibile in LTL a meno che il frame \((S,
 Non è esprimibile neanche in CTL; infatti ha un altro significato:
 \begin{example} in CTL:\\
 	\begin{center}
-        \begin{tikzpicture}[->]
+		\begin{tikzpicture}[->]
 			\node (1) {\((S_0)\varphi\)};
 			\node (2) [below of=1] {\(\circ\)};
 			\node (3) [right of =2] {\(\circ\)};
@@ -5028,25 +5028,25 @@ Non è esprimibile neanche in CTL; infatti ha un altro significato:
 			\node (13) [below of=8] {\(\circ\)};
 			\node (14) [below of=9] {\(\varphi\)};
 			\node (15) [below of=14] {\(\circ\)};
-  
+
 			\path
-			  (1) edge node {} (2)
-			  (1) edge node {} (3)
-			  (2) edge node {} (4)
-			  (3) edge node {} (5)
-			  (3) edge node {} (6)
-			  (3) edge node {} (7)
-			  (4) edge node {} (8)
-			  (4) edge node {} (9)
-			  (5) edge node {} (10)
-			  (6) edge node {} (11)
-			  (7) edge node {} (12)
-			  (8) edge node {} (13)
-			  (9) edge node {} (14)
-			  (14) edge node {} (15);
-  
-		  \end{tikzpicture}\\
-		  \(M \vDash_{S_0} EG(EF \varphi)\)
+			(1) edge node {} (2)
+			(1) edge node {} (3)
+			(2) edge node {} (4)
+			(3) edge node {} (5)
+			(3) edge node {} (6)
+			(3) edge node {} (7)
+			(4) edge node {} (8)
+			(4) edge node {} (9)
+			(5) edge node {} (10)
+			(6) edge node {} (11)
+			(7) edge node {} (12)
+			(8) edge node {} (13)
+			(9) edge node {} (14)
+			(14) edge node {} (15);
+
+		\end{tikzpicture}\\
+		\(M \vDash_{S_0} EG(EF \varphi)\)
 	\end{center}
 \end{example}
 \newpage
@@ -5075,7 +5075,7 @@ Non è esprimibile neanche in CTL; infatti ha un altro significato:
 	ossia \(M \vDash_{S_0} G\neg (c_1 \land c_2)\)\\
 	un'altra condizione che vogliamo sia verificata è:
 	\begin{center}
-		Vitalità : "Ogni volta che un processo chiede di entrare nella sua sezione critica, gli sarà permesso in un altro memento"	
+		Vitalità : "Ogni volta che un processo chiede di entrare nella sua sezione critica, gli sarà permesso in un altro memento"
 	\end{center}
 	Questa condizione è esprimibile in CTL come:\\
 	\(M \vDash_{S_0} (AGt_1 \implies EF c_1) \land (AGt_2 \implies EF c_2) \equiv \varphi_2\)\\
@@ -5092,20 +5092,20 @@ Non è esprimibile neanche in CTL; infatti ha un altro significato:
 			\node (8) [below of=5, right of=5]{\((S_F) t_1 \land c_2\)};
 
 			\path
-			  (1) edge node {} (2)
-			  (1) edge node {} (3)
-			  (2) edge node {} (4)
-			  (2) edge node {} (5)
-			  (3) edge node {} (5)
-			  (3) edge node {} (6)
-			  (4) edge node {} (7)
-			  (5) edge node {} (7)
-			  (5) edge node {} (8)
-			  (6) edge node {} (8)
-			  (7) edge[bend left] node {} (3)
-			  (8) edge [bend right] node {} (2);
+			(1) edge node {} (2)
+			(1) edge node {} (3)
+			(2) edge node {} (4)
+			(2) edge node {} (5)
+			(3) edge node {} (5)
+			(3) edge node {} (6)
+			(4) edge node {} (7)
+			(5) edge node {} (7)
+			(5) edge node {} (8)
+			(6) edge node {} (8)
+			(7) edge[bend left] node {} (3)
+			(8) edge [bend right] node {} (2);
 
-		  \end{tikzpicture}\\
+		\end{tikzpicture}\\
 		abbiamo che vale \(M \vDash_{S_0} \varphi_1 \land \varphi_2\)
 	\end{center}
 \end{example}
