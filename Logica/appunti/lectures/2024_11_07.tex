@@ -1,0 +1,137 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+Enunciamo il seguente importante risultato, senza fornire la dimostrazione.
+
+\begin{proposition}
+    Se $K$ è un campo, ogni sottogruppo finito del gruppo moltiplicativo $K \setminus \{0\}$ è ciclico. In particolare, se K è un campo finito, $K \setminus \{0\}$ è un gruppo ciclico.
+\end{proposition}
+
+\begin{example}
+    \begin{itemize}
+        \item In $\mathbb{F}_4 = \nicefrac{\mathbb{F}_2}{\langle1 + X + X^2\rangle}$ si ha che $\{ X, X^2, X^3\} = \{ X, 1 + X, 1\} = \mathbb{F}_4 \setminus \{0\}$ quindi $X$ è un generatore del gruppo moltiplicativo $\mathbb{F}_4 \setminus \{0\}$, l'altro è $1 + X$
+        \item in $\mathbb{F}_9 = \nicefrac{\mathbb{F}_3}{\langle1 + X^2\rangle}$ abbiamo:
+              \begin{align*}
+                  \langle X\rangle    & = \{X, X^2, X^3, X^4\} = \{X, 2, 2X,1\}                                                    \\
+                  \langle1 + X\rangle & = \{1 + X, (1 + X)^2, (1 + X)^3, (1 + X)^4, (1 + X)^5, (1 + X)^6, (1 + X)^7, (1 + X)^8\} = \\
+                                      & = \{1 + X, 2X, 1 + 2X, 2, 2 + 2X, X, 2 + X, 1 \}                                           \\
+                                      & = \mathbb{F}_9 \setminus \{0\}
+              \end{align*}
+
+              Quindi $1 + X$ genera il gruppo moltiplicativo $\mathbb{F}_9 \setminus \{0\}$.
+    \end{itemize}
+\end{example}
+
+Sia $p \in \mathbb{N}$ un numero prima e sia $n \in \mathbb{N} \setminus \{0\}$.
+
+Sia $Q(X), \mathbb{F}_p[X]$ un qualsiasi polinomio irriducibile di grado n. Definiamo il campo
+\begin{equation*}
+    \mathbb{F}_{p^n} := \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}
+\end{equation*}
+
+Vogliamo ora mostrare che se $Q(X), Q'(X) e \mathbb{F}_p[X]$ sono polinomi irriducibili di grado n, allora:
+\begin{equation*}
+    \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle} \underbrace{\simeq}_{\text{Isomorfismo di campi}} \nicefrac{\mathbb{F}_p[X]}{\langle Q'(X)\rangle}
+\end{equation*}
+
+Quindi la definizione di $\mathbb{F}_p$ è ben posta, a meno di isomorfismi.
+
+\begin{definition}[Elementi Algebrici e Trascendenti]
+    Siano $F \subseteq K$ due campi (ampliamento di campi).
+
+    Un elemento $\alpha \in K$ si dice \textbf{algebrico} su $F$ se è radice di qualche polinomio non nullo su $f(X) \in F(X)$, altrimenti si dice \textbf{trascendente} su $F$.
+\end{definition}
+
+Dato un ampliamento di campi $F \subseteq K$ e  $\alpha \in K$, si consideri il morfismo di anelli
+\begin{align*}
+    v_\alpha : \; F[X] & \rightarrow K     \\
+    f(X)               & \mapsto f(\alpha)
+\end{align*}
+
+$Ker(v_\alpha)$ è l'ideale di $F[X]$ costituito dai polinomi che si annullano in $\alpha$.
+
+Quindi $\alpha$ è algebrico su F s.s.e. $Ker(v_\alpha)$ è un ideale non nullo di $F[X]$.
+
+Poiche $F[X]$ è ad ideali principali, $Ker(v_\alpha) = \langle m(X)\rangle$ dove $m(X)$ è l'unico polinomio monico di grado minimo in $Ker(v_\alpha)$.
+
+\begin{definition}[Polinomio Minimo]
+    Se $\alpha \in K$ è algebrico su F, il polinomio $m(X)$ definito sopra si chiama \textbf{polinomio minimmo di $\alpha$ su F}, se $deg(m(X)) = n$, $\alpha $ si dice algebrico di grado $n$
+\end{definition}
+
+\begin{note}
+    sia $\alpha \in K$ e $P(X) \in F[X] \setminus \{0\})$ tale che $p(\alpha) = 0$, allora $p(X)$ è il polinomio minimo di $\alpha$ su $F$ s.s.e. $p(X)$ è monico e irriducibile.
+\end{note}
+
+\begin{example}
+    Si consideri l'ampliamento $\mathbb{R} \subseteq \mathbb{C}$. allora $1 + X^2 \in \mathbb{R}[X]$ è il polinomio minimo di $i \in \mathbb{C}$ su $\mathbb{R}$.
+\end{example}
+\begin{proposition}
+    Sia $F \in K$ un ampliamento di campi e $\alpha \in K$.
+
+    Si consideri il morfismo di anelli $v_\alpha: F[X] \rightarrow K$.
+
+    Allora $Im(v_\alpha)$ è il più piccolo sottoanello di $K$ contenente sia $F$ che $\alpha$
+\end{proposition}
+\begin{proof}
+    Si osservi che l'immagine di un morfismo di anelli è un sottoanello.
+
+    Di conseguenza $Im(v_\alpha)$ è un sottoanello di $K$.
+
+    Sia $c \in F$ e si consideri il polinomio costante $c \in F[X]$. Allora $v_\alpha(c)=c$.
+
+    Quindi $F \subseteq Im(v_\alpha)$ e $v_\alpha(X) = \alpha \implies \alpha \in Im(v_\alpha)$ d'altra parte per chiusura aditiva e moltiplicativa, ogni sottoanello di $K$ contenete sia $F$ che $\alpha$ contiene anche $Im(v_\alpha)$.
+\end{proof}
+
+\begin{proposition}
+    Sia $F \subseteq K$ un ampliamento di campi e sia $\alpha \in K$.
+
+    Il più piccolo sottocampo di K contenente sia $F$ che $\alpha$ si chiama \textbf{ampliamento di F in K generato da $\alpha$} e si indica con \textbf{F($\alpha$)} tale ampliamento si dice \textbf{semplice} (poichè generato da un solo elemento)
+\end{proposition}
+
+da questa proposizione segue questo Corollario:
+
+\begin{corollary}
+    Sia $F \subseteq K$ un ampliamento di campi e sia $\alpha \in K$. Allora:
+    \begin{equation*}
+        F(\alpha) = \{f(\alpha)g(\alpha)^{-1} : f(X),g(X) \in F[X], g(\alpha) \neq 0\}
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    Per la proposizione precedente il più piccolo sottoanello di $K$ contenente sia $F$ che $\alpha$ è $Im(v_\alpha = \{f(\alpha) : f(X) \in F[X]\})$.
+
+    Prendendo gli inversi in K si ottiene la tesi.
+\end{proof}
+
+Se $\alpha \in K$ è algebrico su $F$ si ha che $Im(v_\alpha \simeq \nicefrac{F[X]}{\langle m(X)\rangle})$, dove $m(X)$ è il polinomio minimo di $\alpha$. quindi $Im(v_\alpha)$ è un campo e $F(\alpha) = Im(v_\alpha)$.
+
+Se $n$ è il grado di $\alpha$ si ha quindi:
+\begin{equation*}
+    F(\alpha) = \{c_0 + c_1\alpha + \ldots + c_{n-1}\alpha^{n-1} : c_i \in F\}
+\end{equation*}
+
+\begin{example}
+    Si consideri l'ampliamento $\mathbb{Q} \subseteq \mathbb{R}$.
+
+    L'elemento $\sqrt{2}\in \mathbb{R} \setminus \mathbb{Q}$ è algebrico su $\mathbb{Q}$ con polinomio minimo $X^2 -2$.
+
+    Quindi $\sqrt{2}$ ha grado 2 su $\mathbb{Q}$ e
+    \begin{equation*}
+        \mathbb{Q}(\sqrt{2}) = \{ c_0 + c_1 \sqrt{2} : c_0,c_1 \in \mathbb{Q}\}).
+    \end{equation*}
+\end{example}
+
+Adesso mostriamo che il campo $\mathbb{F}_{p^n}$ è un ampliamento semplice di $\mathbb{F}_p$.
+\begin{proposition}
+    Sia $\alpha \in \mathbb{F}_{p^n}$ un generatore del campo moltiplicativo $\mathbb{F}_{p^n} \setminus \{0\}$. Allora:
+    \begin{equation*}
+        \mathbb{F}_{p^n} = \mathbb{F}_p(\alpha)
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    $\mathbb{F}_p(\alpha)$ è il più piccolo sottocampo di $\mathbb{F}_{p^n}$ contenente sia $\mathbb{F}_p$ che $\alpha$ quindi $\mathbb{F}_p(\alpha) \subseteq \mathbb{F}_{p^n}$.
+
+    Poiché $\alpha$ genera il gruppo moltiploicativo $\mathbb{F}_{p^n} \setminus \{0\}$ anche $\mathbb{F}_{p^n} \subseteq \mathbb{F}_p(\alpha)$
+\end{proof}
+\end{document}

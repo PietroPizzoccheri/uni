@@ -1,0 +1,228 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Logica Proposizionale}
+\section{Sintassi}
+Introduciamo il linguaggio della logica proposizionale. L'alfabeto è costituito da:
+\begin{enumerate}
+    \item Insime numerabile di variabili
+    \item Connettivi logici: $\neg, \land, \lor$
+\end{enumerate}
+le parole del linguaggio possono essere:
+\begin{enumerate}
+    \item \textbf{Un Letterale}: variabile $x$ o la sua negazione $\neg x$
+    \item \textbf{Una Clausola}: disgiunzione finita di letterali $l_1 \lor \ldots \lor l_n$
+    \item \textbf{Una Formula CNF (forma normale congiuntiva)}: congiunzione finita di clausole $C_1 \land \ldots \land C_n$
+\end{enumerate}
+Per ogni letterale $L$ definiamo
+\begin{equation*}
+    \overline{L} = \begin{cases}
+        \neg x & \text{se } L \text{ è } x      \\
+        x      & \text{se } L \text{ è } \neg x
+    \end{cases}
+\end{equation*}
+Indichiamo con $VAR(F)$ l'insieme delle variabili che appaiono in una formula CNF $F$.
+
+Useremo anche le parentesi $(,)$ come simboli ausiliari per rendere chiara la lettura delle formule CNF.
+\begin{example}
+    $(\neg x_1 \lor x_2) \land x_1 \land (x_2 \lor x_3)$ è una formula CNF. Chiamiamola F. Allora $VAR(F)=\{x_1,x_2,x_3\}$.
+
+    Le clausole di $F$ sono $\{\neg x_1 \lor x_2, x_1, x_2 \lor x_3\}$ e i letterali di $F$ sono $\{x_1, x_2, x_3, \neg x_1 \}$
+\end{example}
+
+\section{Semantica}
+\begin{definition}[Assegnazione appropriata]
+    Sia $F$ una formula CNF. Una \textbf{assegnazione appropriata a F} è una funzione
+    \begin{equation*}
+        V: X \rightarrow \{0,1\}
+    \end{equation*}
+    dove $X \supseteq VAR(F)$.
+\end{definition}
+
+L'insieme $\{0,1\}$ è l'insieme dei valori di verità di F e può essere interpretato come \{falso, vero\}.
+
+\begin{definition}[Soddisfacibilità]
+    Sia $F$ una formula e $V$ un'assegnazione appropriata a $F$.
+
+    Diciamo che \textbf{V soddisfa F}, scritto $V \vDash F$, se
+    \begin{enumerate}
+        \item \underline{F è una variabile X}: $V \vDash X$, significa che $V(X) = 1$
+        \item \underline{F è il letterale $\neg X$}: $V \vDash \neg X$, significa che $V(X) = 0$
+        \item \underline{F è una clausola $L_1 \lor \ldots \lor L_n$}: $V \vDash F$, significa che $V$ soddisfa almeno uno dei letterali $L_i$
+        \item \underline{F è una congiunzione di clausole} $C_1 \land \ldots \land C_n$: $V \vDash F$, significa che $V$ soddisfa tutte le clausole $C_i$
+    \end{enumerate}
+    In questo modo abbiamo dato un significato al linguaggio definito precedentemente.
+
+    Se $V$ non soddisfa $F$, scriveremo $V \nvDash F$.
+\end{definition}
+\begin{example}
+    Sia $F$ la formula CNF $(\neg x_1 \lor x_2) \land x_1 \land (x_2 \lor x_3)$ e sia $U: \{x_1,x_2,x_3\} \rightarrow \{0,1\}$ tale che $U(x_1) = U(x_2) = 1, U(x_3) = 0$.
+
+    Dunque
+    \begin{align*}
+        U(\neg x_1)          & = 0 \\
+        U(\neg x_1 \lor x_2) & = 1 \\
+        U(x_2 \lor x_3)      & = 1 \\
+        U(F)                 & = 1
+    \end{align*}
+    Quindi $U \vDash F$.
+
+    Sia $V: \{x_1,x_2,x_3\} \rightarrow \{0,1\}$ tale che $V(x_1) = 1, V(x_2) = V(x_3) = 0$.
+
+    Allora
+    \begin{align*}
+        V(\neg x_1)          & = 0 \\
+        V(\neg x_1 \lor x_2) & = 0 \\
+        V(x_2 \lor x_3)      & = 0 \\
+        V(F)                 & = 0
+    \end{align*}
+    quindi $V \nvDash F$.
+\end{example}
+
+\begin{definition}[Formula soddisfacibile]
+    Diciamo che una formula è \textbf{soddisfacibile} se esiste un'assegnazione $V: VAR(F) \rightarrow \{0,1\}$ che la soddisfa ($V \vdash F$).
+
+    Altrimenti è \textbf{insoddisfacibile}.
+\end{definition}
+La formula dell' esempio precedente è soddisfacibile, $x \land \neg x$ è insoddisfacibile.
+
+\begin{definition}[Tautologia]
+    Una formula $F$ è una \textbf{tautologia} se per ogni assegnazione $V$ si ha $V \vDash F$.
+\end{definition}
+La formula $x \lor \neg x$ è una tautologia, la formula dell' esempio precedente no
+
+\begin{definition}[Conseguenza logica]
+    Date due formule $F,G$ diciamo che $G$ è \textbf{conseguenza logica} di $F$, se per ogni assegnazione $V$ appropriata ad entrambe si ha che $V \vDash F \implies V \vDash G$.
+\end{definition}
+\begin{example}
+    La formula $y$ è conseguenza logica della formula $F := (\neg x \lor y) \land x$.
+
+    Infatti l'unica assegnazione che soffisfa $F$ è $x \rightarrow 1, y \rightarrow 1$.
+
+    Tale assegnazione soddisfa anche $y$.
+\end{example}
+\begin{definition}[Implicazione logica]
+    Definiamo l'\textbf{implicazione logica} tra due formule $F,G$ come
+    \begin{gather*}
+        x \implies y := \neg x \lor y \\
+        \begin{tabular}{c|c|c}
+            \hline
+            $x$ & $y$ & $x \implies y$ \\
+            \hline
+            0   & 0   & 1              \\
+            0   & 1   & 1              \\
+            1   & 0   & 0              \\
+            1   & 1   & 1              \\
+        \end{tabular}
+    \end{gather*}
+\end{definition}
+\begin{definition}[Equivalenza logica]
+    Due formule $F,G$ sono logicamente equivalenti se $F$ è conseguenza logica di $G$ e $G$ è conseguenza logica di $F$. In tal caso scriviamo $F \equiv G$.
+\end{definition}
+\begin{example}
+    Nell'esempio precedente abbiamo visto che $y$ è conseguenza logica di $F:= (\neg x \lor y) \land x $, che possiamo ricrivere come $(x \implies y) \land x$.
+
+    Poiché $x \mapsto 0, y \mapsto 1$ soddisfa $y$ ma non $F$, abbiamo che $F$ non è conseguenza logica di $y$.
+\end{example}
+\begin{example}\
+    \begin{itemize}
+        \item $l_1 \lor l_2 \equiv l_2 \lor l_1$ (la disgiunzione è commutativa)
+        \item $c_1 \land c_2 \equiv c_2 \land c_1$ (la congiunzione è commutativa)
+        \item $c \land c \equiv c$ e $l \lor l \equiv l$ (congiunzione e disgiunzione sono idempotenti)
+    \end{itemize}
+\end{example}
+Diamo altre definizioni:
+\begin{definition}[Doppia implicazione]
+    \begin{equation*}
+        x \iff y := (x \implies y)\land(y \implies x)
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Negazione di formule CNF]
+    \begin{enumerate}
+        \item $l$ letterale: $\neg l = \overline{l}$
+        \item $\neg (l_1 \lor \ldots \lor l_n) := \neg l_1 \land \ldots \land \neg l_n$
+        \item $\neg (c_1 \land \ldots \land c_n) := \neg c_1 \lor \ldots \lor \neg c_n$
+    \end{enumerate}
+\end{definition}
+L'interpretazione di questa definizione di negazione è quella corretta grazie alle leggi di De Morgan e alla proprietà distributiva di $\lor$ e $\land$.
+\begin{example}
+    Consideriamo il problema di colorare i vertici di un quadrato con due colori in modo che i vertici su uno stesso lato abbiano colori diversi.
+
+    Tale problema ha ovviamente una soluzione:
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- (0,0);
+            \draw (0,0) node[below left] {2};
+            \draw (2,0) node[below right] {1};
+            \draw (2,2) node[above right] {2};
+            \draw (0,2) node[above left] {1};
+        \end{tikzpicture}
+    \end{center}
+    Formuliamo il problema come una formula CNF.
+
+    Potremo così dire che il problema è soddisfacibile se e solo se tale formula CNF è soddisfacibile. $x_{ij}$ indica "il vertice $i$ ha colore $j$" $\forall 1 \leq i \leq 4, 1 \leq j \leq 2$
+    \begin{align*}
+        F & := (x_{11} \lor x_{12}) \land (x_{21} \lor x_{22}) \land (x_{31} \lor x_{32}) \land (x_{41} \lor x_{42}) \land                                                                              \\
+          & \land (\neg x_{11} \lor \neg x_{12}) \land ( \neg x_{21} \lor \neg x_{22}) \land ( \neg x_{31} \lor \neg x_{32}) \land ( \neg x_{41} \lor \neg x_{42}) \land                                \\
+          & \land (\neg x_{11} \lor \neg x_{21}) \land ( \neg x_{12} \lor \neg x_{22}) \land ( \neg x_{21} \lor \neg x_{31}) \land ( \neg x_{22} \lor \neg x_{32}) \land (\neg x_{31} \lor \neg x_{41})
+    \end{align*}
+    l'assegnazione $x_{11} \mapsto 1, x_{12} \mapsto 0, x_{21} \mapsto 0, x_{22} \mapsto 1, x_{31} \mapsto 1, x_{32} \mapsto 0, x_{41} \mapsto 0, x_{42} \mapsto 1$ soddisfa $F$
+\end{example}
+
+\chapter{Logica Modale}
+\section{Sintassi}
+La logica modale è una estensione della logica proposizionale.
+
+L'alfabeto è quello della logica proposizionale a cui si aggiungono i \textbf{connettivi modali}:
+\begin{enumerate}
+    \item Un insieme numerabili di variabili (o formule atomiche)
+    \item I connettivi logici $\neg, \land, \lor, \implies, \iff$
+    \item I simboli ausiliari $(,)$
+    \item I connettivi modali $\Box$ (\textbf{Scatola o Box}) e $\Diamond$ (\textbf{Diamante o Diamond})
+\end{enumerate}
+Le parole del lingiaggio sono le formule ben formate (FBF) definite in modo ricorsivo:
+\begin{enumerate}
+    \item Ogni variabile è una FBF
+    \item Se $A$ è una FBF, allora $\neg A, \Box A, \Diamond A$ sono FBF
+    \item Se $A,B$ sono FBF, allora $(A \land B), (A \lor B), (A \implies B), (A \iff B)$ sono FBF
+\end{enumerate}
+Alcune letture dei simboli $\Box$ e $\Diamond$:
+\begin{itemize}
+    \item La lettura piu comune è: $\Box A$:"è necessario che A", $\Diamond A$: "è possibile che A".
+
+          Secondo questa lettura i connettivi modali possono essere definiti uno in termini dell'altro:
+          \begin{gather*}
+              \Box A \equiv \neg \Diamond \neg A\\
+              \Diamond A \equiv \neg \Box \neg A
+          \end{gather*}
+    \item Logiche modali epistemiche: $\Box A$: "si sa che A"
+    \item Logiche modali deonetiche: $\Box A$: "è obbligatorio che A"
+    \item Logiche modali doxastiche: $\Box A$: "si crede che A"
+    \item Logica modale dimostrativa: $\Box A$: "è dimostrabile che A"
+\end{itemize}
+
+Come abbiamo visto, la logica proposizionale è una logica vero-funzionale: assegnando valori "0" e "1" alle variabili possiamo assegnare un valore "0" o "1" ad una formula in modo univoco, che corrisponde alla nostra inutizione di negazione, disgiunzione, congiunzione.
+
+Per la logica modale la situazione è più complicata.
+
+Interpretando il simbolo "$\Box$" come operatore di necessità, ossia "$\Diamond$" come operatore di possibilità, possiamo essere, ad esempio, d'accordo che le formule
+\begin{equation*}
+    \Box A \implies \Diamond A, \quad A \implies \Diamond A
+\end{equation*}
+siano vere, ma è vera la formula
+\begin{equation*}
+    A \implies \Box \Diamond A \quad \text{?}
+\end{equation*}
+Non è chiaro se sia vera o falsa. Nel caso della logica epistemica, l'operatore "$\Box$" si indica di solito con "K" (da "knowledge").
+
+In questo contesto, la formula $KA \implies A$ (se si sa che A allora A vale) sembra dover essere vera.
+
+Invece la formula $A \implies KA$ (se vale A allora si sa che A) sembra essere falsa perchè non si è onniscenti.
+
+\section{Semantica dei mondi possibili (semantica di Kripke)}
+\begin{definition}[Frame]
+    Un \textbf{Frame} è una coppia $(S,R)$, dove $S$ è un insieme non vuoto detto \textbf{insieme dei mondi} e $R \subseteq S \times S$ è una relazione su $S$, detta \textbf{relazione di accessibilità} (se $(x,y) \in R$ si dice che $y$ è accessibile da $x$).
+\end{definition}
+Un Frame può essere rappresentato con un grafo diretto con cappi (loop) i cui vertici sono gli elementi dell'insieme $S$ e ho una freccia da $x$ a $y$ se $(x,y) \in R$.
+\end{document}

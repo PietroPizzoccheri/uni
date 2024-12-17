@@ -1,0 +1,170 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{remark}
+    $Ker(f)$ è un ideale di $A$ con $A$ anello commutativo.
+\end{remark}
+
+\begin{example}
+    sia $I \subseteq A$ un ideale di un anello commutativo $A$.
+    \begin{align*}
+        \pi: \; A & \rightarrow \nicefrac{A}{I} \\
+        a         & \mapsto [a]
+    \end{align*}
+    è un morfismo di anelli il cui nucleo è $I$.
+\end{example}
+
+\begin{example}
+    si consideri l'anello dei numeri complessi $\mathbb{C}$.
+
+    Allora il coniugio $\overline{z} = \overline{a+bi} = a - bi$ è un morfismo di anelli da $\mathbb{C}$ in $\mathbb{C}$:
+    \begin{equation*}
+        \overline{1} = 1, \overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}, \overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}
+    \end{equation*}
+\end{example}
+
+\begin{theorem}[di isomorfismo per anelli commutativi]
+    Sia $f : A \rightarrow B$ un morfismo di anelli commutativi. Allora esiste un morfismo iniettivo di anelli $\Psi : \nicefrac{A}{Ker(f)} \rightarrow B$ tale che il seguente diagramma è commutativo:
+    \begin{equation*}
+        \begin{tikzcd}
+            A \arrow{r}{f} \arrow[swap]{d}{\pi} & B \\
+            \nicefrac{A}{Ker(f)} \arrow[swap]{ur}{\Psi}
+        \end{tikzcd}
+    \end{equation*}
+    in particolare, se $f$ è suriettivo, allora $\Psi$ è un isomorfismo di anelli.
+\end{theorem}
+
+\textbf{Notazione:} $\overline{x} \in \mathbb{Z}_n$. La classe di equivalenza $\overline{x}$ la scriveremo anche  $x \bmod n$.
+
+\begin{theorem}[Teorema cinese dei resti]
+    siano $n_1,n_2,\ldots,n_k \in \mathbb{N} \setminus \{0,1\}$ tali che $MCD \{n_i,n_j\} = 1$ per ogni $1 \leq i,j \leq k, i \neq j$.
+
+    Sia $n := n_1 \cdot n_2 \cdot \ldots \cdot n_k$.
+
+    Allora la funzione
+    \begin{equation*}
+        \Psi : \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \ldots \times \mathbb{Z}_{n_k}
+    \end{equation*}
+    che mappa
+    \begin{equation*}
+        x \bmod n \mapsto (x \bmod n_1, x \bmod n_2, \ldots, x \bmod n_k)
+    \end{equation*}
+    è un isomorfismo di anelli.
+\end{theorem}
+
+\begin{proof}
+    vediamo prima di tutto che $\Psi$ è un morfismo di anelli dove $f: \mathbb{Z} \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \ldots \times \mathbb{Z}_{n_k} $ è definita da $f(x) = (x \bmod n_1, x \bmod n_2, \ldots, x \bmod n_k) \forall x \in \mathbb{Z}$.
+    \begin{itemize}
+        \item \begin{flalign*}
+                  f(a+b) & = ((a+b) \bmod n_1, \ldots , (a+b) \bmod n_k)                               &  & \\
+                         & = (a \bmod n_1 + b \bmod n_1, \ldots , a \bmod n_k + b \bmod n_k)           &  & \\
+                         & = (a \bmod n_1, \ldots , a \bmod n_k) + (b \bmod n_1, \ldots , b \bmod n_k) &  & \\
+                         & = f(a) + f(b), \forall a,b \in \mathbb{Z}
+              \end{flalign*}
+        \item $f(1) = (1 \bmod n_1, \ldots , 1 \bmod n_k)$ e $(1 \bmod n_1, \ldots , 1 \bmod n_k)$ è l'unità del prodotto diretto di anelli $\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \ldots \times \mathbb{Z}_{n_k}$
+        \item \begin{flalign*}
+                  f(a \cdot b) & = ((a \cdot b) \bmod n_1, \ldots , (a \cdot b) \bmod n_k)                       &  & \\
+                               & = (a \bmod n_1 \cdot b \bmod n_1, \ldots , a \bmod n_k \cdot b \bmod n_k)       &  & \\
+                               & = (a \bmod n_1, \ldots , a \bmod n_k) \cdot (b \bmod n_1, \ldots , b \bmod n_k) &  & \\
+                               & = f(a) \cdot f(b), \forall a,b \in \mathbb{Z}
+              \end{flalign*}
+    \end{itemize}
+    Ora mostriamo che $f$ è suriettivo:
+
+    sia $(a_1 \bmod n_1, \ldots , a_k \bmod n_k) \in \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \ldots \times \mathbb{Z}_{n_k}$.
+
+    Osserviamo che $MCD\{n_i,n_1 n_2 \ldots n_{i-1} n_{i+1} \ldots n_k\} = 1, \forall 1 \leq i \leq k$.
+
+    Quindi abbiamo le identità di Bézout: $c_i n_i + b_i \frac{n}{n_i} = 1$ ossia\\
+    $u_i + v_i = 1$ dove $u_i = c_i n_i \in <n_i>$ e $v_i = b_i \frac{n}{n_i} \in <\frac{n}{n_i}>$.
+
+    Definiamo $x := a_1 v_1 + \ldots + a_k v_k$ e abbiamo che $f(x) = (a_1 \bmod n_1, \ldots , a_k \bmod n_k)$. infatti:
+    \begin{equation*}
+        v_i \bmod n_j =
+        \begin{cases}
+            0 & \text{se } i \neq j \\
+            1 & \text{se } i = j
+        \end{cases}\\
+    \end{equation*}
+    dal teorema di isomorfismo abbiamo che $\nicefrac{\mathbb{Z}}{Ker(f)} \simeq \mathbb{Z}_{n_1} \times \ldots \times \mathbb{Z}_{n_k} $ come anelli. ma abbiamo che $Ker(f) = <n_1> \cap <n_2> \cap \ldots \cap <n_k> = <mcm\{n_1 ,\ldots, n_k\}> = <n_1 n_2 \ldots n_k>$ dato che $n_i$ e $n_j$ sono coprimi $\forall i \neq j$.
+
+    Quindi $\nicefrac{\mathbb{Z}}{Ker(f)} = \nicefrac{\mathbb{Z}}{<n>} = \mathbb{Z}_n $ e l'isomorfismo $\Psi: \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times \ldots \times \mathbb{Z}_{n_k}$ è quello dell'enunciato del teorema.
+\end{proof}
+
+\begin{example}
+    Siano $n_1 = 3, n_2 = 7 e n_3 = 10$. Allora $n := n_1 n_2 n_3 = 210$ e abbiamo l'isomorfismo di anelli $\mathbb{Z}_{210} \simeq \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}$.
+
+    Sia $(2 \bmod 3, 5 \bmod 7, 4 \bmod 10) \in \mathbb{Z}_3 \times \mathbb{Z}_7 \times \mathbb{Z}_{10}$, questa terna corrisponde ad un elemento $x \bmod 210 \in \mathbb{Z}_{210}$ che soddisfa il sistema
+    \begin{equation*}
+        \begin{cases}
+            x\bmod 3 = 2\bmod 3 \\
+            x\bmod 7 = 5\bmod 7 \\
+            x\bmod 10 = 4\bmod 10
+        \end{cases}
+    \end{equation*}
+    La dimostrazione del teorema cinese dei resti ci dice come trovare x.
+    \begin{equation*}
+        x = 2 v_1 + 5 v_2 + 4 v_3
+    \end{equation*}
+    dove, se
+    \begin{align*}
+        3 a + 70 b  & = 1 \\
+        7 a + 30 b  & = 1 \\
+        10 a + 21 b & = 1
+    \end{align*}
+    sono identità di Bézout, allora $v_1 = 70 b, v_2 = 30 b  = 30, v_3 = 21 b$
+    \begin{equation*}
+        \begin{aligned}
+            3 a + 70 b = 1  & \quad : \quad a = -23, b = 1 \implies v_1 = 70       \\
+            7 a + 30 b = 1  & \quad : \quad 30 = 4 \cdot 7 + 2 , 7 = 3 \cdot 2 + 1 \\
+                            & \quad \qquad\implies
+            \begin{aligned}
+                1 & = 7 - 3 \cdot 2 = 7 - 3(30 - 4 \cdot 7) =                        \\
+                  & =  13 \cdot 7 - 3 \cdot 30 = 91 - 90 = 1 \implies a = 13, b = -3 \\
+                  & \implies v_2 = -3 \cdot 30
+            \end{aligned}   \\
+            10 a + 21 b = 1 & \quad : \quad  a = -2, b = 1 \rightarrow v_3 = 21
+        \end{aligned}
+    \end{equation*}
+    Quindi $x = 2 \cdot 70 - 5 \cdot 3 \cdot 30 + 4 \cdot 21 = 194\bmod 210$\\
+\end{example}
+\begin{corollary}
+    Sia $U(\mathbb{Z}_n)$ il gruppo degli elementi invertibili dell'anello $\mathbb{Z}_n$.
+
+    Sia $n := n_1 \ldots n_k$ dove $MCD\{n_i, n_j\} = 1 \forall 1 \leq i,j \leq k, i \neq j$ e $n_i \in \mathbb{N} \setminus \{0,1\} \forall 1 \leq i \leq k$.
+
+    Allora come i gruppi
+    \begin{equation*}
+        U(\mathbb{Z}_n) \simeq U(\mathbb{Z}_{n_1}) \times \ldots \times U(\mathbb{Z}_{n_k})
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    l'isomorfismo $\Psi$ del teo. cinese dei resti, ristretto a $U(\mathbb{Z}_n)$ dà un isomorfismo di gruppi
+\end{proof}
+
+Poiché un elemento $\overline{x} \in \mathbb{Z}_n$ è invertibile s.s.e. esiste un'identità di Bézout $ax + bn = 1$ abbiamo che $\overline{x}$ è invertibile s.s.e. $MCD\{x,n\} = 1$. Quindi
+
+\begin{equation*}
+    |U(\mathbb{Z}_n)| = \varphi(n) \qquad \text{(con $\varphi$ funzione di Eulero)}
+\end{equation*}
+
+
+Dal precedente Corollario e da questo segue un altro Corollario:
+
+\begin{corollary}
+    Sia $\varphi : \mathbb{N} \setminus \{0\} \rightarrow \mathbb{N} \setminus \{0\}$ la funzione $\varphi$ di Eulero.
+
+    Siano $x,y \in \mathbb{N} \setminus \{0\}$ tali che $MCD\{x,y\} = 1$, allora:
+    \begin{equation*}
+        \varphi(xy) = \varphi(x) \cdot \varphi(y)
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    dal Corollario precedente abbiamo che $U(\mathbb{Z}_{xy}) \simeq U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)$ come i gruppi, quindi:
+    \begin{align*}
+        \varphi(xy) & = |U(\mathbb{Z}_{xy})| =                                            \\
+                    & = |U(\mathbb{Z}_x) \times U(\mathbb{Z}_y)| =                        \\
+                    & = |U(\mathbb{Z}_x)| \cdot |U(\mathbb{Z}_y)| = \varphi(x) \varphi(y)
+    \end{align*}
+\end{proof}
+\end{document}

@@ -1,0 +1,185 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Anelli quoziente}
+
+Sia $A$ un anello commutativo e $I \subseteq A$ un ideale.
+
+In particolare, $A$ con l'operazione "$+$" è un gruppo abeliano e $I$ è un sottogruppo di $A$.
+
+Allora possiamo definire il gruppo quoziente $\nicefrac{A}{I}$.
+
+Con l'operazione $[x] \cdot [y] := [xy]$, per ogni $[x] , [y] \in \nicefrac{A}{I}$, abbiamo che $\nicefrac{A}{I}$ è un anello commutativo con unità $[1_A]$.
+
+Infatti, mostriamo che l'operazione è ben definita. Siano $x' \in [x]$ e $y' \in [y]$. Allora esistono $i_x \in I$ e $i_y \in I$ tali che $x' = x + i_x$ e $y' = y + i_y$.
+
+Quindi $x'y' = (x + i_x) (y + i_y) = xy + \underbrace{x i_y + y i_x + i_x i_y}_{\in I \text{ perchè $I$ è un ideale di $A$ }}$
+
+Quindi $[x'y'] = [xy]$.
+
+Inoltre $[1_A] [x] = [1_A x] = [x] $, per ogni $[x] \in \nicefrac{A}{I}$, quindi $[1_A]$ è l'unità di $\nicefrac{A}{I}$.
+\begin{example}
+    Abbiamo visto che $n \mathbb{Z} = \{kn : k \in \mathbb{Z} \}$ è un ideale
+    dell'anello $\mathbb{Z} $. Quindi il quoziente $\mathbb{Z}_n = \nicefrac{\mathbb{Z}}{n \mathbb{Z} }$ ha la struttura di anello.
+    \begin{itemize}
+        \item $\mathbb{Z}_0 \simeq \mathbb{Z} $
+        \item $\mathbb{Z}_1 \simeq \{0\}$ anello nullo.
+        \item $\mathbb{Z}_2 \simeq \{\overline{0}, \overline{1}\}$
+              \begin{center}
+                  \begin{tabular}{ c | c | c}
+                      $\cdot$        & $\overline{0}$ & $\overline{1}$ \\ \hline
+                      $\overline{0}$ & $\overline{0}$ & $\overline{0}$ \\ \hline
+                      $\overline{1}$ & $\overline{0}$ & $\overline{1}$
+                  \end{tabular}
+              \end{center}
+        \item $\mathbb{Z}_3 \simeq \{\overline{0}, \overline{1}, \overline{2}\}$ è un campo perchè $\overline{1}$ è invertibile e $\overline{2} \cdot \overline{2} = \overline{1}$, quindi anche $\overline{2}$ è invertibile.
+              \begin{center}
+                  \begin{tabular}{ c | c | c | c}
+                      $\cdot$        & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ \\ \hline
+                      $\overline{0}$ & $\overline{0}$ & $\overline{0}$ & $\overline{0}$ \\ \hline
+                      $\overline{1}$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ \\ \hline
+                      $\overline{2}$ & $\overline{0}$ & $\overline{2}$ & $\overline{1}$
+                  \end{tabular}
+              \end{center}
+        \item $\mathbb{Z}_4 = \{\overline{0},\overline{1},\overline{2},\overline{3}\}$ dove $\overline{2} \cdot \overline{2} = \overline{0}$, quindi $\mathbb{Z}_4$ non è un dominio di integrità. In particolare non è un campo.
+              \begin{center}
+                  \begin{tabular}{ c | c | c | c | c}
+                      $\cdot$        & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$ \\ \hline
+                      $\overline{0}$ & $\overline{0}$ & $\overline{0}$ & $\overline{0}$ & $\overline{0}$ \\ \hline
+                      $\overline{1}$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$ \\ \hline
+                      $\overline{2}$ & $\overline{0}$ & $\overline{2}$ & $\overline{0}$ & $\overline{2}$ \\ \hline
+                      $\overline{3}$ & $\overline{0}$ & $\overline{3}$ & $\overline{2}$ & $\overline{1}$
+                  \end{tabular}
+              \end{center}
+    \end{itemize}
+\end{example}
+
+Vediamo che $\mathbb{Z}_n$ è un campo se e solo se $n \in \mathbb{N} \backslash \{0,1\}$ è un numero primo (per $n =0 $ abbiamo $\mathbb{Z}_0 \simeq \mathbb{Z} $ e per $n = 1$ abbiamo l'anello nullo).
+
+Un ideale di $\mathbb{Z}_n $ è un sottogruppo di $\mathbb{Z}_n$.
+
+Poiché $\mathbb{Z}_n$ è ciclico, i suoi sottogruppi sono ciclici e sono $\{\langle \overline{m} \rangle : \overline{m} \in \mathbb{Z}_n\}$.
+
+Inoltre $\langle \overline{m} \rangle \subseteq \mathbb{Z}_n$ è un ideale, $\forall \overline{m} \in \mathbb{Z}_n$.
+
+Infatti, se $\overline{a} \in \mathbb{Z} $, allora $\overline{a} \overline{m} = \overline{am} = \underbrace{\overline{m} + \overline{m} + \ldots + \overline{m}}_{a \text{ volte }} \in \langle \overline{m} \rangle$.
+
+Quindi $\{\langle \overline{m} \rangle : \overline{m} \in \mathbb{Z}_n\}$ è l'insieme
+degli ideali di $\mathbb{Z}_n$ ($\mathbb{Z}_n$ è anello ad ideali principali).
+
+Inoltre, se $n > 1, \{\langle \overline{m} \rangle \overline{m} \in \mathbb{Z}_n\} = \{\{\overline{0}\}, \mathbb{Z}_n\} \cup \{\langle \overline{m} \rangle : MCD_{m \neq 0} \{m,n\} \neq 1\}$.
+
+Quindi $\mathbb{Z}_n$ è un campo se e solo se $\{\langle \overline{m} \rangle : \overline{m} \in \mathbb{Z}_n\} = \{\{\overline{0}\}, \mathbb{Z}_n\}$ se e solo se $n$ è un numero primo.
+
+\begin{example}
+    $\mathbb{Z}_3$ è un campo, si ha che $\overline{2}^{-1} = \overline{2}$. Infatti:
+    \begin{equation*}
+        \overline{2} \cdot \overline{2} = \overline{4} = \overline{1}
+    \end{equation*}
+    Invece $\mathbb{Z}_4$ non lo è, infatti:
+    \begin{equation*}
+        \overline{2} \cdot \overline{2} = \overline{0}
+    \end{equation*}
+    e quindi $\overline{2}$ non è invertibile.
+\end{example}
+
+\section{Algoritmo di Euclide e identità di Bézout su \texorpdfstring{$\mathbb{Z}$}{Z}}
+
+Vogliamo calcolare il massimo comun divisore tra 1876 e 365. Usiamo l'algoritmo di Euclide:
+\begin{align*}
+    1876 & = 5 \cdot 365 + 51 \\
+    365  & = 7 \cdot 51 + 8   \\
+    51   & = 6 \cdot 8 + 3    \\
+    8    & = 2 \cdot 3 + 2    \\
+    3    & = 1 \cdot 2 + 1    \\
+    2    & = 2 \cdot 1 + 0
+\end{align*}
+
+Quindi $MCD \{1876,365\} = 1$.
+
+Adesso vogliamo trovare due numeri $x,y \in \mathbb{Z} $ tali che $1876x + 365y = 1$.
+
+\begin{definition}[Identità di Bézout]
+    Un'identità del tipo $ax + by = MCD \{a,b\}$ si chiama \textbf{identità di Bézout}.
+\end{definition}
+Dall'algoritmo di Euclide abbiamo:
+\begin{align*}
+    1  & = 3 - 2 \cdot 1      \\
+    2  & = 8 - 3 \cdot 2      \\
+    3  & = 51 - 6 \cdot 8     \\
+    8  & = 365 - 7 \cdot 51   \\
+    51 & = 1876 - 5 \cdot 365
+\end{align*}
+Quindi
+\begin{align*}
+    1 & = 3 - 2 =                                                \\
+      & = 3 - (8 - 3 \cdot 2) = 3 \cdot 3 - 8                    \\
+      & = 3 \cdot (51 - 8 \cdot 6) - 8 = 3 \cdot 51 - 8 \cdot 19 \\
+      & = 3 \cdot 51 - 19(365 - 51 \cdot 7)                      \\
+      & = 136 \cdot 51 - 19 \cdot 365                            \\
+      & = 136 \cdot (1876 - 365 \cdot 5) - 19 \cdot 365          \\
+      & = 136 \cdot 1876 - 699 \cdot 365
+\end{align*}
+Quindi $x = -699$ e $y = 136$. In generale possiamo enunciare il seguente teorema:
+
+\begin{theorem}
+    siano $a,b \in \mathbb{N} \setminus {0}$, se $a \mid b$, allora $a = MCD\{a,b\}$. se $a \nmid b$ e $r$ è l'ultimo resto non nullo dell'algoritmo di Euclide, allora $r = MCD \{a,b\}$.
+
+    Inoltre esistono $x,y \in \mathbb{Z} $ tali che $ax + by = MCD \{a,b\}$.
+\end{theorem}
+
+\section{Equazioni diofantee lineari}
+sono equazioni del tipo $ax + by = c$, con $a,b,c \in \mathbb{Z} $.
+
+\begin{proposition}
+    siano $a,b,c \in \mathbb{Z} $. allora esistono $x,y \in \mathbb{Z} $ tali che $ax + by = c$ se e solo se $MCD \{a,b\} \mid c$.
+\end{proposition}
+
+\begin{proof}
+    Se $ax + by = c$, allora $MCD \{a,b\} \mid c$.
+
+    Viceversa, se $d := MCD \{a,b\} \mid c$, allora abbiamo un'identità di Bézout
+    \begin{equation*}
+        ax + by = d \qquad \forall x,y \in \mathbb{Z}
+    \end{equation*}
+    Se $d \mid c$ cioè se $c = d \cdot k$ per qualche $k \in \mathbb{Z} $, $a(kx) + b(ky) = kd = c$
+\end{proof}
+
+\begin{example}
+    l'equazione diofantea: $365x - 1876y = 24$ ha soluzione perchè $MCD \{365,1876\} = 1$ e $1 \mid 24$.
+
+    Avevamo l'identità di Bézout $365(-699) - 1876(-136) = 1$, moltiplicando per 24 otteniamo $365(-699 \cdot 24) - 1876(-136 \cdot 24) = 24$.
+
+    Ossia una soluzione è $x = -699 \cdot 24$ e $y = -136 \cdot 24$.
+\end{example}
+
+\begin{example}
+    in $\mathbb{Z}_{1876}$ calcolare, se esiste, l'inverso moltiplicativo di $\overline{365}$. abbiamo che $\overline{365} \cdot \overline{a} = \overline{1}$ in $\mathbb{Z}_{1876}$ se e solo se esistono $a,b \in \mathbb{Z}$ t.c. $365 \cdot a = 1 + b \cdot 1876 \iff 365 \cdot a - 1876 \cdot b = 1$.
+
+    Una soluzione è $a = -699$ e $b = 136$, ossia $\overline{365}^{-1} = \overline{-699} = \overline{1177}$.
+\end{example}
+
+\begin{remark}
+    se $p \in \mathbb{N}$ è un numero primo, scriviamo $\mathbb{F}_p := \mathbb{Z}_p$.
+
+    Il campo $\mathbb{F}_p$ ha $p$ elementi.
+\end{remark}
+
+\section{Morfismi di anelli}
+
+\begin{definition}[Morfismo di anelli]
+    Siano $A,B$ due anelli. Un'applicazione $f : A \rightarrow B$ è un \textbf{morfismo di anelli} se:
+    \begin{enumerate}[label=(\roman*)]
+        \item $f: (A,+) \rightarrow (B,+)$ è un morfismo di gruppi.
+        \item $f: (A,\cdot) \rightarrow (B,\cdot)$ è un morfismo di monoidi.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Nucleo di un morfismo di anelli]
+    il nucleo di un morfismo di anelli $f : A \rightarrow B$ è l'insieme:
+    \begin{equation*}
+        Ker(f):=\{a \in A : f(a) = 0\}
+    \end{equation*}
+\end{definition}
+
+\end{document}

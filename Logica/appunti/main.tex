@@ -1,0 +1,114 @@
+\documentclass[10pt,a4paper,twoside]{book}
+\usepackage[italian]{babel}
+
+\input{style.tex}
+
+\usepackage[
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=3cm,
+]{geometry}
+
+\usepackage{subfiles}
+\usepackage{nicefrac}
+\usepackage{tikz-cd}
+\usepackage{multicol}
+
+\newcommand{\RomanNumber}[1]{
+  \textup{\uppercase\expandafter{\romannumeral#1}}
+}
+
+\begin{document}
+
+\frontmatter
+
+\pagestyle{empty}
+
+% Title page
+\hypertarget{mytitlepage}{}
+\bookmark[dest=mytitlepage,level=chapter]{Title Page}
+
+\vspace*{\fill}
+\begin{center}
+    {\large \textsc{Appunti di}}\\
+
+    \vspace*{0.4cm}
+
+    {\Huge
+        \textsc{Logica e Algebra 2}}\\
+
+    \vspace*{1cm}
+
+    {\large Dagli appunti del professor Paolo Sentinelli}\\
+
+    \vspace*{1cm}
+
+    Autori\\
+    \vspace*{0.1cm}
+    \textsc{Pietro Pizzoccheri}\\
+    \textsc{Lorenzo Bardelli}\\
+
+    \vspace*{0.4cm}
+
+    Document formatting by\\
+    \vspace*{0.1cm}
+    \textsc{Luca Zani}\\
+
+    \vspace*{1cm}
+
+    Politecnico di Milano\\A.Y. 2024/2025
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+% Copyright
+\hypertarget{mycopyright}{}
+\bookmark[dest=mycopyright,level=chapter]{Copyright Page}
+\input{copyright.tex}
+\clearpage
+
+% Preface
+
+% \hypertarget{mypreface}{}
+% \bookmark[dest=mypreface,level=chapter]{Preface}
+% \input{firstpages/preface}
+% \clearpage
+
+% Contents
+\cleardoublepage
+\pagestyle{toc}
+\hypertarget{mytoc}{}
+\bookmark[dest=mytoc,level=chapter]{\contentsname}
+\tableofcontents
+\cleardoublepage
+
+\pagestyle{fancy}
+\mainmatter
+
+% September Notes
+\subfile{lectures/2024_09_19.tex}
+\subfile{lectures/2024_09_20.tex}
+\subfile{lectures/2024_09_26.tex}
+\subfile{lectures/2024_09_27.tex}
+% October Notes
+\subfile{lectures/2024_10_03.tex}
+\subfile{lectures/2024_10_04.tex}
+\subfile{lectures/2024_10_17.tex}
+\subfile{lectures/2024_10_18.tex}
+\subfile{lectures/2024_10_24.tex}
+\subfile{lectures/2024_10_25.tex}
+% November Notes
+\subfile{lectures/2024_11_07.tex}
+\subfile{lectures/2024_11_08.tex}
+\subfile{lectures/2024_11_14.tex}
+\subfile{lectures/2024_11_16.tex}
+\subfile{lectures/2024_11_21.tex}
+\subfile{lectures/2024_11_22.tex}
+\subfile{lectures/2024_11_28.tex}
+\subfile{lectures/2024_11_29.tex}
+% December Notes
+\subfile{lectures/2024_12_05.tex}
+\subfile{lectures/2024_12_06.tex}
+
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{theorem}[di struttura per i gruppi ciclici]
+    Sia $G$ un gruppo ciclico. Allora ogni sottogruppo di $G$ è ciclico.
+\end{theorem}
+
+\begin{proof}
+    Sia $g \in G$ tale che $g = \langle g \rangle$. La funzione $\varphi: (\mathbb{Z} , +) \rightarrow G$ definita da $\varphi(g) = g^n, \forall n \in \mathbb{Z}$ è un morfismo suriettivo di gruppi.
+    \begin{enumerate}[label=\alph*)]
+        \item G è infinito: allora $Ker(f) = \{0\}$ e quindi $\varphi$ è iniettivo. Dunque $\varphi$ è un
+              isomorfismo di gruppi. Tutti i sottogruppi di $\mathbb{Z} $ sono ciclici.
+        \item G è finito: sia $H \subseteq G$ un sottogruppo. Allora $\varphi^{-1}(H) := \{n \in \mathbb{Z} : \varphi(n) \in H\} \subseteq \mathbb{Z} $ è un sottogruppo di $\mathbb{Z} $, quindi esiste $\varphi^{-1}(H)= \langle k \rangle$ con $k \in \mathbb{N} $.
+
+              La restrizione $\varphi: k \mathbb{Z} \rightarrow H$ è un morfismo suriettivo di gruppi e
+              \begin{equation*}
+                  \varphi(hk) = \varphi(\underbrace{k+k+\ldots+k}_{h \text{ volte}}) = \varphi(k) \varphi(k) \ldots \varphi(k) = [\varphi(k)]^h \qquad \forall h \in \mathbb{Z}
+              \end{equation*}
+              Quindi $H = \langle \varphi(k) \rangle$.
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    L'insieme dei sottogruppi di $\mathbb{Z}_n , n \in \mathbb{N} $ è:
+    \begin{equation*}
+        \{\langle \overline{m} \rangle : \overline{m} \in \mathbb{Z}_n \}
+    \end{equation*}
+\end{corollary}
+
+\begin{proposition}
+    Sia $n \in \mathbb{N} \text{ e sia } d/n$ (d divide n).
+
+    Allora esiste al più un unico sottogruppo di $\mathbb{Z}_n$ di cardinalità $d$.
+\end{proposition}
+
+\begin{proof}
+    Sia $H \subseteq \mathbb{Z}_n$ sottogruppo tale che $|H| = d$. Si considerino le proiezioni canoniche $\mathbb{Z} \rightarrow^{\pi_1} \mathbb{Z}_n \rightarrow^{\pi_2} \nicefrac{\mathbb{Z}_n }{H}$.
+
+    Poiché $\pi^{-1}_1 (H) = \{m \in \mathbb{Z} : \pi_1 (m) \in H\}$ è un sottogruppo di $\mathbb{Z} $, allora esiste $k \in \mathbb{N} $ tale che $\pi^{-1}_1(H) = k \mathbb{Z}$.
+
+    Inoltre $Ker(\pi_1 \cdot \pi_2) = \pi^{-1}_1 (H)$ e quindi, essendo $\pi_1 \cdot \pi_2$ un morfismo suriettivo di gruppi, $\nicefrac{\mathbb{Z}_n }{H} \simeq \nicefrac{\mathbb{Z} }{\pi^{-1}(H)} = \nicefrac{\mathbb{Z} }{k \mathbb{Z} }= \mathbb{Z}_k$.
+
+    Quindi $|\mathbb{Z}_k | = k =|\nicefrac{\mathbb{Z}_n }{H}| = \nicefrac{|\mathbb{Z}_n |}{|H|} = \frac{n}{d}$, ossia $k$ è univocamente determinato, e allora $H = \pi_1 (k \mathbb{Z} )$ è univocamente determinato.
+\end{proof}
+
+\begin{example}
+    I sottogruppi di $\mathbb{Z}_{899}$ sono quattro, perché $899 = 31 \cdot 29$, quindi c'è un sottogruppo di
+    cardinalità 1 (il sottogruppo banale), uno di cardinalità 31, uno di cardinalità 29 e $\mathbb{Z}_{899}$.\\
+    Sono: $\{\{0\} , \langle \overline{29} \rangle , \langle \overline{31} \rangle , \mathbb{Z}_{899}\}$.
+\end{example}
+\end{document}

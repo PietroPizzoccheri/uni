@@ -1,0 +1,456 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Rango di una matrice}
+\begin{definition}
+    Sia $A \in Mat_{h \times k}(\mathbb{F})$ una matrice $h \times k$.
+
+    Il rango di $A$ è definito come:
+    \begin{align*}
+        rk(A) & := \; \text{n° massimo di colonne linearmente indipendenti} \\
+              & := \; \text{n° massimo di righe linearmente indipendenti}
+    \end{align*}
+\end{definition}
+Si verifica facilmente che ogni matrice si può scrivere come combinazione lineare di matrici di rango 1.
+
+Sia $X = \{A \in Mat_{h \times k}(\mathbb{F}) : rk(A) = 1\}$, allora si ha che
+\begin{equation*}
+    rk(A) = min\{k \in \mathbb{N} : A = \sum_{i = 1}^{k} M_i , M_i \in X, \forall 1 \leq i \leq k\}
+\end{equation*}
+
+\begin{example}
+    La matrice
+    \begin{equation*}
+        A = \begin{pmatrix}
+            1 & -1 & 3  \\
+            2 & 4  & -6 \\
+            3 & 0  & 3
+        \end{pmatrix}
+    \end{equation*}
+    ha rango 2, e si ha che:
+    \begin{equation*}
+        A = \begin{pmatrix}
+            1 & 0 & 0 \\
+            2 & 0 & 0 \\
+            3 & 0 & 0
+        \end{pmatrix} + \begin{pmatrix}
+            0 & -1 & 0 \\
+            0 & 4  & 0 \\
+            0 & 0  & 0
+        \end{pmatrix} + \begin{pmatrix}
+            0 & 0 & 3  \\
+            0 & 0 & -6 \\
+            0 & 0 & 3
+        \end{pmatrix}
+    \end{equation*}
+    che è una combinazione lineare di matrici di rango 1, un altra è:
+    \begin{equation*}
+        A = \begin{pmatrix}
+            1 & 0 & 1 \\
+            2 & 0 & 2 \\
+            3 & 0 & 3
+        \end{pmatrix} + \begin{pmatrix}
+            0 & -1 & 2  \\
+            0 & 4  & -8 \\
+            0 & 0  & 0
+        \end{pmatrix}
+    \end{equation*}
+    ovviamente è la minima perchè $rk(A) = 2$
+\end{example}
+
+Come è fatta una matrice di rango 1 in $Mat_{a \times b}(K)$?
+
+Tutte le sue colonne sono proporzionali ad un vettore colonna $\overrightarrow{v} \in K^a \setminus \{\overrightarrow{0}\}$.
+
+Quindi, se $A \in Mat_{a \times b}(K)$ e $rk(A) = 1$, esistono $a_1, \ldots, a_b \in K$ tali che:
+\begin{equation*}
+    A = \begin{pmatrix}
+        a_1 \overrightarrow{v} & a_2 \overrightarrow{v} & \ldots & a_b \overrightarrow{v}
+    \end{pmatrix}
+\end{equation*}
+Quindi
+\begin{equation*}
+    A = \overrightarrow{v} \begin{pmatrix}
+        a_1 & a_2 & \ldots & a_b
+    \end{pmatrix} = \overrightarrow{v}\overrightarrow{a}^T
+    \quad \text{dove} \quad \overrightarrow{a} = \begin{pmatrix}
+        a_1    \\
+        \vdots \\
+        a_b
+    \end{pmatrix} \in K^b \setminus \{\overrightarrow{0}\}
+\end{equation*}
+
+Come è fatta una matrice $A \in Mat_{a \times b}(K)$ di rango k?
+
+Siano $\overrightarrow{v_1}, \ldots, \overrightarrow{v_k} \in K^a \setminus \{\overrightarrow{0}\}$ colonne linearmente indipendenti.
+
+Le altre colonne sono combinazione lineare di queste e quindi esistono $\overrightarrow{a_1}, \ldots, \overrightarrow{a_k} \in K^b \setminus \{\overrightarrow{0}\}$ tali che:
+\begin{equation*}
+    A = \overrightarrow{v_1}\overrightarrow{a_1}^T + \ldots + \overrightarrow{v_k}\overrightarrow{a_k}^T
+\end{equation*}
+Cioè $A$ si scrive come somma di $k$ matrici di rango 1.
+
+Se si potesse scrivere con meno addendi avrebbe rango $< k$.
+
+Quindi $rk(A) = min \{ k \in N : A = \sum_{i=1}^{k} M_i, rk(M_i) = 1 \forall 1 \leq i \leq k\}$
+
+\hrulefill
+
+D'ora in poi se $V_1, \ldots, V_h$ sono spazi vettoriali su un campo $K$ con basi
+\begin{equation*}
+    \{v_1^1, \ldots v_{i_1}^1\}, \{v_1^2, \ldots v_{i_2}^2\}, \ldots, \{v_1^h, \ldots v_{i_h}^h\}
+\end{equation*}
+allora $V_1 \otimes V_2 \otimes \ldots \otimes V_h$ è uno spazio vettoriale con base
+\begin{equation*}
+    \{v_{j_1}^1 \otimes v_{j_2}^2 \otimes \ldots \otimes v_{j_h}^h : 1 \leq j_1 \leq i_1, \ldots , 1 \leq j_h \leq i_h\}
+\end{equation*}
+che soddisfa le seguenti Relazioni:
+\begin{enumerate}
+    \item \begin{align*}
+              a(v_{j_1}^1 \otimes v_{j_2}^2 \otimes \ldots \otimes v_{j_h}^h) & = (a v_{j_1}^1) \otimes v_{j_2}^2 \otimes \ldots \otimes v_{j_h}^h =                                                                                  \\
+                                                                              & = \ldots = v_{j_1}^1 \otimes v_{j_2}^2 \otimes \ldots \otimes (a v_{j_h}^h) \quad \forall a \in K,  1 \leq j_1 \leq i_1, \ldots , 1 \leq j_h \leq i_h
+          \end{align*}
+    \item \begin{align*}
+              (v_1 + w_1) \otimes v_2 \otimes \ldots \otimes v_h & = v_1 \otimes v_2 \otimes \ldots \otimes v_h + w_1 \otimes v_2 \otimes \ldots \otimes v_h \\
+              \vdots                                                                                                                                         \\
+              v_1 \otimes v_2 \otimes \ldots \otimes (v_h + w_h) & = v_1 \otimes v_2 \otimes \ldots \otimes v_h + v_1 \otimes v_2 \otimes \ldots \otimes w_h \\
+              \forall v_i, w_i \in V_i, 1 \leq i \leq h
+          \end{align*}
+\end{enumerate}
+L'insieme $\{v_1 \otimes v_2 \otimes \ldots \otimes v_h : v_i \in V_i \forall 1 \leq i \leq h\}$ è \textbf{L'insieme dei tensori di rango 1 di $V_1 \otimes V_2 \otimes \ldots \otimes V_h$}
+
+\subsection{Rango di un tensore}
+
+Ogni elemento di $V_1 \otimes V_2 \otimes \ldots \otimes V_h$ si scrive come combinazione lineare di tensori di rango 1.
+
+Infatti la base $\{v_{j_1}^1 \otimes v_{j_2}^2 \otimes \ldots \otimes v_{j_h}^h\}$ è costituita da tensori di rango 1.
+\begin{definition}[Rango di un tensore]
+    Sia $T \in V_1 \otimes V_2 \otimes \ldots \otimes V_k$.\\
+    definiamo \textbf{rango di T} e lo indichiamo \textbf{rk(T)} il minimo $r \in \mathbb{N}$ tale che:
+    \begin{equation*}
+        T = \sum_{i=1}^{r}T_i
+    \end{equation*}
+    dove $T_i \in V_1 \otimes V_2 \otimes \ldots \otimes V_k$ sono di rango 1 $\forall 1 \leq i \leq r$.
+\end{definition}
+
+\begin{example}
+    Sia $U$ con base $\{u_1, u_2\}$, $V$ con base $\{v_1, v_2\}$ e $W$ con base $\{w_1, w_2\}$.
+    \begin{itemize}
+        \item $T: u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2  \in U \otimes V  \otimes W$\\
+              ha rango 1. infatti $T = u_1 \otimes v_1 \otimes (v_1 + v_2 )\otimes w_1$.
+        \item $T: u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2 + u_1 \otimes v_2 \otimes w_1 + u_2 \otimes v_1 \otimes w_2 \in U \otimes V \otimes W$ ha rango 2.
+              Infatti l'unica fattorizzazione possibile è $T = (u_1 \otimes v_1  + u_2 \otimes v_2 \otimes v_2) \otimes w_1$ che non è un tensore di rango 1.
+        \item $T = u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2 \in U \otimes V \otimes W $ ha rango 2.
+    \end{itemize}
+\end{example}
+
+Poiché $dim(\otimes_{i=1}^{h} V_i) = \prod_{i=1}^{h} dim(V_i)$, abbiamo che, se $T \in \otimes_{i=1}^{h} V_i$ allora $rk(T) \leq \prod_{i=1}^{h} dim(V_i)$, poiche $\otimes_{i=1}^{h} V_i$ ha una base fatta di tensori di rango 1.
+
+Ora verifichiamo che la nozione di rango di un Tensore è coerente con quella di rango di una matrice interpretando una matrice come forma bilineare, e quindi come un tensore.
+
+Vediamo subito che una matrice di rango 1 corrisponde ad un tensore di rango 1.
+
+Una matrice $m \times n$ di rango 1 h come colonne multipli di un vettore $v \in K^m \setminus \{0\}$.
+
+La prima colonna sia $a_1v$, la seconda $a_2v, \ldots , a_nv, a_i \in K$.
+
+Quindi tale matrice di rango 1 si scrive come
+\begin{equation*}
+    A = \begin{pmatrix}
+        v_1    \\
+        v_2    \\
+        \vdots \\
+        v_m
+    \end{pmatrix}
+    \begin{pmatrix}
+        a_1 & a_2 & \ldots & a_n
+    \end{pmatrix} = \overrightarrow{v} \overrightarrow{a}^T
+\end{equation*}
+Come forma bilineare è il seguente elemento di $(K^m)^* \otimes (K^n)^*$:
+\begin{align*}
+     & v_1 a_1 e_1^* \otimes e_1^* + v_2 a_1 e_2^* \otimes e_1^* + \ldots + v_1 a_2 e_1^* \otimes e_2^* + v_2 a_2 e_2^* \otimes e_2^* + \ldots + v_1 a_n e_1^* \otimes e_n^* + \ldots + v_m a_n e_m^* \otimes e_n^* = \\
+     & = (v_1 e_1^* + \ldots + v_m e_m^*) \otimes a_1 e_1^* + (v_1 e_1^* + \ldots +v_m e_m^*) \otimes a_2 e_2^* + \ldots +(v_1 e_1^* + \ldots + v_m e_m^*) \otimes a_n e_n^* =                                        \\
+     & = (v_1 e_1^* + \ldots + v_m e_m^*) \otimes (a_1 e_1^* + \ldots + a_n e_n^*)
+\end{align*}
+Dunque una matrice $A \in Mat_{m \times n} (K)$ tale che $rk(A) = 1$ corrisponde ad un tensore $T_A \in (K^m)^* \otimes (K^n)^*$ tale che $rk(T_A) = 1$.
+
+\begin{example}
+    La matrice
+    \begin{equation*}
+        A = \begin{pmatrix}
+            1 & 0 & 2 \\
+            2 & 0 & 1
+        \end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_3)
+    \end{equation*}
+    Ha rango 1 perchè
+    $\begin{pmatrix}
+            2 \\
+            1
+        \end{pmatrix} = 2
+        \begin{pmatrix}
+            1 \\
+            2
+        \end{pmatrix}$ in $(\mathbb{F}_3)^2$.
+
+    Ad $A$ corrisponde la forma bilineare $T_A: (\mathbb{F}_3)^2 \times (\mathbb{F}_3)^3 \rightarrow \mathbb{F}_3$ definita da
+    \begin{equation*}
+        T_A(u, v) = u^T A v \qquad \forall u \in (\mathbb{F}_3)^2, v \in (\mathbb{F}_3)^3 \qquad \text{($u^T$ è il trasposto del vettore colonna $u$)}
+    \end{equation*}
+    come elemento di $(\mathbb{F}_3^2)^* \otimes (\mathbb{F}_3^3)^*$ si scrive
+    \begin{align*}
+        T_A & = e_1^* \otimes e_1^* + 2 e_2^* \otimes e_1^* + 2 e_1^* \otimes e_3^* + e_2^* \otimes e_3^* \\
+            & = (e_1^* + 2 e_2^*) \otimes e_1^* + (2 e_1^* + e_2^*) \otimes e_3^*                         \\
+            & = (e_1^* + 2 e_2^*) \otimes (e_1^* + e_3^*)
+    \end{align*}
+    D'altra parte avevamo che $A = \begin{pmatrix}
+            1 & 0 & 2 \\
+            2 & 0 & 1
+        \end{pmatrix} = \begin{pmatrix}
+            1 \\
+            2
+        \end{pmatrix} \begin{pmatrix}
+            1 & 0 & 2
+        \end{pmatrix}$ sul campo $\mathbb{F}_3$
+\end{example}
+
+Ovviamente ad un Tensore di rango 1 $v_1 \otimes v_2 \in (K^m)^* \otimes (K^n)^*$ corrisponde una matrice di rango 1 $v_1 v_2^T \in Mat_{m \times n}(K)$ dove $v_i$ sono i vettori colonna delle coordinate nella base duale.
+
+\begin{example}
+    Sia $(2 e_1^* + 3 e_2^*) \otimes (e_2^* + 4 e_3^*) \in (\mathbb{F}_5^2)^* \otimes (\mathbb{F}_5^3)^*$. La matrice corrispondente è
+    \begin{equation*}
+        \begin{pmatrix}
+            2 \\
+            3
+        \end{pmatrix} \begin{pmatrix}
+            0 & 1 & 4 \\
+        \end{pmatrix} = \begin{pmatrix}
+            0 & 2 & 3 \\
+            0 & 3 & 2
+        \end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_5)
+    \end{equation*}
+\end{example}
+
+Quindi abbiamo dato una corrispondenza biunivoca tra matrici di rango 1 $\in Mat_{m \times n}(K)$ e tensori di rango 1 $\in (K^m)^* \otimes (K^n)^*$.
+
+Dalla caratterizzazione del rango di una matrice in termini di combinazioni lineari di matrici di rango 1, e dalla definizione di rango di un tensore, segie che le matrici di rango $r$ in $Mat_{m \times n}(K)$ stanno in corrispondenza con i tensori di rango $r$ in $(K^m)^* \otimes (K^n)^*$.
+
+\section[Endomorfismi di V come elementi del prodotto tensoriale]{Endomorfismi di V come elementi di $V^* \otimes V$}
+
+Sia $V$ uno spazio vettoriale su un campo $K$ con base $\{e_1,\ldots, e_n\}$.
+
+Gli elementi di $V^* \otimes V = span\{e_i^* \otimes e_j\}$ possono essere interpretati come endomorfismi di $V$ nel seguente modo:
+definiamo il morfismo di spazi vettoriali
+\begin{align*}
+    e_i^* \otimes e_j     & : V \rightarrow V \quad \text{ponendo} \\
+    e_i^* \otimes e_j (v) & = \begin{cases}
+                                  e_j & \text{se } h = i  \\
+                                  0   & \text{altrimenti}
+                              \end{cases}
+\end{align*}
+ossia
+\begin{equation*}
+    (e_i^* \otimes e_j)(e_h) = e_i^* (e_h) e_i \qquad \forall 1 \leq i,j,h \leq n
+\end{equation*}
+
+Se $f \in END(V)$ è rappresentato dalla matrice
+\begin{equation*}
+    A = \begin{pmatrix}
+        a_{11} & \ldots & a_{1n} \\
+        \vdots & \ddots & \vdots \\
+        a_{n1} & \ldots & a_{nn}
+    \end{pmatrix}
+\end{equation*}
+allora come elemento di $V^* \otimes V$ si scrive
+\begin{align*}
+    f & = e_1^* \otimes (a_{11}e_1 + a_{21}e_2 + \ldots + a_{n1}e_n) + \\
+      & + e_2^* \otimes (a_{12}e_1 + a_{22}e_2 + \ldots + a_{n2}e_n) + \\
+      & + \ldots + e_n^* \otimes (a_{1n}e_1 + \ldots + a_{nn}e_n)
+\end{align*}
+viceversa, ogni elemento di $V^* \otimes V$ può essere interpretato come un endomorfismo di $V$ e tale corrispondenza biunivoca è un isomorfismo di spazi vettoriali
+\begin{equation*}
+    END(V) \rightarrow V^* \otimes V
+\end{equation*}
+
+\begin{example}
+    Sia $V \in Mat_{2 \times 2}(\mathbb{R})$ lo spazio vettoriale delle matrici $2 \times 2$ a coefficienti reali. La funzione
+    \begin{align*}
+        f: Mat_{2 \times 2}(\mathbb{R}) & \rightarrow Mat_{2 \times 2}(\mathbb{R}) \\
+        A                               & \mapsto A^T
+    \end{align*}
+    è un morfismo di spazi vettoriali.
+
+    Una base di $V$ è $\{E_{ij} : 1 \leq i,j \leq 2\}$, dove
+    \begin{equation*}
+        E_{11} = \begin{pmatrix}
+            1 & 0 \\
+            0 & 0
+        \end{pmatrix}, \quad
+        E_{12} = \begin{pmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{pmatrix}, \quad
+        E_{21} = \begin{pmatrix}
+            0 & 0 \\
+            1 & 0
+        \end{pmatrix}, \quad
+        E_{22} = \begin{pmatrix}
+            0 & 0 \\
+            0 & 1
+        \end{pmatrix}
+    \end{equation*}
+    la matrice di $f$ in questa base è
+    \begin{equation*}
+        M(f) = \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1
+        \end{pmatrix} \quad rk(M(f) = 4)
+    \end{equation*}
+    Come elemento di $V^* \otimes V$ la trasposizione si scrive
+    \begin{equation*}
+        f = E_{11}^* \otimes E_{11} + E_{12}^* \otimes E_{21} + E_{21}^* \otimes E_{12} + E_{22}^* \otimes E_{22} \qquad rk(f) = 4
+    \end{equation*}
+    Invece l'elemento $g \in V^* \otimes V$ definito da
+    \begin{align*}
+        g & = 2E_{11}^* \otimes E_{11} + E_{12}^* \otimes (E_{12} + E_{21}) + E_{21}^* \otimes (E_{12} + E_{21}) + 2E_{22}^* \otimes E_{22} = \\
+          & = 2E_{11}^* \otimes E_{11} + (E_{12}^* + E_{21}^*) \otimes (E_{12} + E_{21}) + 2E_{22}^* \otimes E_{22} \qquad rk(g) = 3
+    \end{align*}
+    corrisponde all'endomorfismo
+    \begin{align*}
+        g: Mat_{2 \times 2}(\mathbb{R}) & \rightarrow Mat_{2 \times 2}(\mathbb{R}) \\
+        A                               & \mapsto A + A^T
+    \end{align*}
+\end{example}
+
+In generale i morfismi di spazi verroeiali $f: V \rightarrow W$ sono in corrispondenza biunivoca con $V^* \otimes W$ e tale corrispondenza è un isomorfismo di spazi vettoriali
+\begin{equation*}
+    \underbrace{Hom(V, W)}_{\text{spazio vettoriale dei morfismi $f: V \rightarrow W$}} \rightarrow V^* \otimes W
+\end{equation*}
+
+Il rango di un morfismo $f: V \rightarrow W$ (come dimensione della sua immagine o come rango della sua matrice associata) corrisponde al rango del tensore $f \in V^* \otimes W$.
+
+Ancora più in genrale, ogni forma multilineare $f: V_1 \times \ldots \times V_h \rightarrow W$ è un elemento di $V_1^* \otimes \ldots \otimes V_h^* \otimes W$ posto
+\begin{gather*}
+    e_{i_1}^{1^*} \otimes e_{i_2}^{2^*} \otimes \ldots \otimes e_{i_h}^{h^*} \otimes w (v_1, v_2, \ldots v_h) = e_{i_1}^{1^*}(v_1)e_{i_2}^{2^*}(v_2) \ldots e_{i_h}^{h^*}(v_h) \: w \in W\\
+    \forall 1 \leq i_1 \leq dim V_1, \ldots, 1 \leq i_h \leq dim V_h, v_i \in V_i, w \in W
+\end{gather*}
+Adesso andiamo a considerare la moltiplicazione di matrici $2 \times 2$.\\
+Questa è una forma bilineare
+\begin{equation*}
+    M_{2,2,2} : Mat_{2 \times 2} (K) \times Mat_{2 \times 2} (K) \rightarrow Mat_{2 \times 2} (K)
+\end{equation*}
+definita da $M_{2,2,2}(A,B)= AB$ ($AB$ prodotto righe per colonne). E' una forma bilineare perchè
+\begin{enumerate}
+    \item $x(AB) = (xA)B = A(xB)$ $\forall x \in K, A,B \in Mat_{2 \times 2} (K)$
+    \item  \begin{align*}
+              A(B_1 + B_2) & = AB_1 + AB_2                                                                   \\
+              (A_1 + A_2)B & = A_1B + A_2B \qquad \forall A_1, A_2, B_1, B_2, A, B, \in Mat_{2 \times 2} (K)
+          \end{align*}
+\end{enumerate}
+quindi $M_{2,2,2} \in (Mat_{2 \times 2} (K))^* \otimes (Mat_{2 \times 2} (K))^* \otimes Mat_{2 \times 2} (K)$. In generale la moltiplicazione di matrici è un elemento
+\begin{equation*}
+    M_{n,n,n} \in (Mat_{n \times n} (K))^* \otimes (Mat_{n \times n} (K))^* \otimes Mat_{n \times n} (K)
+\end{equation*}
+vediamo come scrivere $M_{2,2,2}$ nella base $\{E_{ij}^* \otimes E_{h,k}^* \otimes E_{uv}\}$, dove
+\begin{equation*}
+    E_{11} = \begin{pmatrix}
+        1 & 0 \\
+        0 & 0
+    \end{pmatrix}, \quad
+    E_{12} = \begin{pmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{pmatrix}, \quad
+    E_{21} = \begin{pmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{pmatrix}, \quad
+    E_{22} = \begin{pmatrix}
+        0 & 0 \\
+        0 & 1
+    \end{pmatrix}
+\end{equation*}
+abbiamo che $E_{11}E_{11} = E_{11}, E_{12}E_{12} = \begin{pmatrix}
+        0 & 0 \\
+        0 & 0
+    \end{pmatrix}, \ldots, E_{22}E_{22} = E_{22}$, ossia
+\begin{equation*}
+    E_{ij} E_{hk} = \begin{cases}
+        E_{ik} & \text{se } j = h  \\
+        0      & \text{altrimenti}
+    \end{cases}
+\end{equation*}
+quindi
+\begin{align*}
+    M_{2,2,2} & = E_{11}^* \otimes E_{11}^* \otimes E_{11} + E_{12}^* \otimes E_{21}^* \otimes E_{11} + \\
+              & + E_{11}^* \otimes E_{12}^* \otimes E_{12} + E_{12}^* \otimes E_{22}^* \otimes E_{12} + \\
+              & + E_{21}^* \otimes E_{11}^* \otimes E_{21} + E_{21}^* \otimes E_{12}^* \otimes E_{22} + \\
+              & + E_{22}^* \otimes E_{22}^* \otimes E_{22} + E_{22}^* \otimes E_{21}^* \otimes E_{21}
+\end{align*}
+abbiamo anche che $rk(M_{2,2,2}) \leq 8$
+\begin{align*}
+    M_{2,2,2} & = (E_{11}^* + E_{22}^*) \otimes (E_{11}^* + E_{22}^*) \otimes (E_{11} + E_{22}) + \\
+              & + (E_{21}^* + E_{22}^*) \otimes E_{11}^* \otimes (E_{21} - E_{22}) +              \\
+              & + E_{11}^* \otimes (E_{12}^* - E_{22}^*) \otimes (E_{12} + E_{22}) +              \\
+              & + E_{22}^* \otimes (-E_{11}^* + E_{21}^*) \otimes (E_{12} + E_{22}) +             \\
+              & + (E_{11}^* + E_{12}^*) \otimes E_{22}^* \otimes (-E_{11} + E_{12}) +             \\
+              & + (-E_{11}^* + E_{21}^*) \otimes (E_{11}^* + E_{12}^*) \otimes E_{22} +           \\
+              & + (E_{12}^* - E_{22}^*) \otimes (E_{21}^* + E_{22}^*) \otimes E_{11}
+\end{align*}
+da questa fattorizzazione si ha che $rk(M_{2,2,2}) \leq 7$.
+
+Questa fattorizzasione è l'algoritmo di Strassen per la moltiplicazione di matrici $2 \times 2$.
+
+Notiamo che, se $A,B \in Mat_{2,2}(K)$,
+\begin{equation*}
+    E_{ij}^* \otimes E_{hk}^* \otimes E_{uv}^* (A,B) = E_{ij}(A)E_{hk}(B)E_{uv}
+\end{equation*}
+Quindi ogni addendo in una fattorizzazione del tensore $M_{2,2,2}$ corrisponde ad una moltiplicazione di elementi del campo $K$.
+
+Allora il rango del tensore $M_{2,2,2}$ è il numero massimo di moltiplicazioni necessarie per calcolare il prodotto di due matrici $2 \times 2$.
+
+\newpage
+
+Alcuni risultati generali. Consideriamo il campo $K = \mathbb{C}$
+\begin{theorem}[di Brockett-Dobkin (1978)]
+    \begin{equation*}
+        rk(M_{n,n,n} \geq 2n^2 -1)
+    \end{equation*}
+    ($M_{n,n,n}$ è il tensore della moltiplicazione di due matrici $n \times n$ sul cmapo $\mathbb{C}$)
+\end{theorem}
+\begin{corollary}
+    \begin{equation*}
+        rk(M_{2,2,2}) \geq 7
+    \end{equation*}
+    Infatti dall'algoritmo di Strassen segue che $rk(M_{2,2,2}) \leq 7$ e dal teorema di Brockett-Dobkin segue che $rk(M_{2,2,2}) \geq 7$.
+\end{corollary}
+
+\begin{theorem}[di Bläser (1999)]
+    \begin{equation*}
+        rk(M_{n,n,n}) \geq \frac{5}{2}n^2 - 3n
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}[di Laderman (1976)]
+    \begin{equation*}
+        rk(M_{n,n,n}) \leq 23
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}[Deepmind (2022)]
+    Sul campo $\mathbb{F}_2$
+    \begin{gather*}
+        rk(M_{4,4,4}) \leq 47\\
+        rk(M_{5,5,5}) \leq 96
+    \end{gather*}
+
+\end{theorem}
+
+\begin{theorem}[di Kauers e Moosbauer (2022)]
+    Sul campo $\mathbb{F}_2$
+    \begin{equation*}
+        rk(M_{5,5,5}) \leq 95
+    \end{equation*}
+\end{theorem}
+\end{document}
