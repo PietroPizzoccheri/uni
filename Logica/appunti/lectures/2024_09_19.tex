@@ -1,0 +1,119 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Teoria degli anelli commutativi e dei campi}
+\section{Insiemi}
+Un insieme è una collezione di oggetti, detti elementi dell'insieme.
+\begin{align*}
+    \mathbb{N} & = \left\{ 0,1,2,3,\ldots \right\}                                        & \text{(Naturali)}  \\[1ex]
+    \mathbb{Z} & = \left\{ \ldots,-2,-1,0,1,2,\ldots \right\}                             & \text{(Interi)}    \\[1ex]
+    \mathbb{Q} & = \left\{ \frac{a}{b} \;\middle|\; a,b \in \mathbb{Z}, b \neq 0 \right\} & \text{(Razionali)} \\[1ex]
+    \mathbb{R} & = \left\{ x \mid x \text{ is a real number} \right\}                     & \text{(Reali)}     \\[1ex]
+    \mathbb{C} & = \left\{ a + bi \mid a,b \in \mathbb{R}, i^2=-1 \right\}                & \text{(Complessi)}
+\end{align*}
+
+\subsection{Operazioni tra insiemi}
+\begin{itemize}
+    \item $\subseteq$  (Inclusione tra insiemi)
+    \item $\subsetneq$ (Inclusione propria tra insiemi)
+\end{itemize}
+
+$X \subseteq Y$ si legge $X$ è sottoinsieme di $Y$ o $X$ è incluso in $Y$.
+
+Se $X$ è un insieme finito, indico con $|X|$ il numero di elementi di $X$, detto anche la \textbf{cardinalità di $X$}.
+
+\begin{definition}[Insieme vuoto]
+    L'insieme $\emptyset$ è l'insieme che non contiene alcun elemento. $\emptyset = \{ \}$ e $\abs{\emptyset} = 0$
+\end{definition}
+
+\begin{definition}[Prodotto Cartesiano]
+    Siano $X$ e $Y$ due insiemi. L'insieme $X \times Y := \{ (x,y) : x \in X , y \in Y \}$ lo chiamiamo \textbf{prodotto cartesiano} di $X$ e $Y$.
+\end{definition}
+
+\begin{definition}[Insieme delle parti]
+    Sia $A \in \mathcal{P} (x)$, dove $\mathcal{P} (X) := \{ A : A \subseteq X \}$ è detto \textbf{Insieme delle parti di $X$}
+\end{definition}
+
+\begin{definition}[Complementare]
+    L'insieme $A^\mathrm{C} := X \setminus A$ è detto \textbf{complementare} di $A$ % TODO: Why is \complementary not working?
+\end{definition}
+
+\section{Funzioni}
+Siano $X$ e $Y$ due insiemi. \textbf{Una funzione $f$ da $X$ a $Y$} è un sottoinsieme $F \subseteq X \times Y$
+tale che:
+\begin{itemize}
+    \item $(x, y_1) \in F$, $(x,y_2) \in F$ $\implies y_1 = y_2$, $\forall x \in X$, $y_1,y_2 \in Y$.
+    \item $x \in X \implies \exists y \in Y \text{ tale che } (x,y) \in F$
+\end{itemize}
+Una funzione $F \subseteq X \times Y$ la indichiamo con $f : X \to Y$. E scriviamo $f(x) = y$ se $(x,y) \in F$.
+
+\begin{definition}[Funzione identità]
+    La funzione $Id_x : X \rightarrow X $ tale che $Id_x (x) = x, \forall x \in X$ la chiamiamo \textbf{funzione
+        identità su $X$}
+\end{definition}
+
+\begin{definition}[Funzione iniettiva]
+    Una funzione $f: X \rightarrow Y$ è \textbf{iniettiva} se $\forall x_1, x_2 \in X, f(x_1) = f(x_2)
+        \implies x_1 = x_2$
+\end{definition}
+
+\begin{definition}[Funzione suriettiva]
+    Una funzione $f: X \rightarrow Y$ è \textbf{suriettiva} se $Im(f) = Y$, dove $Im(f) = \{ y \in Y :
+        \exists x \in X \text{ tale che } f(x) = y \}$ è detta \textbf{immagine di $f$}
+\end{definition}
+
+\begin{definition}[Funzione biunivoca]
+    Una funzione $f: X \rightarrow Y$ è \textbf{biunivoca} se è sia iniettiva che suriettiva.
+\end{definition}
+
+\subsection{Composizione di funzioni}
+Siano $f: X \rightarrow Y$ e $g: Y \rightarrow Z$ due funzioni. La \textbf{composizione di $f$ e $g$}
+è la funzione $g \circ f : X \rightarrow Z$ tale che $(g \circ f)(x) = g(f(x))$, $\forall x \in X$.
+
+\begin{definition}[Funzione invertibile]
+    una funzione $f: X \rightarrow Y$ è detta \textbf{invertibile} se esiste una funzione $g: Y \rightarrow X$ tale che
+    \begin{itemize}
+        \item $g \circ f = Id_X$
+        \item $f \circ g = Id_Y$
+    \end{itemize}
+    la funzione $g$ è detta \textbf{funzione inversa di $f$} e la indichiamo con $f^{-1}$.
+\end{definition}
+\begin{remark}
+    Una funzione $f: X \rightarrow Y$ è invertibile se e solo se è biunivoca.
+\end{remark}
+
+\subsection{Operazioni su insiemi}
+
+\begin{definition}[Operazione]
+    Una funzione $f: X \times X \rightarrow X$ è detta \textbf{operazione su $X$}. Invece di $f(x,y)$
+    scriveremo $x \cdot y$.
+\end{definition}
+
+\begin{definition}[Operazione associativa]
+    Un'operazione $\cdot$ su $X$ è detta \textbf{associativa} se $(x \cdot y) \cdot z = x \cdot (y \cdot z)$,
+    $\forall x,y,z \in X$.
+\end{definition}
+
+\begin{definition}[Operazione commutativa]
+    Un'operazione $\cdot$ su $X$ è detta \textbf{commutativa} se $x \cdot y = y \cdot x$, $\forall x,y \in X$.
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item $\mathcal{P}(X) $con l'operazione di unione $\cup$ è associativa e commutativa, così come lo è con
+              l'intersezione $ \cap $.
+        \item $A \backslash B  := A \cup B^C$ \textbf{(differenza insiemistica)} è un'operazione su
+              $\mathcal{P}(X)$.\newline non è associativa: sia $A \neq \emptyset.$ Allora $A \backslash (A \backslash A)
+                  = A \neq (A\backslash A) \backslash A = \emptyset$\newline non è commutativa: $A \backslash \emptyset
+                  = A \neq \emptyset \backslash A = \emptyset$, se $A \neq \emptyset$
+        \item $A \Delta B := (A \backslash B) \cup (B \backslash A)$ \textbf{(differenza simmetrica)}
+              è un'operazione su $\mathcal{P}(X)$. \newline è commutativa e anche associativa, facilmente verificabile
+              coi diagrammi di Venn.
+        \item Sia $F(X) := \{f : X\rightarrow X\}$.\newline La composizione" $\circ$" è un'operazione su $F(X)$.
+              \newline è associativa, ma non è commutativa.
+        \item $a \circ b = \frac{a + b}{2} $ è un'operazione commutativa su $\mathbb{Q}$, ma non associativa.
+    \end{itemize}
+\end{example}
+
+\end{document}

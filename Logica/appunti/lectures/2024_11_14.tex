@@ -1,0 +1,168 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{lemma}
+    Sia $F$ un campo. Il polinomio $X^d - 1$ divide il polinomio $X^n - 1$ s.s.e. $d$ divide $n$.
+\end{lemma}
+
+\begin{proof}
+    Se $n = qd + r, 0 \leq r \leq d$, in $\mathbb{F}[X]$ si ha:
+    \begin{equation*}
+        (x^n - 1) = (X^d - 1)(X^{n-d} + X^{n-2d} + \ldots + x^{n-(p-1)d} + X^r) + (X^r -1)
+    \end{equation*}
+    Quindi $X^d - 1$ divide $X^n - 1$ s.s.e. $X^r - 1$ è il polinomio nullo, cioè s.s.e. $r = 0$
+\end{proof}
+
+Dalla fattorizzazione nella dimostrazione del lemma otteniamo che, calcolazndo in p, se $p^d - 1$ divide $p^n - 1$ allora d divide n.
+
+\begin{corollary}
+    $d$ divide $n \iff (X^{p^d} - X)$ divide $(X^{p^n} - X)$ in $\mathbb{F}_p[X]$.
+\end{corollary}
+\begin{proof}
+    Per il lemma precedente, $X^d - 1$ divide $X^n - 1$.
+
+    Calcolando in p si ottiene che $p^d - 1$ divide $p^n - 1$.
+
+    Quindi sempre per il lemma, $X^{p^{d - 1}} - 1$ divide $X^{p^n - 1} - 1$.
+
+    Viceversa se $X^{p^{d - 1}} - 1$ divide $X^{p^n -1 } - 1$, allora $p^d - 1$ divide $p^n - 1 \implies$ $d$ divide $n$.
+\end{proof}
+
+\begin{proposition}
+    Tutti e soli i sottocampi di $\mathbb{F}_{p^n}$ sono i campi $\mathbb{F}_{p^d}$ dove $d$ divide $n$.
+\end{proposition}
+
+\begin{proof}
+    Abbiamo che, se $\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^n}$, allora tutte le radici di $X^{p^d} - X$ in $\mathbb{F}_{p^d}$ sono radici di $X^{p^n} - X$ in $\mathbb{F}_{p^n}$, ossia $X^{p^d} - X$ divide $X^{p^n} - X \underbrace{\implies}_{\text{corollario}} d$ divide $n$.
+
+    Se $d$ divide $n$, $X^{p^d} - X $ divide $X^{p^n} - X$ e l'insieme delle radici di $X^{p^d} - X$ (è un campo) sta in $\mathbb{F}_{p^n}$.
+\end{proof}
+
+Finora, dato un numero primo $p$ e un numero naturale $n \neq 0$, abbiamo costruito il campo $\mathbb{F}_{p^n}$ di cardinalità $p^n$ prendendo un polinomio irriducibile $Q \in \mathbb{F}_p$ e facendo il quoziente:
+\begin{equation*}
+    \mathbb{F}_{p^n} = \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}
+\end{equation*}
+
+Abbiamo visto che due campi costruiti in questo modo sono isomorfi.
+
+Facciamo alcune osservazioni e un discorso più generale.
+
+\begin{enumerate}
+    \item Sia $K$ un campo finito. qual'è la caratteristica di $K$?
+
+          Prendiamo il sottogruppo $\langle1_K\rangle \subseteq K$. Poiché $\langle1_K\rangle$ è finito, $\langle1_K\rangle \simeq \mathbb{Z}_n$ per qualche $n > 1$.
+
+          Dato che gli elementi di $\langle1_K\rangle$ sono di un campo, non sono divisori dello zero, quindi $n$ è primo, ossia \underline{un campo finito ha caratteristica prima $p$} e il suo sottocampo fondamentale è $\mathbb{F}_p$
+    \item Sia $K$ un campo finito. Abbiamo detto nel punto 1. che $\mathbb{F}_p \subseteq K$ per qualche primo p.
+
+          Inoltre il gruppo moltiplicativo $K \setminus \{0\}$ è ciclico e quindi, come precedentemente dimostrato, $se K \setminus \{0\} = \alpha, K = \mathbb{F}_p(\alpha)$.
+
+          Quindi, se il grado di $\alpha$ su $\mathbb{F}_p$ è n, abbiamo che: $|K| = p^n$, ossia \underline{ogni campo finito ha cardinalità $p^n$}, per qualche $p$ primo e $n \neq 0$.
+    \item Siano $K_1$ e $K_2$ due campi finiti di cardinalità $p^n$.
+
+          Sia $K_1 = \mathbb{F}_p(\alpha)$ dove $\alpha$ è un generatore del gruppo $K_1 \setminus \{0\}$ e ha grado $n$ su $K_1$.
+
+          Sia $Q \in \mathbb{F}_p[X]$ il suo polinomio minimo. Quindi $deg(Q) = n$, e $Q$ è irriducibile.
+          \begin{enumerate}[label=\alph*)]
+              \item $K_1$ e $K_2$ sono campi di spezzamento di $X^{p^n} - X \in \mathbb{F}_p[X]$.
+              \item Ogni polinomio irriducibile di grado n in $\mathbb{F}_p[X]$ è fattore di $X^{p^n} - X$.
+              \item Da b) segue che $Q$ ha una radice in $K_2$, la chiamiamo $\beta$.
+              \item L'assegnazione $\alpha \rightarrow \beta$ definisce un mofismo di campi da $K_1$ in $K_2$.
+
+                    Poiché un morfismo tra campi è sempre iniettivo, ed essendo anche suriettivo, perché $K_1$ e $K_2$ hanno la stessa cardinalità, è un isomorfismo:
+                    \begin{equation*}
+                        K_1 \simeq K_2
+                    \end{equation*}
+          \end{enumerate}
+\end{enumerate}
+
+\section{Algoritmo di Berlekamp}
+\begin{theorem}
+    Sia $f(x) \in \mathbb{F}_p[x]$ di grado $d > 1$, sia $h(x) \in \mathbb{F}_p[x]$ di grado $1 < deg(h) < d$ tale che $f(x)$ divide $h(x)^p - h(x)$. allora:
+    \begin{equation*}
+        f(x) = MCD\{f(x), h(x)\} \cdot MCD\{f(x), h(x) - 1\} \cdot \ldots \cdot MCD\{f(x), h(x) - (p - 1)\}
+    \end{equation*}
+    è una fattorizzazione non banale di $f(x)$ in $\mathbb{F}_p[x]$.
+\end{theorem}
+\begin{proof}
+    Supponiamo che $f(x)$ divida $h(x)^p - h(x)$. il polinomio $X^p - X \in \mathbb{F}_p[X]$ si fattorizza come:
+    \begin{equation*}
+        X^p - X = X(X - 1)(X - 2)\ldots(X - (p - 1))
+    \end{equation*}
+    mettendo $h(x)$ al posto di $X$ si ha:
+    \begin{equation*}
+        h(x)^p - h(x) = h(x)[h(x) - 1][h(x) - 2]\ldots[h(x) - (p - 1)]
+    \end{equation*}
+    Abbiamo che $MCD\{ h(x) - i, h(x) - j\} = 1 \forall i,j \in \mathbb{F}_p, i \neq j$.
+
+    Infatti, se $MCD\{ h(x) - i, h(x) - j\} = D(x)$ allora
+    \begin{equation*}
+        \begin{cases}
+            h(x) - i = D(x) \cdot H_i(x) \\
+            h(x) - j = D(x) \cdot H_j(x)
+        \end{cases}
+        \implies D(x)[H_i(x) - H_j(x)] = j - i \in \mathbb{F}_p
+        \implies deg(D) = 0, i \neq j
+    \end{equation*}
+    inoltre, se $ MCD\{ a, b\} = 1$ si ha che $MCD\{ f, ab\} = MCD\{ f, a\} = MCD\{ f, b\} $. Per induzione si ha che
+    \begin{equation*}
+        MCD\{ f, a_1 \cdot \ldots \cdot a_k\} = MCD\{ f, a_1\} \cdot \ldots \cdot MCD\{ f, a_k\}
+    \end{equation*}
+    dato che $f(x)$ divide $h(x)^p - h(x)$, abbiamo che
+    \begin{equation*}
+        f(x) = MCD\{ f(x), h(x)^p - h(x)\}
+    \end{equation*}
+    poiché, se $i \neq j$, $MCD\{ h(x) - i, h(x) - j\} = 1$, si ha
+    \begin{align*}
+        f(x) & = MCD\{ f(x), h(x)^p - h(x)\} =                                               \\
+             & = MCD\{ f(x), h(x)[h(x) - 1] \cdot \ldots \cdot [h(x) - p + 1]\} =            \\
+             & = MCD\{ f, h\} \cdot MCD\{ f, h - 1\} \cdot \ldots \cdot MCD\{ f, h - p + 1\}
+    \end{align*}
+    Poiché $deg(h - i) < deg(f), MCD\{f, h - i\} \neq f(x), \forall i \in \mathbb{F}_p$.
+
+    Quindi nella fattoriazzazione precedente appaiono solo polinomi di grado $< d$, perciò è non banale.
+\end{proof}
+
+\begin{proposition}
+    Un polinomio $h(x) \in \mathbb{F}_p[x]$ che soddisfa le condizioni del teorema esiste sempre.
+\end{proposition}
+\begin{proof}
+    Sia
+    \begin{equation*}
+        h(x) = b_0 + b_1 x + \ldots + b_{d - 1} x^{d - 1} \in \mathbb{F}_p[X]
+    \end{equation*}
+    allora
+    \begin{equation*}
+        h(x)^p = b_0^p + b_1^p x + \ldots + b_{d - 1}^p x^{p(d - 1)}
+    \end{equation*}
+    (avendo dimostrato che $(X + Y)^p = x^p + Y^p$ e induttivamente che $(\sum_{i=1}^{k} x_i)^p = \sum_{i=1}^{k} x_i^p$), ma
+    \begin{center}
+        $b_i^p = b_i \forall 0 \leq i \leq d - 1$ quindi $h(x)^p = b_0 + b_1 x^p + \ldots + b_{d - 1} x^{p(d - 1)}$
+    \end{center}
+    si ha che
+    \begin{equation*}
+        h(x)^p \bmod f(x) = b_0 (\bmod f) + b_1 (x^p \bmod f) + \ldots + b_{d - 1} (x^{p(d - 1)} \bmod f)
+    \end{equation*}
+    Sia $x^{ip} = f(x) q_i(x) + r_i(x)$ con $deg(r_i) < d, 0 \leq i \leq d - 1$. Abbiamo che
+    \begin{align*}
+        [h(x)^p - h(x)] & \bmod f = 0 \bmod f                                                                                         \\
+                        & \iff h(x)^p \bmod f = h(x) \bmod f                                                                          \\
+                        & \iff b_0 r_0(x) + b_1 r_1(x) + \ldots + b_{d - 1} r_{d - 1}(x) = b_0 + b_1 x + \ldots + b_{d - 1} x^{d - 1}
+    \end{align*}
+    Otteniamo così un sistema lineare di $d$ equazioni nelle incognite $b_0, b_1, \ldots, b_{d-1}$.
+
+    Dobbiamo mostrare che esistono soluzioni non nulle.
+
+    Sia $f(x) = p_1(x) \ldots p_k(x)$ una fattoriazzazione di $f(x) \in \mathbb{F}_p[x]$ in fattori irriducibili.
+
+    Supponiamo che $f$ non habbia fattori multipli (verificabile con Teorema seguente).
+\end{proof}
+
+\begin{theorem}
+    sia $K$ un campo.
+    \begin{enumerate}[label=\alph*)]
+        \item se $f(x) \in K[x]$ è ha un fattore multiplo, allora $MCD\{f, f'\} \neq 1$, dove $f'$ è la derivata di $f$ rispetto a $x$.
+        \item se $K$ ha caratteristica 0 o $p$, e $MCD\{f, f'\} \neq 1$, allora $f(x)$ ha un fattore multiplo.
+    \end{enumerate}
+\end{theorem}
+\end{document}

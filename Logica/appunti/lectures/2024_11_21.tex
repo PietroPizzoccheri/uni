@@ -1,0 +1,428 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Anello degli endomorfismi}
+\begin{definition}[Endomorfismo di spazi vettoriali]
+    Siano $V$, $W$ spazi vettoriale su un campo $K$.
+
+    Una funzione $f : V \rightarrow W$ è un endomorfismo di spazi vettoriali se:
+    \begin{equation*}
+        f(a v_1 + b v_2) = a f(v_1) + b f(v_2) \qquad \forall a,b \in K \quad v_1, v_2 \in K
+    \end{equation*}
+    Un morfismo $f: V \rightarrow V$ di spazi vettoriali è detto endomorfismo di $V$.
+
+    L'insieme $End(V) = \{ f : V \rightarrow V : f$ è un endomorfismo di $V$ $\}$.
+
+    E' un anello con le operazioni di somma e composizione di funzioni con unità la funzione identità $Id_v : V \rightarrow V$.
+
+    Se $dim(V) > 1$ l'anello non è commutativo.
+\end{definition}
+
+\begin{definition}
+    Sia $Mat_{n \times n}(K)$ l'insieme delle matrici $n \times n$ a coefficienti in $K$ con le operazioni di somma e prodotto righe per colonne.
+
+    L'insieme $Mat_{n \times n}(K)$ è un anello, con unità la matrice identità
+    \begin{equation*}
+        Id_n = \begin{pmatrix}
+            1      & 0      & \ldots & 0      \\
+            0      & 1      & \ldots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \ldots & 1
+        \end{pmatrix}
+    \end{equation*}
+\end{definition}
+
+Ad un endomorfismo $f \in End(V)$, se $dim(V) = n$, possiamo associare una matrice nel seguente modo:
+
+Sia $\{e_1, \ldots e_n\}$ una base di $V$.
+
+Sia
+\begin{equation*}
+    f(e_1) = a_{1i} e_1 + a_{2i} e_2 + \ldots + a_{ni} e_n \quad a_{1i},\ldots,a_{ni} \in K \quad \forall 1 \leq i \leq n
+\end{equation*}
+
+Allora la matrice $M(f)$ associata a $f$ è:
+\begin{equation*}
+    \begin{pmatrix}
+        a_{1i} \\
+        \vdots \\
+        a_{ni}
+    \end{pmatrix}
+\end{equation*}
+
+\begin{theorem}
+    Sia $V$ uno spazio vettoriale di dimensione $n$ su un campo $K$.
+
+    Allora la funzione
+    \begin{align*}
+        M : \; End(V) & \rightarrow Mat_{n \times n}(K) \\
+        f             & \mapsto M(f)
+    \end{align*}
+    è un isomorfismo di anelli.
+\end{theorem}
+
+\begin{example}
+    Si consideri il campo
+    \begin{eqnarray*}
+        \mathbb{F}_4 := \nicefrac{\mathbb{F}_2[x]}{\langle 1 + x + x^2 \rangle}
+    \end{eqnarray*}
+
+    $\mathbb{F}_4$ è uno spazio vettoriale di dimensione 2 sul campo $\mathbb{F}_2$. Nella base $\{1, x\}$ di $\mathbb{F}_4$ l'automorfismo di Frobenius
+    \begin{align*}
+        \Phi : \; \mathbb{F}_4 & \rightarrow \mathbb{F}_4 \\
+        v                      & \mapsto v^2
+    \end{align*}
+    che è un morfismo di spazi vettoriali ($\Phi(y) = y \; \forall y \in \mathbb{F}_2$) è rappresentato dalla matrice
+    \begin{equation*}
+        M(\Phi) = \begin{pmatrix}
+            1 & 1 \\
+            0 & 1
+        \end{pmatrix}
+    \end{equation*}
+    infatti $\Phi(1) = 1, \Phi(x) = x^2 = 1 + x$. Dato che $[(\Phi)]^2 = \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix}$ una rappresentazione matriciale di $Aut(\mathbb{F}_4)$ è\\
+    \begin{equation*}
+        \left\{\begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix},
+        \begin{pmatrix}
+            1 & 1 \\
+            0 & 1
+        \end{pmatrix}\right\}
+    \end{equation*}
+    in rappresentazione matriciale gli endomorfismi di $\mathbb{F}_4$, come spazio vettoriale, sono l'insieme di 16 matrici
+    \begin{equation*}
+        Mat_{2 \times 2}(\mathbb{F}_2) = \left\{
+        \begin{pmatrix}
+            x_1 & x_2 \\
+            x_3 & x_4
+        \end{pmatrix} :
+        x_i \in \mathbb{F}_2\right\}
+    \end{equation*}
+\end{example}
+
+\begin{example}[automorfismi di $\mathbb{F}_4$ come s.v su $\mathbb{F}_2$]
+    Sia $A = \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix}$ una matrice invertibile a coefficienti in $\mathbb{F}_2$.
+
+    $A$ rappresenta un automorfismo di $\mathbb{F}_4$ come spazio vettoriale.
+
+    $A$ è invertibile se e solo se
+    \begin{equation*}
+        det A = ad - bc \neq 0 \iff det A = 1
+    \end{equation*}
+    \begin{align*}
+         & a = 0 \implies bc = 1 \implies b = c = 1 \\
+         & b = 0 \implies ad = 1 \implies a = d = 1 \\
+         & c = 0 \implies ad = 1 \implies a = d = 1 \\
+         & d = 0 \implies bc = 1 \implies b = c = 1
+    \end{align*}
+    quindi, come spazio vettoriale,
+    \begin{equation*}
+        Aut(\mathbb{F}_4) = \left\{
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix},
+        \begin{pmatrix}
+            1 & 0 \\
+            1 & 1
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 1 \\
+            1 & 1
+        \end{pmatrix},
+        \begin{pmatrix}
+            1 & 1 \\
+            0 & 1
+        \end{pmatrix},
+        \begin{pmatrix}
+            1 & 1 \\
+            1 & 0
+        \end{pmatrix}
+        \right\}
+    \end{equation*}
+    invece, come campo, avevamo che
+    \begin{equation*}
+        Aut(\mathbb{F}_4) = \left\{
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix}_{\substack{\text{Identità}}}
+        \quad,\quad
+        \begin{pmatrix}
+            1 & 1 \\
+            0 & 1
+        \end{pmatrix}_{\substack{\text{Automorfismo di Frobenius}}}
+        \right\}
+    \end{equation*}
+\end{example}
+
+\section{Spazio duale di uno spazio vettoriale}
+\begin{definition}[Spazio Duale]
+    Sia $V$ unio spazio vettoriale di dimenzione n su un campo $K$.
+
+    Sia $\{e_1, \ldots, e_n\}$ una base di $V$.
+
+    L'insieme
+    \begin{equation*}
+        V^* = \{f : V \rightarrow K : \text{ $f$ è un morfismo di spazi vettoriali} \}
+    \end{equation*}
+    è detto \textbf{spazio duale di V}.
+
+    Sia
+    \begin{equation*}
+        e^*_i(e_j)= \begin{cases}
+            1 \text{ se } i = j \\
+            0 \text{ se } i \neq j
+        \end{cases} \qquad \forall 1 \leq i \leq n
+    \end{equation*}
+    L'insieme $\{e^*_1, \ldots, e^*_n\}$ è una base di $V^*$, in particolare $dim(V^*) = dim(V) = n$.
+\end{definition}
+
+\begin{example}
+    Sia $V = (\mathbb{F}_2)^4$ e sia $f \in V^*$ definita da
+    \begin{equation*}
+        f(x) = \langle\begin{pmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{pmatrix}, x \rangle
+    \end{equation*}
+    dove $\langle \ldots \rangle$ è il prodotto scalare canonico su $(\mathbb{F}_2)^4$.
+
+    Dunque, se
+    \begin{equation*}
+        x = \begin{pmatrix}
+            x_1 \\
+            x_2 \\
+            x_3 \\
+            x_4
+        \end{pmatrix} \qquad f(x) = x_1 + x_2 + x_3 + x_4 \quad \text{e} \quad f = e^*_1 + e^*_2 + e^*_3 + e^*_4
+    \end{equation*}
+    ad esempio
+    \begin{equation*}
+        f\begin{pmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{pmatrix} = 1 + 1 + 1 + 1 = 0 \qquad
+        f\begin{pmatrix}
+            0 \\
+            1 \\
+            1 \\
+            1
+        \end{pmatrix} = 0 + 1 + 1 + 1 = 1
+    \end{equation*}
+\end{example}
+
+\section{Forme bilineari e prodotto tensoriale}
+\begin{definition}[Forma bilineare]
+    Sia $V$ uno spazio vettoriale  di dimensione n su un campo $K$.
+
+    Indichiamo con $\{e_1, \ldots , e_n\}$ una base di $V$.
+
+    Una funzione $f : V \times V \rightarrow K$ è detta \textbf{forma bilineare} su $V$ se:
+    \begin{enumerate}
+        \item $f(a v_1, v_2) = f(v_1, a v_2) = a f(v_1,v_2), \forall a \in K, v_1, v_2 \in V$
+        \item $\begin{aligned}
+                      f(v_1 + v_2, w) & = f(v_1, w) + f(v_2, w)                                 \\
+                      f(w, v_1 + v_2) & = f(w, v_1) + f(w, v_2) \quad \forall v_1, v_2, w \in V
+                  \end{aligned}$
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Prodotto Tensoriale]
+    Siano $f, f_1, f_2 : V \times V \rightarrow K$ forme bilineari.
+
+    Se definiamo
+    \begin{itemize}
+        \item $f_1 + f_2 : V \times V \rightarrow K$ con $(f_1 + f_2)(v, w) = f_1(v, w) + f_2(v, w) \; \forall v,w \in V$
+        \item $a f : V \times V \rightarrow K$ con $(a f)(v, w) = a f(v, w) \; \forall v,w \in V$ e $a \in K$
+    \end{itemize}
+    allora $f_1 + f_2$ e $a f$ sono forme bilineari.
+
+    Quindi l'insieme delle forme bilineari su $V$ è uno spazio vettoriale che denotiamo con
+    \begin{equation*}
+        V^* \otimes V^*
+    \end{equation*}
+    e chiamiamo \textbf{Prodotto tensoriale di $V^*$ con $V^*$}
+\end{definition}
+
+Siano $1 \leq i,j \leq n$. Indichiamo con $e_i^* \otimes e_j^* : V \times V \rightarrow K$ la forma bilineare su V tale che:
+\begin{equation*}
+    e_i^* \otimes e_j^*(e_h, e_k) = \delta_{ih} \delta_{jk} = \begin{cases}
+        1_k & \text{se } i = h, j = k \\
+        0   & \text{altrimenti}
+    \end{cases}
+\end{equation*}
+dove
+\begin{equation*}
+    \delta_{ih} = \begin{cases}
+        1 & \text{se } i = h  \\
+        0 & \text{altrimenti}
+    \end{cases} \qquad \text{(delta di Kronecker)}
+\end{equation*}
+L'insieme $\{e_i^* \otimes e_j^* : 1 \leq i,j \leq n\}$ è una base dello spazio vettoriale $V^* \otimes V^*$.
+
+Abbiamo che
+\begin{equation*}
+    e_i^* \otimes e_j^* (e_h, e_k) = e_i^*(e_h) e_j^*(e_k)
+\end{equation*}
+Se $u, v \in V^*$ allora $u \otimes v (x, y) = u(x) v(y), \forall x,y \in V $.
+\begin{align*}
+    \text{Se} \: u & = u_1e_1^* + \ldots + u_n e_n^* \: \text{e} \\ v &= v_1 e_1^* + \ldots + v_n e_n^*
+\end{align*}
+allora
+\begin{equation*}
+    u \otimes v = \sum_{j = 1}^{n} \sum_{i = 1}^{n} u_i v_j e_i^* \otimes e_j^*(x,y)
+\end{equation*}
+Quindi
+\begin{align*}
+     & (u_1e_1^* + \ldots + u_n e_n^*) \otimes (v_1 e_1^* + \ldots + v_n e_n^*) = \\
+     & = \sum_{j = 1}^{n} \sum_{i = 1}^{n} u_i v_j e_i^* \otimes e_j^*
+\end{align*}
+
+\begin{example}
+    Sia $\langle \ldots \rangle$ il prodotto scalare canonico su $K^n$, ossia
+    \begin{align*}
+        \text{se} \: v & = v_1 e_1 + \ldots + v_n e_n \: \text{e} \\ w &= w_1 e_1 + \ldots + w_n e_n
+    \end{align*}
+    allora $\langle v, w \rangle= v_1 w_1 + \ldots + v_n w_n$.
+
+    Il prodotto scalare canonico è una forma bilineare simmetrica su $V$ e come elemento di $(K^n)^* \otimes (K^n)^*$ si scrive
+    \begin{equation*}
+        e_1^* \otimes e_1^* + e_2^* \otimes e_2^* + \ldots + e_n^* \otimes e_n^*
+    \end{equation*}
+\end{example}
+
+Ad una forma bilineare $f$ su $V$ possimao associare una matrice $M(f)$ in $Mat_{n \times n}(K)$ nel seguente modo.
+
+La componente $M(f)_{ij}$ di coordinate $i, j$ è l'elemento $f(e_i, e_j) \in K$, In tal modo $f(u, v) = \langle u, M(f)v\rangle$ $\forall u, v \in V$.
+
+Cioè $M(f)_{ij} =$ coordinata di $f$ nella base $\{e_i^* \otimes e_j^*\}$ di $V^* \otimes V^*$
+
+\begin{example}
+    \begin{itemize}
+        \item la matrice del prodotto scalare canonico è la matrice identità.
+        \item alla forma bilineare
+              \begin{equation*}
+                  e_1^* \otimes e_2^* - e_2^* \otimes e_1^* \in (K^2)^* \otimes (K^2)^*
+              \end{equation*}
+              corrisponde la matrice
+              \begin{equation*}
+                  \begin{pmatrix}
+                      0  & 1 \\
+                      -1 & 0
+                  \end{pmatrix}
+              \end{equation*}
+              si nota che è una forma bilineare antisimmetrica.
+        \item La forma bilineare antisimmetrica
+              \begin{equation*}
+                  e_1^* \otimes e_3^* - e_3^* \otimes e_1^* + e_2^* \otimes e_4^* - e_4^* \otimes e_2^* \in (K^4)^* \otimes (K^4)^*
+              \end{equation*}
+              è detta forma simplettica, e la sua matrice associata è
+              \begin{equation*}
+                  \begin{pmatrix}
+                      0  & 0  & 1 & 0 \\
+                      0  & 0  & 0 & 1 \\
+                      -1 & 0  & 0 & 0 \\
+                      0  & -1 & 0 & 0
+                  \end{pmatrix}
+              \end{equation*}
+    \end{itemize}
+\end{example}
+
+Abbiamo quindi definito un isomorfismo di spazi vettoriali
+\begin{align*}
+    M : \;  V^* \otimes V^* & \rightarrow Mat_{n \times n}(K) \\
+    f                       & \mapsto M(f)
+\end{align*}
+Quindi se
+\begin{equation*}
+    A = \begin{pmatrix}
+        a_{11} & \ldots & a_{1n} \\
+        \vdots & \ddots & \vdots \\
+        a_{n1} & \ldots & a_{nn}
+    \end{pmatrix} \in Mat_{n \times n}(K)
+\end{equation*}
+La forma bilineare $f \in V^* \otimes V^*$ associata a $A$ è
+\begin{equation*}
+    f = (a_{11} e_1^* + \ldots + a_{n1}e_n^*) \otimes e_1^* +
+    \ldots
+    + (a_{1n} e_1^* + \ldots + a_{nn}e_n^*) \otimes e_n^*
+\end{equation*}
+\begin{example}
+    $A = \begin{pmatrix}
+            1 & 2 \\
+            2 & 1
+        \end{pmatrix} \in Mat_{2 \times 2}(\mathbb{F}_3)$
+    \begin{align*}
+        f & = (e_1^* + 2e_2^*) \otimes e_1^* + (2e_1^* + e_2^*) \otimes e_2^* =                        \\
+          & = e_1^* \otimes e_1^* + 2 e_2^* \otimes e_1^* + 2e_1^* \otimes e_2^* + e_2^* \otimes e_2^*
+    \end{align*}
+\end{example}
+\begin{note}
+    Essendo $v^* \otimes V^*$ lo spazio vettoriale delle forme bilineare su $V$, si ha che:
+    \begin{enumerate}
+        \item $a(e_i^* \otimes e_j^*) = (a e_i^*) \otimes e_j^* = e_i^* \otimes (ae_j^*)$
+        \item $e_i^* \otimes (e_j^* + e_k^*) = e_i^* \otimes e_j^* + e_i^* \otimes e_k^*$
+    \end{enumerate}
+\end{note}
+
+\begin{example}
+    Siano $v_1 := 3e_1^* + 2e_2^* + e_3 \in (\mathbb{R}^3)^*$ e $v_2 := e_2^* - \sqrt{3} e_3^* \in (\mathbb{R}^3)^*$.
+
+    Allora
+    \begin{align*}
+        v_1 \otimes v_2 & = (3e_1^* + 2e_2^* + e_3^*) \otimes (e_2^* - \sqrt{3} e_3^*) =                                                                                                     \\
+                        & = 3e_1^* \otimes e_2^* - 3\sqrt{3} e_1^* \otimes e_3^* + 2e_2^* \otimes e_2^* - 2\sqrt{3} e_2^* \otimes e_3^* + e_3^* \otimes e_2^* - \sqrt{3} e_3^* \otimes e_3^*
+    \end{align*}
+\end{example}
+
+\begin{definition}[Forma multilineare]
+    Siano $V_1, V_2, \ldots, V_k$ spazi vettoriali su un campo $\mathbb{F}$. Una funzione
+    \begin{equation*}
+        f : V_1 \times V_2 \times \ldots \times V_k \rightarrow \mathbb{F}
+    \end{equation*}
+    è detta \textbf{forma multilineare} se è lineare rispetto ad ogni variabile, cioè se:
+    \begin{enumerate}
+        \item \begin{align*}
+                  f(av_1, \ldots ,v_k) & = f(v_1, a v_2, \ldots, v_k) =                                      \\
+                                       & = f(v_1, \ldots, a v_k) =                                           \\
+                                       & = a f(v_1, \ldots v_k) \qquad \forall a \in \mathbb{F}, v_i \in V_i
+              \end{align*}
+        \item \begin{align*}
+                  f(v_1 + w_1, v_2, \ldots ,v_k) & = f(v_1, \ldots, v_k) + f(w_1, \ldots, v_k)                                 \\
+                  \vdots                         &                                                                             \\
+                  f(v_1, v_2, \ldots ,v_k + w_k) & = f(v_1, \ldots, v_k) + f(v_1, \ldots, w_k) \qquad \forall v_i, w_i \in V_i
+              \end{align*}
+    \end{enumerate}
+\end{definition}
+
+\subsection{Prodotto tensoriale di spazi vettoriali}
+\begin{definition}
+    Siano $V_1, V_2, \ldots, V_k$ spazi vettoriali su un campo $\mathbb{F}$.
+
+    Definiamo $V_1 \otimes V_2 \otimes \ldots \otimes V_k$ lo spazio vettoriale delle forme multilineari
+    \begin{equation*}
+        f : V_1 \times V_2 \times \ldots \times V_k \rightarrow \mathbb{F}
+    \end{equation*}
+    Una base di $V_1 \otimes V_2 \otimes \ldots \otimes V_k$ è l'insieme
+    \begin{equation*}
+        \{e_{i_1}^{1^*} \otimes e_{i_2}^{2^*} \otimes \ldots \otimes e_{i_k}^{k^*} : 1 \leq i_1 \leq dim(V_1), \ldots , 1 \leq i:k \leq dim(V_k)\}
+    \end{equation*}
+    dove $\{e_{i_1}^{1^*}\}$ è una base di $V_1^*$, ecc.
+\end{definition}
+\end{document}

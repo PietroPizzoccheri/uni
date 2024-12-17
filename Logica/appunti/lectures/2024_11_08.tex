@@ -1,0 +1,229 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+Ora, se $P(X), Q(X) \in \mathbb{F}_p[X]$ sono due polinomi irriducibili di grado n, vogliamo costruire un isomorfismo
+\begin{equation*}
+    f: \nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle} \rightarrow \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}
+\end{equation*}
+Ci serve il seguente risultato:
+
+\begin{proposition}
+    Siano $F \subseteq K$ e $F \subseteq K'$ due ampliamenti di campi.
+
+    Se $\alpha \in K$ è algebrico di grado n su F, con polinomio minimo $m(x)$,esiste un morfismo di campi $\varphi : F(\alpha) \rightarrow K'$ che fissa F in $K'$.
+
+    In questo caso i morfismi $\varphi$ sono tanti quante le radici distinte $\beta_1, \ldots ,\beta_s$ di $m(X)$ in $K'$.
+
+    Sono tutti e soli quelli definiti da:
+    \begin{equation*}
+        c_0 + c_1\alpha + \ldots + c_{n-1}\alpha^{n-1} \rightarrow c_0 + c_1\beta_i + \ldots + c_{n-1}\beta_i^{n-1}
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    Se $\alpha$ è algebrico di grado $n$ su $F$ con polinomio minimo $m(X)$ e $\varphi : F(\alpha) \rightarrow K'$ è isomorfismo, allora $0 = \varphi(0) = \varphi(m(\alpha)) = m(\varphi(\alpha))$  quindi $\varphi(\alpha)$ deve essere radice di $m(X)$ in $K'$.
+
+    Viceversa, sia $\beta$ una radice di $m(X)$ in $K'$ e consideriamo il morfismo di anelli
+    \begin{align*}
+        v_\beta : \; F[X] & \rightarrow K'       \\
+        f(X)              & \rightarrow f(\beta)
+    \end{align*}
+    Poiché $m(X) \in Ker(v_\beta)$, dal Teorema di isomorfismo per anelli abbiamo che il seguente diagramma è commutativo:
+    \begin{equation*}
+        \begin{tikzcd}
+            F[X] \arrow{r}{v_\beta} \arrow{d}{\pi} & K'\\
+            F(\alpha) \simeq \nicefrac{F[X]}{\langle m(X)\rangle} \arrow{ur}{\varphi}
+        \end{tikzcd}
+    \end{equation*}
+    Infatti $Ker(v_\beta) = \langle m(X)\rangle$, essedo $m(X)$ irriducibile.
+
+    Quindi abbiamo trovato un morfismo iniettivo $\varphi : F(\alpha) \rightarrow K'$ che soddisfa le proprietà dell'enunciato.
+\end{proof}
+
+\begin{definition}[Campo di spezzamento]
+    Sia $F$ un campo e $f(X) \in F[X]$ un polinomio di grado $n \geq 1$.
+
+    Un campo $K$, ampliamento di $F$, si dice \textbf{campo di spezzamento di f(X) su F} se:
+    \begin{itemize}
+        \item $f(X)$ fattorizza in polinomi di grado 1 su $K[X]$
+        \item non ci sono campi intermedi $F \subseteq L \subsetneq K$ con la stessa proprietà.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    $\mathbb{Q}(\sqrt{2})$ è un campo di spezzamento di $X^2 - 2 \in \mathbb{Q}[X]$.
+
+    $\mathbb{C}$ è un campo di spezzamento di $X^2 + 1 \in \mathbb{R}[X]$.
+\end{example}
+
+Ora vogliamo mostrare che un campo che ha cardinalità $p^n$ è un campo di spezzamento del polinomio $X^{p^n} - X \in \mathbb{F}_p[X]$.
+
+Infatti se $K$ è un campo e $|K| = p^n$, allora il suo gruppo moltiplicativo $K \setminus \{0\}$ ha cardinalità $p^n - 1$ e quindi oer ogni $\alpha \in K \setminus \{0\}$ si ha $\alpha^{p^n - 1} = 1$.
+
+Quindi ogni elemento di $K$ è radice del polinomio $X^{p^n} - X$.
+
+Per il teorema di Ruffini, $K$ è un campo di spezzamento di $X^{p^n} - X$.
+
+Adesso mostriamo che ogni poliniomio di grado n irriducibile in $\mathbb{F}_p[X]$ divide $X^{p^n} - X\ \in \mathbb{F}_p[X]$.
+
+\begin{proposition}
+    Tutti e soli i polinomi irriducibili su $\mathbb{F}_p$ di grado $n$ dividono $X^{p^n} - X \in \mathbb{F}_p[X]$.
+\end{proposition}
+
+\begin{proof}
+    Sia $P(X) \in \mathbb{F}_p[X]$ irriducibile di grado n e sia $K := \nicefrac{\mathbb{F}_p[Y]}{\langle P(Y)\rangle}$.
+
+    Allora $K$ ha $p^n$ elementi che sono le radici di $X^{p^n} - X \in K[X]$.
+
+    Poichè $Y \in K$ è una radice $P(X) \in K[X]$, $P(X)$ e $X^{p^n} - X$ hanno una radice in comune in K, allora per il teorema di Ruffini hanno un fattore comune $X - Y \in K[X]$.
+
+    Quindi, poiché $\mathbb{F}_p \subseteq K$ e $MCD$ in $\mathbb{F}_p = MCD$ in $K[X] \implies P(X), X^{p^n} - X$ hanno $MCD \neq 1$ in $\mathbb{F}_p[X]$.
+
+    Poiché $P(X)$ è irriducibile in $\mathbb{F}_p[X]$, $P(X)$ divide $X^{p^n} - X$.
+\end{proof}
+
+Adesso vogliamo costruire un isomorfismo di campi
+\begin{equation*}
+    f: \nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle} \rightarrow \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}
+\end{equation*}
+Dove $P(X), Q(X) \in \mathbb{F}_p[X]$ sono monici irriducibili di grado $n$.
+
+Basta costruire un isomorfismo di anelli.
+
+Infatti un morfismo di anelli che sono campi è iniettivo. Inoltre:
+\begin{equation*}
+    |\nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle}| = |\nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}| = p^n
+\end{equation*}
+
+Quindi tale morfismo è biunivoco, ossia è isomorfismo.
+
+Si ha che, se $y \in \nicefrac{\mathbb{F}_p[Y]}{\langle P(Y)\rangle}$ allora $P(X) \in \mathbb{F}_p[X]$ è il polinomio minimo di $y$ su $\mathbb{F}_p$.
+
+Quindi, se $P(X)$ ha una radice in $\nicefrac{\mathbb{F}_p[Y]}{\langle Q(Y)\rangle}$, possiamo usare la proposizione sull'estensione di morfismi di campi per definire il morfismo f, che sarà un isomorfismo. Infatti $\mathbb{F}_p \subseteq \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}$.
+
+Inoltre $\nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle} = \mathbb{F}_p([X])$, dove $[X]$ è la classe di $X$ in $\nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle}$.
+
+Poiché $\nicefrac{\mathbb{F}_p[Y]}{\langle Q(Y)\rangle}$ è un campo di spezzamento di $X^{p^n} - X$ e $P(X)$ divide $X^{p^n} - X$, allora $P(X)$ si fattorizza in fattori di grado 1 in $\nicefrac{\mathbb{F}_p[Y]}{\langle Q(Y)\rangle}$.
+
+Sia $\beta \in \nicefrac{\mathbb{F}_p[Y]}{\langle Q(Y)\rangle}$ tale che $p(\beta)$ = 0.
+
+Allora l'assegnazione
+\begin{equation*}
+    c_0 + c_1 x + \ldots + c_{n-1} x^{n-1} \mapsto c_0 + c_1 \beta + \ldots + c_{n-1} \beta^{n-1}
+\end{equation*}
+definisce un morfismo di anelli
+\begin{equation*}
+    f: \nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle} \rightarrow \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}
+\end{equation*}
+
+\begin{example}
+    In $\mathbb{F}_3[X]$ si considerino i polinomi irriducibili
+    \begin{equation*}
+        1 + X^2 \qquad \text{e} \qquad 2 + X + X^2.
+    \end{equation*}
+    Il polinomio minimo di $X$ in $\nicefrac{\mathbb{F}_3[X]}{\langle 1 + X^2 \rangle} := K$ su $\mathbb{F}_3$ è $1 + X^2$.
+
+    In $K' := \nicefrac{\mathbb{F}_3[Y]}{\langle 1 + Y + Y^2\rangle}$ si ha che
+    \begin{equation*}
+        1 + X^2 = (X + Y + 2)(X + 2Y + 1)
+    \end{equation*}
+    quindi in $K'[X]$ $1 + X^2$ ha due radici:
+    \begin{equation*}
+        -Y-2 = 2Y+1 \qquad \text{e} \qquad -2Y - 1 = y + 2.
+    \end{equation*}
+    Abbiamo quindi due isomorfismi
+    \begin{multicols}{2}
+        \begin{align*}
+            f: \; K    & \rightarrow K'            \\
+            a_0 + a_1x & \mapsto a_0 + a_1(2Y + 1)
+        \end{align*}
+        \columnbreak
+        \begin{align*}
+            g: \; K    & \rightarrow K'           \\
+            a_0 + a_1x & \mapsto a_0 + a_1(Y + 2)
+        \end{align*}
+    \end{multicols}
+    \begin{multicols}{2}
+        \begin{align*}
+            f(0)      & = 0                        \\
+            f(1)      & = 1                        \\
+            f(2)      & = 2                        \\
+            f(X)      & = 2Y + 1                   \\
+            f(1 + X)  & = f(1) + f(X) = 2Y + 2     \\
+            f(2 + X)  & = f(2) + f(X) = 2Y         \\
+            f(2X)     & = f(2)f(X) = 2f(X) = y + 2 \\
+            f(1 + 2X) & = f(1) + f(2X) = Y         \\
+            f(2 + 2X) & = f(2) + f(2X) = y + 1
+        \end{align*}
+
+        \columnbreak
+
+        \begin{align*}
+            g(0)      & = 0                         \\
+            g(1)      & = 1                         \\
+            g(2)      & = 2                         \\
+            g(X)      & = Y + 2                     \\
+            g(1 + X)  & = g(1) + g(X) = Y           \\
+            g(2 + X)  & = g(2) + g(X) = Y + 1       \\
+            g(2X)     & = g(2)g(X) = 2g(X) = 2Y + 1 \\
+            g(1 + 2X) & = g(1) + g(2X) = 2Y + 2     \\
+            g(2 + 2X) & = g(2) + g(2X) = 2Y
+        \end{align*}
+    \end{multicols}
+\end{example}
+
+\begin{remark}
+    $X \in K$ non è un generatore di $K \setminus \{0\}$.
+
+    Infatti il sottogruppo del gruppo moltiplicativo $K \setminus \{0\}$ generato da $X$ è
+    \begin{equation*}
+        \langle X\rangle = \{X, 2, 2X, 1\} \subsetneq K \setminus \{0\}
+    \end{equation*}
+\end{remark}
+
+\begin{lemma}
+    se K è un anello commutativo di caratteristica prima $p$, allora
+    \begin{equation*}
+        (X + Y)^{p^h} = X^{p^h} + Y^{p^h}
+    \end{equation*}
+    per ogni $x, y \in K, h \geq 1$
+\end{lemma}
+
+\begin{proof}
+    Sia $h = 1$. se $p > k > 0$, p divide tutti i coefficienti binomiali $\binom{p}{k} := \frac{p!}{k!(p-k)!}$ perché non divide $k!(p-k)!$. Allora:
+    \begin{equation*}
+        (X + Y)^p = \sum_{k=0}^{p} \binom{p}{k} X^k Y^{p-k} = X^p + Y^p
+    \end{equation*}
+    la tesi segue per induzione.
+\end{proof}
+
+\begin{definition}[Automorfismo di Frobenius]
+    Dal lemma precedente segue che se $K$ è un campo di caratteristica $p$, allora la funzione
+    \begin{align*}
+        \Phi : \; K & \rightarrow K \\
+        x           & \mapsto x^p
+    \end{align*}
+    è un morfismo di campi. Infatti $\forall x,y \in K$:
+    \begin{align*}
+        \Phi(x + y) & = (x + y)^p = x^p + y^p = \Phi(x) + \Phi(y) \\
+        \Phi(xy)    & = (xy)^p = x^p y^p = \Phi(x) \Phi(y)
+    \end{align*}
+
+    Se $K = \mathbb{F}_{p^n}, \Phi$ è un automorfismo (essendo morfismo initettivo da un campo di cardinalità finita in se stesso) detto \textbf{automorfismo di Frobenius}.
+\end{definition}
+
+\begin{theorem}
+    Il gruppo degli automorfismi di $\mathbb{F}_{p^n}, AUT(\mathbb{F}_p^n)$ è ciclico di cardinalità $n$, generato dall'automorfismo di Frobenius.
+\end{theorem}
+
+\begin{lemma}
+    sia $F$ un campo. Il polinomio $X^d - 1$ divide il polinomio $X^n - 1$ s.s.e. $d$ divide $n$.
+\end{lemma}
+\begin{proof}
+    Se $n = qd + r, 0 \leq r \leq d$, in $\mathbb{F}[X]$ si ha:
+    \begin{equation*}
+        (x^n - 1) = (X^d - 1)(X^{n-d} + X^{n-2d} + \ldots + x^{n-(p-1)d} + X^r) + (X^r -1)
+    \end{equation*}
+    quindi $X^d - 1$ divide $X^n - 1$ s.s.e. $X^r - 1$ è il polinomio nullo, cioè s.s.e. $r = 0$
+\end{proof}
+\end{document}

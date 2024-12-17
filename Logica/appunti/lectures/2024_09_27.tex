@@ -1,0 +1,143 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Relazioni}
+
+\begin{definition}[Relazione]
+    Sia $X$ un insieme. Un sottoinsieme $R \subseteq X \times X$ è detto \textbf{relazione su $X$}.
+\end{definition}
+
+\begin{definition}[Relazione di equivalenza]
+    Una relazione $R \subseteq X \times X$ è detta \textbf{relazione di equivalenza} se soddisfa le seguenti proprietà:
+    \begin{enumerate}[label=(\roman*)]
+        \item \textbf{riflessità}: $(x,x) \in R$, $\forall x \in X$
+        \item \textbf{simmetria}: $(x,y) \in R \implies (y,x) \in R$, $\forall x,y \in X$
+        \item \textbf{transitività}: $(x,y) \in R \text{ e } (y,z) \in R \implies (x,z) \in R$, $\forall x,y,z \in X$
+    \end{enumerate}
+\end{definition}
+
+Se $R$ è una relazione di equivalenza su $X$ e $(x,y) \in R$, scriviamo $x \sim y$, che si legge "$x$ è equivalente a $y$".
+
+\begin{definition}[Classe di equivalenza]
+    Sia $X$ un insieme e $R \subseteq X \times X$ una relazione di equivalenza su $X$. L'insieme
+    \begin{equation*}
+        [x]_R := \{y \in X : x \sim y\}
+    \end{equation*}
+    è detto \textbf{classe di equivalenza di $x$ rispetto a $R$}.
+\end{definition}
+
+\begin{definition}[Insieme quoziente]
+    L'insieme $\nicefrac{X}{\sim} := \{[x] : x \in X\}$ è detto \textbf{insieme quoziente}.
+\end{definition}
+
+\begin{definition}[Proiezione canonica]
+    La funzione
+    \begin{align*}
+        \pi : X & \longrightarrow \nicefrac{X}{\sim} \\
+        x       & \longmapsto [x]
+    \end{align*}
+    è detta \textbf{proiezione canonica}.
+\end{definition}
+
+\begin{definition}[Partizione]
+    Siano $x,y \in X$. Allora se $x \sim y$ abbiamo che $[x] = [y]$. Se $x \nsim y$ abbiamo che $[x] \cap [y] = \varnothing$. Quindi $X = \underset{[x] \in \nicefrac{X}{\sim}}{\uplus} [x]$, ossia $\nicefrac{X}{\sim}$ è una partizione di X.
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item L'uguaglianza "$=$" è una relazione di equivalenza
+              su ogni insieme $X$.
+        \item Sia $X = \{1,2,\ldots,n\}$. Definiamo si $\mathcal{P}(X)$
+              la seguente relazione:
+              $A \sim B \iff |A| = |B|, \forall A,B \subseteq X$.
+              Questa è una relazione di equivalenza e $\nicefrac{\mathcal{P}(X)}{\sim}
+                  \equiv \{0,1,\ldots,n\}$. Se $A \subseteq X$ è tale che
+              $|A| = k \leq n$ allora $|[A]| = \binom{n}{k} := \frac{n!}{k!(n-k)!}$
+        \item Sia $G$ un gruppo e $H \subseteq G$ un sottogruppo. La relazione
+              $\sim $ su $G$ definita da $g_1 \sim g_2 \iff g_1=g_2 h$
+              per qualche $h \in H$ è una relazione di equivalenza.\
+              \begin{enumerate}
+                  \item $g \sim g : g \cdot e \text{ , } \forall g \in G , e \in H$
+                  \item $g_1 \sim g_2 \rightarrow g_2 \sim g_1 : g_1 = g_2 h \rightarrow
+                            g_1 h^{-1} = g_2$ ($h^{-1} \in H$)
+                  \item $g_1 \sim g_2 , g_2 \sim g_3 \rightarrow g_1 \sim g_3 :
+                            g_1 = g_2 h, g_2 = g_3 h' \rightarrow g_1 = g_3 h h' = g_3 h''
+                            , \forall g_1,g_2,g_3 \in G$
+              \end{enumerate}
+              In questo caso l'insieme quoziente lo indichiamo con \nicefrac{G}{H}.
+
+    \end{itemize}
+\end{example}
+
+\begin{definition}[Coefficiente binomiale]
+    Il numero $\binom{n}{k}$ è chiamato \textbf{coefficiente binomiale}, questo perché $(x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^n y^{n-k}, \forall x,y \in \mathbb{C} $
+\end{definition}
+
+\section{Insieme quoziente per gruppi abeliani}
+
+Se $G$ è un gruppo abeliano, possiamo definire la seguente operazione "$+$"
+su \nicefrac{G}{H}: $[g_1] + [g_2] := [g_1 + g_2]$, vediamo che è ben definita:
+se $g_{1}' = g_1 + h_1 \text{ e } g_{2}' = g_2 + h_2$, allora $[g_{1}'] = [g_1]
+$, $[g_{2}'] = [g_2]$ e $g_{1}' + g_{2}' = g_1 + h_1 + g_2 + h_2 = g_1 + g_2 + h$,
+dove $h = h_1 + h_2 \in H$. Quindi $[g_{1}' + g_{2}'] = [g_1 + g_2]$.
+
+L'operazione è ovviamente associativa e commutativa, perché lo è quella su $G$.
+Inoltre $[g] + [0] = [g] \text{, } \forall [g] \in \nicefrac{G}{H}$ dove con $"0"$
+abbiamo indicato l'identità di $G$. Quindi la classe $[0]$ dell'identità di $(\nicefrac{G}{H} , +)$.
+
+Infine $[g] + [-g] = [g-g] = [0]$, dove con $-g$ abbiamo indicato l'inverso di $g$ in $G$.
+
+Quindi $-[g] = [-g], \forall [g] \in \nicefrac{G}{H}$, ossia $(\nicefrac{G}{H},+)$ è un gruppo abeliano.
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item Se $H = \{0\} \subseteq G$, allora $\nicefrac{G}{H}$ è isomorfo a $G$. ($\{0\}$ gruppo banale e $G$ gruppo abeliano)
+        \item Sia $G = (\mathbb{Z} , +)$, $ n \in \mathbb{N} $. il sottoinsieme $n\mathbb{Z} := \{kn : k \in \mathbb{Z}\}$ è un sottogruppo di $\mathbb{Z}$.
+              \begin{itemize}
+                  \item $0 \mathbb{Z} = \{0\}$
+                  \item $1 \mathbb{Z} = \{\mathbb{Z} \}$
+                  \item $2 \mathbb{Z} = \{\ldots,-4,-2,0,2,4,\ldots\}$
+                  \item $3 \mathbb{Z} = \{\ldots,-6,-3,0,3,6,\ldots\}$
+                  \item $\ldots$
+              \end{itemize}
+              Definiamo il gruppo abeliano $\mathbb{Z}_n := \nicefrac{\mathbb{Z}}{n\mathbb{Z}}$ per $\mathbb{Z}_0 = \nicefrac{\mathbb{Z}}{0 \mathbb{Z}} = \nicefrac{\mathbb{Z}}{\{0\}} \simeq \mathbb{Z} $. \newline
+              Sia $n \geq 0$ e siano $x,y \in \mathbb{Z}$.
+              Allora $x \sim y \iff x = y+h$ ($h \in n \mathbb{Z}$) $\iff x-y = kn$ (per $k \in \mathbb{Z}$) $\iff$ il resto della divisione di $x$ per $n$ è uguale al resto  della divisione di $y$ per $n$.
+
+              I possibili resti della divisione per $n$ sono $0,1,\ldots,n-1$.
+
+              Quindi $\mathbb{Z}_n = \{[0],[1],\ldots,[n-1]\} = \{\overline{0}, \overline{1},\ldots,\overline{n - 1}\}$. ($\{[0],[1],\ldots,[n-1]\}$ sono le classi di resto)
+              \begin{itemize}
+                  \item $\mathbb{Z}_2 = \{\overline{0},\overline{1}\}$,
+                        \begin{tabular}{c|c|c}
+                            +              & $\overline{0}$ & $\overline{1}$ \\ \hline
+                            $\overline{0}$ & $\overline{0}$ & $\overline{1}$ \\ \hline
+                            $\overline{1}$ & $\overline{1}$ & $\overline{0}$ \\
+                        \end{tabular}
+                        $\overline{1} + \overline{1} = [1 + 1] = [2] = [0]$
+                  \item $\mathbb{Z}_3 = \{\overline{0},\overline{1},\overline{2}\}$,
+                        \begin{tabular}{c|c|c|c}
+                            +              & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ \\ \hline
+                            $\overline{0}$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ \\ \hline
+                            $\overline{1}$ & $\overline{1}$ & $\overline{2}$ & $\overline{0}$ \\ \hline
+                            $\overline{2}$ & $\overline{2}$ & $\overline{0}$ & $\overline{1}$ \\
+                        \end{tabular}
+              \end{itemize}
+    \end{itemize}
+\end{example}
+
+\begin{definition}[Morfismo suriettivo di gruppi]
+    Sia $G$ un gruppo abeliano e $H \subseteq G$ un sottogruppo. La proiezione canonica $\pi : G \rightarrow \nicefrac{G}{H}$ è un \textbf{morfismo suriettivo di gruppi}
+\end{definition}
+
+Se $G$ è un gruppo finito e $H \subseteq G$ è un sottogruppo, allora $[g] \in \nicefrac{G}{H} \rightarrow |[g]| = |H|$.
+
+Infatti $[g] = \{gh : h \in  H\}$ e $gh_1 = gh_2 \rightarrow h_1 = h_2$.
+
+Poiché le classi di quivalenza sono una partizione di G , abbiamo $|G| = |\nicefrac{G}{H}| \cdot |H|$.
+
+In particolare la cardinalità o (\textbf{ordine}) di un sottogruppo di un gruppo finito divide la cardinalità del gruppo.
+\end{document}

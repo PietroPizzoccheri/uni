@@ -1,0 +1,127 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{theorem}
+    Sia $f : G_1 \rightarrow G_2$ un morfismo di gruppi. Allora $f$ è iniettivo se e solo se $Ker(f) = \{e_1\}$ (Questo non vale per i morfismi di monoidi.)
+\end{theorem}
+
+\begin{proof}
+    Sia $f$ iniettivo. Sia $x \in Ker(f)$. Allora $f(x) = e_2$ e quindi, poiché anche $f(e_1) = e_2$, si ha che $x = e_1$
+    per l'ipotesi di iniettività.\\\
+    Sia $Ker(f) = \{e_1\}$. Siano $x,y \in G_1$ tali che $f(x) = f(y)$.\\
+    Allora $f(x)f(y^{-1}) = e_2 \rightarrow  f(xy^{-1}) = e_2 \rightarrow  xy^{-1} \in Ker(f) \rightarrow xy^{-1} = e_1 \rightarrow
+        x=y$,
+\end{proof}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item $G = \mathbb{Z}_4 = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}$, \
+              \begin{itemize}
+                  \item $\langle \overline{0} \rangle = {\overline{0}}$ sottogruppo banale $\simeq \mathbb{Z}_1$
+                  \item $\langle \overline{1} \rangle = \mathbb{Z}_4$
+                  \item $\langle \overline{2} \rangle = \{\overline{0}, \overline{2}\} \simeq \mathbb{Z}_2$ ($2+2=0$)
+                  \item $\langle \overline{3} \rangle = \mathbb{Z}_4$ ($3 , 3+3=6=2, 3+2=5=1, 3+1=4=0$)
+              \end{itemize}
+              I sottogruppi di $\mathbb{Z}_4$ possono averer cardinalità $1,2,4$. L'insieme
+              dei sottogruppo di $\mathbb{Z}_4$ è $\{\{\overline{0}\}, \{\overline{0}, \overline{2}\},
+                  \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}= \mathbb{Z}_4\}$
+        \item $G = \mathbb{Z}_6 = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}\}$, \
+              \begin{itemize}
+                  \item $\langle \overline{0} \rangle = {\overline{0}}$ sottogruppo banale $\simeq \mathbb{Z}_1$
+                  \item $\langle \overline{1} \rangle = \mathbb{Z}_6$
+                  \item $\langle \overline{2} \rangle = \{\overline{0}, \overline{2}, \overline{4}\} \simeq \mathbb{Z}_3$
+                  \item $\langle \overline{3} \rangle = \{\overline{0}, \overline{3}\} \simeq \mathbb{Z}_2$
+                  \item $\langle \overline{4} \rangle = \{\overline{0}, \overline{2}, \overline{4}\} \simeq \mathbb{Z}_3$
+                  \item $\langle \overline{5} \rangle = \mathbb{Z}_6$
+              \end{itemize}
+              I sottogruppi di $\mathbb{Z}_6$ possono averer cardinalità $1,2,3,6$. L'insieme dei sottogruppo di $\mathbb{Z}_6$ è $\{\{\overline{0}\}, \{\overline{0}, \overline{2}, \overline{4}\}, \{\overline{0}, \overline{3}\}, \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}\}= \mathbb{Z}_6\}$
+    \end{itemize}
+\end{example}
+
+\textbf{Caso generale:} consideriamo il gruppo $\mathbb{Z}_n = (\{\overline{0},\overline{1},\ldots,\overline{n-1}\},+) $ sia $m \in \mathbb{N}, m < n$.
+
+Se $m=0$, $\langle \overline{0} \rangle = \{\overline{0}\}$.
+
+Sia $m > 0 $ e $z := \frac{mcm \{m,n\}}{m}$. (mcm = minimo comune multiplo)
+\begin{equation*}
+    \overline{m}+\overline{m}+\ldots=\overline{m} = \overline{zm} = \overline{mcm \{m,n\}} = \overline{0}
+\end{equation*}
+Se $i \leq i \leq z$: $im < zm = mcm \{m,n\} \rightarrow n \text{ non divide } im$.
+
+$\overline{m}+\overline{m}+\ldots=\overline{m} = \overline{im} \neq \overline{0}$ perché $im$ è multiplo di $m$ e $im < mcm \{m,n\}$, quindi $im$ non è multiplo di $n$.
+
+Dunque $|\langle \overline{m} \rangle| = z= \frac{mcmc \{m,n\}}{m}$.
+
+In particolare, $\langle \overline{m} \rangle = \mathbb{Z}_n \iff z=n \iff MCD \{m,n\}=1$.
+
+Ossia \textbf{l'insieme $\{\overline{m}\}$ genera il gruppo $\mathbb{Z}_n$ sse $m \text{ e } n$ sono coprimi.}
+
+\begin{definition}[Funzione di Eulero]
+    La funzione definita da $\varphi : \mathbb{N} \backslash \{0\} \rightarrow \mathbb{N} \backslash \{0\}$, $\varphi(n) := |\{m \in \mathbb{N} \backslash \{0\} : m < n \text{ e } MCD \{m,n\} = 1\}|$ è detta \textbf{funzione di Eulero}.
+
+    Quindi ci sono $\varphi(n)$ elementi $\overline{m}$ tali che $\langle \overline{m} \rangle = \mathbb{Z}_n$.
+\end{definition}
+
+\begin{proposition}
+    L'insieme dei sottogruppi di $(\mathbb{Z} ,+)$ è $\{n \mathbb{Z} : n \in \mathbb{N} \} $.
+\end{proposition}
+
+\begin{proof}
+    Sia $H \subseteq \mathbb{Z} $ un sottogruppo non banale. Sia $k := min (H_{>0})$ dove $H_{>0} := \{h \in H : h > 0\}$. Sia $h \in H_{>0}, h \neq k$.
+
+    Allora $h > k$ e $h = nk + r$, $n \in \mathbb{N} , 0 \leq r <k$.
+
+    Dunque $r = h - nk \in H \rightarrow r =0$ per la minimalità di $k$.
+\end{proof}
+
+\begin{definition}[Gruppo ciclico]
+    Un gruppo $G$ è detto \textbf{ciclico} se esiste $g \in G$ tale che $\langle g \rangle = G$.
+
+    Un gruppo ciclico è anche abeliano
+\end{definition}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item $\mathbb{Z} = \langle 1 \rangle$ è ciclico
+        \item $\mathbb{Z}_n = \langle \overline{1} \rangle$ è ciclico
+        \item $\mathbb{Z} \times \mathbb{Z} = \langle (1,0), (0,1) \rangle$ non è ciclico,
+              infatti in $\mathbb{Z}  \times \mathbb{Z} $, se $(a,b) \in \mathbb{Z} \times \mathbb{Z} $,
+              $\langle (a,b) \rangle = \{(ka,kb) : k \in \mathbb{Z} \} = \{(x,y) : a \text{ divide } x,b \text{ divide } y\}
+                  \subsetneq \mathbb{Z} \times \mathbb{Z} $.
+        \item $\mathbb{Z}_2 \times \mathbb{Z}_2$ non è ciclico. Infatti, in $\mathbb{Z}_2 \times \mathbb{Z}_2$ si ha:
+              \
+              \begin{itemize}
+                  \item $\langle (\overline{0},\overline{0}) \rangle = \{(\overline{0},\overline{0})\}$
+                  \item $\langle (\overline{0}, \overline{1}) \rangle = \{\overline{0}\} \times \mathbb{Z}_2$
+                  \item  $\langle (\overline{1}, \overline{0}) \rangle = \mathbb{Z}_2 \times \{\overline{0}\}$
+                  \item $\langle (\overline{1}, \overline{1}) \rangle = \{(\overline{0},\overline{0}),(\overline{1},\overline{1})\}$
+              \end{itemize}
+              Quindi nessun elemento di $\mathbb{Z}_2 \times \mathbb{Z}_2$ genera $\mathbb{Z}_2 \times \mathbb{Z}_2$.
+    \end{itemize}
+\end{example}
+
+\begin{theorem}[di isomorfismo per gruppi abeliani]
+    Sia $f: G_1 \rightarrow G_2$ un morfismo di gruppi abeliani. Allora esiste un morfismo iniettivo $\varphi : \nicefrac{G_1}{Ker \varphi} \rightarrow G_2$ tale che il seguente diagramma è commutativo:
+    \begin{equation*}
+        \begin{tikzcd}
+            G_1 \arrow[r, "f"] \arrow[d, "\pi"'] & G_2 \\
+            \nicefrac{G_1}{Ker(f)} \arrow[ru, "\varphi"']
+        \end{tikzcd}
+    \end{equation*}
+    In particolare, $\nicefrac{G_1}{Ker(f)} \simeq \Im(f)$.
+\end{theorem}
+
+\begin{proof}
+    L'assegnazione $[g] \mapsto f(g), \forall g \in  G$, definisce una funzione $\varphi : \nicefrac{G_1}{Ker(f)}
+        \rightarrow G_2$.\\
+    Infatti, se $g' \sim g$, ossia $[g]  = [g']$, allora $g = g' + h , h \in Ker(f)$.
+
+    Dunque $f(g) = f(g' + h) = f(g') + f(h) = f(g')$. Poiché $f$ è morfismo di gruppi, anche $\varphi$ lo è.
+
+    Inoltre $Ker(f) = \{[g] \in \nicefrac{G}{Ker(f)} : \varphi([g]) = O_2\}=\{[g] \in  \nicefrac{G}{Ker(f)} : f(g) = O_2\} = {[O_1]}$. Quindi $\varphi$ è iniettiva.
+
+    Infine, $ \varphi : \nicefrac{G_1}{Ker(f)} \rightarrow Im(f)$ è un morfismo di gruppi, iniettivo e suriettivo, quindi un isomorfismo.
+\end{proof}
+\end{document}

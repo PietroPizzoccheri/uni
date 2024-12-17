@@ -1,0 +1,338 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+Abbiamo una versione in $\mathbb{F}_p[x]$ del teorema cinese dei resti.
+\begin{equation*}
+    MCD\{ p_i(x), p_j(x)\} = 1, \forall \ \leq i \leq k, 1 \leq j \leq k, i \neq j
+\end{equation*}
+\begin{align*}
+    \implies \nicefrac{\mathbb{F}_p[x]}{\langle f\rangle} \underbrace{\simeq}_{\text{Isomorfismo di anelli}} \nicefrac{\mathbb{F}_p[x]}{\langle p_1(x)\rangle} \times \ldots \times \nicefrac{\mathbb{F}_p[x]}{\langle p_k(x)\rangle}
+\end{align*}
+
+Dato $(s_1, \ldots, s_k) \in \mathbb{F}_p^k$, esiste un'unica classe $[h(x)] \in \nicefrac{\mathbb{F}_p[x]}{\langle f \rangle}$ tale che
+\begin{equation*}
+    \begin{cases}
+        [h(x)] = s_1 \quad \text{in} \quad \nicefrac{\mathbb{F}_p[x]}{\langle p_1(x)\rangle} \\
+        \vdots                                                                               \\
+        [h(x)] = s_k \quad \text{in} \quad \nicefrac{\mathbb{F}_p[x]}{\langle p_k(x)\rangle}
+    \end{cases}
+\end{equation*}
+ossia $h(x) - s_i$ è divisibile per $p_i(x), \forall 1 \leq i \leq k$.
+
+Quindi $p_i(x)$ divide $h(x)[h(x) - 1] \ldots [h(x) - (p - 1)] = h(x)^p - h(x), \forall 1 \leq i \leq k$.
+
+Ossia $f(x)$ divide $h(x)^p - h(x)$.
+\begin{example}
+    Fattorizziamo $f = x^5 + x^2 + 2x + 1 \in \mathbb{F}_3[x]$.
+
+    Verifichiamo che $MCD\{f, f'\} = MCD\{ x^5 + x^2 + 2x + 1, 2x^4 + 2x + 2\} = 1$ poi calcoliamo i resti:
+    \begin{align*}
+        x^{3(5-1)}    & = x^{12} \equiv (x^2 + 2) \bmod f                \\
+        x^{3\cdot3}   & = x^9 \equiv (2x^4 + x^3 + x^2 + 2x + 2) \bmod f \\
+        x^{3 \cdot 2} & = x^6 \equiv (2x^3 + x^2 + 2x) \bmod f           \\
+        x^3           & \equiv x^3 \bmod f                               \\
+        1             & \equiv 1 \bmod f
+    \end{align*}
+    \begin{align*}
+        \implies & b_0 + b_1 x^3 + b_2(2x^3 + x^2 + 2x) +                    \\
+                 & + b_3 (2x^4 + x^3 + x^2 + 2x + 2) +                       \\
+                 & + b_4(x^2 + 2) = b_0 + b_1 x + b_2x^2 + b_3 x^3 + b_4 x^4
+    \end{align*}
+    \begin{equation*}
+        \begin{cases}
+            2 b_3 + 2 b_4 = 0                           \\
+            2 b_2 + 2 b_3 - b_1 = 0                     \\
+            \cancel{b_2} + b_3 + b_4 - \cancel{b_2} = 0 \\
+            b_1 + 2 b_2 = 0                             \\
+            2 b_3 - b_4 = 0
+        \end{cases}
+        \iff
+        \begin{cases}
+            b_3 = 2 b_4         \\
+            b_1 + b_2 + b_3 = 0 \\
+            b_1 = b2
+        \end{cases}
+        \iff
+        b_1 = b_2 = b_3 = 2 b_4
+    \end{equation*}
+    Una soluzione è dunque $(0, 1, 1, 1, 2)$, ossia $h(x) =x + x^2 + x^3 +2 x^4$. quindi:
+    \begin{align*}
+        f(x) & = MCD\{f, x + x^2 + x^3 +2 x^4\} \cdot MCD\{f, 1 + x^2 + x^3 +2 x^4\} \cdot MCD\{f, 2 + x^2 + x^3 + 2x^4\} = \\
+             & = (1 + x^2)(x^3 + 2x + 1)
+    \end{align*}
+\end{example}
+
+Sia $f(x) \mathbb{F}_p[x], deg(f) = d$.
+
+Sia $f(x) = p_1(x)\cdot \ldots \cdot p_k(x)$ una fattoriazzazione di $f(x)$ in fattori irriducibili, non banali (cioè di grado $\geq 1$) e aventi molteplicità $1$. siano
+\begin{align*}
+    r_0       & = 1 \bmod f(x)            \\
+    r_1       & = x^p \bmod f(x)          \\
+    \vdots    &                           \\
+    r_{d - 1} & = x^{p(d - 1)} \bmod f(x)
+\end{align*}
+Con $deg(r_i) < d \forall 0 \leq i \leq d - 1$.
+
+Definiamo la matrice $A \in Mat_{d \times d}(\mathbb{F}_p)$ nel segueente modo:
+
+$A_{ij} = $ coefficiente del termine di grado i del polinomio $r_j(x)$
+\begin{example}
+    Considerando l'esempio precedente, si ha:
+    \begin{equation*}
+        A \in Mat_{5 \times 5}(\mathbb{F}_3) =
+        \begin{bmatrix}
+            1 & 0 & 0 & 2 & 2 \\
+            0 & 0 & 2 & 2 & 0 \\
+            0 & 0 & 1 & 1 & 1 \\
+            0 & 1 & 2 & 1 & 0 \\
+            0 & 0 & 0 & 2 & 0
+        \end{bmatrix}
+    \end{equation*}
+    la matrice $A - I$ è la matrice del sistema che abbiamo risolto, ossia $(A - I)\overrightarrow{b} = \overrightarrow{0}$
+\end{example}
+
+\begin{theorem}
+    Il numero di fattori irriducibili $k$ nella fattorizzazione di $f$ è uguale alla dimensione del nucleo di $A - I$. Ossia:
+    \begin{equation*}
+        k = d - rk(A - I)
+    \end{equation*}
+    (dove il rango è calcolato sul campo $\mathbb{F}_p$).
+\end{theorem}
+
+\begin{proof}
+    Osserviamo innanzitutto che $dim(Ker(A - I)) \geq 1$.
+
+    Infatti la d-tupla $(b_0, 0 , \ldots, 0)$ è sempre soluzione del sistema $\forall b_0 \in \mathbb{F}_p$.
+
+    Abbiamo visto che l'Insieme
+    \begin{equation*}
+        H = \{ h \in \mathbb{F}_p[x] : deg (h) < d, f \mid h^p - h\}
+    \end{equation*}
+    è uno spazio vettoriale su $\mathbb{F}_p$ isomorfo a $Ker(A - I)$.
+
+    Sia $k$ il numero di fattori irriducibili non banali di $f$, aventi tutti molteplicità 1.
+
+    Dimostriamo che $\mathbb{F}_p^k$ è isomorfo a $H$.
+
+    Abbiamo già dimostrato che per ogni $(s_1, \ldots s_k) \in \mathbb{F}_p^k$ troviamo un unico elemento di $H$, usando il Teorema cinese dei resti per l'anello $\mathbb{F}_p[X]$.
+
+    Quindi abbiamo definito una funzione $\varphi : \mathbb{F}_p^k \rightarrow H$
+    \begin{enumerate}[label=\alph*)]
+        \item $\varphi$ è un morfismo si spazi vettoriali.
+        \item $\varphi$ è iniettiva:
+              \begin{align*}
+                  Ker(\varphi) & = \{(s_1, \ldots s_k) \in \mathbb{F}_p^k : s_i \bmod p_i = 0, \forall 1 \leq i \leq k\} \\
+                               & =\{(0, \ldots , 0)\}
+              \end{align*}
+
+        \item $\varphi$ è suriettiva:
+
+              Se $h \in H$, abbiamo visto che $h^p - h = h (h - 1)(h - 2)\ldots(h - (p - 1))$.
+
+              Questi fattori sono coprimi a coppie, quindi se $f | h^p - h$, allora $p_i(x) | (h - s_i)$ per un unico $s_i \in \mathbb{F}_p, \forall 1 \leq i \leq k$.
+
+              Quindi $h$ è soluzione del sistema
+              \begin{equation*}
+                  \begin{cases}
+                      h \equiv s_1 \bmod p_1 \\
+                      \vdots                 \\
+                      h \equiv s_k \bmod p_k
+                  \end{cases}
+              \end{equation*}
+    \end{enumerate}
+    Abbiamo dimostrato che $\varphi : \mathbb{F}_p^k \rightarrow H $ è un isomorfismo do spazi vettoriali, quindi
+    \begin{center}
+        $\mathbb{F}_p^k \simeq H \simeq Ker(A - I)$
+    \end{center}
+    ossia $dim(Ker(A - I)) = k = d - rk(A - I)$.
+\end{proof}
+
+\begin{example}
+    Sempre considerando l'esempio precedente, si ha che
+    \begin{equation*}
+        \underbrace{2}_{\text{fattori irriducibili di $f(x)$}} = \underbrace{5}_{\text{grado di $f(x)$}} - rk(A - I)
+    \end{equation*}
+\end{example}
+
+Se $f \in \mathbb{F}_p[x]$ ha fattori irriducibili di molteplicità > 1, procediamo come segue:
+
+Abbiamo che $D = MCD\{f, f'\} \neq 1$.
+
+Osserviamo che il polinomio $\frac{f}{D}$ ha fattori irriducibili tutti di molteplicità 1. Infatti se $p_1, \ldots , p_k$ sono tutti distinti
+\begin{align*}
+    f' & = (p_1^{e_1}(x) \ldots p_k^{e_k}(x))' =                                                                     \\
+       & e_1 p_1^{e_1 - 1} p_1'p_2^{e_2} \ldots p_k^{e_k} + \ldots + e_k p_1^{e_1}p_2^{e_2} \ldots p_k^{e_k - 1}p_k'
+\end{align*}
+e $D = p_1^{e_1 - 1} \ldots p_k^{e_k - 1}$ quindi $\frac{f}{D} = p_1 \ldots p_k$.
+
+Allora fattorizziamo $\frac{f}{D}$ poi fattorizziamo $D$, eventualmente ripetendo con $D, D'$.
+
+Fincé non otteniamo $MCD\{ D_i, D_i'\} = 1$.
+
+\begin{example}
+    In $\mathbb{F}_3[x]$ consideriamo il polinomio $f = 1 + 2x + 2x^2 + x^5 + x^6 + x^7$.
+
+    Si ha che
+    \begin{equation*}
+        f' = 2 + 4x + 5x^4 + 7x^6 = 2 + x + 2x^4 + x^6
+    \end{equation*}
+    e
+    \begin{align*}
+        MCD\{f, f'\} & = 1 + 2x + x^3 =: D    \\
+        \frac{f}{D}  & = 1 + 2x^2 + x^3 + x^4
+    \end{align*}
+    fattorizzando $\frac{f}{D}$ otteniamo $\frac{f}{D} = (x + 1)(1 + 2x+x^3)$.
+
+    Dato che $D$ non ha radici in $\mathbb{F}_3$, $D$ è irriducibile. Allora
+    \begin{equation*}
+        f = \frac{f}{D} \cdot D = (x + 1)(1 + 2x + x^3)^2
+    \end{equation*}
+\end{example}
+
+\chapter{Tensori}
+\section{Prodotto tra matrici}
+\begin{definition}[Prodotto righe per colonne di matrici 2 x 2]
+    Sia
+    \begin{equation*}
+        Mat_{2 \times 2}(K) = \{\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} : x_i \in K \}
+    \end{equation*}
+    l'insieme delle matrici 2 x 2 a coefficienti in un campo $K$.
+\end{definition}
+Diamo all'insieme una struttura di anello:
+\begin{itemize}
+    \item Somma: $\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} + \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 + y_1 & x_2 + y_2 \\ x_3 + y_3 & x_4 + y_4 \end{pmatrix}$
+    \item Prodotto: $\begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} \cdot \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} = \begin{pmatrix} x_1 y_1 + x_2 y_3 & x_1 y_2 + x_2 y_4 \\ x_3 y_1 + x_4 y_3 & x_3 y_2 + x_4 y_4 \end{pmatrix}$
+\end{itemize}
+Con queste operazioni $Mat_{2 \times 2}(K)$ è un anello con unità
+$\begin{pmatrix} 1_k & 0 \\ 0 & 1_k \end{pmatrix}$.
+
+Il prodotto così definito richiede di eseguire 8 moltiplicazioni.
+
+Analogamente possiamo dotare $Mat_{n \times n}(K)$ di una struttura di anello.
+
+La moltiplicazione righe per colonne richiede l'esecuzione di $n^3$ moltiplicazioni.
+
+\begin{example}
+    In $Mat_{3 \times 3}(\mathbb{F}_2)$ abbiamo
+    \begin{equation*}
+        \begin{pmatrix}
+            1 & 1 & 1 \\
+            0 & 1 & 1 \\
+            1 & 0 & 1
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            1 & 1 & 0 \\
+            1 & 1 & 1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 0 & 1 \\
+            0 & 0 & 1 \\
+            1 & 1 & 1
+        \end{pmatrix}
+    \end{equation*}
+\end{example}
+
+\begin{definition}[Algorimo di Strassen per il prodotto di matrici 2 x 2]
+    Sia
+    \begin{equation*}
+        A = \begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix} \quad \text{e} \quad B = \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix} \quad \text{e} \quad AB = \begin{pmatrix} z_1 & z_2 \\ z_3 & z_4 \end{pmatrix}
+    \end{equation*}
+    Definiamo
+    \begin{align*}
+        \RomanNumber 1 & := (x_1 + x_4)(y_1 + y_4)  \\
+        \RomanNumber 2 & := (x_3 + x_4)y_1          \\
+        \RomanNumber 3 & := x_1(y_2 + y_4)          \\
+        \RomanNumber 4 & := x_4(-y_1 + y_3)         \\
+        \RomanNumber 5 & := (x_1 + x_2)y_4          \\
+        \RomanNumber 6 & := (-x_1 + x_3)(y_1 + y_2) \\
+        \RomanNumber 7 & := (x_2 - x_4)(y_3 + y_4)
+    \end{align*}
+    Allora
+    \begin{align*}
+        z_1 & = \RomanNumber 1 + \RomanNumber 4 - \RomanNumber 5 + \RomanNumber 7 \\
+        z_2 & = \RomanNumber 3 + \RomanNumber 5                                   \\
+        z_3 & = \RomanNumber 2 + \RomanNumber 4                                   \\
+        z_4 & = \RomanNumber 1 + \RomanNumber 3 - \RomanNumber 2 + \RomanNumber 6
+    \end{align*}
+\end{definition}
+
+\begin{example}
+    In $Mat_{2 \times 2}(\mathbb{F}_2)$ siano
+    \begin{equation*}
+        A = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} \quad \text{e} \quad B = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}
+    \end{equation*}
+    Allora
+    \begin{equation*}
+        \RomanNumber 1 := 0, \;
+        \RomanNumber 2 := 0, \;
+        \RomanNumber 3 := 1, \;
+        \RomanNumber 4 := 0, \;
+        \RomanNumber 5  := 0, \;
+        \RomanNumber 6  := 0, \;
+        \RomanNumber 7  := 0
+    \end{equation*}
+    Quindi
+    \begin{equation*}
+        AB = \begin{pmatrix} \RomanNumber 1 + \RomanNumber 4 - \RomanNumber 5 + \RomanNumber 7 & \RomanNumber 3 + \RomanNumber 5 \\ \RomanNumber 2 + \RomanNumber 5 & \RomanNumber 1 + \RomanNumber 3 - \RomanNumber 2 + \RomanNumber 6 \end{pmatrix} =
+        \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}
+    \end{equation*}
+\end{example}
+
+Nell'algoritmo di Strassen per matrici 2 x 2 si eseguono 7 moltiplicazioni.
+
+L'algoritmo può anche essere usato ricorsivamente per moltiplicare matici più grandi. Ad esempio, se $M, N \in Mat_{4 \times 4}(K)$, possiamo scrivere:
+\begin{equation*}
+    M = \begin{pmatrix} A & B \\ C & D \end{pmatrix} \quad \text{e} \quad N = \begin{pmatrix} A' & B' \\ C' & D' \end{pmatrix} \qquad
+    \text{dove} \quad A, B, C, D, A', B', C', D' \in Mat_{2 \times 2}(K)
+\end{equation*}
+poiche $MN = \begin{pmatrix} AA' + BC' & AB' + BD' \\ CA' + DC' & CB' + DD' \end{pmatrix}$
+Possiamo usare l'algoritmo in due passi.
+
+Primo passo:
+\begin{align*}
+    \RomanNumber 1 & := (A + D)(A' + D')  \\
+    \RomanNumber 2 & := (C + D) A'        \\
+    \RomanNumber 3 & := A(B' + D')        \\
+    \RomanNumber 4 & := D(-A' + C')       \\
+    \RomanNumber 5 & := (A + B)D'         \\
+    \RomanNumber 6 & := (-A + C)(A' + B') \\
+    \RomanNumber 7 & := (B - D)(C' + D')
+\end{align*}
+E quindi
+\begin{equation*}
+    MN = \begin{pmatrix}
+        \RomanNumber 1 + \RomanNumber 4 - \RomanNumber 5 + \RomanNumber 7 & \RomanNumber 2 + \RomanNumber 5                                   \\
+        \RomanNumber 3 + \RomanNumber 4                                   & \RomanNumber 1 + \RomanNumber 3 - \RomanNumber 2 + \RomanNumber 6
+    \end{pmatrix}
+\end{equation*}
+Secondo passo: calcoliamo il prodotto in $\RomanNumber 1, \RomanNumber 2, \RomanNumber 3, \ldots , \RomanNumber 7$ con l'algoritmo di Strassen.
+
+Quindi l'algoritmo di Strassen per il prodotto tra due matrici 4 x 4 richiede $7^2$ moltiplicazioni.
+
+Se vogliamo moltiplicare matrici 3 x 3 possiamo aggiungerre una riga e una colonna di zeri e considerarle 4 x 4.
+
+In generale la moltiplicazione di due matrici n x n usando l'algoritmo di Strassen richiede $7^k$ moltiplicazioni. Se $n = 2^k$ abbiamo che:
+\begin{equation*}
+    7^k = 2^{\log_2 7^k}=2^{k \log_2 7} \approx 2^{2.81}
+\end{equation*}
+
+\begin{definition}[Esponente w della moltiplicazione di matrici]
+    \begin{equation*}
+        w := \inf \{ h \in \mathbb{R} : Mat_{n \times n}(K) \text{ può essere moltiplicato con } O(n^h) \text{ operazioni aritmetiche} \}
+    \end{equation*}
+\end{definition}
+
+L'algoritmo di Strassen mostra che $w \leq 2.81$.
+
+Se $n = 2$ l'algoritmo di Strassen è ottimale (dal Teorema di Brockett- Dobkin).
+
+Non è noto un algoritmo ottimale per la moltiplicazione matrici 3 x 3.
+
+Nel 2022 è stato pubblicato un algoritmo trovato da Alphatensor per matrici 4 x 4 su $\mathbb{F}_2$.
+
+che richiede l'esecuzione di 47 moltiplicazioni, l'algoritmo di Strassen ne richiederebbe 49.
+
+\end{document}

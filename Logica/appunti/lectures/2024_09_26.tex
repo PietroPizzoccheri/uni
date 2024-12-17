@@ -1,0 +1,158 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{remark}
+    Il nucleo di un morfismo di gruppi $f: G_1 \rightarrow G_2$ è il sottogruppo di $G_1$ definito come: $Ker(f):= \{x \in G_1 : f(x) = e_2\}$.
+    \textbf{Il nucleo è un sottogruppo di $G_1$}. e \textbf{$Im(f)$ è un sottogruppo di $G_2$}.
+\end{remark}
+
+\begin{definition}[Isomorfismo]
+    Un \textbf{isomorfismo di monoidi (e di gruppi)} è un morfismo biunivoco, tale che la funzione inversa sia un morfismo.
+\end{definition}
+
+\begin{proposition}
+    Sia $f: M_1 \rightarrow M_2$ un morfismo di monoidi. Se $f$ è biunivoco, allora è un isomorfismo. Questo vale anche per i gruppi.
+\end{proposition}
+
+\begin{proof}
+    Dobbiamo far vedere che la funzione inversa $f^{-1} : M_2 \rightarrow M_2$ è un morfismo di monoidi.
+
+    Poiché $f(e_1) = e_2$, allora $f^{-1}(e_2) = e_1$.
+    Siano $x_2,y_2 \in M_2$, allora esistono $x_1,y_1 \in M_1$ tali che $f(x_1)= x_2 , f(y_1)=y_2$.
+    Quindi $f^{-1} (f(x_1)f(y_1)) = f^{-1}(f(x_1 y_1)) = x_1 y_1 = f^{-1}(x_2) f^{-1}(y_2)$
+\end{proof}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item Siano $M_1 = (\mathcal{P}(X), \cup) \text{ e } M_2 = (\mathcal{P}(X), \cup), \text{ dove } X$
+              è un insieme. Sia $f : M_1 \rightarrow M_2$ definita ponendo $f(A) = A^C , \forall A \subseteq X$.
+              la funzione $f$ è biunivoca. Inotre, dalle formule di De Morgan segue che $f(A \cap B) =
+                  (A \cap B)^C = A^C \cup B^C = f(A) \cup f(B)$. Quindi $f$ è un isomorfismo di monoidi, poiché
+              $f(X) = X^C = \varnothing$, essendo $X$ l'identità di $M_1$ e $\varnothing$ l'identità di $M_2$.
+        \item Sia $\mathbb{Z}_2 := \{0,1\}$ con l'operazione definita come: $0+0=0, 0+1=1+0=1, 1+1=0$.
+              Sia $X := \{1,2,\ldots,n\}, n \in \mathbb{N}$. La funzione $f: \mathcal{P}(X) \rightarrow
+                  \mathbb{Z}_2 \times \ldots \times \mathbb{Z}_2$ (n volte) definita da: $f(A) = (a_1,a_2,\ldots,a_n)$,
+              dove $a_i = 1$ se $i \in A$ e $a_i = 0$ se $i \notin A$. \newline è un isomorfismo del gruppo
+              $(\mathcal{P}(X), \Delta)$ con il gruppo $\mathcal{P}(X) \rightarrow \mathbb{Z}_2 \times \ldots
+                  \times \mathbb{Z}_2 = (\mathbb{Z}_2)^n$
+    \end{itemize}
+\end{example}
+
+\textbf{Vediamo ora come ogni monoide finito è isomorfo a un monoide di matrici quadrate, dove l'operazione
+    è il prodotto righe per colonne.}
+
+Sia $M=\{x_1,\ldots,x_n\}$ un monoide, $\abs{M} = n \in \mathbb{N}$, con identità $e = x_1$.
+
+Per ogni $x \in M$ definiamo una matrice $A(x) \in Mat_{n \times n}(\mathbb{Z})$ nel seguente modo:
+\begin{itemize}
+    \item $A(x)_{ij} = 1$ se $x_i \cdot x = x_j$
+    \item $A(x)_{ij} = 0$ altrimenti.
+\end{itemize}
+La funzione $F : M \rightarrow Mat_{n \times n} (\mathbb{Z})$ ($x \mapsto A(x)$) è iniettiva.
+
+Infatti, se $A(x) = a(y)$, allora $A(x)_{i1} = A(y)_{i1} \; \forall i \in \{1,\ldots,n\}$.
+
+Quindi se $A(x)_{i1} = A(y)_{i1} = 1$, allora $xx_1 = xe = x = yx_1 = y$.
+
+Risulta inoltre facile vedere che $A(xy) = A(x)A(y)$ (prodotto righe per colonne), ossia che $F$ è un morfismo di monoidi ($Mat_{n \times n}(\mathbb{Z})$ è un monoide con l'operazione di prodotto righe per colonne, la cui identità è la matrice $I_n$).
+
+Quindi $F: M \rightarrow Im(F)$ è un isomorfismo di monoidi.
+
+\begin{example}
+    Sia $M = (\mathbb{Z}_2, \cdot)$ il monoide definito da:
+    \vspace*{0.5em}
+    \begin{center}
+        \begin{tabular}{c|c|c}
+            $\cdot$ & $0$ & $1$ \\
+            \hline
+            $0$     & $0$ & $0$ \\
+            \hline
+            $1$     & $0$ & $1$ \\
+        \end{tabular}
+    \end{center}
+    \vspace*{0.5em}
+    Costruiamo un sottomonoide di $\text{Mat}_{4 \times 4}(\mathbb{Z})$ isomorfo a $M \times M = \{(0,0), (0,1), (1,0), (1,1)\}$.
+    \vspace*{1em}
+    \begin{center}
+        $(0,0) \mapsto
+            \begin{bmatrix}
+                1 & 1 & 1 & 1 \\
+                0 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0
+            \end{bmatrix}$
+        $(0,1) \mapsto \begin{bmatrix}
+                1 & 0 & 1 & 0 \\
+                0 & 1 & 0 & 1 \\
+                0 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0
+            \end{bmatrix}$
+        $(1,0) \mapsto \begin{bmatrix}
+                1 & 1 & 0 & 0 \\
+                0 & 0 & 0 & 0 \\
+                0 & 0 & 1 & 1 \\
+                0 & 0 & 0 & 0
+            \end{bmatrix}$
+        $(1,1) \mapsto \begin{bmatrix}
+                1 & 0 & 0 & 0 \\
+                0 & 1 & 0 & 0 \\
+                0 & 0 & 1 & 0 \\
+                0 & 0 & 0 & 1
+            \end{bmatrix}$
+    \end{center}
+    \vspace*{1em}
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c}
+            $\cdot$ & $(0,0)$ & $(0,1)$ & $(1,0)$ & $(1,1)$ \\ \hline
+            $(0,0)$ & $(0,0)$ & $(0,0)$ & $(0,0)$ & $(0,0)$ \\ \hline
+            $(0,1)$ & $(0,0)$ & $(0,1)$ & $(0,0)$ & $(0,1)$ \\ \hline
+            $(1,0)$ & $(0,0)$ & $(0,0)$ & $(1,0)$ & $(1,0)$ \\ \hline
+            $(1,1)$ & $(0,0)$ & $(0,1)$ & $(1,0)$ & $(1,1)$ \\
+        \end{tabular}
+    \end{center}
+    \vspace*{1em}
+    Si può verificare direttamente che le matrici hanno la stessa tabella moltiplicativa.
+\end{example}
+
+Abbiamo quindi visto che un monoide finito di cardinalità $n$ è isomorfo a un monoide di matrici $n \times n$ le cui colonne hanno un unico "$1$" e altrove sono "$0$".
+
+Ognuna di queste matrici può essere vista come una funzione da $X = \{1,\ldots,n\} \in X$:
+\begin{gather*}
+    A_{ij} = 1 \iff f(j) = i\\
+    A_{ij} = 0 \iff f(j) \neq i
+\end{gather*}
+Il prodotto righe per colonne corrisponde alla composizione di funzioni.
+
+Quindi un monoide finito di cardinalità $n$ è isomorfo a un sottomonide del monoide delle funzioni $f$ da $\{1,\ldots,n\}$ in $\{1,\ldots,n\}$ con l'operazione di composizione.
+
+Notiamo che un elemento $x \in M$ di un monoide finito M è invertibile se e solo se la matrice associata è invertibile (una matrice $A \in Mat_{n \times n} (\mathbb{Z})$ è invertibile se e solo se il suo determinante è invertibile su $\mathbb{Z}$, ossia se e solo se $det(a) \in \{-1,1\}$).
+
+Da ciò segue che un gruppo finito $G$ di cardinalità $|G|=n$, è isomorfo a un gruppo di matrici le cui componenti sono "$0$" e "$1$" e che hanno un unico "$1$" in ogni riga e ogni colonna (matrici di permutazioni).
+
+Il gruppo $G$ è inoltre isomorfo a un sottogruppo del gruppo delle funzioni biunivoche da $\{1,\ldots,n\}$ in $\{1,\ldots,n\}$, che abbiamo chiamato \textbf{gruppo simmetrico $S_n$}.
+
+Gli elementi di $S_n$ in notazione a una linea sono indicati nel modo seguente: sia $\sigma \in S_n$ una funzione biunivoca da $\{1,\ldots,n\}$ in $\{1,\ldots,n\}$, allora $\sigma$ è indicata come $\sigma(1)\sigma(2)\ldots\sigma(n)$.
+
+\begin{theorem}[Teorema di Cayley]
+    Ogni sottogruppo finito di cardinalità $n \in \mathbb{N} \backslash \{0\}$ è isomorfo a un sottogruppo di $S_n$
+\end{theorem}
+
+\begin{example}
+    \
+    \begin{itemize}
+        \item $S_2 = \{12,21\}, S_3 = \{123,132,213,231,312,321\}$
+        \item vediamo il gruppo $(\mathbb{Z}_2,+)$ come gruppo di matrici e come gruppo di permutazioni.
+
+              \begin{equation*}
+                  (\mathbb{Z}_2, +) \simeq \left\{\begin{bmatrix}
+                      1 & 0 \\
+                      0 & 1
+                  \end{bmatrix}, \begin{bmatrix}
+                      0 & 1 \\
+                      1 & 0
+                  \end{bmatrix}\right\} \underbrace{\simeq}_{\text{Isomorfismo di gruppi}} \left\{12,21\right\} = S_2
+              \end{equation*}
+    \end{itemize}
+\end{example}
+\end{document}

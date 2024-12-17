@@ -1,0 +1,232 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{example}
+    Siano $(\mathbb{N}, R_1)$ e $(\mathbb{N}, R_2)$ i frame tali che
+    \begin{equation*}
+        R_1 = R_2 = \{(x,y) \in \mathbb{N} \times \mathbb{N} : x \text{ divide } y\}
+    \end{equation*}
+    Allora la funzione
+    \begin{align*}
+        f : \; \mathbb{N} & \rightarrow \mathbb{N} \\
+        n                 & \mapsto n+1
+    \end{align*}
+    non è un morfismo di frame.
+\end{example}
+\begin{definition}[Morfismo di modelli]
+    siano $M_1 = (S_1, R_1, V_1)$ e $M_2 = (S_2, R_2, V_2)$ due modelli.
+
+    Un morfismo di frame $f: (S_1, R_1) \rightarrow (S_2, R_2)$ è un \textbf{morfismo di modelli} se:
+    \begin{enumerate}
+        \item $w \in V_1(x) \iff f(w) \in V_2(x)$ $\forall w \in S_1, x \in Var$
+        \item $(f(w),y) \in R_2 \implies \exists v \in S_1 t.c. (w,v) \in R_1, f(v) = y$ $\forall w \in S_1, y \in S_2$
+    \end{enumerate}
+\end{definition}
+\begin{note}
+    I morfismi di modelli sono solitamente detti \textbf{p-morfismi}.
+\end{note}
+\begin{example}
+    Siano $M_1 = (\mathbb{N}, R_1, V_1)$ e $M_2 = (\{0,1\}, \{0,1\} \times \{0,1\}, V_2)$ dove $R_1 = \{(x,y) \in \mathbb{N} \times \mathbb{N} : x \leq y\}$, $Var = \{x\}$ e $V_1(x)= \{2n : n \in \mathbb{N}\}, V_2(x) = \{0\}$. Sia
+    \begin{align*}
+        f : \; \mathbb{N} & \rightarrow \{0,1\} \\
+        n                 & \mapsto n \bmod 2
+    \end{align*}
+    Allora $f$ è un morfismo di modelli, infatti:
+    \begin{enumerate}
+        \item $x \leq y \implies (x \bmod 2, y \bmod 2) \in \{0,1\} \times \{0,1\}$
+        \item $w \in V_1(x) \iff w \in \{2n: n \in \mathbb{N}\}$; allora $w \in V_1(x) \implies f(w) = 0$.
+
+              $f(w) \in V_2(x) \iff f(w) = 0 $; allora $f(w) \in V_2(x) \implies w \in V_1(x)$
+        \item $(f(w),y) \in R_2 = \{0,1\} \times \{0,1\}$:
+              \begin{enumerate}
+                  \item $f(w) = 0$: se $y=0$ allora $w \leq w$ e $f(w) = 0 = y$.
+
+                        Se $y=1$ allora $w \leq w+1$ e $f(w+1) = 1 = y$.
+                  \item $f(w) = 1$: se $y=0$ allora $w \leq w + 1$ e $f(w + 1) = 0 = y$.
+
+                        Se $y=1$ allora $w \leq w$ e $f(w) = 1 = y$.
+              \end{enumerate}
+    \end{enumerate}
+\end{example}
+\begin{lemma}[Lemma 1]
+    Sia $f: (S_1, R_1, V_1) \rightarrow (S_2, R_2, V_2)$ un morfismo dal modello $M_1$ al modello $M_2$. Allora
+    \begin{equation*}
+        M_1 \vDash_w F \iff M_2 \vDash_{f(x)} F
+    \end{equation*}
+    $\forall w \in S_1$ e ogni formula $F$
+\end{lemma}
+\begin{proof}
+    Se $F$ è una variabile allora $M_1 \vDash_w F \text{ se e solo se } w \in V_1(F) \text{se e solo se } f(w) \in V_2(F)$ (per il punto 1 nella definizone di morfismo di modelli) se e solo se $M_2 \vDash_{f(w)} F$.
+
+    Per tutti gli altri tipi di formule, si dimostra induttivamente sulla costruzione della formula.
+
+    Vediamo dsolo il caso in cui $F = \Diamond G$.
+
+    Sia $M_1 \vDash_w \Diamond G$, allora esiste $v \in S_1$ t.c. $(w,v) \in R_1$ e $M_1 \vDash_v G$.
+
+    Poiché $(f(w),f(v)) \in R_2$ perchè $f$ è un morfismo di modelli e induttivamente $M_2 \vDash_{f(v)} G$, allora $M_2 \vDash_{f(w)} \Diamond G$.
+
+    Sia ora $M_2 \vDash_{f(w)} \Diamond G$, allora esiste $u \in R_2$ t.c. $(f(w),u) \in R_2$ e $M_2 \vDash_u G$.
+
+    Per la condizione 2 nella definizione di morfismo di modelli, esiste $v \in S_1$ t.c. $(w,v) \in R_1$ e $f(v) = u$.
+
+    Per ipotesi induttiva $M_1 \vDash_v G$, e quindi $M_1 \vDash_w \Diamond G$.
+\end{proof}
+\begin{lemma}[Lemma 2]
+    Sia $f: (S_1,R_1,V_1) \rightarrow (S_2,R_2,V_2)$ un morfismo dal modello $M_1$ al modello $M_2$. se $f$ è suriettiva, allora
+    \begin{equation*}
+        M_1 \vDash F \text{ se e solo se } M_2 \vDash F
+    \end{equation*}
+    per ogni formula $F$.
+\end{lemma}
+\begin{proof}
+    $M_1 \vDash F$ se e solo se $M_1 \vDash_w F, \forall w \in S_1$.
+
+    Se e solo se $M_2 \vDash_{f(w)} F, \forall w \in S_1$ (per il lemma 1).
+
+    Se e solo se $M_2 \vDash F$, perchè $f$ è suriettivo.
+\end{proof}
+\begin{lemma}[Lemma 3]
+    Sia $M_2$ un modello su $S_2, R_2$ e $f: (s_1,R_1) \rightarrow (S_2, R_2)$ un morfismo di frame tale che valga la condizione 2 della definizione di morfismo di modelli.
+
+    Allora esiste un modello $M_1$ su $S_1, R_1$ tale che $f: M_1 \rightarrow M_2$ è un morfismo di modelli.
+\end{lemma}
+\begin{proof}
+    Basta definire $M_1 = (S_1, R_1, V_1)$ con $V_1(x) = \{ w \in S_1 : M_2 \vDash_{f(w)} x\} \forall x \in Var$.
+\end{proof}
+\begin{lemma}[Lemma 4]
+    Sia $f: (S_1, R_1) \rightarrow (S_2, R_2)$ un morfismo di frame tale che valga la condizione 2 della definizione di morfismo di modelli.
+
+    Se $f$ è suriettivo, si ha $(S_1, R_1) \vDash F \implies (S_2, R_2) \vDash F$, per ogni formula $F$.
+\end{lemma}
+\begin{proof}
+    Sia $S_2, R_2 \nvDash F$. Allora esiste un modello $M_2$ su $(S_2, R_2)$ tale che $M_2 \nvDash F$. Per il lemma 3 esiste un modello $M_1$ su $(S_1, R_1)$ tale che $f: M_1 \rightarrow M_2$ è un morfismo di modelli.
+
+    Dato che $f$ è suriettivo, per il lemma 2 si ha $M_1 \nvDash F$, ossia $(S_1, R_1) \nvDash F$.
+\end{proof}
+\begin{definition}[Relazione antisimmetria]
+    Una relazione $R$ su un insieme $X$ si dice \textbf{antisimmetrica} se
+    \begin{equation*}
+        (x,y) \in R, (y,x) \in R \implies x = y \qquad \forall x,y \in X
+    \end{equation*}
+\end{definition}
+\begin{example}
+    L'ordinamento $\leq$ dei numeri naturali è una relazione antisimmetrica su $\mathbb{N}$.
+\end{example}
+\begin{example}
+    La relazione $x \mid y$ su $\mathbb{N}$ è antisimmetrica.
+\end{example}
+\begin{example}
+    La relazione $A \subseteq B$ su $\mathcal{P}(X)$ di un insieme $X$ è antisimmetrica.
+\end{example}
+\begin{theorem}
+    L'antisimmetria non è esprimibile, ossia non esiste una formula $F$ tale che $(S,R) \vDash F$ se e solo se $R$ è antisimmetrica.
+\end{theorem}
+\begin{proof}
+    Sia $(S_1,R_1) = (\mathbb{N},\leq)$ e $(S_2, R_2) = (\{0,1\}, \{0,1\} \times \{0,1\})$.
+
+    Nell'esempio di morfismo di modelli abbiamo visto che la funzione
+    \begin{align*}
+        f: \; \mathbb{N} & \rightarrow \{0,1\} \\
+        n                & \mapsto n \bmod 2
+    \end{align*}
+    è un morfismo dal frame $(\mathbb{N},\leq)$ al frame $(\{0,1\}, \{0,1\} \times \{0,1\})$ che soffisfa la condizione 2 della definizione di morfismo di modelli.
+
+    La relazione $\leq$ su $\mathbb{N}$ è antisimmetrica.
+
+    Supponiamo per assurdo che esista una formula $F$ come nell'enunciato del teorema. Allora:
+    \begin{equation*}
+        (\mathbb{N},\leq) \vDash F
+    \end{equation*}
+    Per il lemma 4 si ha che $(\{0,1\}, \{0,1\} \times \{0,1\}) \vDash F$.
+
+    Da cui seguirebbe che $R_2$ è antisimmetrica, il che è falso.
+\end{proof}
+
+\section{Logiche Modali Normali}
+Abbiamo già mostrato che lo schema di formule
+\begin{equation*}
+    K: \Box (A \implies B) \implies (\Box A \implies \Box B)
+\end{equation*}
+è valido, $\vDash K$.
+
+Adesso viediamo che lo schema di formule
+\begin{equation*}
+    def_\Diamond : \Diamond A \iff \neg \Box \neg A
+\end{equation*}
+è valido, $\vDash def_\Diamond$.
+
+\begin{proof}
+    Sia $(S,R)$ un frame, $M$ un modello su $(S,R)$ e $w \in S$.
+
+    Allora $M \vDash_w \Diamond A$ se e solo se esiste $v \in S t.c. (w,v) \in R$ e $M \vDash_v A$.
+
+    $M \vDash_w \neg \Box \neg A$ se e solo se $M \nvDash_w \Box \neg A$, se e solo se esiste $v \in S t.c. (w,v) \in R$ e $M \nvDash_v \neg A$, se e solo se esite $v \in S t.c. (w,v) \in R$ e $M \vDash_v A$.
+
+    Abbiamo quindi dimostrato che $\vDash def_\Diamond$
+\end{proof}
+\begin{definition}[Sostituzione uniforme]
+    Sia $x$ una variabile e $F$ una formula. Definiamo l'operzione di sostituzione uniforme di $F$ al posto di $x$ in una formula $G$, indicato come
+    \begin{equation*}
+        G[F/x]
+    \end{equation*}
+    La formula ottenuta da $G$ dove ogni occorrenza di $x$ è stata sostituita con $F$.
+\end{definition}
+\begin{example}
+    Sia $G$ la formula $\Box x \implies x \land y$ e $F$ la formula $\Diamond y \iff \neg \Box \neg y$.
+
+    Allora $G[F/x] = \Box (\Diamond y \iff \neg \Box \neg y) \implies (\Diamond y \iff \neg \Box \neg y) \land y$
+\end{example}
+\begin{definition}[Logica Modale Normale]
+    Una \textbf{logica modale normale} è un insieme $\Gamma$ di formule tale che:
+    \begin{enumerate}
+        \item $\Gamma$ contiene tutte le tautologie della logica proposizionale
+        \item $\Gamma$ contiene tutte le istanze dello schema $K: \Box (A \implies B) \implies (\Box A \implies \Box B)$
+        \item $\Gamma$ contiene tutte le istanze dello schema $def_\Diamond : \Diamond A \iff \neg \Box \neg A$
+        \item $\Gamma$ è chiuso sotto \textbf{modus ponens} se $A \in \Gamma$ e $(A \implies B) \in \Gamma$, allora $B \in \Gamma$
+        \item $\Gamma$ è chiuso sotto \textbf{necessitazione} se $A \in \Gamma$, allora $\Box A \in \Gamma$
+        \item $\Gamma$ è chiuso sotto \textbf{sostituzione uniforme} se $A \in \Gamma$, allora $A[B/x] \in \Gamma$
+    \end{enumerate}
+\end{definition}
+\begin{example}
+    Se $(S,R)$ è un frame, $\{F: (S,R) \vDash F\}$ è una logica normale.
+\end{example}
+\begin{example}
+    $\{F: \; \vDash F\}$ è una logica normale.
+\end{example}
+\begin{example}
+    Se $M$ è un modello su un frame $(S,R)$, $\{F: \; M \vDash F\}$ NON è una logica normale.
+\end{example}
+\begin{definition}[Logica Modale K]
+    La \textbf{logica modale K} è definita dai seguenti schemi di assioni e regole:
+    \begin{enumerate}
+        \item Schemi di assiomi:
+              \begin{enumerate}
+                  \item Tutte le tautologie della logica proposizionale
+                  \item $K: \Box (A \implies B) \implies (\Box A \implies \Box B)$
+                  \item $def_\Diamond : \Diamond A \iff \neg \Box \neg A$
+              \end{enumerate}
+        \item Regole di inferenza:
+              \begin{enumerate}
+                  \item Modus ponens
+                  \item Necessitazione
+                  \item Sostituzione uniforme
+              \end{enumerate}
+    \end{enumerate}
+\end{definition}
+\begin{definition}[Dimostrazione in una logica modale]
+    Data una logica modale L una \textbf{dimostrazione in L} è una successione finita di formule tali che ognuna di esse o è un assioma o è ottenuta da formule precedenti tramite una regola di inferenza
+\end{definition}
+\begin{definition}[Teorema di una logica modale]
+    Una formula $F$ si dice \textbf{teorema di L}, scritto $\vdash_L F$ se e solo se esite una dimostrazione in $L$ in cui la ultima formula è $F$
+\end{definition}
+\begin{example}
+    $\Box (A \land B) \implies \Box A$ è un teorema della logica K:
+    \begin{enumerate}
+        \item $\vdash_K A \land B \implies A$ (Tautologia)
+        \item $\vdash_K \Box (A \land B \implies A)$ (Necessitazione)
+        \item $\vdash_K \Box (A \land B \implies A ) \implies (\Box (A \land B ) \implies \Box A)$ (K)
+        \item $\vdash_K \Box (A \land B ) \implies \Box A$ (Modus Ponens)
+    \end{enumerate}
+\end{example}
+\end{document}
