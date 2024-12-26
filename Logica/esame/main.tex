@@ -1,0 +1,1377 @@
+\documentclass[10pt,a4paper,twoside]{book}
+\usepackage[italian]{babel}
+
+\input{style.tex}
+
+\usepackage[
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=3cm,
+]{geometry}
+
+\usepackage{subfiles}
+\usepackage{nicefrac}
+\usepackage{tikz-cd}
+\usepackage{multicol}
+
+\newcommand{\RomanNumber}[1]{
+  \textup{\uppercase\expandafter{\romannumeral#1}}
+}
+
+\begin{document}
+
+\frontmatter
+
+\pagestyle{empty}
+
+% Title page
+\hypertarget{mytitlepage}{}
+\bookmark[dest=mytitlepage,level=chapter]{Title Page}
+
+\vspace*{\fill}
+\begin{center}
+
+    {\Huge
+        \textsc{Argomenti d'esame}}\\
+    \vspace*{0.3cm}
+    {\Huge
+        \textsc{Logica e Algebra 2 }}\\
+
+    \vspace*{1cm}
+
+
+    {\large Dagli appunti del professor Paolo Sentinelli}\\
+
+    \vspace*{1cm}
+
+    Autori\\
+    \vspace*{0.1cm}
+    \textsc{Pietro Pizzoccheri}\\
+    \textsc{Lorenzo Bardelli}\\
+
+    \vspace*{0.4cm}
+
+    Document formatting by\\
+    \vspace*{0.1cm}
+    \textsc{Luca Zani}\\
+
+    \vspace*{1cm}
+
+    Politecnico di Milano\\A.Y. 2024/2025
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+% Copyright
+\hypertarget{mycopyright}{}
+\bookmark[dest=mycopyright,level=chapter]{Copyright Page}
+\input{copyright.tex}
+\clearpage
+
+% Preface
+
+% \hypertarget{mypreface}{}
+% \bookmark[dest=mypreface,level=chapter]{Preface}
+% \input{firstpages/preface}
+% \clearpage
+
+% Contents
+\cleardoublepage
+\pagestyle{toc}
+\hypertarget{mytoc}{}
+\bookmark[dest=mytoc,level=chapter]{\contentsname}
+\tableofcontents
+\cleardoublepage
+
+\pagestyle{fancy}
+\mainmatter
+
+
+
+\chapter{Campi Finiti e Tensori}
+
+\section{I sottogruppi di un gruppo ciclico sono ciclici}
+
+\begin{theorem}[di struttura per i gruppi ciclici]
+    Sia $G$ un gruppo ciclico. Allora ogni sottogruppo di $G$ è ciclico.
+\end{theorem}
+
+\begin{proof}
+    Sia $g \in G$ tale che $g = \langle g \rangle$. La funzione $\varphi: (\mathbb{Z} , +) \rightarrow G$ definita da $\varphi(g) = g^n, \forall n \in \mathbb{Z}$ è un morfismo suriettivo di gruppi.
+    \begin{enumerate}[label=\alph*)]
+        \item G è infinito: allora $Ker(f) = \{0\}$ e quindi $\varphi$ è iniettivo. Dunque $\varphi$ è un
+              isomorfismo di gruppi. Tutti i sottogruppi di $\mathbb{Z} $ sono ciclici.
+        \item G è finito: sia $H \subseteq G$ un sottogruppo. Allora $\varphi^{-1}(H) := \{n \in \mathbb{Z} : \varphi(n) \in H\} \subseteq \mathbb{Z} $ è un sottogruppo di $\mathbb{Z} $, quindi esiste $\varphi^{-1}(H)= \langle k \rangle$ con $k \in \mathbb{N} $.
+
+              La restrizione $\varphi: k \mathbb{Z} \rightarrow H$ è un morfismo suriettivo di gruppi e
+              \begin{equation*}
+                  \varphi(hk) = \varphi(\underbrace{k+k+\ldots+k}_{h \text{ volte}}) = \varphi(k) \varphi(k) \ldots \varphi(k) = [\varphi(k)]^h \qquad \forall h \in \mathbb{Z}
+              \end{equation*}
+              Quindi $H = \langle \varphi(k) \rangle$.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section{Un anello è un campo se e solo se i suoi ideali sono banali}
+\begin{proposition}
+    Sia $A$ un anello commutativo e $I \subseteq A$ un ideale. Allora:
+    \begin{itemize}
+        \item $I = A$ se e solo se $I$ contiene un elemento invertibile
+        \item $A$ è un campo sse i suoi unici ideali sono $\langle 0 \rangle$ e $A = \langle 1_A \rangle$
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}
+    \
+    \begin{itemize}
+        \item se $I = A$ allora $1_A \in I$ e $1_A$ è invertibile.
+
+              Sia $u \cap I$ un elemento invertibile.
+
+              Allora $u^{-1} \cap A$ e quindi $1_A u u^{-1} \in I$.
+
+              Ne segue che $A = \langle 1_A \rangle \subseteq I$. e quindi $I = A$.
+        \item Sia $A$ un campo e sia $I \neq \langle 0 \rangle$. se $ n \in I$ e $x \neq 0$ allora $x$ è invertibile e quindi $I = A$
+              per il punto sopra.
+
+              Viceversa, se $\langle 0 \rangle$ e $A$ sono gli unici ideali di $A$,
+              e se $x \in A  \backslash \{0\}$, allora $\langle X \rangle = \langle 1_A \rangle$, ossia $ax = 1_A$ per qualche $a \in A$. Quindi $x$ è invertibile.
+    \end{itemize}
+\end{proof}
+\newpage
+
+
+\section{Teorema di isomorfismo per anelli commutativi}
+
+\begin{theorem}[di isomorfismo per gruppi abeliani]
+    Sia $f: G_1 \rightarrow G_2$ un morfismo di gruppi abeliani. Allora esiste un morfismo iniettivo $\varphi : \nicefrac{G_1}{Ker \varphi} \rightarrow G_2$ tale che il seguente diagramma è commutativo:
+    \begin{equation*}
+        \begin{tikzcd}
+            G_1 \arrow[r, "f"] \arrow[d, "\pi"'] & G_2 \\
+            \nicefrac{G_1}{Ker(f)} \arrow[ru, "\varphi"']
+        \end{tikzcd}
+    \end{equation*}
+    In particolare, $\nicefrac{G_1}{Ker(f)} \simeq \Im(f)$.
+\end{theorem}
+
+\begin{proof}
+    L'assegnazione $[g] \mapsto f(g), \forall g \in  G$, definisce una funzione $\varphi : \nicefrac{G_1}{Ker(f)}
+        \rightarrow G_2$.\\
+    Infatti, se $g' \sim g$, ossia $[g]  = [g']$, allora $g = g' + h , h \in Ker(f)$.
+
+    Dunque $f(g) = f(g' + h) = f(g') + f(h) = f(g')$. Poiché $f$ è morfismo di gruppi, anche $\varphi$ lo è.
+
+    Inoltre $Ker(f) = \{[g] \in \nicefrac{G}{Ker(f)} : \varphi([g]) = O_2\}=\{[g] \in  \nicefrac{G}{Ker(f)} : f(g) = O_2\} = {[O_1]}$. Quindi $\varphi$ è iniettiva.
+
+    Infine, $ \varphi : \nicefrac{G_1}{Ker(f)} \rightarrow Im(f)$ è un morfismo di gruppi, iniettivo e suriettivo, quindi un isomorfismo.
+\end{proof}
+
+\begin{theorem}[di isomorfismo per anelli commutativi]
+    Sia $f : A \rightarrow B$ un morfismo di anelli commutativi. Allora esiste un morfismo iniettivo di anelli $\Psi : \nicefrac{A}{Ker(f)} \rightarrow B$ tale che il seguente diagramma è commutativo:
+    \begin{equation*}
+        \begin{tikzcd}
+            A \arrow{r}{f} \arrow[swap]{d}{\pi} & B \\
+            \nicefrac{A}{Ker(f)} \arrow[swap]{ur}{\Psi}
+        \end{tikzcd}
+    \end{equation*}
+    in particolare, se $f$ è suriettivo, allora $\Psi$ è un isomorfismo di anelli.
+\end{theorem}
+\newpage
+
+\section{Insieme degli ideali dell’anello \( \mathbb{Z} \) e dell'anello \( \mathbb{Z}_n \)}
+
+\begin{proposition}
+    L'insieme dei sottogruppi di $(\mathbb{Z} ,+)$ è $\{n \mathbb{Z} : n \in \mathbb{N} \} $.
+\end{proposition}
+
+\begin{proof}
+    Sia $H \subseteq \mathbb{Z} $ un sottogruppo non banale. Sia $k := min (H_{>0})$ dove $H_{>0} := \{h \in H : h > 0\}$. Sia $h \in H_{>0}, h \neq k$.
+
+    Allora $h > k$ e $h = nk + r$, $n \in \mathbb{N} , 0 \leq r <k$.
+
+    Dunque $r = h - nk \in H \rightarrow r =0$ per la minimalità di $k$.
+\end{proof}
+
+\begin{corollary}
+    L'insieme dei sottogruppi di $\mathbb{Z}_n , n \in \mathbb{N} $ è:
+    \begin{equation*}
+        \{\langle \overline{m} \rangle : \overline{m} \in \mathbb{Z}_n \}
+    \end{equation*}
+\end{corollary}
+
+\begin{example}
+    Abbiamo già visto che ogni sottogruppo di $(\mathbb{Z} , +)$ è del tipo $n \mathbb{Z} = \{kn : k \in \mathbb{Z} \}$, dove $n \in \mathbb{N}$.
+
+    Inoltre, se $a \in \mathbb{Z} $ e $x \in n\mathbb{Z} $, ossia $x=kn$ per qualche $k \in \mathbb{Z} $, si ha che $ax=akn \in n \mathbb{Z} $.
+
+    Quindi $n \mathbb{Z} $ è un ideale di $\mathbb{Z}, \forall n \in \mathbb{N}  $, e tutti gli ideali di $\mathbb{Z} $ sono di questo tipo.
+\end{example}
+
+\newpage
+
+\section{Teorema cinese dei resti}
+\begin{theorem}[Teorema cinese dei resti]
+    siano $n_1,n_2,\ldots,n_k \in \mathbb{N} \setminus \{0,1\}$ tali che $MCD \{n_i,n_j\} = 1$ per ogni $1 \leq i,j \leq k, i \neq j$.
+
+    Sia $n := n_1 \cdot n_2 \cdot \ldots \cdot n_k$.
+
+    Allora la funzione
+    \begin{equation*}
+        \Psi : \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \ldots \times \mathbb{Z}_{n_k}
+    \end{equation*}
+    che mappa
+    \begin{equation*}
+        x \bmod n \mapsto (x \bmod n_1, x \bmod n_2, \ldots, x \bmod n_k)
+    \end{equation*}
+    è un isomorfismo di anelli.
+\end{theorem}
+
+\begin{proof}
+    vediamo prima di tutto che $\Psi$ è un morfismo di anelli dove $f: \mathbb{Z} \rightarrow \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \ldots \times \mathbb{Z}_{n_k} $ è definita da $f(x) = (x \bmod n_1, x \bmod n_2, \ldots, x \bmod n_k) \forall x \in \mathbb{Z}$.
+    \begin{itemize}
+        \item \begin{flalign*}
+                  f(a+b) & = ((a+b) \bmod n_1, \ldots , (a+b) \bmod n_k)                               &  & \\
+                         & = (a \bmod n_1 + b \bmod n_1, \ldots , a \bmod n_k + b \bmod n_k)           &  & \\
+                         & = (a \bmod n_1, \ldots , a \bmod n_k) + (b \bmod n_1, \ldots , b \bmod n_k) &  & \\
+                         & = f(a) + f(b), \forall a,b \in \mathbb{Z}
+              \end{flalign*}
+        \item $f(1) = (1 \bmod n_1, \ldots , 1 \bmod n_k)$ e $(1 \bmod n_1, \ldots , 1 \bmod n_k)$ è l'unità del prodotto diretto di anelli $\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \ldots \times \mathbb{Z}_{n_k}$
+        \item \begin{flalign*}
+                  f(a \cdot b) & = ((a \cdot b) \bmod n_1, \ldots , (a \cdot b) \bmod n_k)                       &  & \\
+                               & = (a \bmod n_1 \cdot b \bmod n_1, \ldots , a \bmod n_k \cdot b \bmod n_k)       &  & \\
+                               & = (a \bmod n_1, \ldots , a \bmod n_k) \cdot (b \bmod n_1, \ldots , b \bmod n_k) &  & \\
+                               & = f(a) \cdot f(b), \forall a,b \in \mathbb{Z}
+              \end{flalign*}
+    \end{itemize}
+    Ora mostriamo che $f$ è suriettivo:
+
+    sia $(a_1 \bmod n_1, \ldots , a_k \bmod n_k) \in \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \ldots \times \mathbb{Z}_{n_k}$.
+
+    Osserviamo che $MCD\{n_i,n_1 n_2 \ldots n_{i-1} n_{i+1} \ldots n_k\} = 1, \forall 1 \leq i \leq k$.
+
+    Quindi abbiamo le identità di Bézout: $c_i n_i + b_i \frac{n}{n_i} = 1$ ossia\\
+    $u_i + v_i = 1$ dove $u_i = c_i n_i \in <n_i>$ e $v_i = b_i \frac{n}{n_i} \in <\frac{n}{n_i}>$.
+
+    Definiamo $x := a_1 v_1 + \ldots + a_k v_k$ e abbiamo che $f(x) = (a_1 \bmod n_1, \ldots , a_k \bmod n_k)$. infatti:
+    \begin{equation*}
+        v_i \bmod n_j =
+        \begin{cases}
+            0 & \text{se } i \neq j \\
+            1 & \text{se } i = j
+        \end{cases}\\
+    \end{equation*}
+    dal teorema di isomorfismo abbiamo che $\nicefrac{\mathbb{Z}}{Ker(f)} \simeq \mathbb{Z}_{n_1} \times \ldots \times \mathbb{Z}_{n_k} $ come anelli. ma abbiamo che $Ker(f) = <n_1> \cap <n_2> \cap \ldots \cap <n_k> = <mcm\{n_1 ,\ldots, n_k\}> = <n_1 n_2 \ldots n_k>$ dato che $n_i$ e $n_j$ sono coprimi $\forall i \neq j$.
+
+    Quindi $\nicefrac{\mathbb{Z}}{Ker(f)} = \nicefrac{\mathbb{Z}}{<n>} = \mathbb{Z}_n $ e l'isomorfismo $\Psi: \mathbb{Z}_n \rightarrow \mathbb{Z}_{n_1} \times \ldots \times \mathbb{Z}_{n_k}$ è quello dell'enunciato del teorema.
+\end{proof}
+\newpage
+
+\section{Costruzione di un campo finito di cardinalità \(p^n\)}
+\begin{proposition}
+    sia $K$ un campo e $P(X) \in K[X]$ un poliniomio irriducibile. Allora l'anello quoziente $\nicefrac{K[X]}{\langle P(X)\rangle}$ è un campo.
+\end{proposition}
+\begin{proof}
+    Sia $[f] \in \nicefrac{K[X]}{\langle P(X)\rangle}$ tale che $[p] \neq [0]$ ossia $p(X)$ non divide $f(X)$.
+
+    Dunque $MCD\{f(X),p(X)\} = 1$ perchè $p(X)$ è irriducibile.
+
+    Quindi abbiamo un'identità di Bézout $a(X)f(X) + b(X)p(X) = 1$.
+
+    Ossia $[a(X)] = [f(X)]^{-1}$ in $\nicefrac{K[X]}{\langle P(X)\rangle}$.
+\end{proof}
+
+\begin{proposition}
+    Tutti e soli i polinomi irriducibili su $\mathbb{F}_p$ di grado $n$ dividono $X^{p^n} - X \in \mathbb{F}_p[X]$.
+\end{proposition}
+
+\begin{proof}
+    Sia $P(X) \in \mathbb{F}_p[X]$ irriducibile di grado n e sia $K := \nicefrac{\mathbb{F}_p[Y]}{\langle P(Y)\rangle}$.
+
+    Allora $K$ ha $p^n$ elementi che sono le radici di $X^{p^n} - X \in K[X]$.
+
+    Poichè $Y \in K$ è una radice $P(X) \in K[X]$, $P(X)$ e $X^{p^n} - X$ hanno una radice in comune in K, allora per il teorema di Ruffini hanno un fattore comune $X - Y \in K[X]$.
+
+    Quindi, poiché $\mathbb{F}_p \subseteq K$ e $MCD$ in $\mathbb{F}_p = MCD$ in $K[X] \implies P(X), X^{p^n} - X$ hanno $MCD \neq 1$ in $\mathbb{F}_p[X]$.
+
+    Poiché $P(X)$ è irriducibile in $\mathbb{F}_p[X]$, $P(X)$ divide $X^{p^n} - X$.
+\end{proof}
+
+Adesso vogliamo costruire un isomorfismo di campi
+\begin{equation*}
+    f: \nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle} \rightarrow \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}
+\end{equation*}
+Dove $P(X), Q(X) \in \mathbb{F}_p[X]$ sono monici irriducibili di grado $n$.
+
+Basta costruire un isomorfismo di anelli.
+
+Infatti un morfismo di anelli che sono campi è iniettivo. Inoltre:
+\begin{equation*}
+    |\nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle}| = |\nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}| = p^n
+\end{equation*}
+
+Quindi tale morfismo è biunivoco, ossia è isomorfismo.
+
+Si ha che, se $y \in \nicefrac{\mathbb{F}_p[Y]}{\langle P(Y)\rangle}$ allora $P(X) \in \mathbb{F}_p[X]$ è il polinomio minimo di $y$ su $\mathbb{F}_p$.
+
+Quindi, se $P(X)$ ha una radice in $\nicefrac{\mathbb{F}_p[Y]}{\langle Q(Y)\rangle}$, possiamo usare la proposizione sull'estensione di morfismi di campi per definire il morfismo f, che sarà un isomorfismo. Infatti $\mathbb{F}_p \subseteq \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}$.
+
+Inoltre $\nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle} = \mathbb{F}_p([X])$, dove $[X]$ è la classe di $X$ in $\nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle}$.
+
+Poiché $\nicefrac{\mathbb{F}_p[Y]}{\langle Q(Y)\rangle}$ è un campo di spezzamento di $X^{p^n} - X$ e $P(X)$ divide $X^{p^n} - X$, allora $P(X)$ si fattorizza in fattori di grado 1 in $\nicefrac{\mathbb{F}_p[Y]}{\langle Q(Y)\rangle}$.
+
+Sia $\beta \in \nicefrac{\mathbb{F}_p[Y]}{\langle Q(Y)\rangle}$ tale che $p(\beta)$ = 0.
+
+Allora l'assegnazione
+\begin{equation*}
+    c_0 + c_1 x + \ldots + c_{n-1} x^{n-1} \mapsto c_0 + c_1 \beta + \ldots + c_{n-1} \beta^{n-1}
+\end{equation*}
+definisce un morfismo di anelli
+\begin{equation*}
+    f: \nicefrac{\mathbb{F}_p[X]}{\langle P(X)\rangle} \rightarrow \nicefrac{\mathbb{F}_p[X]}{\langle Q(X)\rangle}
+\end{equation*}
+
+\newpage
+
+\section{Tutti i polinomi irriducibili di grado \( n \) a
+coefficienti in \(\mathbb{F}_p \) sono fattori di
+\( X^{p^n} - X  \in \mathbb{F}_p [X]\)}
+
+\begin{proposition}
+    Tutti e soli i polinomi irriducibili su $\mathbb{F}_p$ di grado $n$ dividono $X^{p^n} - X \in \mathbb{F}_p[X]$.
+\end{proposition}
+
+\begin{proof}
+    Sia $P(X) \in \mathbb{F}_p[X]$ irriducibile di grado n e sia $K := \nicefrac{\mathbb{F}_p[Y]}{\langle P(Y)\rangle}$.
+
+    Allora $K$ ha $p^n$ elementi che sono le radici di $X^{p^n} - X \in K[X]$.
+
+    Poichè $Y \in K$ è una radice $P(X) \in K[X]$, $P(X)$ e $X^{p^n} - X$ hanno una radice in comune in K, allora per il teorema di Ruffini hanno un fattore comune $X - Y \in K[X]$.
+
+    Quindi, poiché $\mathbb{F}_p \subseteq K$ e $MCD$ in $\mathbb{F}_p = MCD$ in $K[X] \implies P(X), X^{p^n} - X$ hanno $MCD \neq 1$ in $\mathbb{F}_p[X]$.
+
+    Poiché $P(X)$ è irriducibile in $\mathbb{F}_p[X]$, $P(X)$ divide $X^{p^n} - X$.
+\end{proof}
+
+\newpage
+
+\section{Sottocampi di un campo finito}
+\begin{lemma}
+    sia $F$ un campo. Il polinomio $X^d - 1$ divide il polinomio $X^n - 1$ s.s.e. $d$ divide $n$.
+\end{lemma}
+\begin{proof}
+    Se $n = qd + r, 0 \leq r \leq d$, in $\mathbb{F}[X]$ si ha:
+    \begin{equation*}
+        (x^n - 1) = (X^d - 1)(X^{n-d} + X^{n-2d} + \ldots + x^{n-(p-1)d} + X^r) + (X^r -1)
+    \end{equation*}
+    quindi $X^d - 1$ divide $X^n - 1$ s.s.e. $X^r - 1$ è il polinomio nullo, cioè s.s.e. $r = 0$
+\end{proof}
+
+
+\begin{corollary}
+    $d$ divide $n \iff (X^{p^d} - X)$ divide $(X^{p^n} - X)$ in $\mathbb{F}_p[X]$.
+\end{corollary}
+\begin{proof}
+    Per il lemma precedente, $X^d - 1$ divide $X^n - 1$.
+
+    Calcolando in p si ottiene che $p^d - 1$ divide $p^n - 1$.
+
+    Quindi sempre per il lemma, $X^{p^{d - 1}} - 1$ divide $X^{p^n - 1} - 1$.
+
+    Viceversa se $X^{p^{d - 1}} - 1$ divide $X^{p^n -1 } - 1$, allora $p^d - 1$ divide $p^n - 1 \implies$ $d$ divide $n$.
+\end{proof}
+
+\begin{proposition}
+    Tutti e soli i sottocampi di $\mathbb{F}_{p^n}$ sono i campi $\mathbb{F}_{p^d}$ dove $d$ divide $n$.
+\end{proposition}
+
+\begin{proof}
+    Abbiamo che, se $\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^n}$, allora tutte le radici di $X^{p^d} - X$ in $\mathbb{F}_{p^d}$ sono radici di $X^{p^n} - X$ in $\mathbb{F}_{p^n}$, ossia $X^{p^d} - X$ divide $X^{p^n} - X \underbrace{\implies}_{\text{corollario}} d$ divide $n$.
+
+    Se $d$ divide $n$, $X^{p^d} - X $ divide $X^{p^n} - X$ e l'insieme delle radici di $X^{p^d} - X$ (è un campo) sta in $\mathbb{F}_{p^n}$.
+\end{proof}
+
+\newpage
+
+\section{Algoritmo di Berlekamp}
+\begin{theorem}
+    Sia $f(x) \in \mathbb{F}_p[x]$ di grado $d > 1$, sia $h(x) \in \mathbb{F}_p[x]$ di grado $1 < deg(h) < d$ tale che $f(x)$ divide $h(x)^p - h(x)$. allora:
+    \begin{equation*}
+        f(x) = MCD\{f(x), h(x)\} \cdot MCD\{f(x), h(x) - 1\} \cdot \ldots \cdot MCD\{f(x), h(x) - (p - 1)\}
+    \end{equation*}
+    è una fattorizzazione non banale di $f(x)$ in $\mathbb{F}_p[x]$.
+\end{theorem}
+\begin{proof}
+    Supponiamo che $f(x)$ divida $h(x)^p - h(x)$. il polinomio $X^p - X \in \mathbb{F}_p[X]$ si fattorizza come:
+    \begin{equation*}
+        X^p - X = X(X - 1)(X - 2)\ldots(X - (p - 1))
+    \end{equation*}
+    mettendo $h(x)$ al posto di $X$ si ha:
+    \begin{equation*}
+        h(x)^p - h(x) = h(x)[h(x) - 1][h(x) - 2]\ldots[h(x) - (p - 1)]
+    \end{equation*}
+    Abbiamo che $MCD\{ h(x) - i, h(x) - j\} = 1 \forall i,j \in \mathbb{F}_p, i \neq j$.
+
+    Infatti, se $MCD\{ h(x) - i, h(x) - j\} = D(x)$ allora
+    \begin{equation*}
+        \begin{cases}
+            h(x) - i = D(x) \cdot H_i(x) \\
+            h(x) - j = D(x) \cdot H_j(x)
+        \end{cases}
+        \implies D(x)[H_i(x) - H_j(x)] = j - i \in \mathbb{F}_p
+        \implies deg(D) = 0, i \neq j
+    \end{equation*}
+    inoltre, se $ MCD\{ a, b\} = 1$ si ha che $MCD\{ f, ab\} = MCD\{ f, a\} = MCD\{ f, b\} $. Per induzione si ha che
+    \begin{equation*}
+        MCD\{ f, a_1 \cdot \ldots \cdot a_k\} = MCD\{ f, a_1\} \cdot \ldots \cdot MCD\{ f, a_k\}
+    \end{equation*}
+    dato che $f(x)$ divide $h(x)^p - h(x)$, abbiamo che
+    \begin{equation*}
+        f(x) = MCD\{ f(x), h(x)^p - h(x)\}
+    \end{equation*}
+    poiché, se $i \neq j$, $MCD\{ h(x) - i, h(x) - j\} = 1$, si ha
+    \begin{align*}
+        f(x) & = MCD\{ f(x), h(x)^p - h(x)\} =                                               \\
+             & = MCD\{ f(x), h(x)[h(x) - 1] \cdot \ldots \cdot [h(x) - p + 1]\} =            \\
+             & = MCD\{ f, h\} \cdot MCD\{ f, h - 1\} \cdot \ldots \cdot MCD\{ f, h - p + 1\}
+    \end{align*}
+    Poiché $deg(h - i) < deg(f), MCD\{f, h - i\} \neq f(x), \forall i \in \mathbb{F}_p$.
+
+    Quindi nella fattoriazzazione precedente appaiono solo polinomi di grado $< d$, perciò è non banale.
+\end{proof}
+
+\begin{proposition}
+    Un polinomio $h(x) \in \mathbb{F}_p[x]$ che soddisfa le condizioni del teorema esiste sempre.
+\end{proposition}
+\begin{proof}
+    Sia
+    \begin{equation*}
+        h(x) = b_0 + b_1 x + \ldots + b_{d - 1} x^{d - 1} \in \mathbb{F}_p[X]
+    \end{equation*}
+    allora
+    \begin{equation*}
+        h(x)^p = b_0^p + b_1^p x + \ldots + b_{d - 1}^p x^{p(d - 1)}
+    \end{equation*}
+    (avendo dimostrato che $(X + Y)^p = x^p + Y^p$ e induttivamente che $(\sum_{i=1}^{k} x_i)^p = \sum_{i=1}^{k} x_i^p$), ma
+    \begin{center}
+        $b_i^p = b_i \forall 0 \leq i \leq d - 1$ quindi $h(x)^p = b_0 + b_1 x^p + \ldots + b_{d - 1} x^{p(d - 1)}$
+    \end{center}
+    si ha che
+    \begin{equation*}
+        h(x)^p \bmod f(x) = b_0 (\bmod f) + b_1 (x^p \bmod f) + \ldots + b_{d - 1} (x^{p(d - 1)} \bmod f)
+    \end{equation*}
+    Sia $x^{ip} = f(x) q_i(x) + r_i(x)$ con $deg(r_i) < d, 0 \leq i \leq d - 1$. Abbiamo che
+    \begin{align*}
+        [h(x)^p - h(x)] & \bmod f = 0 \bmod f                                                                                         \\
+                        & \iff h(x)^p \bmod f = h(x) \bmod f                                                                          \\
+                        & \iff b_0 r_0(x) + b_1 r_1(x) + \ldots + b_{d - 1} r_{d - 1}(x) = b_0 + b_1 x + \ldots + b_{d - 1} x^{d - 1}
+    \end{align*}
+    Otteniamo così un sistema lineare di $d$ equazioni nelle incognite $b_0, b_1, \ldots, b_{d-1}$.
+
+    Dobbiamo mostrare che esistono soluzioni non nulle.
+
+    Sia $f(x) = p_1(x) \ldots p_k(x)$ una fattoriazzazione di $f(x) \in \mathbb{F}_p[x]$ in fattori irriducibili.
+
+    Supponiamo che $f$ non habbia fattori multipli (verificabile con Teorema seguente).
+\end{proof}
+
+\begin{theorem}
+    sia $K$ un campo.
+    \begin{enumerate}[label=\alph*)]
+        \item se $f(x) \in K[x]$ è ha un fattore multiplo, allora $MCD\{f, f'\} \neq 1$, dove $f'$ è la derivata di $f$ rispetto a $x$.
+        \item se $K$ ha caratteristica 0 o $p$, e $MCD\{f, f'\} \neq 1$, allora $f(x)$ ha un fattore multiplo.
+    \end{enumerate}
+\end{theorem}
+Abbiamo una versione in $\mathbb{F}_p[x]$ del teorema cinese dei resti.
+\begin{equation*}
+    MCD\{ p_i(x), p_j(x)\} = 1, \forall \ \leq i \leq k, 1 \leq j \leq k, i \neq j
+\end{equation*}
+\begin{align*}
+    \implies \nicefrac{\mathbb{F}_p[x]}{\langle f\rangle} \underbrace{\simeq}_{\text{Isomorfismo di anelli}} \nicefrac{\mathbb{F}_p[x]}{\langle p_1(x)\rangle} \times \ldots \times \nicefrac{\mathbb{F}_p[x]}{\langle p_k(x)\rangle}
+\end{align*}
+
+Dato $(s_1, \ldots, s_k) \in \mathbb{F}_p^k$, esiste un'unica classe $[h(x)] \in \nicefrac{\mathbb{F}_p[x]}{\langle f \rangle}$ tale che
+\begin{equation*}
+    \begin{cases}
+        [h(x)] = s_1 \quad \text{in} \quad \nicefrac{\mathbb{F}_p[x]}{\langle p_1(x)\rangle} \\
+        \vdots                                                                               \\
+        [h(x)] = s_k \quad \text{in} \quad \nicefrac{\mathbb{F}_p[x]}{\langle p_k(x)\rangle}
+    \end{cases}
+\end{equation*}
+ossia $h(x) - s_i$ è divisibile per $p_i(x), \forall 1 \leq i \leq k$.
+
+Quindi $p_i(x)$ divide $h(x)[h(x) - 1] \ldots [h(x) - (p - 1)] = h(x)^p - h(x), \forall 1 \leq i \leq k$.
+
+Ossia $f(x)$ divide $h(x)^p - h(x)$.
+
+
+Sia $f(x) \mathbb{F}_p[x], deg(f) = d$.
+
+Sia $f(x) = p_1(x)\cdot \ldots \cdot p_k(x)$ una fattoriazzazione di $f(x)$ in fattori irriducibili, non banali (cioè di grado $\geq 1$) e aventi molteplicità $1$. siano
+\begin{align*}
+    r_0       & = 1 \bmod f(x)            \\
+    r_1       & = x^p \bmod f(x)          \\
+    \vdots    &                           \\
+    r_{d - 1} & = x^{p(d - 1)} \bmod f(x)
+\end{align*}
+Con $deg(r_i) < d \forall 0 \leq i \leq d - 1$.
+
+Definiamo la matrice $A \in Mat_{d \times d}(\mathbb{F}_p)$ nel segueente modo:
+
+$A_{ij} = $ coefficiente del termine di grado i del polinomio $r_j(x)$
+\begin{example}
+    Considerando l'esempio precedente, si ha:
+    \begin{equation*}
+        A \in Mat_{5 \times 5}(\mathbb{F}_3) =
+        \begin{bmatrix}
+            1 & 0 & 0 & 2 & 2 \\
+            0 & 0 & 2 & 2 & 0 \\
+            0 & 0 & 1 & 1 & 1 \\
+            0 & 1 & 2 & 1 & 0 \\
+            0 & 0 & 0 & 2 & 0
+        \end{bmatrix}
+    \end{equation*}
+    la matrice $A - I$ è la matrice del sistema che abbiamo risolto, ossia $(A - I)\overrightarrow{b} = \overrightarrow{0}$
+\end{example}
+
+\begin{theorem}
+    Il numero di fattori irriducibili $k$ nella fattorizzazione di $f$ è uguale alla dimensione del nucleo di $A - I$. Ossia:
+    \begin{equation*}
+        k = d - rk(A - I)
+    \end{equation*}
+    (dove il rango è calcolato sul campo $\mathbb{F}_p$).
+\end{theorem}
+
+\begin{proof}
+    Osserviamo innanzitutto che $dim(Ker(A - I)) \geq 1$.
+
+    Infatti la d-tupla $(b_0, 0 , \ldots, 0)$ è sempre soluzione del sistema $\forall b_0 \in \mathbb{F}_p$.
+
+    Abbiamo visto che l'Insieme
+    \begin{equation*}
+        H = \{ h \in \mathbb{F}_p[x] : deg (h) < d, f \mid h^p - h\}
+    \end{equation*}
+    è uno spazio vettoriale su $\mathbb{F}_p$ isomorfo a $Ker(A - I)$.
+
+    Sia $k$ il numero di fattori irriducibili non banali di $f$, aventi tutti molteplicità 1.
+
+    Dimostriamo che $\mathbb{F}_p^k$ è isomorfo a $H$.
+
+    Abbiamo già dimostrato che per ogni $(s_1, \ldots s_k) \in \mathbb{F}_p^k$ troviamo un unico elemento di $H$, usando il Teorema cinese dei resti per l'anello $\mathbb{F}_p[X]$.
+
+    Quindi abbiamo definito una funzione $\varphi : \mathbb{F}_p^k \rightarrow H$
+    \begin{enumerate}[label=\alph*)]
+        \item $\varphi$ è un morfismo si spazi vettoriali.
+        \item $\varphi$ è iniettiva:
+              \begin{align*}
+                  Ker(\varphi) & = \{(s_1, \ldots s_k) \in \mathbb{F}_p^k : s_i \bmod p_i = 0, \forall 1 \leq i \leq k\} \\
+                               & =\{(0, \ldots , 0)\}
+              \end{align*}
+
+        \item $\varphi$ è suriettiva:
+
+              Se $h \in H$, abbiamo visto che $h^p - h = h (h - 1)(h - 2)\ldots(h - (p - 1))$.
+
+              Questi fattori sono coprimi a coppie, quindi se $f | h^p - h$, allora $p_i(x) | (h - s_i)$ per un unico $s_i \in \mathbb{F}_p, \forall 1 \leq i \leq k$.
+
+              Quindi $h$ è soluzione del sistema
+              \begin{equation*}
+                  \begin{cases}
+                      h \equiv s_1 \bmod p_1 \\
+                      \vdots                 \\
+                      h \equiv s_k \bmod p_k
+                  \end{cases}
+              \end{equation*}
+    \end{enumerate}
+    Abbiamo dimostrato che $\varphi : \mathbb{F}_p^k \rightarrow H $ è un isomorfismo do spazi vettoriali, quindi
+    \begin{center}
+        $\mathbb{F}_p^k \simeq H \simeq Ker(A - I)$
+    \end{center}
+    ossia $dim(Ker(A - I)) = k = d - rk(A - I)$.
+\end{proof}
+
+\begin{example}
+    Sempre considerando l'esempio precedente, si ha che
+    \begin{equation*}
+        \underbrace{2}_{\text{fattori irriducibili di $f(x)$}} = \underbrace{5}_{\text{grado di $f(x)$}} - rk(A - I)
+    \end{equation*}
+\end{example}
+
+Se $f \in \mathbb{F}_p[x]$ ha fattori irriducibili di molteplicità > 1, procediamo come segue:
+
+Abbiamo che $D = MCD\{f, f'\} \neq 1$.
+
+Osserviamo che il polinomio $\frac{f}{D}$ ha fattori irriducibili tutti di molteplicità 1. Infatti se $p_1, \ldots , p_k$ sono tutti distinti
+\begin{align*}
+    f' & = (p_1^{e_1}(x) \ldots p_k^{e_k}(x))' =                                                                     \\
+       & e_1 p_1^{e_1 - 1} p_1'p_2^{e_2} \ldots p_k^{e_k} + \ldots + e_k p_1^{e_1}p_2^{e_2} \ldots p_k^{e_k - 1}p_k'
+\end{align*}
+e $D = p_1^{e_1 - 1} \ldots p_k^{e_k - 1}$ quindi $\frac{f}{D} = p_1 \ldots p_k$.
+
+Allora fattorizziamo $\frac{f}{D}$ poi fattorizziamo $D$, eventualmente ripetendo con $D, D'$.
+
+Finché non otteniamo $MCD\{ D_i, D_i'\} = 1$.
+
+\newpage
+
+\section{Rango di un tensore}
+
+Ogni elemento di $V_1 \otimes V_2 \otimes \ldots \otimes V_h$ si scrive come combinazione lineare di tensori di rango 1.
+
+Infatti la base $\{v_{j_1}^1 \otimes v_{j_2}^2 \otimes \ldots \otimes v_{j_h}^h\}$ è costituita da tensori di rango 1.
+\begin{definition}[Rango di un tensore]
+    Sia $T \in V_1 \otimes V_2 \otimes \ldots \otimes V_k$.\\
+    definiamo \textbf{rango di T} e lo indichiamo \textbf{rk(T)} il minimo $r \in \mathbb{N}$ tale che:
+    \begin{equation*}
+        T = \sum_{i=1}^{r}T_i
+    \end{equation*}
+    dove $T_i \in V_1 \otimes V_2 \otimes \ldots \otimes V_k$ sono di rango 1 $\forall 1 \leq i \leq r$.
+\end{definition}
+
+\begin{example}
+    Sia $U$ con base $\{u_1, u_2\}$, $V$ con base $\{v_1, v_2\}$ e $W$ con base $\{w_1, w_2\}$.
+    \begin{itemize}
+        \item $T: u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2  \in U \otimes V  \otimes W$\\
+              ha rango 1. infatti $T = u_1 \otimes v_1 \otimes (v_1 + v_2 )\otimes w_1$.
+        \item $T: u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2 + u_1 \otimes v_2 \otimes w_1 + u_2 \otimes v_1 \otimes w_2 \in U \otimes V \otimes W$ ha rango 2.
+              Infatti l'unica fattorizzazione possibile è $T = (u_1 \otimes v_1  + u_2 \otimes v_2 \otimes v_2) \otimes w_1$ che non è un tensore di rango 1.
+        \item $T = u_1 \otimes v_1 \otimes w_1 + u_2 \otimes v_2 \otimes w_2 \in U \otimes V \otimes W $ ha rango 2.
+    \end{itemize}
+\end{example}
+
+Poiché $dim(\otimes_{i=1}^{h} V_i) = \prod_{i=1}^{h} dim(V_i)$, abbiamo che, se $T \in \otimes_{i=1}^{h} V_i$ allora $rk(T) \leq \prod_{i=1}^{h} dim(V_i)$, poiche $\otimes_{i=1}^{h} V_i$ ha una base fatta di tensori di rango 1.
+
+Ora verifichiamo che la nozione di rango di un Tensore è coerente con quella di rango di una matrice interpretando una matrice come forma bilineare, e quindi come un tensore.
+
+Vediamo subito che una matrice di rango 1 corrisponde ad un tensore di rango 1.
+
+Una matrice $m \times n$ di rango 1 h come colonne multipli di un vettore $v \in K^m \setminus \{0\}$.
+
+La prima colonna sia $a_1v$, la seconda $a_2v, \ldots , a_nv, a_i \in K$.
+
+Quindi tale matrice di rango 1 si scrive come
+\begin{equation*}
+    A = \begin{pmatrix}
+        v_1    \\
+        v_2    \\
+        \vdots \\
+        v_m
+    \end{pmatrix}
+    \begin{pmatrix}
+        a_1 & a_2 & \ldots & a_n
+    \end{pmatrix} = \overrightarrow{v} \overrightarrow{a}^T
+\end{equation*}
+Come forma bilineare è il seguente elemento di $(K^m)^* \otimes (K^n)^*$:
+\begin{align*}
+     & v_1 a_1 e_1^* \otimes e_1^* + v_2 a_1 e_2^* \otimes e_1^* + \ldots + v_1 a_2 e_1^* \otimes e_2^* + v_2 a_2 e_2^* \otimes e_2^* + \ldots + v_1 a_n e_1^* \otimes e_n^* + \ldots + v_m a_n e_m^* \otimes e_n^* = \\
+     & = (v_1 e_1^* + \ldots + v_m e_m^*) \otimes a_1 e_1^* + (v_1 e_1^* + \ldots +v_m e_m^*) \otimes a_2 e_2^* + \ldots +(v_1 e_1^* + \ldots + v_m e_m^*) \otimes a_n e_n^* =                                        \\
+     & = (v_1 e_1^* + \ldots + v_m e_m^*) \otimes (a_1 e_1^* + \ldots + a_n e_n^*)
+\end{align*}
+Dunque una matrice $A \in Mat_{m \times n} (K)$ tale che $rk(A) = 1$ corrisponde ad un tensore $T_A \in (K^m)^* \otimes (K^n)^*$ tale che $rk(T_A) = 1$.
+
+\begin{example}
+    La matrice
+    \begin{equation*}
+        A = \begin{pmatrix}
+            1 & 0 & 2 \\
+            2 & 0 & 1
+        \end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_3)
+    \end{equation*}
+    Ha rango 1 perchè
+    $\begin{pmatrix}
+            2 \\
+            1
+        \end{pmatrix} = 2
+        \begin{pmatrix}
+            1 \\
+            2
+        \end{pmatrix}$ in $(\mathbb{F}_3)^2$.
+
+    Ad $A$ corrisponde la forma bilineare $T_A: (\mathbb{F}_3)^2 \times (\mathbb{F}_3)^3 \rightarrow \mathbb{F}_3$ definita da
+    \begin{equation*}
+        T_A(u, v) = u^T A v \qquad \forall u \in (\mathbb{F}_3)^2, v \in (\mathbb{F}_3)^3 \qquad \text{($u^T$ è il trasposto del vettore colonna $u$)}
+    \end{equation*}
+    come elemento di $(\mathbb{F}_3^2)^* \otimes (\mathbb{F}_3^3)^*$ si scrive
+    \begin{align*}
+        T_A & = e_1^* \otimes e_1^* + 2 e_2^* \otimes e_1^* + 2 e_1^* \otimes e_3^* + e_2^* \otimes e_3^* \\
+            & = (e_1^* + 2 e_2^*) \otimes e_1^* + (2 e_1^* + e_2^*) \otimes e_3^*                         \\
+            & = (e_1^* + 2 e_2^*) \otimes (e_1^* + e_3^*)
+    \end{align*}
+    D'altra parte avevamo che $A = \begin{pmatrix}
+            1 & 0 & 2 \\
+            2 & 0 & 1
+        \end{pmatrix} = \begin{pmatrix}
+            1 \\
+            2
+        \end{pmatrix} \begin{pmatrix}
+            1 & 0 & 2
+        \end{pmatrix}$ sul campo $\mathbb{F}_3$
+\end{example}
+
+Ovviamente ad un Tensore di rango 1 $v_1 \otimes v_2 \in (K^m)^* \otimes (K^n)^*$ corrisponde una matrice di rango 1 $v_1 v_2^T \in Mat_{m \times n}(K)$ dove $v_i$ sono i vettori colonna delle coordinate nella base duale.
+
+\begin{example}
+    Sia $(2 e_1^* + 3 e_2^*) \otimes (e_2^* + 4 e_3^*) \in (\mathbb{F}_5^2)^* \otimes (\mathbb{F}_5^3)^*$. La matrice corrispondente è
+    \begin{equation*}
+        \begin{pmatrix}
+            2 \\
+            3
+        \end{pmatrix} \begin{pmatrix}
+            0 & 1 & 4 \\
+        \end{pmatrix} = \begin{pmatrix}
+            0 & 2 & 3 \\
+            0 & 3 & 2
+        \end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_5)
+    \end{equation*}
+\end{example}
+
+Quindi abbiamo dato una corrispondenza biunivoca tra matrici di rango 1 $\in Mat_{m \times n}(K)$ e tensori di rango 1 $\in (K^m)^* \otimes (K^n)^*$.
+
+Dalla caratterizzazione del rango di una matrice in termini di combinazioni lineari di matrici di rango 1, e dalla definizione di rango di un tensore, segie che le matrici di rango $r$ in $Mat_{m \times n}(K)$ stanno in corrispondenza con i tensori di rango $r$ in $(K^m)^* \otimes (K^n)^*$.
+
+\newpage
+
+
+\chapter{Logica modale}
+\section{Sintassi della logica modale e semantica di Kripke}
+Introduciamo il linguaggio della logica proposizionale. L'alfabeto è costituito da:
+\begin{enumerate}
+    \item Insime numerabile di variabili
+    \item Connettivi logici: $\neg, \land, \lor$
+\end{enumerate}
+le parole del linguaggio possono essere:
+\begin{enumerate}
+    \item \textbf{Un Letterale}: variabile $x$ o la sua negazione $\neg x$
+    \item \textbf{Una Clausola}: disgiunzione finita di letterali $l_1 \lor \ldots \lor l_n$
+    \item \textbf{Una Formula CNF (forma normale congiuntiva)}: congiunzione finita di clausole $C_1 \land \ldots \land C_n$
+\end{enumerate}
+Per ogni letterale $L$ definiamo
+\begin{equation*}
+    \overline{L} = \begin{cases}
+        \neg x & \text{se } L \text{ è } x      \\
+        x      & \text{se } L \text{ è } \neg x
+    \end{cases}
+\end{equation*}
+Indichiamo con $VAR(F)$ l'insieme delle variabili che appaiono in una formula CNF $F$.
+
+Useremo anche le parentesi $(,)$ come simboli ausiliari per rendere chiara la lettura delle formule CNF.
+\begin{example}
+    $(\neg x_1 \lor x_2) \land x_1 \land (x_2 \lor x_3)$ è una formula CNF. Chiamiamola F. Allora $VAR(F)=\{x_1,x_2,x_3\}$.
+
+    Le clausole di $F$ sono $\{\neg x_1 \lor x_2, x_1, x_2 \lor x_3\}$ e i letterali di $F$ sono $\{x_1, x_2, x_3, \neg x_1 \}$
+\end{example}
+
+\subsection{Semantica}
+\begin{definition}[Assegnazione appropriata]
+    Sia $F$ una formula CNF. Una \textbf{assegnazione appropriata a F} è una funzione
+    \begin{equation*}
+        V: X \rightarrow \{0,1\}
+    \end{equation*}
+    dove $X \supseteq VAR(F)$.
+\end{definition}
+
+L'insieme $\{0,1\}$ è l'insieme dei valori di verità di F e può essere interpretato come \{falso, vero\}.
+
+\begin{definition}[Soddisfacibilità]
+    Sia $F$ una formula e $V$ un'assegnazione appropriata a $F$.
+
+    Diciamo che \textbf{V soddisfa F}, scritto $V \vDash F$, se
+    \begin{enumerate}
+        \item \underline{F è una variabile X}: $V \vDash X$, significa che $V(X) = 1$
+        \item \underline{F è il letterale $\neg X$}: $V \vDash \neg X$, significa che $V(X) = 0$
+        \item \underline{F è una clausola $L_1 \lor \ldots \lor L_n$}: $V \vDash F$, significa che $V$ soddisfa almeno uno dei letterali $L_i$
+        \item \underline{F è una congiunzione di clausole} $C_1 \land \ldots \land C_n$: $V \vDash F$, significa che $V$ soddisfa tutte le clausole $C_i$
+    \end{enumerate}
+    In questo modo abbiamo dato un significato al linguaggio definito precedentemente.
+
+    Se $V$ non soddisfa $F$, scriveremo $V \nvDash F$.
+\end{definition}
+\begin{example}
+    Sia $F$ la formula CNF $(\neg x_1 \lor x_2) \land x_1 \land (x_2 \lor x_3)$ e sia $U: \{x_1,x_2,x_3\} \rightarrow \{0,1\}$ tale che $U(x_1) = U(x_2) = 1, U(x_3) = 0$.
+
+    Dunque
+    \begin{align*}
+        U(\neg x_1)          & = 0 \\
+        U(\neg x_1 \lor x_2) & = 1 \\
+        U(x_2 \lor x_3)      & = 1 \\
+        U(F)                 & = 1
+    \end{align*}
+    Quindi $U \vDash F$.
+
+    Sia $V: \{x_1,x_2,x_3\} \rightarrow \{0,1\}$ tale che $V(x_1) = 1, V(x_2) = V(x_3) = 0$.
+
+    Allora
+    \begin{align*}
+        V(\neg x_1)          & = 0 \\
+        V(\neg x_1 \lor x_2) & = 0 \\
+        V(x_2 \lor x_3)      & = 0 \\
+        V(F)                 & = 0
+    \end{align*}
+    quindi $V \nvDash F$.
+\end{example}
+
+\begin{definition}[Formula soddisfacibile]
+    Diciamo che una formula è \textbf{soddisfacibile} se esiste un'assegnazione $V: VAR(F) \rightarrow \{0,1\}$ che la soddisfa ($V \vdash F$).
+
+    Altrimenti è \textbf{insoddisfacibile}.
+\end{definition}
+La formula dell' esempio precedente è soddisfacibile, $x \land \neg x$ è insoddisfacibile.
+
+\begin{definition}[Tautologia]
+    Una formula $F$ è una \textbf{tautologia} se per ogni assegnazione $V$ si ha $V \vDash F$.
+\end{definition}
+La formula $x \lor \neg x$ è una tautologia, la formula dell' esempio precedente no
+
+\begin{definition}[Conseguenza logica]
+    Date due formule $F,G$ diciamo che $G$ è \textbf{conseguenza logica} di $F$, se per ogni assegnazione $V$ appropriata ad entrambe si ha che $V \vDash F \implies V \vDash G$.
+\end{definition}
+\begin{example}
+    La formula $y$ è conseguenza logica della formula $F := (\neg x \lor y) \land x$.
+
+    Infatti l'unica assegnazione che soffisfa $F$ è $x \rightarrow 1, y \rightarrow 1$.
+
+    Tale assegnazione soddisfa anche $y$.
+\end{example}
+\begin{definition}[Implicazione logica]
+    Definiamo l'\textbf{implicazione logica} tra due formule $F,G$ come
+    \begin{gather*}
+        x \implies y := \neg x \lor y \\
+        \begin{tabular}{c|c|c}
+            \hline
+            $x$ & $y$ & $x \implies y$ \\
+            \hline
+            0   & 0   & 1              \\
+            0   & 1   & 1              \\
+            1   & 0   & 0              \\
+            1   & 1   & 1              \\
+        \end{tabular}
+    \end{gather*}
+\end{definition}
+\begin{definition}[Equivalenza logica]
+    Due formule $F,G$ sono logicamente equivalenti se $F$ è conseguenza logica di $G$ e $G$ è conseguenza logica di $F$. In tal caso scriviamo $F \equiv G$.
+\end{definition}
+\begin{example}
+    Nell'esempio precedente abbiamo visto che $y$ è conseguenza logica di $F:= (\neg x \lor y) \land x $, che possiamo ricrivere come $(x \implies y) \land x$.
+
+    Poiché $x \mapsto 0, y \mapsto 1$ soddisfa $y$ ma non $F$, abbiamo che $F$ non è conseguenza logica di $y$.
+\end{example}
+\begin{example}\
+    \begin{itemize}
+        \item $l_1 \lor l_2 \equiv l_2 \lor l_1$ (la disgiunzione è commutativa)
+        \item $c_1 \land c_2 \equiv c_2 \land c_1$ (la congiunzione è commutativa)
+        \item $c \land c \equiv c$ e $l \lor l \equiv l$ (congiunzione e disgiunzione sono idempotenti)
+    \end{itemize}
+\end{example}
+Diamo altre definizioni:
+\begin{definition}[Doppia implicazione]
+    \begin{equation*}
+        x \iff y := (x \implies y)\land(y \implies x)
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Negazione di formule CNF]
+    \begin{enumerate}
+        \item $l$ letterale: $\neg l = \overline{l}$
+        \item $\neg (l_1 \lor \ldots \lor l_n) := \neg l_1 \land \ldots \land \neg l_n$
+        \item $\neg (c_1 \land \ldots \land c_n) := \neg c_1 \lor \ldots \lor \neg c_n$
+    \end{enumerate}
+\end{definition}
+L'interpretazione di questa definizione di negazione è quella corretta grazie alle leggi di De Morgan e alla proprietà distributiva di $\lor$ e $\land$.
+\begin{example}
+    Consideriamo il problema di colorare i vertici di un quadrato con due colori in modo che i vertici su uno stesso lato abbiano colori diversi.
+
+    Tale problema ha ovviamente una soluzione:
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- (0,0);
+            \draw (0,0) node[below left] {2};
+            \draw (2,0) node[below right] {1};
+            \draw (2,2) node[above right] {2};
+            \draw (0,2) node[above left] {1};
+        \end{tikzpicture}
+    \end{center}
+    Formuliamo il problema come una formula CNF.
+
+    Potremo così dire che il problema è soddisfacibile se e solo se tale formula CNF è soddisfacibile. $x_{ij}$ indica "il vertice $i$ ha colore $j$" $\forall 1 \leq i \leq 4, 1 \leq j \leq 2$
+    \begin{align*}
+        F & := (x_{11} \lor x_{12}) \land (x_{21} \lor x_{22}) \land (x_{31} \lor x_{32}) \land (x_{41} \lor x_{42}) \land                                                                              \\
+          & \land (\neg x_{11} \lor \neg x_{12}) \land ( \neg x_{21} \lor \neg x_{22}) \land ( \neg x_{31} \lor \neg x_{32}) \land ( \neg x_{41} \lor \neg x_{42}) \land                                \\
+          & \land (\neg x_{11} \lor \neg x_{21}) \land ( \neg x_{12} \lor \neg x_{22}) \land ( \neg x_{21} \lor \neg x_{31}) \land ( \neg x_{22} \lor \neg x_{32}) \land (\neg x_{31} \lor \neg x_{41})
+    \end{align*}
+    l'assegnazione $x_{11} \mapsto 1, x_{12} \mapsto 0, x_{21} \mapsto 0, x_{22} \mapsto 1, x_{31} \mapsto 1, x_{32} \mapsto 0, x_{41} \mapsto 0, x_{42} \mapsto 1$ soddisfa $F$
+\end{example}
+
+\subsection{Sintassi}
+La logica modale è una estensione della logica proposizionale.
+
+L'alfabeto è quello della logica proposizionale a cui si aggiungono i \textbf{connettivi modali}:
+\begin{enumerate}
+    \item Un insieme numerabili di variabili (o formule atomiche)
+    \item I connettivi logici $\neg, \land, \lor, \implies, \iff$
+    \item I simboli ausiliari $(,)$
+    \item I connettivi modali $\Box$ (\textbf{Scatola o Box}) e $\Diamond$ (\textbf{Diamante o Diamond})
+\end{enumerate}
+Le parole del lingiaggio sono le formule ben formate (FBF) definite in modo ricorsivo:
+\begin{enumerate}
+    \item Ogni variabile è una FBF
+    \item Se $A$ è una FBF, allora $\neg A, \Box A, \Diamond A$ sono FBF
+    \item Se $A,B$ sono FBF, allora $(A \land B), (A \lor B), (A \implies B), (A \iff B)$ sono FBF
+\end{enumerate}
+Alcune letture dei simboli $\Box$ e $\Diamond$:
+\begin{itemize}
+    \item La lettura piu comune è: $\Box A$:"è necessario che A", $\Diamond A$: "è possibile che A".
+
+          Secondo questa lettura i connettivi modali possono essere definiti uno in termini dell'altro:
+          \begin{gather*}
+              \Box A \equiv \neg \Diamond \neg A\\
+              \Diamond A \equiv \neg \Box \neg A
+          \end{gather*}
+    \item Logiche modali epistemiche: $\Box A$: "si sa che A"
+    \item Logiche modali deonetiche: $\Box A$: "è obbligatorio che A"
+    \item Logiche modali doxastiche: $\Box A$: "si crede che A"
+    \item Logica modale dimostrativa: $\Box A$: "è dimostrabile che A"
+\end{itemize}
+
+Come abbiamo visto, la logica proposizionale è una logica vero-funzionale: assegnando valori "0" e "1" alle variabili possiamo assegnare un valore "0" o "1" ad una formula in modo univoco, che corrisponde alla nostra inutizione di negazione, disgiunzione, congiunzione.
+
+Per la logica modale la situazione è più complicata.
+
+Interpretando il simbolo "$\Box$" come operatore di necessità, ossia "$\Diamond$" come operatore di possibilità, possiamo essere, ad esempio, d'accordo che le formule
+\begin{equation*}
+    \Box A \implies \Diamond A, \quad A \implies \Diamond A
+\end{equation*}
+siano vere, ma è vera la formula
+\begin{equation*}
+    A \implies \Box \Diamond A \quad \text{?}
+\end{equation*}
+Non è chiaro se sia vera o falsa. Nel caso della logica epistemica, l'operatore "$\Box$" si indica di solito con "K" (da "knowledge").
+
+In questo contesto, la formula $KA \implies A$ (se si sa che A allora A vale) sembra dover essere vera.
+
+Invece la formula $A \implies KA$ (se vale A allora si sa che A) sembra essere falsa perchè non si è onniscenti.
+
+\subsection{Semantica dei mondi possibili (semantica di Kripke)}
+\begin{definition}[Frame]
+    Un \textbf{Frame} è una coppia $(S,R)$, dove $S$ è un insieme non vuoto detto \textbf{insieme dei mondi} e $R \subseteq S \times S$ è una relazione su $S$, detta \textbf{relazione di accessibilità} (se $(x,y) \in R$ si dice che $y$ è accessibile da $x$).
+\end{definition}
+Un Frame può essere rappresentato con un grafo diretto con cappi (loop) i cui vertici sono gli elementi dell'insieme $S$ e ho una freccia da $x$ a $y$ se $(x,y) \in R$.
+
+\begin{example}
+    Il frame $(\mathbb{N},R)$, dove $R = \{(n,n+1) : n \in \mathbb{N}\} \subseteq \mathbb{N} \times \mathbb{N}$ è rappresentato dal seguente grafo diretto:
+    \begin{center}
+        \begin{tikzpicture}[->]
+            \node (0) {0};
+            \node (1) [right of=0] {1};
+            \node (2) [right of=1] {2};
+            \node (3) [right of=2] {3};
+            \node (4) [right of=3] {...};
+
+            \path
+            (0) edge node {} (1)
+            (1) edge node {} (2)
+            (2) edge node {} (3)
+            (3) edge node {} (4);
+        \end{tikzpicture}
+    \end{center}
+\end{example}
+\begin{example}
+    Il frame $(S,R)$ dove $S = \{2,3,4,5,6\}$ e $R=\{(x,y) \in S \times S : x \text{ divide } y \}$ è rappresentato dal seguente grafo diretto:
+    \begin{center}
+        \begin{tikzpicture}[->]
+            \node (2) {2};
+            \node (3) [right of=2] {3};
+            \node (4) [right of=3] {4};
+            \node (5) [right of=4] {5};
+            \node (6) [right of=5] {6};
+
+            \path
+            (2) edge[loop] node {} (2)
+            (2) edge[bend right] node {} (4)
+            (2) edge[bend left] node {} (6)
+            (3) edge[loop] node {} (3)
+            (3) edge[bend right] node {} (6)
+            (4) edge[loop] node {} (4)
+            (4) edge[bend left] node {} (6)
+            (5) edge[loop] node {} (5)
+            (5) edge node {} (6)
+            (6) edge[loop] node {} (6);
+        \end{tikzpicture}
+    \end{center}
+\end{example}
+\begin{example}
+    Il frame $(\{1,2,3\}, R)$ dove $R = \{(x,y) \in \{1,2,3\} \times \{1,2,3\} : y=f(x)\}$ essedo $f : \{1,2,3\} \rightarrow \{1,2,3\}$ la funzione definita da $f(1) = 2, f(2) = 3, f(3) = 1$ è
+    \begin{center}
+        \begin{tikzpicture}[->]
+            \node (1) {1};
+            \node (2) [right of=1] {2};
+            \node (3) [right of=2] {3};
+
+            \path
+            (1) edge[bend left] node {} (2)
+            (2) edge[bend left] node {} (3)
+            (3) edge[bend left] node {} (1);
+        \end{tikzpicture}
+    \end{center}
+\end{example}
+\begin{definition}[Modello]
+    Un \textbf{modello} su un frame $(S,R)$ è una terna $(S,R,V)$ dove $V : Var \rightarrow \mathcal{P}(S) $, ci dice in quali mondi le variabili valgono 1 è detta \textbf{funzione di valutazione}.
+\end{definition}
+\begin{definition}
+    Una formula $F$ si dice \textbf{Vera in un mondo x del modello M} e scriviamo $M \vDash_x F$ se e solo se:
+    \begin{enumerate}
+        \item \underline{F è una variabile}: $M \vDash_x F$ significa che $x \in V(F)$
+        \item \underline{ F è $\neg y$ e $y$ è una variabile}: $M \vDash_x F$ significa che $x \notin V(y)$
+        \item \underline{F è del tipo $\neg G$}, dove $G$ è una formula: $M \vDash_x F$ significa che $M \nvDash_x G$
+        \item \underline{F è del tipo $G_1 \land G_2$}: $M \vdash_x F$ significa che $M \vdash_x G_1$ e $M \vDash_x G_2$
+        \item \underline{F è del tipo $G_1 \lor G_2$}: $M \vdash_x F$ significa che $M \vdash_x G_1$ o $M \vDash_x G_2$
+        \item \underline{F è del tipo $\Box G$}: $M \vDash_x F$ significa che $M \vDash_y G$, per ogni $y \in S : (x,y) \in R$, ossia per ogni mondo y raggiungibile da $x$.
+        \item \underline{F è del tipo $\Diamond G$}: $M \vDash_x F$ significa che $M \vDash_y G$ per qualche $y \in S : (x,y) \in R$, ossia per almeno un mondo raggiungibile da $x$.
+    \end{enumerate}
+\end{definition}
+\begin{definition}[Soddisfacibilità]
+    Una formula $F$ è \textbf{soddisfacibile} se esiste un modello $M = (S, R, V)$ e un mondo $x \in S$, tali che $M \vDash_x F$.
+\end{definition}
+\begin{theorem}
+    Se una formula modale $F$ è soddisfacibile, allora è soddisfacibile in una struttura di Kripke $(S,R)$ tale che $|S| \leq 2^{|F|}$, $|F| = $"lunghezza di F".
+
+    Quindi il problema di soddisfacibilità di una formula modale è decidibile.
+\end{theorem}
+\newpage
+
+\section{Esprimibilità della proprietà riflessiva}
+\begin{theorem}
+    Lo schema $\Box A \implies A$ è valido in un frame $(S,R)$ se e solo se $R$ è riflessiva.
+\end{theorem}
+\begin{proof}
+    Perchè sia sempre vera la formula $\Box x \implies x$, la relazione $R$ del frame deve essere riflessiva, ossia $(y,y) \in R \forall y \in S$.
+
+    Infatti, se $R$ non fosse riflessiva ci sarebbe un mondo $y \in S$ tale che $(y,y) \notin R$.
+
+    TODO
+    %TODO
+\end{proof}
+\newpage
+
+\section{Esprimibilità della proprietà simmetrica}
+\begin{theorem}
+    Lo schema $ A \implies \Box \Diamond A$ è valido in un frame $(S,R)$ se e solo se $R$ è simmetrica.
+\end{theorem}
+\begin{proof}
+    Sia $R$ simmetrica, ossia $(x,y) \in R \implies (y,x) \in R$.
+
+    Sia $M \vDash_w A$ e $(w,v) \in R$. Dunque $(v,w) \in R$ e $M \vDash_v \Diamond A \forall v \in S$ t.c. $(w,v) \in R$, ossia $M \vDash_w \Box \Diamond A$.
+
+    Adesso assumiamo che lo schema $A \implies \Box \Diamond A $ sia valido in $(S,R)$.
+
+    Sia x una variabile e $V(x) = \{s\}$;
+
+    sia $t \in S$ t.c. $(s,t) \in R$. Quindi $M \vDash_s x$.
+
+    Dalla validità dello schema segue allora che $M \vDash_s \Box \Diamond x$, da cui $M \vDash_t \Diamond x$.
+
+    Quindi esiste $r \in S$ t.c. $(t,r) \in R e M \vDash_r x$, ossia $r = s$
+\end{proof}
+\newpage
+
+\section{Esprimibilità della proprietà transitiva}
+\begin{theorem}
+    Lo schema $\Box A \implies \Box \Box A$ è valido in un frame $(S,R)$ se e solo se R è transitiva.
+\end{theorem}
+\begin{proof}
+    Sia $R$ transitiva, ossia $(x,y) \in R, (y,z) \in R \implies (x,z) \in R$.
+
+    Sia $M \vDash_w \Box A$, ossia $M \vDash_v A \forall v \in S$ t.c. $(w,v) \in R$.
+
+    Sia $u \in S$ t.c. $(v,u) \in R$, con $(w,v) \in R$.
+
+    Allora $(w,u) \in R$ e quindi $M \vDash_v \Box A, \forall v \in S$ t.c. $(w,v) \in R$, ossia $M \vDash_w \Box \Box A$.
+
+    Assumiamo adesso che sia valido lo schema $\Box A \implies \Box \Box A$ su un frame $(S,R)$.
+
+    Sia $x$ una variabile, $s \in S$ e $V(x) = \{w \in S : (s,w) \in R\}$.
+
+    Allora $M \vDash_s \Box x$ e quindi per la validità dello schema, $M \vDash_s \Box \Box x $, da cui $M \vDash_t \Box x \forall t \in S$ t.c. $(s,t) \in R$, ossia $M \vDash_r x \forall r \in S$ t.c. $(t,r) \in R$, $(s,t) \in R$.
+
+    Da ciò segue che $r \in V(x)$ ossia $(s,t) \in R$ e $(t,r) \in R \implies (s,r) \in R$\\
+\end{proof}
+\newpage
+
+\section{Morfismi di modelli + Lemma 1}
+\begin{definition}[Morfismo di Frame]
+    Siano $(S_1, R_1)$ e $(S_2, R_2)$ due frame. una funzione $f : S_1 \rightarrow S_2$ è un \textbf{morfismo di frame} se:
+    \begin{equation*}
+        (x,y)\in R_1 \implies (f(x), f(y)) \in R_2 \qquad \forall x,y \in S_1
+    \end{equation*}
+\end{definition}
+\begin{example}
+    Siano $(\mathbb{N}, R_1)$ e $(\mathbb{N}, R_2)$ i frame tali che
+    \begin{equation*}
+        R_1 = R_2 = \{(x,y) \in \mathbb{N} \times \mathbb{N} : x < y\}
+    \end{equation*}
+    allora la funzione
+    \begin{align*}
+        f : \; \mathbb{N} & \rightarrow \mathbb{N} \\
+        n                 & \mapsto n^2
+    \end{align*}
+    è un morfismo di frame.
+\end{example}
+
+\begin{definition}[Morfismo di modelli]
+    siano $M_1 = (S_1, R_1, V_1)$ e $M_2 = (S_2, R_2, V_2)$ due modelli.
+
+    Un morfismo di frame $f: (S_1, R_1) \rightarrow (S_2, R_2)$ è un \textbf{morfismo di modelli} se:
+    \begin{enumerate}
+        \item $w \in V_1(x) \iff f(w) \in V_2(x)$ $\forall w \in S_1, x \in Var$
+        \item $(f(w),y) \in R_2 \implies \exists v \in S_1 t.c. (w,v) \in R_1, f(v) = y$ $\forall w \in S_1, y \in S_2$
+    \end{enumerate}
+\end{definition}
+\begin{note}
+    I morfismi di modelli sono solitamente detti \textbf{p-morfismi}.
+\end{note}
+\begin{example}
+    Siano $M_1 = (\mathbb{N}, R_1, V_1)$ e $M_2 = (\{0,1\}, \{0,1\} \times \{0,1\}, V_2)$ dove $R_1 = \{(x,y) \in \mathbb{N} \times \mathbb{N} : x \leq y\}$, $Var = \{x\}$ e $V_1(x)= \{2n : n \in \mathbb{N}\}, V_2(x) = \{0\}$. Sia
+    \begin{align*}
+        f : \; \mathbb{N} & \rightarrow \{0,1\} \\
+        n                 & \mapsto n \bmod 2
+    \end{align*}
+    Allora $f$ è un morfismo di modelli, infatti:
+    \begin{enumerate}
+        \item $x \leq y \implies (x \bmod 2, y \bmod 2) \in \{0,1\} \times \{0,1\}$
+        \item $w \in V_1(x) \iff w \in \{2n: n \in \mathbb{N}\}$; allora $w \in V_1(x) \implies f(w) = 0$.
+
+              $f(w) \in V_2(x) \iff f(w) = 0 $; allora $f(w) \in V_2(x) \implies w \in V_1(x)$
+        \item $(f(w),y) \in R_2 = \{0,1\} \times \{0,1\}$:
+              \begin{enumerate}
+                  \item $f(w) = 0$: se $y=0$ allora $w \leq w$ e $f(w) = 0 = y$.
+
+                        Se $y=1$ allora $w \leq w+1$ e $f(w+1) = 1 = y$.
+                  \item $f(w) = 1$: se $y=0$ allora $w \leq w + 1$ e $f(w + 1) = 0 = y$.
+
+                        Se $y=1$ allora $w \leq w$ e $f(w) = 1 = y$.
+              \end{enumerate}
+    \end{enumerate}
+\end{example}
+\begin{lemma}[Lemma 1]
+    Sia $f: (S_1, R_1, V_1) \rightarrow (S_2, R_2, V_2)$ un morfismo dal modello $M_1$ al modello $M_2$. Allora
+    \begin{equation*}
+        M_1 \vDash_w F \iff M_2 \vDash_{f(x)} F
+    \end{equation*}
+    $\forall w \in S_1$ e ogni formula $F$
+\end{lemma}
+\begin{proof}
+    Se $F$ è una variabile allora $M_1 \vDash_w F \text{ se e solo se } w \in V_1(F) \text{se e solo se } f(w) \in V_2(F)$ (per il punto 1 nella definizone di morfismo di modelli) se e solo se $M_2 \vDash_{f(w)} F$.
+
+    Per tutti gli altri tipi di formule, si dimostra induttivamente sulla costruzione della formula.
+
+    Vediamo dsolo il caso in cui $F = \Diamond G$.
+
+    Sia $M_1 \vDash_w \Diamond G$, allora esiste $v \in S_1$ t.c. $(w,v) \in R_1$ e $M_1 \vDash_v G$.
+
+    Poiché $(f(w),f(v)) \in R_2$ perchè $f$ è un morfismo di modelli e induttivamente $M_2 \vDash_{f(v)} G$, allora $M_2 \vDash_{f(w)} \Diamond G$.
+
+    Sia ora $M_2 \vDash_{f(w)} \Diamond G$, allora esiste $u \in R_2$ t.c. $(f(w),u) \in R_2$ e $M_2 \vDash_u G$.
+
+    Per la condizione 2 nella definizione di morfismo di modelli, esiste $v \in S_1$ t.c. $(w,v) \in R_1$ e $f(v) = u$.
+
+    Per ipotesi induttiva $M_1 \vDash_v G$, e quindi $M_1 \vDash_w \Diamond G$.
+\end{proof}
+
+\newpage
+\section{Lemma 2 + Lemma 3 + Lemma 4 + non esprimibilità della proprietà antisimmetria}
+\begin{lemma}[Lemma 2]
+    Sia $f: (S_1,R_1,V_1) \rightarrow (S_2,R_2,V_2)$ un morfismo dal modello $M_1$ al modello $M_2$. se $f$ è suriettiva, allora
+    \begin{equation*}
+        M_1 \vDash F \text{ se e solo se } M_2 \vDash F
+    \end{equation*}
+    per ogni formula $F$.
+\end{lemma}
+\begin{proof}
+    $M_1 \vDash F$ se e solo se $M_1 \vDash_w F, \forall w \in S_1$.
+
+    Se e solo se $M_2 \vDash_{f(w)} F, \forall w \in S_1$ (per il lemma 1).
+
+    Se e solo se $M_2 \vDash F$, perchè $f$ è suriettivo.
+\end{proof}
+\begin{lemma}[Lemma 3]
+    Sia $M_2$ un modello su $S_2, R_2$ e $f: (s_1,R_1) \rightarrow (S_2, R_2)$ un morfismo di frame tale che valga la condizione 2 della definizione di morfismo di modelli.
+
+    Allora esiste un modello $M_1$ su $S_1, R_1$ tale che $f: M_1 \rightarrow M_2$ è un morfismo di modelli.
+\end{lemma}
+\begin{proof}
+    Basta definire $M_1 = (S_1, R_1, V_1)$ con $V_1(x) = \{ w \in S_1 : M_2 \vDash_{f(w)} x\} \forall x \in Var$.
+\end{proof}
+\begin{lemma}[Lemma 4]
+    Sia $f: (S_1, R_1) \rightarrow (S_2, R_2)$ un morfismo di frame tale che valga la condizione 2 della definizione di morfismo di modelli.
+
+    Se $f$ è suriettivo, si ha $(S_1, R_1) \vDash F \implies (S_2, R_2) \vDash F$, per ogni formula $F$.
+\end{lemma}
+\begin{proof}
+    Sia $S_2, R_2 \nvDash F$. Allora esiste un modello $M_2$ su $(S_2, R_2)$ tale che $M_2 \nvDash F$. Per il lemma 3 esiste un modello $M_1$ su $(S_1, R_1)$ tale che $f: M_1 \rightarrow M_2$ è un morfismo di modelli.
+
+    Dato che $f$ è suriettivo, per il lemma 2 si ha $M_1 \nvDash F$, ossia $(S_1, R_1) \nvDash F$.
+\end{proof}
+\begin{definition}[Relazione antisimmetria]
+    Una relazione $R$ su un insieme $X$ si dice \textbf{antisimmetrica} se
+    \begin{equation*}
+        (x,y) \in R, (y,x) \in R \implies x = y \qquad \forall x,y \in X
+    \end{equation*}
+\end{definition}
+\begin{example}
+    L'ordinamento $\leq$ dei numeri naturali è una relazione antisimmetrica su $\mathbb{N}$.
+\end{example}
+\begin{example}
+    La relazione $x \mid y$ su $\mathbb{N}$ è antisimmetrica.
+\end{example}
+\begin{example}
+    La relazione $A \subseteq B$ su $\mathcal{P}(X)$ di un insieme $X$ è antisimmetrica.
+\end{example}
+\begin{theorem}
+    L'antisimmetria non è esprimibile, ossia non esiste una formula $F$ tale che $(S,R) \vDash F$ se e solo se $R$ è antisimmetrica.
+\end{theorem}
+\begin{proof}
+    Sia $(S_1,R_1) = (\mathbb{N},\leq)$ e $(S_2, R_2) = (\{0,1\}, \{0,1\} \times \{0,1\})$.
+
+    Nell'esempio di morfismo di modelli abbiamo visto che la funzione
+    \begin{align*}
+        f: \; \mathbb{N} & \rightarrow \{0,1\} \\
+        n                & \mapsto n \bmod 2
+    \end{align*}
+    è un morfismo dal frame $(\mathbb{N},\leq)$ al frame $(\{0,1\}, \{0,1\} \times \{0,1\})$ che soffisfa la condizione 2 della definizione di morfismo di modelli.
+
+    La relazione $\leq$ su $\mathbb{N}$ è antisimmetrica.
+
+    Supponiamo per assurdo che esista una formula $F$ come nell'enunciato del teorema. Allora:
+    \begin{equation*}
+        (\mathbb{N},\leq) \vDash F
+    \end{equation*}
+    Per il lemma 4 si ha che $(\{0,1\}, \{0,1\} \times \{0,1\}) \vDash F$.
+
+    Da cui seguirebbe che $R_2$ è antisimmetrica, il che è falso.
+\end{proof}
+
+\newpage
+\section{Logiche modali normali, dimostrazioni, teoremi e validità della logica K}
+Abbiamo già mostrato che lo schema di formule
+\begin{equation*}
+    K: \Box (A \implies B) \implies (\Box A \implies \Box B)
+\end{equation*}
+è valido, $\vDash K$.
+
+Adesso viediamo che lo schema di formule
+\begin{equation*}
+    def_\Diamond : \Diamond A \iff \neg \Box \neg A
+\end{equation*}
+è valido, $\vDash def_\Diamond$.
+
+\begin{proof}
+    Sia $(S,R)$ un frame, $M$ un modello su $(S,R)$ e $w \in S$.
+
+    Allora $M \vDash_w \Diamond A$ se e solo se esiste $v \in S t.c. (w,v) \in R$ e $M \vDash_v A$.
+
+    $M \vDash_w \neg \Box \neg A$ se e solo se $M \nvDash_w \Box \neg A$, se e solo se esiste $v \in S t.c. (w,v) \in R$ e $M \nvDash_v \neg A$, se e solo se esite $v \in S t.c. (w,v) \in R$ e $M \vDash_v A$.
+
+    Abbiamo quindi dimostrato che $\vDash def_\Diamond$
+\end{proof}
+\begin{definition}[Sostituzione uniforme]
+    Sia $x$ una variabile e $F$ una formula. Definiamo l'operzione di sostituzione uniforme di $F$ al posto di $x$ in una formula $G$, indicato come
+    \begin{equation*}
+        G[F/x]
+    \end{equation*}
+    La formula ottenuta da $G$ dove ogni occorrenza di $x$ è stata sostituita con $F$.
+\end{definition}
+\begin{example}
+    Sia $G$ la formula $\Box x \implies x \land y$ e $F$ la formula $\Diamond y \iff \neg \Box \neg y$.
+
+    Allora $G[F/x] = \Box (\Diamond y \iff \neg \Box \neg y) \implies (\Diamond y \iff \neg \Box \neg y) \land y$
+\end{example}
+\begin{definition}[Logica Modale Normale]
+    Una \textbf{logica modale normale} è un insieme $\Gamma$ di formule tale che:
+    \begin{enumerate}
+        \item $\Gamma$ contiene tutte le tautologie della logica proposizionale
+        \item $\Gamma$ contiene tutte le istanze dello schema $K: \Box (A \implies B) \implies (\Box A \implies \Box B)$
+        \item $\Gamma$ contiene tutte le istanze dello schema $def_\Diamond : \Diamond A \iff \neg \Box \neg A$
+        \item $\Gamma$ è chiuso sotto \textbf{modus ponens} se $A \in \Gamma$ e $(A \implies B) \in \Gamma$, allora $B \in \Gamma$
+        \item $\Gamma$ è chiuso sotto \textbf{necessitazione} se $A \in \Gamma$, allora $\Box A \in \Gamma$
+        \item $\Gamma$ è chiuso sotto \textbf{sostituzione uniforme} se $A \in \Gamma$, allora $A[B/x] \in \Gamma$
+    \end{enumerate}
+\end{definition}
+\begin{example}
+    Se $(S,R)$ è un frame, $\{F: (S,R) \vDash F\}$ è una logica normale.
+\end{example}
+\begin{example}
+    $\{F: \; \vDash F\}$ è una logica normale.
+\end{example}
+\begin{example}
+    Se $M$ è un modello su un frame $(S,R)$, $\{F: \; M \vDash F\}$ NON è una logica normale.
+\end{example}
+\begin{definition}[Logica Modale K]
+    La \textbf{logica modale K} è definita dai seguenti schemi di assioni e regole:
+    \begin{enumerate}
+        \item Schemi di assiomi:
+              \begin{enumerate}
+                  \item Tutte le tautologie della logica proposizionale
+                  \item $K: \Box (A \implies B) \implies (\Box A \implies \Box B)$
+                  \item $def_\Diamond : \Diamond A \iff \neg \Box \neg A$
+              \end{enumerate}
+        \item Regole di inferenza:
+              \begin{enumerate}
+                  \item Modus ponens
+                  \item Necessitazione
+                  \item Sostituzione uniforme
+              \end{enumerate}
+    \end{enumerate}
+\end{definition}
+\begin{definition}[Dimostrazione in una logica modale]
+    Data una logica modale L una \textbf{dimostrazione in L} è una successione finita di formule tali che ognuna di esse o è un assioma o è ottenuta da formule precedenti tramite una regola di inferenza
+\end{definition}
+\begin{definition}[Teorema di una logica modale]
+    Una formula $F$ si dice \textbf{teorema di L}, scritto $\vdash_L F$ se e solo se esite una dimostrazione in $L$ in cui la ultima formula è $F$
+\end{definition}
+\begin{example}
+    $\Box (A \land B) \implies \Box A$ è un teorema della logica K:
+    \begin{enumerate}
+        \item $\vdash_K A \land B \implies A$ (Tautologia)
+        \item $\vdash_K \Box (A \land B \implies A)$ (Necessitazione)
+        \item $\vdash_K \Box (A \land B \implies A ) \implies (\Box (A \land B ) \implies \Box A)$ (K)
+        \item $\vdash_K \Box (A \land B ) \implies \Box A$ (Modus Ponens)
+    \end{enumerate}
+\end{example}
+Quindi la logica basata su principi episistemici che abbiamo considerato ragionevoli si supporta su frame che sono relazioni di equivalenza.
+\begin{definition}[Logica Valida]
+    Una logica L è \textbf{valida (sound)} se
+    \begin{equation*}
+        \vdash_L A \implies \vDash A
+    \end{equation*}
+\end{definition}
+\begin{theorem}
+    La logica K è valida.
+\end{theorem}
+\begin{proof}
+    Sia $B_1,B_2,\ldots,B_n$ una dimostrazione di A in K, con $B_n \equiv A$.
+
+    $B_1$ è valida perchè è un assioma.
+
+    Se $i > 1$, allora $B_i$ è un assioma o è ottenuta da formule precedenti tramite necessitazione o modus ponens.
+    \begin{enumerate}
+        \item $\vdash_K B_j$, per induzione $\vDash B_j$ e allora $\vDash \Box B_j$, quindi $B_i = \Box B_j$ è valida.
+        \item $\vdash_K B_j, \vdash_K B_h$ dove $B_h \equiv B_i \implies B_i$. Allora per induzione $\vDash B_j, \vDash B_j \implies B_i$\\
+              e quindi $\vDash B_i$
+    \end{enumerate}
+\end{proof}
+\begin{definition}[Logica Completa]
+    Una logica L è \textbf{completa} se
+    \begin{equation*}
+        \vDash A \implies \vdash_L A
+    \end{equation*}
+\end{definition}
+\begin{theorem}
+    La logica K è completa.
+\end{theorem}
+\begin{proof}
+    vedee cap.4 "Corso di Logica modale proposizionale"
+\end{proof}
+
+
+
+\end{document}
