@@ -98,7 +98,7 @@ ad una successione a valori in $K$ corrisponde una serie formale nella variabile
 \end{equation*}
 Se l'insieme $\{ m \in \mathbb{N} : f(n) \neq 0\}$ è finito diciamo che la serie formale è un polinomio in $x$ di grado $deg(P) := MAX \{ n \in \mathbb{N}: f(n) \neq 0\}$.
 
-Il grado del poliniomio 0 non è definito.
+Il grado del polinomio 0 non è definito.
 
 L'insieme dei polinomi in $x$ a coefficienti in $K$ si indica con $K[x]$ ed è un anello commutativo con le operazioni:
 \begin{itemize}
@@ -147,7 +147,7 @@ L'unità di $K[x]$ è il polinomio $1_k$.
     Sia $\alpha \in K$. L'elemento $\alpha$ è detto \textbf{radice} del polinomio $P = \sum_{n=0}^{\infty} a_n X^n \in K[X]$ se $P(\alpha) = \sum_{n=0}^{\infty} a_n \alpha^n = 0$.
 \end{definition}
 
-Anche nell'anello $K[X]$ come in $\mathbb{Z}$ abiamo un algoritmo di divisione Euclidea.
+Anche nell'anello $K[X]$ come in $\mathbb{Z}$ abbiamo un algoritmo di divisione Euclidea.
 
 Se $f(X), g(X) \in K[X]$ sono polinomi non nulli allora esistono unici polinomi $q(X), r(X) \in K[X]$ tali che:
 
@@ -180,12 +180,12 @@ Come in $\mathbb{Z}$ possiamo trovarlo con l'algoritmo delle divisioni successiv
     \end{align*}
 \end{example}
 
-\begin{proposition} sia $K$ un campo e $P(X) \in K[X]$ un poliniomio irriducibile. Allora l'anello quoziente $\nicefrac{K[X]}{\langle P(X)\rangle}$ è un campo.
+\begin{proposition} sia $K$ un campo e $P(X) \in K[X]$ un polinomio irriducibile. Allora l'anello quoziente $\nicefrac{K[X]}{\langle P(X)\rangle}$ è un campo.
 \end{proposition}
 \begin{proof}
     Sia $[f] \in \nicefrac{K[X]}{\langle P(X)\rangle}$ tale che $[p] \neq [0]$ ossia $p(X)$ non divide $f(X)$.
 
-    Dunque $MCD\{f(X),p(X)\} = 1$ perchè $p(X)$ è irriducibile.
+    Dunque $MCD\{f(X),p(X)\} = 1$ perché $p(X)$ è irriducibile.
 
     Quindi abbiamo un'identità di Bézout $a(X)f(X) + b(X)p(X) = 1$.
 

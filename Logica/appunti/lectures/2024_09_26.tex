@@ -15,7 +15,7 @@
 \end{proposition}
 
 \begin{proof}
-    Dobbiamo far vedere che la funzione inversa $f^{-1} : M_2 \rightarrow M_2$ è un morfismo di monoidi.
+    Dobbiamo far vedere che la funzione inversa $f^{-1} : M_2 \rightarrow M_1$ è un morfismo di monoidi.
 
     Poiché $f(e_1) = e_2$, allora $f^{-1}(e_2) = e_1$.
     Siano $x_2,y_2 \in M_2$, allora esistono $x_1,y_1 \in M_1$ tali che $f(x_1)= x_2 , f(y_1)=y_2$.
@@ -27,7 +27,7 @@
     \begin{itemize}
         \item Siano $M_1 = (\mathcal{P}(X), \cup) \text{ e } M_2 = (\mathcal{P}(X), \cup), \text{ dove } X$
               è un insieme. Sia $f : M_1 \rightarrow M_2$ definita ponendo $f(A) = A^C , \forall A \subseteq X$.
-              la funzione $f$ è biunivoca. Inotre, dalle formule di De Morgan segue che $f(A \cap B) =
+              la funzione $f$ è biunivoca. Inoltre, dalle formule di De Morgan segue che $f(A \cap B) =
                   (A \cap B)^C = A^C \cup B^C = f(A) \cup f(B)$. Quindi $f$ è un isomorfismo di monoidi, poiché
               $f(X) = X^C = \varnothing$, essendo $X$ l'identità di $M_1$ e $\varnothing$ l'identità di $M_2$.
         \item Sia $\mathbb{Z}_2 := \{0,1\}$ con l'operazione definita come: $0+0=0, 0+1=1+0=1, 1+1=0$.
@@ -124,7 +124,7 @@ Ognuna di queste matrici può essere vista come una funzione da $X = \{1,\ldots,
 \end{gather*}
 Il prodotto righe per colonne corrisponde alla composizione di funzioni.
 
-Quindi un monoide finito di cardinalità $n$ è isomorfo a un sottomonide del monoide delle funzioni $f$ da $\{1,\ldots,n\}$ in $\{1,\ldots,n\}$ con l'operazione di composizione.
+Quindi un monoide finito di cardinalità $n$ è isomorfo a un sottomonoide del monoide delle funzioni $f$ da $\{1,\ldots,n\}$ in $\{1,\ldots,n\}$ con l'operazione di composizione.
 
 Notiamo che un elemento $x \in M$ di un monoide finito M è invertibile se e solo se la matrice associata è invertibile (una matrice $A \in Mat_{n \times n} (\mathbb{Z})$ è invertibile se e solo se il suo determinante è invertibile su $\mathbb{Z}$, ossia se e solo se $det(a) \in \{-1,1\}$).
 
