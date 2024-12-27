@@ -56,15 +56,15 @@
     $\forall w \in S_1$ e ogni formula $F$
 \end{lemma}
 \begin{proof}
-    Se $F$ è una variabile allora $M_1 \vDash_w F \text{ se e solo se } w \in V_1(F) \text{se e solo se } f(w) \in V_2(F)$ (per il punto 1 nella definizone di morfismo di modelli) se e solo se $M_2 \vDash_{f(w)} F$.
+    Se $F$ è una variabile allora $M_1 \vDash_w F \text{ se e solo se } w \in V_1(F) \text{se e solo se } f(w) \in V_2(F)$ (per il punto 1 nella definizione di morfismo di modelli) se e solo se $M_2 \vDash_{f(w)} F$.
 
     Per tutti gli altri tipi di formule, si dimostra induttivamente sulla costruzione della formula.
 
-    Vediamo dsolo il caso in cui $F = \Diamond G$.
+    Vediamo solo il caso in cui $F = \Diamond G$.
 
     Sia $M_1 \vDash_w \Diamond G$, allora esiste $v \in S_1$ t.c. $(w,v) \in R_1$ e $M_1 \vDash_v G$.
 
-    Poiché $(f(w),f(v)) \in R_2$ perchè $f$ è un morfismo di modelli e induttivamente $M_2 \vDash_{f(v)} G$, allora $M_2 \vDash_{f(w)} \Diamond G$.
+    Poiché $(f(w),f(v)) \in R_2$ perché $f$ è un morfismo di modelli e induttivamente $M_2 \vDash_{f(v)} G$, allora $M_2 \vDash_{f(w)} \Diamond G$.
 
     Sia ora $M_2 \vDash_{f(w)} \Diamond G$, allora esiste $u \in R_2$ t.c. $(f(w),u) \in R_2$ e $M_2 \vDash_u G$.
 
@@ -84,7 +84,7 @@
 
     Se e solo se $M_2 \vDash_{f(w)} F, \forall w \in S_1$ (per il lemma 1).
 
-    Se e solo se $M_2 \vDash F$, perchè $f$ è suriettivo.
+    Se e solo se $M_2 \vDash F$, perché $f$ è suriettivo.
 \end{proof}
 \begin{lemma}[Lemma 3]
     Sia $M_2$ un modello su $S_2, R_2$ e $f: (s_1,R_1) \rightarrow (S_2, R_2)$ un morfismo di frame tale che valga la condizione 2 della definizione di morfismo di modelli.
@@ -130,7 +130,7 @@
         f: \; \mathbb{N} & \rightarrow \{0,1\} \\
         n                & \mapsto n \bmod 2
     \end{align*}
-    è un morfismo dal frame $(\mathbb{N},\leq)$ al frame $(\{0,1\}, \{0,1\} \times \{0,1\})$ che soffisfa la condizione 2 della definizione di morfismo di modelli.
+    è un morfismo dal frame $(\mathbb{N},\leq)$ al frame $(\{0,1\}, \{0,1\} \times \{0,1\})$ che soddisfa la condizione 2 della definizione di morfismo di modelli.
 
     La relazione $\leq$ su $\mathbb{N}$ è antisimmetrica.
 
@@ -150,7 +150,7 @@ Abbiamo già mostrato che lo schema di formule
 \end{equation*}
 è valido, $\vDash K$.
 
-Adesso viediamo che lo schema di formule
+Adesso vediamo che lo schema di formule
 \begin{equation*}
     def_\Diamond : \Diamond A \iff \neg \Box \neg A
 \end{equation*}
@@ -161,12 +161,12 @@ Adesso viediamo che lo schema di formule
 
     Allora $M \vDash_w \Diamond A$ se e solo se esiste $v \in S t.c. (w,v) \in R$ e $M \vDash_v A$.
 
-    $M \vDash_w \neg \Box \neg A$ se e solo se $M \nvDash_w \Box \neg A$, se e solo se esiste $v \in S t.c. (w,v) \in R$ e $M \nvDash_v \neg A$, se e solo se esite $v \in S t.c. (w,v) \in R$ e $M \vDash_v A$.
+    $M \vDash_w \neg \Box \neg A$ se e solo se $M \nvDash_w \Box \neg A$, se e solo se esiste $v \in S t.c. (w,v) \in R$ e $M \nvDash_v \neg A$, se e solo se esiste $v \in S t.c. (w,v) \in R$ e $M \vDash_v A$.
 
     Abbiamo quindi dimostrato che $\vDash def_\Diamond$
 \end{proof}
 \begin{definition}[Sostituzione uniforme]
-    Sia $x$ una variabile e $F$ una formula. Definiamo l'operzione di sostituzione uniforme di $F$ al posto di $x$ in una formula $G$, indicato come
+    Sia $x$ una variabile e $F$ una formula. Definiamo l'operazione di sostituzione uniforme di $F$ al posto di $x$ in una formula $G$, indicato come
     \begin{equation*}
         G[F/x]
     \end{equation*}
@@ -198,7 +198,7 @@ Adesso viediamo che lo schema di formule
     Se $M$ è un modello su un frame $(S,R)$, $\{F: \; M \vDash F\}$ NON è una logica normale.
 \end{example}
 \begin{definition}[Logica Modale K]
-    La \textbf{logica modale K} è definita dai seguenti schemi di assioni e regole:
+    La \textbf{logica modale K} è definita dai seguenti schemi di assiomi e regole:
     \begin{enumerate}
         \item Schemi di assiomi:
               \begin{enumerate}
@@ -218,7 +218,7 @@ Adesso viediamo che lo schema di formule
     Data una logica modale L una \textbf{dimostrazione in L} è una successione finita di formule tali che ognuna di esse o è un assioma o è ottenuta da formule precedenti tramite una regola di inferenza
 \end{definition}
 \begin{definition}[Teorema di una logica modale]
-    Una formula $F$ si dice \textbf{teorema di L}, scritto $\vdash_L F$ se e solo se esite una dimostrazione in $L$ in cui la ultima formula è $F$
+    Una formula $F$ si dice \textbf{teorema di L}, scritto $\vdash_L F$ se e solo se esiste una dimostrazione in $L$ in cui la ultima formula è $F$
 \end{definition}
 \begin{example}
     $\Box (A \land B) \implies \Box A$ è un teorema della logica K:

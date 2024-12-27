@@ -44,7 +44,7 @@
     \end{center}
 \end{example}
 \begin{example}
-    Il frame $(\{1,2,3\}, R)$ dove $R = \{(x,y) \in \{1,2,3\} \times \{1,2,3\} : y=f(x)\}$ essedo $f : \{1,2,3\} \rightarrow \{1,2,3\}$ la funzione definita da $f(1) = 2, f(2) = 3, f(3) = 1$ è
+    Il frame $(\{1,2,3\}, R)$ dove $R = \{(x,y) \in \{1,2,3\} \times \{1,2,3\} : y=f(x)\}$ essendo $f : \{1,2,3\} \rightarrow \{1,2,3\}$ la funzione definita da $f(1) = 2, f(2) = 3, f(3) = 1$ è
     \begin{center}
         \begin{tikzpicture}[->]
             \node (1) {1};
@@ -86,7 +86,7 @@ Se come frame prendiamo $({0},R)$ dove $R \subseteq S \times S = \{(0,0)\}$ è q
 
 In questo modo i connettivi modali diventano superflui e ritroviamo la logica modale che abbiamo già studiato.
 
-La veritò di una formula del linguaggio della logica modale dipenderà quindi dal frame scelto, in particolare dalla relazione $R$.
+La verità di una formula del linguaggio della logica modale dipenderà quindi dal frame scelto, in particolare dalla relazione $R$.
 
 Ad esempio nella logica della necessità vogliamo che sia sempre vera la formula
 \begin{equation*}
@@ -94,7 +94,7 @@ Ad esempio nella logica della necessità vogliamo che sia sempre vera la formula
 \end{equation*}
 Nella logica deontica la stessa formula la leggiamo "è obbligatorio che $x$, allora $x$" e non vogliamo che questa affermazione sia sempre vera.
 
-Perchè sia sempre vera la formula $\Box x \implies x$, la relazione $R$ del frame deve essere riflessiva, ossia $(y,y) \in R \forall y \in S$.
+perché sia sempre vera la formula $\Box x \implies x$, la relazione $R$ del frame deve essere riflessiva, ossia $(y,y) \in R \forall y \in S$.
 
 Infatti, se $R$ non fosse riflessiva ci sarebbe un mondo $y \in S$ tale che $(y,y) \notin R$.
 
@@ -120,7 +120,7 @@ Nella logica deontica, dove non vogliamo che sia sempre vera la formula $\Box x 
 \begin{definition}[Schema di Formule]
     Uno \textbf{schema di formule} è una collezione di formule aventi tutte la stessa forma sintattica.
 
-    Ad esempio, con lo schema $\Box x \implies x$ si intendono tutte le forume di questa forma, come $\Box x \implies x$, $x$ variabile, o $\Box (\neg \Diamond \neg x) \implies \neg \Diamond \neg x$.
+    Ad esempio, con lo schema $\Box x \implies x$ si intendono tutte le formule di questa forma, come $\Box x \implies x$, $x$ variabile, o $\Box (\neg \Diamond \neg x) \implies \neg \Diamond \neg x$.
 \end{definition}
 Le tautologie della logica proposizionale sono valide su ogni frame.
 
@@ -171,7 +171,7 @@ Abbiamo già mostrato che se M è un modello su un frame $(S,R)$ con $R$ non rif
 \begin{equation*}
     \nvDash \Box x \implies x
 \end{equation*}
-Mostiamo che i seguenti schemi di fromule non sono validi:
+Mostriamo che i seguenti schemi di formule non sono validi:
 \begin{enumerate}
     \item $\Diamond A \implies \Box A$
     \item $\Box A \implies A$ (già visto)
@@ -194,7 +194,7 @@ Mostiamo che i seguenti schemi di fromule non sono validi:
               M = (\{1,2\},\{(1,2),(1,1)\}, V)
           \end{equation*}
 
-          $V(x) = 2 $ (ossia la formiula x è vera solo nel mondo 2) quindi $M \vDash_! \Diamond x$ e $M \nvDash_1 \Box x$, ossia $M \nvDash_1 (\Diamond x \implies \Box x)$
+          $V(x) = 2 $ (ossia la formula x è vera solo nel mondo 2) quindi $M \vDash_! \Diamond x$ e $M \nvDash_1 \Box x$, ossia $M \nvDash_1 (\Diamond x \implies \Box x)$
     \item già visto.
     \item \begin{equation*}
               \begin{tikzpicture}[->]
@@ -223,7 +223,7 @@ Mostiamo che i seguenti schemi di fromule non sono validi:
               M = (\{1,2\}, V)
           \end{equation*}
 
-          $V(x) = \{1\}$ $M \vDash_2 \Box (A \implies B)$, $M \vDash_2 \Box A$, ma $M \nvDash_2 \Diamond B$, perchè non esiste $v \in \{1,2\} t.c M \vDash_v , (2,v) \in R$
+          $V(x) = \{1\}$ $M \vDash_2 \Box (A \implies B)$, $M \vDash_2 \Box A$, ma $M \nvDash_2 \Diamond B$, perché non esiste $v \in \{1,2\} t.c M \vDash_v , (2,v) \in R$
     \item prendiamo $A = B = x$ nel frame
           \begin{equation*}
               \begin{tikzpicture}[->]
@@ -270,7 +270,7 @@ Mostiamo che i seguenti schemi di fromule non sono validi:
               M = (\{1,2,3\},\{(1,2),(2,3)\}, V)
           \end{equation*}
 
-          $V(x) = \{2,3\}$ $M \vDash_1 \Box (\Box x \implies x)$ se e solo se $M \vDash_1 (\Box x \implies x)$ e $M \vDash_2 (\Box x \implies x)$, che sono entrambe vere, quindi $M \vDash_1 \Box (\Box x \implies x)$ invece $M \nvDash_1 \Box x$ perchè $M \nvDash_1 x$.
+          $V(x) = \{2,3\}$ $M \vDash_1 \Box (\Box x \implies x)$ se e solo se $M \vDash_1 (\Box x \implies x)$ e $M \vDash_2 (\Box x \implies x)$, che sono entrambe vere, quindi $M \vDash_1 \Box (\Box x \implies x)$ invece $M \nvDash_1 \Box x$ perché $M \nvDash_1 x$.
 \end{enumerate}
 
 \section{Corrispondenza e Non Esprimibilità}

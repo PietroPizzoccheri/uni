@@ -64,7 +64,7 @@ Ossia $f(x)$ divide $h(x)^p - h(x)$.
 
 Sia $f(x) \mathbb{F}_p[x], deg(f) = d$.
 
-Sia $f(x) = p_1(x)\cdot \ldots \cdot p_k(x)$ una fattoriazzazione di $f(x)$ in fattori irriducibili, non banali (cioè di grado $\geq 1$) e aventi molteplicità $1$. siano
+Sia $f(x) = p_1(x)\cdot \ldots \cdot p_k(x)$ una fattorizzazione di $f(x)$ in fattori irriducibili, non banali (cioè di grado $\geq 1$) e aventi molteplicità $1$. siano
 \begin{align*}
     r_0       & = 1 \bmod f(x)            \\
     r_1       & = x^p \bmod f(x)          \\
@@ -73,7 +73,7 @@ Sia $f(x) = p_1(x)\cdot \ldots \cdot p_k(x)$ una fattoriazzazione di $f(x)$ in f
 \end{align*}
 Con $deg(r_i) < d \forall 0 \leq i \leq d - 1$.
 
-Definiamo la matrice $A \in Mat_{d \times d}(\mathbb{F}_p)$ nel segueente modo:
+Definiamo la matrice $A \in Mat_{d \times d}(\mathbb{F}_p)$ nel seguente modo:
 
 $A_{ij} = $ coefficiente del termine di grado i del polinomio $r_j(x)$
 \begin{example}
@@ -283,7 +283,7 @@ La moltiplicazione righe per colonne richiede l'esecuzione di $n^3$ moltiplicazi
 
 Nell'algoritmo di Strassen per matrici 2 x 2 si eseguono 7 moltiplicazioni.
 
-L'algoritmo può anche essere usato ricorsivamente per moltiplicare matici più grandi. Ad esempio, se $M, N \in Mat_{4 \times 4}(K)$, possiamo scrivere:
+L'algoritmo può anche essere usato ricorsivamente per moltiplicare matrici più grandi. Ad esempio, se $M, N \in Mat_{4 \times 4}(K)$, possiamo scrivere:
 \begin{equation*}
     M = \begin{pmatrix} A & B \\ C & D \end{pmatrix} \quad \text{e} \quad N = \begin{pmatrix} A' & B' \\ C' & D' \end{pmatrix} \qquad
     \text{dove} \quad A, B, C, D, A', B', C', D' \in Mat_{2 \times 2}(K)
@@ -312,7 +312,7 @@ Secondo passo: calcoliamo il prodotto in $\RomanNumber 1, \RomanNumber 2, \Roman
 
 Quindi l'algoritmo di Strassen per il prodotto tra due matrici 4 x 4 richiede $7^2$ moltiplicazioni.
 
-Se vogliamo moltiplicare matrici 3 x 3 possiamo aggiungerre una riga e una colonna di zeri e considerarle 4 x 4.
+Se vogliamo moltiplicare matrici 3 x 3 possiamo aggiungere una riga e una colonna di zeri e considerarle 4 x 4.
 
 In generale la moltiplicazione di due matrici n x n usando l'algoritmo di Strassen richiede $7^k$ moltiplicazioni. Se $n = 2^k$ abbiamo che:
 \begin{equation*}
@@ -327,7 +327,7 @@ In generale la moltiplicazione di due matrici n x n usando l'algoritmo di Strass
 
 L'algoritmo di Strassen mostra che $w \leq 2.81$.
 
-Se $n = 2$ l'algoritmo di Strassen è ottimale (dal Teorema di Brockett- Dobkin).
+Se $n = 2$ l'algoritmo di Strassen è ottimale (dal Teorema di Brockett-Dobkin).
 
 Non è noto un algoritmo ottimale per la moltiplicazione matrici 3 x 3.
 

@@ -5,7 +5,7 @@
 \section{Sintassi}
 Introduciamo il linguaggio della logica proposizionale. L'alfabeto è costituito da:
 \begin{enumerate}
-    \item Insime numerabile di variabili
+    \item Insieme numerabile di variabili
     \item Connettivi logici: $\neg, \land, \lor$
 \end{enumerate}
 le parole del linguaggio possono essere:
@@ -97,7 +97,7 @@ La formula $x \lor \neg x$ è una tautologia, la formula dell' esempio precedent
 \begin{example}
     La formula $y$ è conseguenza logica della formula $F := (\neg x \lor y) \land x$.
 
-    Infatti l'unica assegnazione che soffisfa $F$ è $x \rightarrow 1, y \rightarrow 1$.
+    Infatti l'unica assegnazione che soddisfa $F$ è $x \rightarrow 1, y \rightarrow 1$.
 
     Tale assegnazione soddisfa anche $y$.
 \end{example}
@@ -120,7 +120,7 @@ La formula $x \lor \neg x$ è una tautologia, la formula dell' esempio precedent
     Due formule $F,G$ sono logicamente equivalenti se $F$ è conseguenza logica di $G$ e $G$ è conseguenza logica di $F$. In tal caso scriviamo $F \equiv G$.
 \end{definition}
 \begin{example}
-    Nell'esempio precedente abbiamo visto che $y$ è conseguenza logica di $F:= (\neg x \lor y) \land x $, che possiamo ricrivere come $(x \implies y) \land x$.
+    Nell'esempio precedente abbiamo visto che $y$ è conseguenza logica di $F:= (\neg x \lor y) \land x $, che possiamo riscrivere come $(x \implies y) \land x$.
 
     Poiché $x \mapsto 0, y \mapsto 1$ soddisfa $y$ ma non $F$, abbiamo che $F$ non è conseguenza logica di $y$.
 \end{example}
@@ -181,7 +181,7 @@ L'alfabeto è quello della logica proposizionale a cui si aggiungono i \textbf{c
     \item I simboli ausiliari $(,)$
     \item I connettivi modali $\Box$ (\textbf{Scatola o Box}) e $\Diamond$ (\textbf{Diamante o Diamond})
 \end{enumerate}
-Le parole del lingiaggio sono le formule ben formate (FBF) definite in modo ricorsivo:
+Le parole del linguaggio sono le formule ben formate (FBF) definite in modo ricorsivo:
 \begin{enumerate}
     \item Ogni variabile è una FBF
     \item Se $A$ è una FBF, allora $\neg A, \Box A, \Diamond A$ sono FBF
@@ -202,7 +202,7 @@ Alcune letture dei simboli $\Box$ e $\Diamond$:
     \item Logica modale dimostrativa: $\Box A$: "è dimostrabile che A"
 \end{itemize}
 
-Come abbiamo visto, la logica proposizionale è una logica vero-funzionale: assegnando valori "0" e "1" alle variabili possiamo assegnare un valore "0" o "1" ad una formula in modo univoco, che corrisponde alla nostra inutizione di negazione, disgiunzione, congiunzione.
+Come abbiamo visto, la logica proposizionale è una logica vero-funzionale: assegnando valori "0" e "1" alle variabili possiamo assegnare un valore "0" o "1" ad una formula in modo univoco, che corrisponde alla nostra intuizione di negazione, disgiunzione, congiunzione.
 
 Per la logica modale la situazione è più complicata.
 
@@ -218,7 +218,7 @@ Non è chiaro se sia vera o falsa. Nel caso della logica epistemica, l'operatore
 
 In questo contesto, la formula $KA \implies A$ (se si sa che A allora A vale) sembra dover essere vera.
 
-Invece la formula $A \implies KA$ (se vale A allora si sa che A) sembra essere falsa perchè non si è onniscenti.
+Invece la formula $A \implies KA$ (se vale A allora si sa che A) sembra essere falsa perché non si è onniscienti.
 
 \section{Semantica dei mondi possibili (semantica di Kripke)}
 \begin{definition}[Frame]

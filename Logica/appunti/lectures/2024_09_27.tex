@@ -49,7 +49,7 @@ Se $R$ è una relazione di equivalenza su $X$ e $(x,y) \in R$, scriviamo $x \sim
     \begin{itemize}
         \item L'uguaglianza "$=$" è una relazione di equivalenza
               su ogni insieme $X$.
-        \item Sia $X = \{1,2,\ldots,n\}$. Definiamo si $\mathcal{P}(X)$
+        \item Sia $X = \{1,2,\ldots,n\}$. Definiamo su $\mathcal{P}(X)$
               la seguente relazione:
               $A \sim B \iff |A| = |B|, \forall A,B \subseteq X$.
               Questa è una relazione di equivalenza e $\nicefrac{\mathcal{P}(X)}{\sim}
@@ -75,9 +75,8 @@ Se $R$ è una relazione di equivalenza su $X$ e $(x,y) \in R$, scriviamo $x \sim
     Il numero $\binom{n}{k}$ è chiamato \textbf{coefficiente binomiale}, questo perché $(x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^n y^{n-k}, \forall x,y \in \mathbb{C} $
 \end{definition}
 
-\section{Insieme quoziente per gruppi abeliani}
 
-Se $G$ è un gruppo abeliano, possiamo definire la seguente operazione "$+$"
+Se $G$ è un gruppo abeliano e $H$ un suo sottogruppo, possiamo definire la seguente operazione "$+$"
 su \nicefrac{G}{H}: $[g_1] + [g_2] := [g_1 + g_2]$, vediamo che è ben definita:
 se $g_{1}' = g_1 + h_1 \text{ e } g_{2}' = g_2 + h_2$, allora $[g_{1}'] = [g_1]
 $, $[g_{2}'] = [g_2]$ e $g_{1}' + g_{2}' = g_1 + h_1 + g_2 + h_2 = g_1 + g_2 + h$,
@@ -137,7 +136,7 @@ Se $G$ è un gruppo finito e $H \subseteq G$ è un sottogruppo, allora $[g] \in 
 
 Infatti $[g] = \{gh : h \in  H\}$ e $gh_1 = gh_2 \rightarrow h_1 = h_2$.
 
-Poiché le classi di quivalenza sono una partizione di G , abbiamo $|G| = |\nicefrac{G}{H}| \cdot |H|$.
+Poiché le classi di equivalenza sono una partizione di G , abbiamo $|G| = |\nicefrac{G}{H}| \cdot |H|$.
 
 In particolare la cardinalità o (\textbf{ordine}) di un sottogruppo di un gruppo finito divide la cardinalità del gruppo.
 \end{document}

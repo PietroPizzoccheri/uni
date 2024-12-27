@@ -5,7 +5,7 @@
     L'insieme $\{F : \; \vdash_K F\}$ è chiuso sotto sostituzione uniforme.
 \end{theorem}
 
-Nelle logiche Epistemiche si estende la logica K aggiungendo lo schema di assimi
+Nelle logiche Epistemiche si estende la logica K aggiungendo lo schema di assiomi
 \begin{equation*}
     \Box F \implies F \quad \text{(se si sa che $F$, allora $F$ vale)}
 \end{equation*}
@@ -18,14 +18,14 @@ Se accettiamo il \textbf{principio di introspezione epistemica positiva}, ossia 
 
 Avremmo così definito la logica \underline{S4}.
 
-I teoremi della logica S4 sono validi su frame riflessivi e transitivi, perchè lo schema di formule $\Box F \implies \Box \Box F$ esprime la transitività.
+I teoremi della logica S4 sono validi su frame riflessivi e transitivi, perché lo schema di formule $\Box F \implies \Box \Box F$ esprime la transitività.
 
 Se accettiamo anche il \textbf{principio di introspezione epistemica negativa}, ossia se ogni volta che non si sa qualcosa si sa di non saperla, aggiungiamo l'assioma $\neg \Box F \implies \Box \neg \Box F$.
 Avremmo così definito la logica \underline{S5}.
 
 I teoremi della logica S5 sono validi su frame riflessivi, transitivi e simmetrici ossia sulle relazioni di equivalenza.
 
-Dobbiamo solo far vedere la validità suiframe simmetrici.
+Dobbiamo solo far vedere la validità sui frame simmetrici.
 
 Deriviamo lo schema di formule $F \implies \Box \Diamond F$ da S5:
 \begin{enumerate}[label=\arabic*)]
@@ -53,7 +53,7 @@ Adesso facciamo vedere che $\neg \Box F \implies \Box \neg \Box F$ è un teorema
     \item $\vdash \neg \Box \neg F \implies \Box \neg \Box \neg F$ ($def_\Diamond$)
     \item $\vdash \neg \Box F \implies \Box \neg \Box F$ (tautologia)
 \end{enumerate}
-Quindi la logica basata su principi episistemici che abbiamo considerato ragionevoli si supporta su frame che sono relazioni di equivalenza.
+Quindi la logica basata su principi epistemici che abbiamo considerato ragionevoli si supporta su frame che sono relazioni di equivalenza.
 \begin{definition}[Logica Valida]
     Una logica L è \textbf{valida (sound)} se
     \begin{equation*}
@@ -66,7 +66,7 @@ Quindi la logica basata su principi episistemici che abbiamo considerato ragione
 \begin{proof}
     Sia $B_1,B_2,\ldots,B_n$ una dimostrazione di A in K, con $B_n \equiv A$.
 
-    $B_1$ è valida perchè è un assioma.
+    $B_1$ è valida perché è un assioma.
 
     Se $i > 1$, allora $B_i$ è un assioma o è ottenuta da formule precedenti tramite necessitazione o modus ponens.
     \begin{enumerate}
@@ -258,7 +258,7 @@ Gli altri sono esprimibili in termini di questi.
 
     o $\forall z \in S$ t.c $(x,z) \in R^*. M \vDash_z \neg \psi, \exists y \in S$ t.c $(x,y) \in R^*, (y,z) \in R^*, y \neq z, M \vDash_y \varphi$
 
-    $\psi$ deve essere vere fino al punto in cui inzia ad essere vera $\varphi$ ($\varphi$ rilascia $\psi$)
+    $\psi$ deve essere vere fino al punto in cui inizia ad essere vera $\varphi$ ($\varphi$ rilascia $\psi$)
 \end{example}
 
 \newpage

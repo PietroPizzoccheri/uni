@@ -55,7 +55,7 @@ Sia $X = \{A \in Mat_{h \times k}(\mathbb{F}) : rk(A) = 1\}$, allora si ha che
             0 & 0  & 0
         \end{pmatrix}
     \end{equation*}
-    ovviamente è la minima perchè $rk(A) = 2$
+    ovviamente è la minima perché $rk(A) = 2$
 \end{example}
 
 Come è fatta una matrice di rango 1 in $Mat_{a \times b}(K)$?
@@ -182,7 +182,7 @@ Dunque una matrice $A \in Mat_{m \times n} (K)$ tale che $rk(A) = 1$ corrisponde
             2 & 0 & 1
         \end{pmatrix} \in Mat_{2 \times 3}(\mathbb{F}_3)
     \end{equation*}
-    Ha rango 1 perchè
+    Ha rango 1 perché
     $\begin{pmatrix}
             2 \\
             1
@@ -232,7 +232,7 @@ Ovviamente ad un Tensore di rango 1 $v_1 \otimes v_2 \in (K^m)^* \otimes (K^n)^*
 
 Quindi abbiamo dato una corrispondenza biunivoca tra matrici di rango 1 $\in Mat_{m \times n}(K)$ e tensori di rango 1 $\in (K^m)^* \otimes (K^n)^*$.
 
-Dalla caratterizzazione del rango di una matrice in termini di combinazioni lineari di matrici di rango 1, e dalla definizione di rango di un tensore, segie che le matrici di rango $r$ in $Mat_{m \times n}(K)$ stanno in corrispondenza con i tensori di rango $r$ in $(K^m)^* \otimes (K^n)^*$.
+Dalla caratterizzazione del rango di una matrice in termini di combinazioni lineari di matrici di rango 1, e dalla definizione di rango di un tensore, segue che le matrici di rango $r$ in $Mat_{m \times n}(K)$ stanno in corrispondenza con i tensori di rango $r$ in $(K^m)^* \otimes (K^n)^*$.
 
 \section[Endomorfismi di V come elementi del prodotto tensoriale]{Endomorfismi di V come elementi di $V^* \otimes V$}
 
@@ -323,14 +323,14 @@ viceversa, ogni elemento di $V^* \otimes V$ può essere interpretato come un end
     \end{align*}
 \end{example}
 
-In generale i morfismi di spazi verroeiali $f: V \rightarrow W$ sono in corrispondenza biunivoca con $V^* \otimes W$ e tale corrispondenza è un isomorfismo di spazi vettoriali
+In generale i morfismi di spazi vettoriali $f: V \rightarrow W$ sono in corrispondenza biunivoca con $V^* \otimes W$ e tale corrispondenza è un isomorfismo di spazi vettoriali
 \begin{equation*}
     \underbrace{Hom(V, W)}_{\text{spazio vettoriale dei morfismi $f: V \rightarrow W$}} \rightarrow V^* \otimes W
 \end{equation*}
 
 Il rango di un morfismo $f: V \rightarrow W$ (come dimensione della sua immagine o come rango della sua matrice associata) corrisponde al rango del tensore $f \in V^* \otimes W$.
 
-Ancora più in genrale, ogni forma multilineare $f: V_1 \times \ldots \times V_h \rightarrow W$ è un elemento di $V_1^* \otimes \ldots \otimes V_h^* \otimes W$ posto
+Ancora più in generale, ogni forma multilineare $f: V_1 \times \ldots \times V_h \rightarrow W$ è un elemento di $V_1^* \otimes \ldots \otimes V_h^* \otimes W$ posto
 \begin{gather*}
     e_{i_1}^{1^*} \otimes e_{i_2}^{2^*} \otimes \ldots \otimes e_{i_h}^{h^*} \otimes w (v_1, v_2, \ldots v_h) = e_{i_1}^{1^*}(v_1)e_{i_2}^{2^*}(v_2) \ldots e_{i_h}^{h^*}(v_h) \: w \in W\\
     \forall 1 \leq i_1 \leq dim V_1, \ldots, 1 \leq i_h \leq dim V_h, v_i \in V_i, w \in W
@@ -340,7 +340,7 @@ Questa è una forma bilineare
 \begin{equation*}
     M_{2,2,2} : Mat_{2 \times 2} (K) \times Mat_{2 \times 2} (K) \rightarrow Mat_{2 \times 2} (K)
 \end{equation*}
-definita da $M_{2,2,2}(A,B)= AB$ ($AB$ prodotto righe per colonne). E' una forma bilineare perchè
+definita da $M_{2,2,2}(A,B)= AB$ ($AB$ prodotto righe per colonne). E' una forma bilineare perché
 \begin{enumerate}
     \item $x(AB) = (xA)B = A(xB)$ $\forall x \in K, A,B \in Mat_{2 \times 2} (K)$
     \item  \begin{align*}
@@ -400,7 +400,7 @@ abbiamo anche che $rk(M_{2,2,2}) \leq 8$
 \end{align*}
 da questa fattorizzazione si ha che $rk(M_{2,2,2}) \leq 7$.
 
-Questa fattorizzasione è l'algoritmo di Strassen per la moltiplicazione di matrici $2 \times 2$.
+Questa fattorizzazione è l'algoritmo di Strassen per la moltiplicazione di matrici $2 \times 2$.
 
 Notiamo che, se $A,B \in Mat_{2,2}(K)$,
 \begin{equation*}
@@ -417,7 +417,7 @@ Alcuni risultati generali. Consideriamo il campo $K = \mathbb{C}$
     \begin{equation*}
         rk(M_{n,n,n} \geq 2n^2 -1)
     \end{equation*}
-    ($M_{n,n,n}$ è il tensore della moltiplicazione di due matrici $n \times n$ sul cmapo $\mathbb{C}$)
+    ($M_{n,n,n}$ è il tensore della moltiplicazione di due matrici $n \times n$ sul campo $\mathbb{C}$)
 \end{theorem}
 \begin{corollary}
     \begin{equation*}

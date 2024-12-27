@@ -25,7 +25,7 @@
 \begin{example}
     \
     \begin{itemize}
-        \item Siano $M_1 = (\mathcal{P}(X), \cup) \text{ e } M_2 = (\mathcal{P}(X), \cup), \text{ dove } X$
+        \item Siano $M_1 = (\mathcal{P}(X), \cap) \text{ e } M_2 = (\mathcal{P}(X), \cup), \text{ dove } X$
               è un insieme. Sia $f : M_1 \rightarrow M_2$ definita ponendo $f(A) = A^C , \forall A \subseteq X$.
               la funzione $f$ è biunivoca. Inoltre, dalle formule di De Morgan segue che $f(A \cap B) =
                   (A \cap B)^C = A^C \cup B^C = f(A) \cup f(B)$. Quindi $f$ è un isomorfismo di monoidi, poiché
@@ -51,7 +51,7 @@ Per ogni $x \in M$ definiamo una matrice $A(x) \in Mat_{n \times n}(\mathbb{Z})$
 \end{itemize}
 La funzione $F : M \rightarrow Mat_{n \times n} (\mathbb{Z})$ ($x \mapsto A(x)$) è iniettiva.
 
-Infatti, se $A(x) = a(y)$, allora $A(x)_{i1} = A(y)_{i1} \; \forall i \in \{1,\ldots,n\}$.
+Infatti, se $A(x) = A(y)$, allora $A(x)_{i1} = A(y)_{i1} \; \forall i \in \{1,\ldots,n\}$.
 
 Quindi se $A(x)_{i1} = A(y)_{i1} = 1$, allora $xx_1 = xe = x = yx_1 = y$.
 
