@@ -55,7 +55,7 @@ Dunque $|\langle \overline{m} \rangle| = z= \frac{mcmc \{m,n\}}{m}$.
 
 In particolare, $\langle \overline{m} \rangle = \mathbb{Z}_n \iff z=n \iff MCD \{m,n\}=1$.
 
-Ossia \textbf{l'insieme $\{\overline{m}\}$ genera il gruppo $\mathbb{Z}_n$ sse $m \text{ e } n$ sono coprimi.}
+Ossia \textbf{l'insieme $\{\overline \langle m \rangle \}$ genera il gruppo $\mathbb{Z}_n$ sse $m \text{ e } n$ sono coprimi.}
 
 \begin{definition}[Funzione di Eulero]
     La funzione definita da $\varphi : \mathbb{N} \backslash \{0\} \rightarrow \mathbb{N} \backslash \{0\}$, $\varphi(n) := |\{m \in \mathbb{N} \backslash \{0\} : m < n \text{ e } MCD \{m,n\} = 1\}|$ è detta \textbf{funzione di Eulero}.
@@ -110,11 +110,11 @@ Ossia \textbf{l'insieme $\{\overline{m}\}$ genera il gruppo $\mathbb{Z}_n$ sse $
             \nicefrac{G_1}{Ker(f)} \arrow[ru, "\varphi"']
         \end{tikzcd}
     \end{equation*}
-    In particolare, $\nicefrac{G_1}{Ker(f)} \simeq \Im(f)$.
+    In particolare, $\nicefrac{G_1}{Ker(f)} \simeq Im(f)$.
 \end{theorem}
 
 \begin{proof}
-    L'assegnazione $[g] \mapsto f(g), \forall g \in  G$, definisce una funzione $\varphi : \nicefrac{G_1}{Ker(f)}
+    L'assegnazione $[g] \mapsto f(g), \forall g \in  G$, definisce una funzione $\varphi : \nicefrac{G_1}{Ker(\varphi)}
         \rightarrow G_2$.\\
     Infatti, se $g' \sim g$, ossia $[g]  = [g']$, allora $g = g' + h , h \in Ker(f)$.
 
