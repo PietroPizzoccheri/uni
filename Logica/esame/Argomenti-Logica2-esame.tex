@@ -1044,12 +1044,15 @@ Un Frame può essere rappresentato con un grafo diretto con cappi (loop) i cui v
     Lo schema $\Box A \implies A$ è valido in un frame $(S,R)$ se e solo se $R$ è riflessiva.
 \end{theorem}
 \begin{proof}
-    Perchè sia sempre vera la formula $\Box x \implies x$, la relazione $R$ del frame deve essere riflessiva, ossia $(y,y) \in R \forall y \in S$.
+    perché sia sempre vera la formula $\Box x \implies x$, la relazione $R$ del frame deve essere riflessiva, ossia $(y,y) \in R \forall y \in S$.
 
     Infatti, se $R$ non fosse riflessiva ci sarebbe un mondo $y \in S$ tale che $(y,y) \notin R$.
 
-    TODO
-    %TODO
+    Sia $Z = V(x), Z \subseteq S,$ tale che $y \notin Z$ (cioè x è falsa nel mondo y).
+
+    Sia $Z \supseteq \{z \in S : (y,z) \in R\}$ cioè x sia vera in tutti i mondi accessibili da y.
+
+    Allora se $M = (S, R, V), M \vDash_y \Box x$ ma $M \nvDash_y x$.
 \end{proof}
 \newpage
 
@@ -1064,11 +1067,11 @@ Un Frame può essere rappresentato con un grafo diretto con cappi (loop) i cui v
 
     Adesso assumiamo che lo schema $A \implies \Box \Diamond A $ sia valido in $(S,R)$.
 
-    Sia x una variabile e $V(x) = \{s\}$;
+    Sia x una variabile e $V(X) = \{s\}$;
 
-    sia $t \in S$ t.c. $(s,t) \in R$. Quindi $M \vDash_s x$.
+    sia $t \in S$ t.c. $(s,t) \in R$. Quindi $M \vDash_s X$.
 
-    Dalla validità dello schema segue allora che $M \vDash_s \Box \Diamond x$, da cui $M \vDash_t \Diamond x$.
+    Dalla validità dello schema segue allora che $M \vDash_s \Box \Diamond X$, da cui $M \vDash_t \Diamond X$.
 
     Quindi esiste $r \in S$ t.c. $(t,r) \in R e M \vDash_r x$, ossia $r = s$
 \end{proof}
