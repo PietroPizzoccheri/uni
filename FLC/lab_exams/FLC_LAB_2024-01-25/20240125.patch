@@ -1,7 +1,7 @@
-diff --git a/acse/parser.h b/acse/parser.h
---- a/acse/parser.h
-+++ b/acse/parser.h
-@@ -26,6 +26,16 @@ typedef struct {
+diff -Naur acse_2.0.2/acse/parser.h acse_2.0.2_patched/acse/parser.h
+--- acse_2.0.2/acse/parser.h	2024-12-11 22:09:21
++++ acse_2.0.2_patched/acse/parser.h	2024-12-11 22:09:33
+@@ -26,6 +26,16 @@
    t_label *lExit; ///< Label to the first instruction after the loop.
  } t_whileStmt;
  
@@ -18,10 +18,10 @@ diff --git a/acse/parser.h b/acse/parser.h
  /**
   * @}
   */
-diff --git a/acse/parser.y b/acse/parser.y
---- a/acse/parser.y
-+++ b/acse/parser.y
-@@ -50,6 +50,7 @@ void yyerror(const char *msg)
+diff -Naur acse_2.0.2/acse/parser.y acse_2.0.2_patched/acse/parser.y
+--- acse_2.0.2/acse/parser.y	2024-12-11 22:09:21
++++ acse_2.0.2_patched/acse/parser.y	2024-12-11 22:09:39
+@@ -50,6 +50,7 @@
    t_label *label;
    t_ifStmt ifStmt;
    t_whileStmt whileStmt;
@@ -29,7 +29,7 @@ diff --git a/acse/parser.y b/acse/parser.y
  }
  
  /*
-@@ -77,6 +78,7 @@ void yyerror(const char *msg)
+@@ -77,6 +78,7 @@
  %token <label> DO
  %token <string> IDENTIFIER
  %token <integer> NUMBER
@@ -37,14 +37,14 @@ diff --git a/acse/parser.y b/acse/parser.y
  
  /*
   * Non-terminal symbol semantic value type declarations
-@@ -182,9 +184,48 @@ statement
+@@ -182,7 +184,46 @@
    | return_statement SEMI
    | read_statement SEMI
    | write_statement SEMI
 +  | repeat_exp_statement SEMI
    | SEMI
- ;
- 
++;
++
 +repeat_exp_statement
 +  : REPEAT_EXP LPAR var_id ASSIGN exp COMMA exp COMMA 
 +  {
@@ -81,15 +81,13 @@ diff --git a/acse/parser.y b/acse/parser.y
 +    // Generate the label which points just after the loop for exiting it.
 +    assignLabel(program, $1.lExit);
 +  }
-+;
-+
+ ;
+ 
  /* An assignment statement stores the value of an expression in the memory
-  * location of a given scalar variable or array element. */
- assign_statement
-diff --git a/acse/scanner.l b/acse/scanner.l
---- a/acse/scanner.l
-+++ b/acse/scanner.l
-@@ -81,6 +81,7 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+diff -Naur acse_2.0.2/acse/scanner.l acse_2.0.2_patched/acse/scanner.l
+--- acse_2.0.2/acse/scanner.l	2024-12-11 22:09:21
++++ acse_2.0.2_patched/acse/scanner.l	2024-12-11 22:09:21
+@@ -81,6 +81,7 @@
  "return"                  { return RETURN; }
  "read"                    { return READ; }
  "write"                   { return WRITE; }
@@ -97,9 +95,9 @@ diff --git a/acse/scanner.l b/acse/scanner.l
  
  {ID}                      {
                              yylval.string = strdup(yytext);
-diff --git a/tests/exp_loop/exp_loop.src b/tests/exp_loop/exp_loop.src
---- /dev/null
-+++ b/tests/exp_loop/exp_loop.src
+diff -Naur acse_2.0.2/tests/exp_loop/exp_loop.src acse_2.0.2_patched/tests/exp_loop/exp_loop.src
+--- acse_2.0.2/tests/exp_loop/exp_loop.src	1970-01-01 01:00:00
++++ acse_2.0.2_patched/tests/exp_loop/exp_loop.src	2024-12-11 22:09:21
 @@ -0,0 +1,16 @@
 +int a, b;
 +

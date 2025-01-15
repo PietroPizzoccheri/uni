@@ -1,7 +1,7 @@
-diff --git a/acse/parser.h b/acse/parser.h
---- a/acse/parser.h
-+++ b/acse/parser.h
-@@ -26,6 +26,12 @@ typedef struct {
+diff -Naur acse_2.0.2/acse/parser.h acse_2.0.2_patched/acse/parser.h
+--- acse_2.0.2/acse/parser.h	2024-12-11 22:10:05
++++ acse_2.0.2_patched/acse/parser.h	2024-12-11 22:10:15
+@@ -26,6 +26,12 @@
    t_label *lExit; ///< Label to the first instruction after the loop.
  } t_whileStmt;
  
@@ -14,10 +14,10 @@ diff --git a/acse/parser.h b/acse/parser.h
  /**
   * @}
   */
-diff --git a/acse/parser.y b/acse/parser.y
---- a/acse/parser.y
-+++ b/acse/parser.y
-@@ -50,6 +50,7 @@ void yyerror(const char *msg)
+diff -Naur acse_2.0.2/acse/parser.y acse_2.0.2_patched/acse/parser.y
+--- acse_2.0.2/acse/parser.y	2024-12-11 22:10:05
++++ acse_2.0.2_patched/acse/parser.y	2024-12-11 22:10:18
+@@ -50,6 +50,7 @@
    t_label *label;
    t_ifStmt ifStmt;
    t_whileStmt whileStmt;
@@ -25,7 +25,7 @@ diff --git a/acse/parser.y b/acse/parser.y
  }
  
  /*
-@@ -70,6 +71,7 @@ void yyerror(const char *msg)
+@@ -70,6 +71,7 @@
  %token TYPE
  %token RETURN
  %token READ WRITE ELSE
@@ -33,7 +33,7 @@ diff --git a/acse/parser.y b/acse/parser.y
  
  // These are the tokens with a semantic value.
  %token <ifStmt> IF
-@@ -77,6 +79,7 @@ void yyerror(const char *msg)
+@@ -77,6 +79,7 @@
  %token <label> DO
  %token <string> IDENTIFIER
  %token <integer> NUMBER
@@ -41,7 +41,7 @@ diff --git a/acse/parser.y b/acse/parser.y
  
  /*
   * Non-terminal symbol semantic value type declarations
-@@ -182,6 +185,7 @@ statement
+@@ -182,6 +185,7 @@
    | return_statement SEMI
    | read_statement SEMI
    | write_statement SEMI
@@ -49,10 +49,12 @@ diff --git a/acse/parser.y b/acse/parser.y
    | SEMI
  ;
  
-@@ -305,6 +309,27 @@ write_statement
+@@ -303,6 +307,27 @@
+     t_regID rTmp = getNewRegister(program);
+     genLI(program, rTmp, '\n');
      genPrintCharSyscall(program, rTmp);
-   }
- ;
++  }
++;
 +if_repeat_statement
 +  : IF_REPEAT LPAR exp RPAR
 +  {
@@ -72,15 +74,13 @@ diff --git a/acse/parser.y b/acse/parser.y
 +    genBEQ(program, $9, REG_0, $1.lLoop);
 +    // Assign the label used to exit from the statement
 +    assignLabel(program, $1.lExit);
-+  }
-+;
+   }
+ ;
  
- /* The exp rule represents the syntax of expressions. The semantic value of
-  * the rule is the register ID that will contain the value of the expression
-diff --git a/acse/scanner.l b/acse/scanner.l
---- a/acse/scanner.l
-+++ b/acse/scanner.l
-@@ -81,6 +81,8 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+diff -Naur acse_2.0.2/acse/scanner.l acse_2.0.2_patched/acse/scanner.l
+--- acse_2.0.2/acse/scanner.l	2024-12-11 22:10:05
++++ acse_2.0.2_patched/acse/scanner.l	2024-12-11 22:10:05
+@@ -81,6 +81,8 @@
  "return"                  { return RETURN; }
  "read"                    { return READ; }
  "write"                   { return WRITE; }
@@ -89,9 +89,9 @@ diff --git a/acse/scanner.l b/acse/scanner.l
  
  {ID}                      {
                              yylval.string = strdup(yytext);
-diff --git a/tests/if_repeat/if_repeat.src b/tests/if_repeat/if_repeat.src
---- /dev/null
-+++ b/tests/if_repeat/if_repeat.src
+diff -Naur acse_2.0.2/tests/if_repeat/if_repeat.src acse_2.0.2_patched/tests/if_repeat/if_repeat.src
+--- acse_2.0.2/tests/if_repeat/if_repeat.src	1970-01-01 01:00:00
++++ acse_2.0.2_patched/tests/if_repeat/if_repeat.src	2024-12-11 22:10:05
 @@ -0,0 +1,7 @@
 +int i;
 +read(i);

@@ -1,7 +1,7 @@
-diff --git a/acse/parser.y b/acse/parser.y
---- a/acse/parser.y
-+++ b/acse/parser.y
-@@ -438,6 +438,62 @@ exp
+diff -Naur acse_2.0.2/acse/parser.y acse_2.0.2_patched/acse/parser.y
+--- acse_2.0.2/acse/parser.y	2024-12-11 21:48:13
++++ acse_2.0.2_patched/acse/parser.y	2024-12-11 21:50:02
+@@ -435,6 +435,62 @@
      $$ = getNewRegister(program);
      genOR(program, $$, rNormalizedOp1, rNormalizedOp2);
    }
@@ -64,9 +64,9 @@ diff --git a/acse/parser.y b/acse/parser.y
  ;
  
  var_id
-diff --git a/tests/abs_fact/abs_1.src b/tests/abs_fact/abs_1.src
---- /dev/null
-+++ b/tests/abs_fact/abs_1.src
+diff -Naur acse_2.0.2/tests/abs_fact/abs_1.src acse_2.0.2_patched/tests/abs_fact/abs_1.src
+--- acse_2.0.2/tests/abs_fact/abs_1.src	1970-01-01 01:00:00
++++ acse_2.0.2_patched/tests/abs_fact/abs_1.src	2024-12-11 21:48:13
 @@ -0,0 +1,10 @@
 +int v;
 +int y;
@@ -78,9 +78,9 @@ diff --git a/tests/abs_fact/abs_1.src b/tests/abs_fact/abs_1.src
 +write(|v|-5);
 +
 +write(| |v|-5|);
-diff --git a/tests/abs_fact/fact_1.src b/tests/abs_fact/fact_1.src
---- /dev/null
-+++ b/tests/abs_fact/fact_1.src
+diff -Naur acse_2.0.2/tests/abs_fact/fact_1.src acse_2.0.2_patched/tests/abs_fact/fact_1.src
+--- acse_2.0.2/tests/abs_fact/fact_1.src	1970-01-01 01:00:00
++++ acse_2.0.2_patched/tests/abs_fact/fact_1.src	2024-12-11 21:48:13
 @@ -0,0 +1,9 @@
 +int v;
 +int y;

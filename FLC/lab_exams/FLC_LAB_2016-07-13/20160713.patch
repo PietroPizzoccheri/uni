@@ -1,7 +1,7 @@
-diff --git a/acse/parser.y b/acse/parser.y
---- a/acse/parser.y
-+++ b/acse/parser.y
-@@ -77,6 +77,7 @@ void yyerror(const char *msg)
+diff -Naur acse_2.0.2/acse/parser.y acse_2.0.2_patched/acse/parser.y
+--- acse_2.0.2/acse/parser.y	2024-12-11 21:55:35
++++ acse_2.0.2_patched/acse/parser.y	2024-12-11 21:56:52
+@@ -77,6 +77,7 @@
  %token <label> DO
  %token <string> IDENTIFIER
  %token <integer> NUMBER
@@ -9,7 +9,7 @@ diff --git a/acse/parser.y b/acse/parser.y
  
  /*
   * Non-terminal symbol semantic value type declarations
-@@ -177,6 +178,7 @@ statements
+@@ -177,6 +178,7 @@
  statement
    : assign_statement SEMI
    | if_statement
@@ -17,20 +17,10 @@ diff --git a/acse/parser.y b/acse/parser.y
    | while_statement
    | do_while_statement SEMI
    | return_statement SEMI
-@@ -223,6 +225,32 @@ if_statement
-   }
- ;
- 
-+/* An iif statements first assign than computes the expression, then jumps to
-+ * the `else' part if the expression is equal to zero.
-+ * Otherwise the `then' part is executed.
-+ * After the `then' part the `else' part needs to be jumped over. */
-+iif_statement
-+  : IIF LPAR assign_statement SEMI exp RPAR
-+  {
-+    // Generate a jump to the else part if the expression is equal to zero.
-+    $1.lElse = createLabel(program);
-+    genBEQ(program, $5, REG_0, $1.lElse);
+@@ -207,6 +209,32 @@
+     // Generate a jump to the else part if the expression is equal to zero.
+     $1.lElse = createLabel(program);
+     genBEQ(program, $3, REG_0, $1.lElse);
 +  }
 +  code_block
 +  {
@@ -47,13 +37,23 @@ diff --git a/acse/parser.y b/acse/parser.y
 +  }
 +;
 +
- /* The `else' part may be missing, in that case no code is generated. */
- else_part
-   : ELSE code_block
-diff --git a/acse/scanner.l b/acse/scanner.l
---- a/acse/scanner.l
-+++ b/acse/scanner.l
-@@ -81,6 +81,7 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
++/* An iif statements first assign than computes the expression, then jumps to
++ * the `else' part if the expression is equal to zero.
++ * Otherwise the `then' part is executed.
++ * After the `then' part the `else' part needs to be jumped over. */
++iif_statement
++  : IIF LPAR assign_statement SEMI exp RPAR
++  {
++    // Generate a jump to the else part if the expression is equal to zero.
++    $1.lElse = createLabel(program);
++    genBEQ(program, $5, REG_0, $1.lElse);
+   }
+   code_block
+   {
+diff -Naur acse_2.0.2/acse/scanner.l acse_2.0.2_patched/acse/scanner.l
+--- acse_2.0.2/acse/scanner.l	2024-12-11 21:55:35
++++ acse_2.0.2_patched/acse/scanner.l	2024-12-11 21:55:35
+@@ -81,6 +81,7 @@
  "return"                  { return RETURN; }
  "read"                    { return READ; }
  "write"                   { return WRITE; }
@@ -61,9 +61,9 @@ diff --git a/acse/scanner.l b/acse/scanner.l
  
  {ID}                      {
                              yylval.string = strdup(yytext);
-diff --git a/tests/iif/iif.src b/tests/iif/iif.src
---- /dev/null
-+++ b/tests/iif/iif.src
+diff -Naur acse_2.0.2/tests/iif/iif.src acse_2.0.2_patched/tests/iif/iif.src
+--- acse_2.0.2/tests/iif/iif.src	1970-01-01 01:00:00
++++ acse_2.0.2_patched/tests/iif/iif.src	2024-12-11 21:55:35
 @@ -0,0 +1,8 @@
 +int i,j;
 +i=5;

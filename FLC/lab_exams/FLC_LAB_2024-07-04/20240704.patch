@@ -1,8 +1,7 @@
-diff --git a/acse/parser.y b/acse/parser.y
-index 6e9c139..334ad47 100644
---- a/acse/parser.y
-+++ b/acse/parser.y
-@@ -70,6 +70,7 @@ void yyerror(const char *msg)
+diff -Naur acse_2.0.2/acse/parser.y acse_2.0.2_patched/acse/parser.y
+--- acse_2.0.2/acse/parser.y	2024-12-11 22:10:40
++++ acse_2.0.2_patched/acse/parser.y	2024-12-11 22:10:52
+@@ -70,6 +70,7 @@
  %token TYPE
  %token RETURN
  %token READ WRITE ELSE
@@ -10,10 +9,11 @@ index 6e9c139..334ad47 100644
  
  // These are the tokens with a semantic value.
  %token <ifStmt> IF
-@@ -438,6 +439,23 @@ exp
+@@ -434,6 +435,23 @@
+     genSNE(program, rNormalizedOp2, $3, REG_0);
      $$ = getNewRegister(program);
      genOR(program, $$, rNormalizedOp1, rNormalizedOp2);
-   }
++  }
 +  | TRI LPAR exp RPAR
 +  {
 +    // Reserve a register for the result, and generate an instruction to
@@ -30,15 +30,13 @@ index 6e9c139..334ad47 100644
 +    genDIVI(program, $$, $$, 2);  // $$ = n * (n + 1) / 2
 +    // Assign the label to the end of the code
 +    assignLabel(program, lNegative);
-+  }
+   }
  ;
  
- var_id
-diff --git a/acse/scanner.l b/acse/scanner.l
-index 3d35cd5..2d1b11d 100644
---- a/acse/scanner.l
-+++ b/acse/scanner.l
-@@ -81,6 +81,7 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+diff -Naur acse_2.0.2/acse/scanner.l acse_2.0.2_patched/acse/scanner.l
+--- acse_2.0.2/acse/scanner.l	2024-12-11 22:10:40
++++ acse_2.0.2_patched/acse/scanner.l	2024-12-11 22:10:40
+@@ -81,6 +81,7 @@
  "return"                  { return RETURN; }
  "read"                    { return READ; }
  "write"                   { return WRITE; }
@@ -46,11 +44,9 @@ index 3d35cd5..2d1b11d 100644
  
  {ID}                      {
                              yylval.string = strdup(yytext);
-diff --git a/tests/tri/tri.src b/tests/tri/tri.src
-new file mode 100644
-index 0000000..1d0af52
---- /dev/null
-+++ b/tests/tri/tri.src
+diff -Naur acse_2.0.2/tests/tri/tri.src acse_2.0.2_patched/tests/tri/tri.src
+--- acse_2.0.2/tests/tri/tri.src	1970-01-01 01:00:00
++++ acse_2.0.2_patched/tests/tri/tri.src	2024-12-11 22:10:40
 @@ -0,0 +1,7 @@
 +int i;
 +

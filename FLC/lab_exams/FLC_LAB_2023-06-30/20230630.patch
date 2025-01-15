@@ -1,7 +1,7 @@
-diff --git a/acse/parser.y b/acse/parser.y
---- a/acse/parser.y
-+++ b/acse/parser.y
-@@ -70,6 +70,7 @@ void yyerror(const char *msg)
+diff -Naur acse_2.0.2/acse/parser.y acse_2.0.2_patched/acse/parser.y
+--- acse_2.0.2/acse/parser.y	2024-12-11 22:08:46
++++ acse_2.0.2_patched/acse/parser.y	2024-12-11 22:09:00
+@@ -70,6 +70,7 @@
  %token TYPE
  %token RETURN
  %token READ WRITE ELSE
@@ -9,7 +9,7 @@ diff --git a/acse/parser.y b/acse/parser.y
  
  // These are the tokens with a semantic value.
  %token <ifStmt> IF
-@@ -105,7 +106,7 @@ void yyerror(const char *msg)
+@@ -105,7 +106,7 @@
  %left LT GT LTEQ GTEQ
  %left SHL_OP SHR_OP
  %left PLUS MINUS
@@ -18,10 +18,11 @@ diff --git a/acse/parser.y b/acse/parser.y
  %right NOT_OP
  
  /*
-@@ -438,6 +439,38 @@ exp
+@@ -434,6 +435,38 @@
+     genSNE(program, rNormalizedOp2, $3, REG_0);
      $$ = getNewRegister(program);
      genOR(program, $$, rNormalizedOp1, rNormalizedOp2);
-   }
++  }
 +  | exp SW_DIV exp
 +  {
 +    // Reserve the register that will hold the result (quotient).
@@ -53,14 +54,13 @@ diff --git a/acse/parser.y b/acse/parser.y
 +
 +    // Assign the label used to skip the loop altogether
 +    assignLabel(program, lExit);
-+  }
+   }
  ;
  
- var_id
-diff --git a/acse/scanner.l b/acse/scanner.l
---- a/acse/scanner.l
-+++ b/acse/scanner.l
-@@ -72,6 +72,7 @@ ID                        [a-zA-Z_][a-zA-Z0-9_]*
+diff -Naur acse_2.0.2/acse/scanner.l acse_2.0.2_patched/acse/scanner.l
+--- acse_2.0.2/acse/scanner.l	2024-12-11 22:08:46
++++ acse_2.0.2_patched/acse/scanner.l	2024-12-11 22:08:46
+@@ -72,6 +72,7 @@
  "&&"                      { return ANDAND; }
  "||"                      { return OROR; }
  ","                       { return COMMA; }
@@ -68,9 +68,9 @@ diff --git a/acse/scanner.l b/acse/scanner.l
  
  "do"                      { return DO; }
  "else"                    { return ELSE; }
-diff --git a/tests/sw_div/sw_div.src b/tests/sw_div/sw_div.src
---- /dev/null
-+++ b/tests/sw_div/sw_div.src
+diff -Naur acse_2.0.2/tests/sw_div/sw_div.src acse_2.0.2_patched/tests/sw_div/sw_div.src
+--- acse_2.0.2/tests/sw_div/sw_div.src	1970-01-01 01:00:00
++++ acse_2.0.2_patched/tests/sw_div/sw_div.src	2024-12-11 22:08:46
 @@ -0,0 +1,25 @@
 +int a, b;
 +a = 1234;
