@@ -194,13 +194,6 @@
     Dunque $r = h - nk \in H \rightarrow r =0$ per la minimalità di $k$.
 \end{proof}
 
-\begin{corollary}
-    L'insieme dei sottogruppi di $\mathbb{Z}_n , n \in \mathbb{N} $ è:
-    \begin{equation*}
-        \{\langle \overline{m} \rangle : \overline{m} \in \mathbb{Z}_n \}
-    \end{equation*}
-\end{corollary}
-
 \begin{example}
     Abbiamo già visto che ogni sottogruppo di $(\mathbb{Z} , +)$ è del tipo $n \mathbb{Z} = \{kn : k \in \mathbb{Z} \}$, dove $n \in \mathbb{N}$.
 
@@ -208,6 +201,31 @@
 
     Quindi $n \mathbb{Z} $ è un ideale di $\mathbb{Z}, \forall n \in \mathbb{N}  $, e tutti gli ideali di $\mathbb{Z} $ sono di questo tipo.
 \end{example}
+
+
+\begin{corollary}
+    L'insieme dei sottogruppi di $\mathbb{Z}_n , n \in \mathbb{N} $ è:
+    \begin{equation*}
+        \{\langle \overline{m} \rangle : \overline{m} \in \mathbb{Z}_n \}
+    \end{equation*}
+\end{corollary}
+
+\begin{proposition}
+    Sia $n \in \mathbb{N} \text{ e sia } d/n$ (d divide n).
+
+    Allora esiste al più un unico sottogruppo di $\mathbb{Z}_n$ di cardinalità $d$.
+\end{proposition}
+
+\begin{proof}
+    Sia $H \subseteq \mathbb{Z}_n$ sottogruppo tale che $|H| = d$. Si considerino le proiezioni canoniche $\mathbb{Z} \rightarrow^{\pi_1} \mathbb{Z}_n \rightarrow^{\pi_2} \nicefrac{\mathbb{Z}_n }{H}$.
+
+    Poiché $\pi^{-1}_1 (H) = \{m \in \mathbb{Z} : \pi_1 (m) \in H\}$ è un sottogruppo di $\mathbb{Z} $, allora esiste $k \in \mathbb{N} $ tale che $\pi^{-1}_1(H) = k \mathbb{Z}$.
+
+    Inoltre $Ker(\pi_1 \cdot \pi_2) = \pi^{-1}_1 (H)$ e quindi, essendo $\pi_1 \cdot \pi_2$ un morfismo suriettivo di gruppi, $\nicefrac{\mathbb{Z}_n }{H} \simeq \nicefrac{\mathbb{Z} }{\pi^{-1}(H)} = \nicefrac{\mathbb{Z} }{k \mathbb{Z} }= \mathbb{Z}_k$.
+
+    Quindi $|\mathbb{Z}_k | = k =|\nicefrac{\mathbb{Z}_n }{H}| = \nicefrac{|\mathbb{Z}_n |}{|H|} = \frac{n}{d}$, ossia $k$ è univocamente determinato, e allora $H = \pi_1 (k \mathbb{Z} )$ è univocamente determinato.
+\end{proof}
+
 
 \newpage
 
